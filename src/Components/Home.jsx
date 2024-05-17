@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import Nav from './Nav';
 
 function Home({ darkMode, activeSection, setActiveSection }) {
   useEffect(() => {
@@ -33,7 +32,7 @@ function Home({ darkMode, activeSection, setActiveSection }) {
 
   return (
     <>
-      <div> </div>
+      <div></div>
     </>
   );
 }

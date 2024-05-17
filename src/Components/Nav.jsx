@@ -3,7 +3,7 @@ import { HashLink } from 'react-router-hash-link';
 import AMGLogo from '/src/assets/logos/AMG-full-black.png';
 import MaterialUISwitch from './Utils/MaterialUISwitch';
 import DehazeIcon from '@mui/icons-material/Dehaze';
-import './Styles/Nav.css';
+import 'styles/Nav.css';
 
 const Nav = ({ darkMode, setDarkMode, activeSection, setActiveSection }) => {
   const [dropdown, setDropdown] = useState(false);
@@ -73,28 +73,6 @@ const Nav = ({ darkMode, setDarkMode, activeSection, setActiveSection }) => {
               />
             </HashLink>
             <div className='home-button-adjacent'>
-              <a
-                target='_blank'
-                rel='noopener noreferrer'
-                href='https://www.linkedin.com/in/davispatterson/'
-                className='nav-link'
-                id='linkedin-link-nav'
-              >
-                <img
-                  src={linkedinLogo}
-                  alt='linkedin logo'
-                  className='link-logo'
-                />
-              </a>
-              <a
-                target='_blank'
-                rel='noopener noreferrer'
-                href='https://github.com/Davis-Patterson'
-                className='nav-link'
-                id='github-link-nav'
-              >
-                <img src={githubLogo} alt='github logo' className='link-logo' />
-              </a>
               <MaterialUISwitch
                 checked={darkMode}
                 onChange={handleDarkModeChange}
@@ -120,19 +98,27 @@ const Nav = ({ darkMode, setDarkMode, activeSection, setActiveSection }) => {
             </HashLink>
             <HashLink
               smooth
+              to='/#news'
+              className={`nav-button ${isActive('news') ? 'active' : ''}`}
+              id='news-button-nav'
+            >
+              News
+            </HashLink>
+            <HashLink
+              smooth
+              to='/#artists'
+              className={`nav-button ${isActive('artists') ? 'active' : ''}`}
+              id='artists-button-nav'
+            >
+              Artists
+            </HashLink>
+            <HashLink
+              smooth
               to='/#about'
               className={`nav-button ${isActive('about') ? 'active' : ''}`}
               id='about-button-nav'
             >
               About
-            </HashLink>
-            <HashLink
-              smooth
-              to='/#projects'
-              className={`nav-button ${isActive('projects') ? 'active' : ''}`}
-              id='projects-button-nav'
-            >
-              Projects
             </HashLink>
             <HashLink
               smooth
@@ -149,39 +135,41 @@ const Nav = ({ darkMode, setDarkMode, activeSection, setActiveSection }) => {
             <div className='dropdown-box'>
               <HashLink
                 smooth
-                to='/#hello'
-                onClick={handleDropdown}
-                className='dropdown-link'
+                to='/#home'
+                className={`nav-button ${isActive('home') ? 'active' : ''}`}
+                id='home-button-nav'
               >
                 Home
               </HashLink>
-            </div>
-            <div className='dropdown-box'>
+              <HashLink
+                smooth
+                to='/#news'
+                className={`nav-button ${isActive('news') ? 'active' : ''}`}
+                id='news-button-nav'
+              >
+                News
+              </HashLink>
+              <HashLink
+                smooth
+                to='/#artists'
+                className={`nav-button ${isActive('artists') ? 'active' : ''}`}
+                id='artists-button-nav'
+              >
+                Artists
+              </HashLink>
               <HashLink
                 smooth
                 to='/#about'
-                onClick={handleDropdown}
-                className='dropdown-link'
+                className={`nav-button ${isActive('about') ? 'active' : ''}`}
+                id='about-button-nav'
               >
                 About
               </HashLink>
-            </div>
-            <div className='dropdown-box'>
-              <HashLink
-                smooth
-                to='/#projects'
-                onClick={handleDropdown}
-                className='dropdown-link'
-              >
-                Projects
-              </HashLink>
-            </div>
-            <div className='dropdown-box'>
               <HashLink
                 smooth
                 to='/#contact'
-                onClick={handleDropdown}
-                className='dropdown-link'
+                className={`nav-button ${isActive('contact') ? 'active' : ''}`}
+                id='contact-button-nav'
               >
                 Contact
               </HashLink>
