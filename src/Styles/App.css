@@ -37,7 +37,7 @@
 }
 
 .darkMode {
-  --clr-light: #1a1a1a;
+  --clr-light: #080808;
   --clr-dark: #d0d0d0;
   --clr-break: #7a7a7a;
   --clr-accent: #2cb0ec;
@@ -103,20 +103,23 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-/* html {
+html {
   scroll-padding-top: 65px;
   scroll-snap-type: y proximity;
-} */
+}
 
 section {
   margin: 0px 0px 0px 0px;
   scroll-snap-align: start;
   scroll-snap-stop: normal;
-  /* min-height: calc(100vh - 65px); */
 }
 
 #root {
   margin: 0 auto;
   text-align: left;
   width: 100%;
+}
+
+.gap {
+  height: 60px;
 }

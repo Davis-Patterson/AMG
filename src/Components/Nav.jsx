@@ -1,12 +1,15 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { HashLink } from 'react-router-hash-link';
-import AMGLogo from '/src/assets/logos/AMG-full-black.png';
+import AMGLogoBlack from '/src/assets/logos/AMG-full-words-black.png';
+import AMGLogoWhite from '/src/assets/logos/AMG-full-words-white.png';
 import MaterialUISwitch from './Utils/MaterialUISwitch';
 import DehazeIcon from '@mui/icons-material/Dehaze';
 import 'styles/Nav.css';
 
 const Nav = ({ darkMode, setDarkMode, activeSection, setActiveSection }) => {
   const [dropdown, setDropdown] = useState(false);
+
+  const currentLogo = darkMode ? AMGLogoWhite : AMGLogoBlack;
 
   const dropdownRef = useRef(null);
   const menuIconRef = useRef(null);
@@ -66,11 +69,7 @@ const Nav = ({ darkMode, setDarkMode, activeSection, setActiveSection }) => {
         <div className='nav-contents'>
           <div className='home-button-container'>
             <HashLink smooth to='/#home' className='home-button'>
-              <img
-                src={AMGLogo}
-                alt='headshot logo'
-                className='headshot-logo'
-              />
+              <img src={currentLogo} alt='AMG logo' className='AMG-logo-nav' />
             </HashLink>
             <div className='home-button-adjacent'>
               <MaterialUISwitch
