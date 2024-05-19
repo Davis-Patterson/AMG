@@ -103,13 +103,6 @@ const Nav = () => {
             <div className='home-button-adjacent'></div>
           </section>
           <section className='nav-buttons-container' id='nav-buttons-container'>
-            <DehazeIcon
-              className='menu-icon'
-              onClick={handleMenu}
-              ref={menuIconRef}
-              id='menu-icon'
-              style={{ display: 'none' }}
-            />
             <div
               onClick={() => handleNavClick('/news')}
               className='nav-button'
@@ -142,13 +135,22 @@ const Nav = () => {
               src={currentDarkmodeIcon}
               alt='darkmode icon'
               className='dark-toggle'
+              id='dark-toggle'
               onClick={handleDarkModeClick}
             />
             <img
               src={currentSoundIcon}
               alt='mute/unmute icon'
               className='mute-toggle'
+              id='mute-toggle'
               onClick={handleMuteClick}
+            />
+            <DehazeIcon
+              className='menu-icon'
+              onClick={handleMenu}
+              ref={menuIconRef}
+              id='menu-icon'
+              style={{ display: 'none' }}
             />
           </section>
         </main>
@@ -184,7 +186,7 @@ const Nav = () => {
                 Contact
               </div>
             </div>
-            <div className='dropdown-toggles'>
+            <div className='dropdown-toggles' id='dropdown-toggles'>
               <img
                 src={currentDarkmodeIcon}
                 alt='darkmode icon'
