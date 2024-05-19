@@ -11,46 +11,37 @@ import About from 'components/About';
 import Contact from 'components/Contact';
 
 function App() {
-  const { setShowSplash, contentVisible, setContentVisible } =
-    useContext(AppContext);
+  const { setShowSplash, contentVisible } = useContext(AppContext);
 
   const location = useLocation();
 
   useEffect(() => {
     const path = location.pathname.replace('/', '');
-    setContentVisible(false);
     setShowSplash(true);
 
     const splashTimeout = setTimeout(() => {
-      setContentVisible(true);
-    }, 400);
-
-    const hideSplashTimeout = setTimeout(() => {
       setShowSplash(false);
     }, 1000);
 
     return () => {
       clearTimeout(splashTimeout);
-      clearTimeout(hideSplashTimeout);
     };
-  }, [location, setShowSplash, setContentVisible]);
+  }, [location, setShowSplash]);
 
   return (
     <>
       <Splash />
-      {contentVisible && (
-        <>
-          <Nav />
-          <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/news' element={<News />} />
-            <Route path='/artists' element={<Artists />} />
-            <Route path='/about' element={<About />} />
-            <Route path='/contact' element={<Contact />} />
-          </Routes>
-          <Footer />
-        </>
-      )}
+      <>
+        <Nav />
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/news' element={<News />} />
+          <Route path='/artists' element={<Artists />} />
+          <Route path='/about' element={<About />} />
+          <Route path='/contact' element={<Contact />} />
+        </Routes>
+        <Footer />
+      </>
     </>
   );
 }

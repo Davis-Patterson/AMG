@@ -1,24 +1,29 @@
 import React, { useState, useEffect, useRef, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AppContext } from 'contexts/AppContext';
-import AMGLogoBlack from '/src/assets/logos/AMG-full-words-black.png';
-import AMGLogoWhite from '/src/assets/logos/AMG-full-words-white.png';
+import AMGLogoBlack from '/src/assets/Logos/AMG-full-words-black.png';
+import AMGLogoWhite from '/src/assets/Logos/AMG-full-words-white.png';
+import darkmodeIcon from '/src/assets/Utils/darkmode-black.svg';
+import lightmodeIcon from '/src/assets/Utils/lightmode-white.svg';
+import darkMuteIcon from '/src/assets/Utils/mute-black.svg';
+import lightMuteIcon from '/src/assets/Utils/mute-white.svg';
+import darkUnmuteIcon from '/src/assets/Utils/unmute-black.svg';
+import lightUnmuteIcon from '/src/assets/Utils/unmute-white.svg';
 import MaterialUISwitch from './Utils/MaterialUISwitch';
 import DehazeIcon from '@mui/icons-material/Dehaze';
 import 'styles/Nav.css';
 
 const Nav = () => {
-  const {
-    darkMode,
-    setDarkMode,
-    setShowSplash,
-    setContentVisible,
-    mute,
-    setMute,
-  } = useContext(AppContext);
+  const { darkMode, setDarkMode, setShowSplash, mute, setMute } =
+    useContext(AppContext);
   const [dropdown, setDropdown] = useState(false);
 
   const currentLogo = darkMode ? AMGLogoWhite : AMGLogoBlack;
+  const currentDarkmodeIcon = darkMode ? lightmodeIcon : darkmodeIcon;
+
+  const currentMuteIcon = darkMode ? lightMuteIcon : darkMuteIcon;
+  const currentUnmuteIcon = darkMode ? lightUnmuteIcon : darkUnmuteIcon;
+  const currentSoundIcon = mute ? currentMuteIcon : currentUnmuteIcon;
 
   const dropdownRef = useRef(null);
   const menuIconRef = useRef(null);
@@ -26,7 +31,6 @@ const Nav = () => {
   const navigate = useNavigate();
 
   const handleNavClick = (path) => {
-    setContentVisible(false);
     setShowSplash(true);
 
     setTimeout(() => {
@@ -60,6 +64,14 @@ const Nav = () => {
 
   const handleDarkModeChange = (event) => {
     setDarkMode(event.target.checked);
+  };
+
+  const handleDarkModeClick = (event) => {
+    setDarkMode(!darkMode);
+  };
+
+  const handleMuteClick = (event) => {
+    setMute(!mute);
   };
 
   const handleMenu = () => {
@@ -120,10 +132,22 @@ const Nav = () => {
             >
               Contact
             </div>
-            <MaterialUISwitch
+            {/* <MaterialUISwitch
               checked={darkMode}
               onChange={handleDarkModeChange}
               className='dark-toggle'
+            /> */}
+            <img
+              src={currentDarkmodeIcon}
+              alt='darkmode icon'
+              className='dark-toggle'
+              onClick={handleDarkModeClick}
+            />
+            <img
+              src={currentSoundIcon}
+              alt='mute/unmute icon'
+              className='mute-toggle'
+              onClick={handleMuteClick}
             />
           </section>
         </main>

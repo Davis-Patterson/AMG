@@ -66,13 +66,15 @@
 }
 
 .dark-toggle {
-  margin: 0px 30px 0px 30px;
+  margin: 0px 15px 0px 30px;
+  width: 20px;
+  cursor: pointer;
 }
-.dark-toggle:hover {
-  transition: transform 0.2s;
-}
-.dark-toggle:active {
-  transition: transform 0.2s;
+
+.mute-toggle {
+  margin: 0px 10px 0px 15px;
+  width: 20px;
+  cursor: pointer;
 }
 
 .nav-button {

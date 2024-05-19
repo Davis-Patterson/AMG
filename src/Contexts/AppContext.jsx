@@ -5,7 +5,6 @@ export const AppContext = createContext();
 
 export const AppProvider = ({ children }) => {
   const [showSplash, setShowSplash] = useState(true);
-  const [contentVisible, setContentVisible] = useState(false);
   const [darkMode, setDarkMode] = useLocalStorageState('darkMode', false);
   const [mute, setMute] = useState(true);
 
@@ -14,8 +13,6 @@ export const AppProvider = ({ children }) => {
       value={{
         showSplash,
         setShowSplash,
-        contentVisible,
-        setContentVisible,
         darkMode,
         setDarkMode,
         mute,
