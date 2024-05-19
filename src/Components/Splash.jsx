@@ -1,8 +1,8 @@
 import React, { useEffect, useState, useContext } from 'react';
-import { AppContext } from 'contexts/AppContext';
-import AMGLogoBlack from 'assets/Logos/AMG-full-words-black.png';
-import AMGLogoWhite from 'assets/Logos/AMG-full-words-white.png';
-import 'styles/Splash.css';
+import { AppContext } from '@contexts/AppContext';
+import AMGLogoBlack from '@assets/Logos/AMG-full-words-black.png';
+import AMGLogoWhite from '@assets/Logos/AMG-full-words-white.png';
+import '@styles/Splash.css';
 
 function Splash({}) {
   const { darkMode, showSplash } = useContext(AppContext);

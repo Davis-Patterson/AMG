@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
-import { AppContext } from 'contexts/AppContext';
+import { AppContext } from '@contexts/AppContext';
 import { useNavigate } from 'react-router-dom';
-import AMGLogoBlack from 'assets/Logos/AMG-full-black.png';
-import AMGLogoWhite from 'assets/Logos/AMG-full-white.png';
-import 'styles/Footer.css';
+import AMGLogoBlack from '@assets/Logos/AMG-full-black.png';
+import AMGLogoWhite from '@assets/Logos/AMG-full-white.png';
+import '@styles/Footer.css';
 
 const Footer = ({}) => {
   const { darkMode, setShowSplash, setDropdown } = useContext(AppContext);
