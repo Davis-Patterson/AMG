@@ -1,9 +1,9 @@
 import React, { useEffect, useContext } from 'react';
-import { AppContext } from '@contexts/AppContext';
-import AMGLogoBlack from '@assets/Logos/AMG-full-words-black.png';
-import AMGLogoWhite from '@assets/Logos/AMG-full-words-white.png';
-import OfficeStock from '@assets/Home/office-stock.jpg';
-import '@styles/Home.css';
+import { AppContext } from 'contexts/AppContext';
+import AMGLogoBlack from 'assets/Logos/AMG-full-words-black.png';
+import AMGLogoWhite from 'assets/Logos/AMG-full-words-white.png';
+import OfficeStock from 'assets/Home/office-stock.jpg';
+import 'styles/Home.css';
 
 function Home({}) {
   const { darkMode, mute } = useContext(AppContext);

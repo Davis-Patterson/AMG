@@ -1,16 +1,16 @@
 import React, { useState, useEffect, useRef, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { AppContext } from '@contexts/AppContext';
-import AMGLogoBlack from '@assets/Logos/AMG-full-words-black.png';
-import AMGLogoWhite from '@assets/Logos/AMG-full-words-white.png';
-import darkmodeIcon from '@assets/Utils/darkmode-white.svg';
-import lightmodeIcon from '@assets/Utils/lightmode-black.svg';
-import darkMuteIcon from '@assets/Utils/mute-black.svg';
-import lightMuteIcon from '@assets/Utils/mute-white.svg';
-import darkUnmuteIcon from '@assets/Utils/unmute-black.svg';
-import lightUnmuteIcon from '@assets/Utils/unmute-white.svg';
+import { AppContext } from 'contexts/AppContext';
+import AMGLogoBlack from 'assets/Logos/AMG-full-words-black.png';
+import AMGLogoWhite from 'assets/Logos/AMG-full-words-white.png';
+import darkmodeIcon from 'assets/Utils/darkmode-white.svg';
+import lightmodeIcon from 'assets/Utils/lightmode-black.svg';
+import darkMuteIcon from 'assets/Utils/mute-black.svg';
+import lightMuteIcon from 'assets/Utils/mute-white.svg';
+import darkUnmuteIcon from 'assets/Utils/unmute-black.svg';
+import lightUnmuteIcon from 'assets/Utils/unmute-white.svg';
 import DehazeIcon from '@mui/icons-material/Dehaze';
-import '@styles/Nav.css';
+import 'styles/Nav.css';
 
 const Nav = () => {
   const {
