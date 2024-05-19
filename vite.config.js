@@ -15,4 +15,7 @@ export default defineConfig({
     },
   },
   assetsInclude: ['**/*.png', '**/*.PNG', '**/*.avi'],
+  build: {
+    outDir: 'dist',
+  },
 });
