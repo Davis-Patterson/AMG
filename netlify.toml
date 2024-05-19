@@ -1,0 +1,4 @@
+[build]
+  command = "npm install --legacy-peer-deps && npm install vite && npm run build"
+  publish = "dist"
+  environment = { NODE_VERSION = "14" }
