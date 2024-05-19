@@ -28,7 +28,7 @@
   width: 60%;
   max-width: 300px;
   opacity: 0;
-  animation: fadeInGrow 1s ease-in-out;
+  animation: fadeInGrow 1.15s ease-in-out;
 }
 
 @keyframes fadeInGrow {
