@@ -1,21 +1,29 @@
-import React from 'react';
-import { HashLink } from 'react-router-hash-link';
+import React, { useContext } from 'react';
+import { AppContext } from 'contexts/AppContext';
+import { useNavigate } from 'react-router-dom';
 import AMGLogoBlack from '/src/assets/logos/AMG-full-black.png';
 import AMGLogoWhite from '/src/assets/logos/AMG-full-white.png';
 import 'styles/Footer.css';
 
-const Footer = ({ darkMode, activeSection }) => {
+const Footer = ({}) => {
+  const { darkMode, setShowSplash, setContentVisible } = useContext(AppContext);
   const currentLogo = darkMode ? AMGLogoWhite : AMGLogoBlack;
 
-  const isActive = (sectionId) => {
-    const currentSection = activeSection || 'home';
-    return currentSection === sectionId;
+  const navigate = useNavigate();
+
+  const handleFooterClick = (path) => {
+    setContentVisible(false);
+    setShowSplash(true);
+
+    setTimeout(() => {
+      navigate(path);
+    }, 5);
   };
 
   return (
     <>
-      <div className='footer-container'>
-        <div className='footer-content' id='footer-content'>
+      <footer className='footer-container'>
+        <section className='footer-content' id='footer-content'>
           <div className='footer-logo-container' id='footer-logo-container'>
             <img src={currentLogo} alt='AMG logo' className='footer-logo' />
           </div>
@@ -27,56 +35,51 @@ const Footer = ({ darkMode, activeSection }) => {
               // tagline //
             </h1>
           </div>
-        </div>
-        <div className='footer-link-container'>
-          <HashLink
-            smooth
-            to='/#home'
-            className={`footer-link`}
-            id='home-button-nav'
+        </section>
+        <section className='footer-link-container'>
+          <div
+            onClick={() => handleFooterClick('/')}
+            className='footer-link'
+            id='home-link-footer'
           >
             Home
-          </HashLink>
-          <HashLink
-            smooth
-            to='/#news'
-            className={`footer-link`}
-            id='news-button-nav'
+          </div>
+          <div
+            onClick={() => handleFooterClick('/news')}
+            className='footer-link'
+            id='news-link-footer'
           >
             News
-          </HashLink>
-          <HashLink
-            smooth
-            to='/#artists'
-            className={`footer-link`}
-            id='artists-button-nav'
+          </div>
+          <div
+            onClick={() => handleFooterClick('/artists')}
+            className='footer-link'
+            id='artists-link-footer'
           >
             Artists
-          </HashLink>
-          <HashLink
-            smooth
-            to='/#about'
-            className={`footer-link`}
-            id='about-button-nav'
+          </div>
+          <div
+            onClick={() => handleFooterClick('/about')}
+            className='footer-link'
+            id='about-link-footer'
           >
             About
-          </HashLink>
-          <HashLink
-            smooth
-            to='/#contact'
-            className={`footer-link`}
-            id='contact-button-nav'
+          </div>
+          <div
+            onClick={() => handleFooterClick('/contact')}
+            className='footer-link'
+            id='contact-button-footer'
           >
             Contact
-          </HashLink>
-        </div>
-        <div className='footer-footer' id='footer-footer'>
+          </div>
+        </section>
+        <section className='footer-footer' id='footer-footer'>
           <p className='footer-footer-text'>
             © Copyright 2024. Aurum Management Group.
           </p>
-        </div>
+        </section>
         <div className='gap' />
-      </div>
+      </footer>
     </>
   );
 };

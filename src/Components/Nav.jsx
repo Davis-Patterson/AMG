@@ -1,18 +1,38 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { HashLink } from 'react-router-hash-link';
+import React, { useState, useEffect, useRef, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { AppContext } from 'contexts/AppContext';
 import AMGLogoBlack from '/src/assets/logos/AMG-full-words-black.png';
 import AMGLogoWhite from '/src/assets/logos/AMG-full-words-white.png';
 import MaterialUISwitch from './Utils/MaterialUISwitch';
 import DehazeIcon from '@mui/icons-material/Dehaze';
 import 'styles/Nav.css';
 
-const Nav = ({ darkMode, setDarkMode, activeSection, setActiveSection }) => {
+const Nav = () => {
+  const {
+    darkMode,
+    setDarkMode,
+    setShowSplash,
+    setContentVisible,
+    mute,
+    setMute,
+  } = useContext(AppContext);
   const [dropdown, setDropdown] = useState(false);
 
   const currentLogo = darkMode ? AMGLogoWhite : AMGLogoBlack;
 
   const dropdownRef = useRef(null);
   const menuIconRef = useRef(null);
+
+  const navigate = useNavigate();
+
+  const handleNavClick = (path) => {
+    setContentVisible(false);
+    setShowSplash(true);
+
+    setTimeout(() => {
+      navigate(path);
+    }, 5);
+  };
 
   useEffect(() => {
     function handleClickOutside(event) {
@@ -38,21 +58,12 @@ const Nav = ({ darkMode, setDarkMode, activeSection, setActiveSection }) => {
     };
   }, [dropdown]);
 
-  const isActive = (sectionId) => {
-    const currentSection = activeSection || 'home';
-    return currentSection === sectionId;
-  };
-
   const handleDarkModeChange = (event) => {
     setDarkMode(event.target.checked);
   };
 
   const handleMenu = () => {
     setDropdown(!dropdown);
-  };
-
-  const handleDropdown = () => {
-    setDropdown(false);
   };
 
   useEffect(() => {
@@ -66,20 +77,14 @@ const Nav = ({ darkMode, setDarkMode, activeSection, setActiveSection }) => {
   return (
     <>
       <nav className='nav-container'>
-        <div className='nav-contents'>
-          <div className='home-button-container'>
-            <HashLink smooth to='/#home' className='home-button'>
+        <main className='nav-contents'>
+          <section className='home-button-container'>
+            <div onClick={() => handleNavClick('/')} className='home-button'>
               <img src={currentLogo} alt='AMG logo' className='AMG-logo-nav' />
-            </HashLink>
-            <div className='home-button-adjacent'>
-              <MaterialUISwitch
-                checked={darkMode}
-                onChange={handleDarkModeChange}
-                className='dark-toggle'
-              />
             </div>
-          </div>
-          <div className='nav-buttons-container' id='nav-buttons-container'>
+            <div className='home-button-adjacent'></div>
+          </section>
+          <section className='nav-buttons-container' id='nav-buttons-container'>
             <DehazeIcon
               className='menu-icon'
               onClick={handleMenu}
@@ -87,91 +92,72 @@ const Nav = ({ darkMode, setDarkMode, activeSection, setActiveSection }) => {
               id='menu-icon'
               style={{ display: 'none' }}
             />
-            <HashLink
-              smooth
-              to='/#home'
-              className={`nav-button ${isActive('home') ? 'active' : ''}`}
-              id='home-button-nav'
-            >
-              Home
-            </HashLink>
-            <HashLink
-              smooth
-              to='/#news'
-              className={`nav-button ${isActive('news') ? 'active' : ''}`}
+            <div
+              onClick={() => handleNavClick('/news')}
+              className='nav-button'
               id='news-button-nav'
             >
               News
-            </HashLink>
-            <HashLink
-              smooth
-              to='/#artists'
-              className={`nav-button ${isActive('artists') ? 'active' : ''}`}
+            </div>
+            <div
+              onClick={() => handleNavClick('/artists')}
+              className='nav-button'
               id='artists-button-nav'
             >
               Artists
-            </HashLink>
-            <HashLink
-              smooth
-              to='/#about'
-              className={`nav-button ${isActive('about') ? 'active' : ''}`}
+            </div>
+            <div
+              onClick={() => handleNavClick('/about')}
+              className='nav-button'
               id='about-button-nav'
             >
               About
-            </HashLink>
-            <HashLink
-              smooth
-              to='/#contact'
-              className={`nav-button ${isActive('contact') ? 'active' : ''}`}
+            </div>
+            <div
+              onClick={() => handleNavClick('/contact')}
+              className='nav-button'
               id='contact-button-nav'
             >
               Contact
-            </HashLink>
-          </div>
-        </div>
+            </div>
+            <MaterialUISwitch
+              checked={darkMode}
+              onChange={handleDarkModeChange}
+              className='dark-toggle'
+            />
+          </section>
+        </main>
         {dropdown && (
           <div className='dropdown-menu' ref={dropdownRef}>
             <div className='dropdown-box'>
-              <HashLink
-                smooth
-                to='/#home'
-                className={`nav-button ${isActive('home') ? 'active' : ''}`}
-                id='home-button-nav'
-              >
-                Home
-              </HashLink>
-              <HashLink
-                smooth
-                to='/#news'
-                className={`nav-button ${isActive('news') ? 'active' : ''}`}
+              <div
+                onClick={() => handleNavClick('/news')}
+                className='nav-button'
                 id='news-button-nav'
               >
                 News
-              </HashLink>
-              <HashLink
-                smooth
-                to='/#artists'
-                className={`nav-button ${isActive('artists') ? 'active' : ''}`}
+              </div>
+              <div
+                onClick={() => handleNavClick('/artists')}
+                className='nav-button'
                 id='artists-button-nav'
               >
                 Artists
-              </HashLink>
-              <HashLink
-                smooth
-                to='/#about'
-                className={`nav-button ${isActive('about') ? 'active' : ''}`}
+              </div>
+              <div
+                onClick={() => handleNavClick('/about')}
+                className='nav-button'
                 id='about-button-nav'
               >
                 About
-              </HashLink>
-              <HashLink
-                smooth
-                to='/#contact'
-                className={`nav-button ${isActive('contact') ? 'active' : ''}`}
+              </div>
+              <div
+                onClick={() => handleNavClick('/contact')}
+                className='nav-button'
                 id='contact-button-nav'
               >
                 Contact
-              </HashLink>
+              </div>
             </div>
           </div>
         )}

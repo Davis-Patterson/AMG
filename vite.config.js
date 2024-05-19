@@ -8,7 +8,7 @@ export default defineConfig({
     alias: {
       components: '/src/Components',
       assets: '/src/assets',
-      contexts: '/src/contexts',
+      contexts: '/src/Contexts',
       shared: '/src/shared',
       utilities: '/src/Utilities',
       styles: '/src/Styles',

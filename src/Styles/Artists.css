@@ -1,4 +1,4 @@
-.home-container {
+.artists-container {
   height: calc(100vh - 100px);
   margin: 100px 0px 0px 0px;
   padding: 0px 0px 0px 0px;
@@ -12,7 +12,7 @@
   position: relative;
 }
 
-.page-img-container {
+.artists-img-container {
   display: flex;
   justify-content: center;
   width: 100%;

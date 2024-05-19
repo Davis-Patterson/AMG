@@ -19,12 +19,11 @@
 
   /* 'lightMode' */
   --clr-light: #ffffff;
+  --clr-light-screen: #ffffffb4;
   --clr-dark: #292929;
   --clr-break: #d6d7db;
   --clr-accent: #20bcfa;
-  --clr-accent-light: #68dcff;
   --clr-accent-dark: #1171ca;
-  --clr-accent-faded: #2ac0fc7e;
   --clr-back: #9e9e9e;
   --clr-text: #505050;
   --clr-white: #fff;
@@ -38,12 +37,11 @@
 
 .darkMode {
   --clr-light: #080808;
+  --clr-light-screen: #080808a2;
   --clr-dark: #d0d0d0;
   --clr-break: #7a7a7a;
   --clr-accent: #2cb0ec;
-  --clr-accent-light: #68dcff;
   --clr-accent-dark: #2091fa;
-  --clr-accent-faded: #1bbdfd5e;
   --clr-back: #9e9e9e;
   --clr-text: #c4c4c4;
   --clr-white: #fff;
