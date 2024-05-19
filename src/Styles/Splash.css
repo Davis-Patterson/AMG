@@ -1,0 +1,51 @@
+.splash-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: calc(100vh);
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: var(--clr-light);
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  pointer-events: none;
+}
+
+.splash-container.fade-in {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.splash-container.fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.splash-logo {
+  width: 60%;
+  max-width: 300px;
+  opacity: 0;
+  animation: fadeInGrow 1s ease-in-out;
+}
+
+@keyframes fadeInGrow {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  45% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  55% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+}

@@ -2,21 +2,22 @@ import React, { useEffect, useContext } from 'react';
 import { AppContext } from 'contexts/AppContext';
 import AMGLogoBlack from '/src/assets/logos/AMG-full-words-black.png';
 import AMGLogoWhite from '/src/assets/logos/AMG-full-words-white.png';
-import 'styles/Home.css';
+import 'styles/About.css';
 
-function Home({}) {
-  const { darkMode, mute } = useContext(AppContext);
+function About() {
+  const { darkMode } = useContext(AppContext);
+
   const currentLogo = darkMode ? AMGLogoWhite : AMGLogoBlack;
 
   return (
     <>
-      <main className='home-container'>
-        <section className='page-img-container'>
-          <img
+      <main className='about-container'>
+        <section className='about-img-container'>
+          {/* <img
             src={currentLogo}
             alt='background img'
             className='homepage-logo'
-          />
+          /> */}
         </section>
         <div className='gap' />
       </main>
@@ -24,4 +25,4 @@ function Home({}) {
   );
 }
 
-export default Home;
+export default About;

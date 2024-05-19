@@ -1,41 +1,56 @@
-import React, { useState, useEffect } from 'react';
-import useLocalStorageState from 'use-local-storage-state';
+import React, { useEffect, useContext } from 'react';
+import { AppContext } from 'contexts/AppContext';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import Nav from 'components/Nav';
 import Home from 'components/Home';
 import Footer from 'components/Footer';
+import Splash from 'components/Splash';
+import News from 'components/News';
+import Artists from 'components/Artists';
+import About from 'components/About';
+import Contact from 'components/Contact';
 
 function App() {
-  const [darkMode, setDarkMode] = useLocalStorageState('darkMode', false);
-  const [activeSection, setActiveSection] = useState(null);
+  const { setShowSplash, contentVisible, setContentVisible } =
+    useContext(AppContext);
+
   const location = useLocation();
 
   useEffect(() => {
     const path = location.pathname.replace('/', '');
-    setActiveSection(path || 'home');
-  }, [location]);
+    setContentVisible(false);
+    setShowSplash(true);
+
+    const splashTimeout = setTimeout(() => {
+      setContentVisible(true);
+    }, 400);
+
+    const hideSplashTimeout = setTimeout(() => {
+      setShowSplash(false);
+    }, 1000);
+
+    return () => {
+      clearTimeout(splashTimeout);
+      clearTimeout(hideSplashTimeout);
+    };
+  }, [location, setShowSplash, setContentVisible]);
 
   return (
     <>
-      <Nav
-        darkMode={darkMode}
-        setDarkMode={setDarkMode}
-        activeSection={activeSection}
-        setActiveSection={setActiveSection}
-      />
-      <Routes>
-        <Route
-          path='/'
-          element={
-            <Home
-              darkMode={darkMode}
-              activeSection={activeSection}
-              setActiveSection={setActiveSection}
-            />
-          }
-        />
-      </Routes>
-      <Footer darkMode={darkMode} activeSection={activeSection} />
+      <Splash />
+      {contentVisible && (
+        <>
+          <Nav />
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/news' element={<News />} />
+            <Route path='/artists' element={<Artists />} />
+            <Route path='/about' element={<About />} />
+            <Route path='/contact' element={<Contact />} />
+          </Routes>
+          <Footer />
+        </>
+      )}
     </>
   );
 }
