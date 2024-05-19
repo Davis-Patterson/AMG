@@ -9,6 +9,10 @@ function News() {
 
   const currentLogo = darkMode ? AMGLogoWhite : AMGLogoBlack;
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <>
       <main className='news-container'>

@@ -9,14 +9,19 @@ import darkMuteIcon from '/src/assets/Utils/mute-black.svg';
 import lightMuteIcon from '/src/assets/Utils/mute-white.svg';
 import darkUnmuteIcon from '/src/assets/Utils/unmute-black.svg';
 import lightUnmuteIcon from '/src/assets/Utils/unmute-white.svg';
-import MaterialUISwitch from './Utils/MaterialUISwitch';
 import DehazeIcon from '@mui/icons-material/Dehaze';
 import 'styles/Nav.css';
 
 const Nav = () => {
-  const { darkMode, setDarkMode, setShowSplash, mute, setMute } =
-    useContext(AppContext);
-  const [dropdown, setDropdown] = useState(false);
+  const {
+    darkMode,
+    setDarkMode,
+    setShowSplash,
+    mute,
+    setMute,
+    dropdown,
+    setDropdown,
+  } = useContext(AppContext);
 
   const currentLogo = darkMode ? AMGLogoWhite : AMGLogoBlack;
   const currentDarkmodeIcon = darkMode ? darkmodeIcon : lightmodeIcon;
@@ -32,6 +37,7 @@ const Nav = () => {
 
   const handleNavClick = (path) => {
     setShowSplash(true);
+    setDropdown(false);
 
     setTimeout(() => {
       navigate(path);
@@ -132,11 +138,6 @@ const Nav = () => {
             >
               Contact
             </div>
-            {/* <MaterialUISwitch
-              checked={darkMode}
-              onChange={handleDarkModeChange}
-              className='dark-toggle'
-            /> */}
             <img
               src={currentDarkmodeIcon}
               alt='darkmode icon'
@@ -152,36 +153,50 @@ const Nav = () => {
           </section>
         </main>
         {dropdown && (
-          <div className='dropdown-menu' ref={dropdownRef}>
-            <div className='dropdown-box'>
+          <div className='dropdown-menu' id='dropdown-menu' ref={dropdownRef}>
+            <div className='dropdown-links'>
               <div
                 onClick={() => handleNavClick('/news')}
-                className='nav-button'
-                id='news-button-nav'
+                className='dropdown-link'
+                id='dropdown-link'
               >
                 News
               </div>
               <div
                 onClick={() => handleNavClick('/artists')}
-                className='nav-button'
-                id='artists-button-nav'
+                className='dropdown-link'
+                id='dropdown-link'
               >
                 Artists
               </div>
               <div
                 onClick={() => handleNavClick('/about')}
-                className='nav-button'
-                id='about-button-nav'
+                className='dropdown-link'
+                id='dropdown-link'
               >
                 About
               </div>
               <div
                 onClick={() => handleNavClick('/contact')}
-                className='nav-button'
-                id='contact-button-nav'
+                className='dropdown-link'
+                id='dropdown-link'
               >
                 Contact
               </div>
+            </div>
+            <div className='dropdown-toggles'>
+              <img
+                src={currentDarkmodeIcon}
+                alt='darkmode icon'
+                className='dropdown-dark-toggle'
+                onClick={handleDarkModeClick}
+              />
+              <img
+                src={currentSoundIcon}
+                alt='mute/unmute icon'
+                className='dropdown-mute-toggle'
+                onClick={handleMuteClick}
+              />
             </div>
           </div>
         )}
