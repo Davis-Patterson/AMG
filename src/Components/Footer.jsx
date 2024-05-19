@@ -27,7 +27,7 @@ const Footer = ({}) => {
           <div className='footer-logo-container' id='footer-logo-container'>
             <img src={currentLogo} alt='AMG logo' className='footer-logo' />
           </div>
-          <div className='attribution'>
+          <div className='attribution' id='attribution'>
             <h1 className='footer-name' id='footer-name'>
               AURUM MANAGEMENT GROUP
             </h1>
@@ -36,39 +36,39 @@ const Footer = ({}) => {
             </h1>
           </div>
         </section>
-        <section className='footer-link-container'>
+        <section className='footer-link-container' id='footer-link-container'>
           <div
             onClick={() => handleFooterClick('/')}
             className='footer-link'
-            id='home-link-footer'
+            id='footer-link'
           >
             Home
           </div>
           <div
             onClick={() => handleFooterClick('/news')}
             className='footer-link'
-            id='news-link-footer'
+            id='footer-link'
           >
             News
           </div>
           <div
             onClick={() => handleFooterClick('/artists')}
             className='footer-link'
-            id='artists-link-footer'
+            id='footer-link'
           >
             Artists
           </div>
           <div
             onClick={() => handleFooterClick('/about')}
             className='footer-link'
-            id='about-link-footer'
+            id='footer-link'
           >
             About
           </div>
           <div
             onClick={() => handleFooterClick('/contact')}
             className='footer-link'
-            id='contact-button-footer'
+            id='footer-link'
           >
             Contact
           </div>

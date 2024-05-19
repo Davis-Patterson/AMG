@@ -43,6 +43,23 @@
   }
 }
 
+@media screen and (max-width: 476px) {
+  #footer-link {
+    /* margin: 15px 20px 0px 20px; */
+  }
+  #footer-link-container {
+    width: 60%;
+  }
+}
+@media screen and (max-width: 457px) {
+  #footer-link {
+    /* margin: 15px 20px 0px 20px; */
+  }
+  #footer-link-container {
+    width: 80%;
+  }
+}
+
 .nav-container {
   width: 100%;
   height: 100px;

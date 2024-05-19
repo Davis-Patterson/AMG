@@ -15,7 +15,12 @@
     flex-direction: column;
   }
   #footer-logo-container {
-    justify-content: left;
+    justify-content: center;
+    width: 100%;
+  }
+  #attribution {
+    width: 100%;
+    justify-content: center;
   }
 }
 
@@ -28,6 +33,7 @@
   align-items: center;
   flex-direction: column;
   padding: 4 0px 0px 0px 0px;
+  margin: 20px 0px 0px 0px;
 }
 
 .footer-content {
