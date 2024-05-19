@@ -7,6 +7,7 @@ export const AppProvider = ({ children }) => {
   const [showSplash, setShowSplash] = useState(true);
   const [darkMode, setDarkMode] = useLocalStorageState('darkMode', false);
   const [mute, setMute] = useState(true);
+  const [dropdown, setDropdown] = useState(false);
 
   return (
     <AppContext.Provider
@@ -17,6 +18,8 @@ export const AppProvider = ({ children }) => {
         setDarkMode,
         mute,
         setMute,
+        dropdown,
+        setDropdown,
       }}
     >
       {children}
