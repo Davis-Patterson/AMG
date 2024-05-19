@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { AppContext } from 'contexts/AppContext';
 import AMGLogoBlack from '/src/assets/Logos/AMG-full-words-black.png';
 import AMGLogoWhite from '/src/assets/Logos/AMG-full-words-white.png';
-import darkmodeIcon from '/src/assets/Utils/darkmode-black.svg';
-import lightmodeIcon from '/src/assets/Utils/lightmode-white.svg';
+import darkmodeIcon from '/src/assets/Utils/darkmode-white.svg';
+import lightmodeIcon from '/src/assets/Utils/lightmode-black.svg';
 import darkMuteIcon from '/src/assets/Utils/mute-black.svg';
 import lightMuteIcon from '/src/assets/Utils/mute-white.svg';
 import darkUnmuteIcon from '/src/assets/Utils/unmute-black.svg';
@@ -19,7 +19,7 @@ const Nav = () => {
   const [dropdown, setDropdown] = useState(false);
 
   const currentLogo = darkMode ? AMGLogoWhite : AMGLogoBlack;
-  const currentDarkmodeIcon = darkMode ? lightmodeIcon : darkmodeIcon;
+  const currentDarkmodeIcon = darkMode ? darkmodeIcon : lightmodeIcon;
 
   const currentMuteIcon = darkMode ? lightMuteIcon : darkMuteIcon;
   const currentUnmuteIcon = darkMode ? lightUnmuteIcon : darkUnmuteIcon;
