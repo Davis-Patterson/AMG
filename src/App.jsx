@@ -1,14 +1,15 @@
 import React, { useEffect, useContext } from 'react';
-import { AppContext } from '@contexts/AppContext';
+import { AppContext } from 'contexts/AppContext';
 import { Routes, Route, useLocation } from 'react-router-dom';
-import Nav from '@components/Nav';
-import Home from '@components/Home';
-import Footer from '@components/Footer';
-import Splash from '@components/Splash';
-import News from '@components/News';
-import Artists from '@components/Artists';
-import About from '@components/About';
-import Contact from '@components/Contact';
+import Nav from 'components/Nav';
+import Home from 'components/Home';
+import Footer from 'components/Footer';
+import Splash from 'components/Splash';
+import News from 'components/News';
+import Artists from 'components/Artists';
+import About from 'components/About';
+import Contact from 'components/Contact';
+import 'styles/App.css';
 
 function App() {
   const { setShowSplash, contentVisible } = useContext(AppContext);

@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Nerko+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;700&display=swap');
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+
+  /* 'lightMode' */
+  --clr-light: #ffffff;
+  --clr-light-screen: #ffffffcc;
+  --clr-dark: #292929;
+  --clr-break: #d6d7db;
+  --clr-accent: #20bcfa;
+  --clr-accent-dark: #1171ca;
+  --clr-back: #9e9e9e;
+  --clr-text: #505050;
+  --clr-white: #fff;
+  --clr-black: #000000;
+  --clr-nav: #505050;
+  --clr-dropdown: #ffffff;
+  --clr-screen: #0000008a;
+  --clr-error: #ff5252;
+  --clr-success: #5cff47;
+}
+
+.darkMode {
+  --clr-light: #080808;
+  --clr-light-screen: #080808c4;
+  --clr-dark: #d0d0d0;
+  --clr-break: #7a7a7a;
+  --clr-accent: #2cb0ec;
+  --clr-accent-dark: #2091fa;
+  --clr-back: #9e9e9e;
+  --clr-text: #c4c4c4;
+  --clr-white: #fff;
+  --clr-black: #000000;
+  --clr-nav: #424242;
+  --clr-dropdown: #585858;
+  --clr-screen: #00000077;
+  --clr-error: #ff0000;
+  --clr-success: #1eff00;
+}
