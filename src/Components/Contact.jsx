@@ -1,8 +1,8 @@
 import React, { useEffect, useContext } from 'react';
-import { AppContext } from 'contexts/AppContext';
-import AMGLogoBlack from 'assets/Logos/AMG-full-words-black.png';
-import AMGLogoWhite from 'assets/Logos/AMG-full-words-white.png';
-import 'styles/Contact.css';
+import { AppContext } from '@contexts/AppContext';
+import AMGLogoBlack from '@assets/Logos/AMG-full-words-black.png';
+import AMGLogoWhite from '@assets/Logos/AMG-full-words-white.png';
+import '@styles/Contact.css';
 
 function Contact() {
   const { darkMode } = useContext(AppContext);
