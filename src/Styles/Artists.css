@@ -1,8 +1,15 @@
+@media screen and (max-width: 1150px) {
+  #artists-container {
+    height: calc(100vh - 100px);
+    margin: 100px 0px 0px 0px;
+  }
+}
+
 .artists-container {
-  height: calc(100vh - 100px);
-  margin: 100px 0px 0px 0px;
+  height: calc(100vh - 160px);
+  margin: 160px 0px 0px 0px;
   padding: 0px 0px 0px 0px;
-  min-height: 800px;
+  min-height: 600px;
   display: flex;
   flex: 1;
   justify-content: center;
