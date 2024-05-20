@@ -15,7 +15,7 @@ function News() {
 
   return (
     <>
-      <main className='news-container' id='news-container'>
+      <main className='page-container' id='page-container'>
         <section className='news-img-container'>
           {/* <img
             src={currentLogo}

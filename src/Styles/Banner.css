@@ -1,0 +1,61 @@
+.banner-container {
+  overflow: hidden;
+  padding: 35px 0;
+  background: var(--clr-banner);
+  white-space: nowrap;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  transition: background-color 1s ease;
+}
+
+.banner-container:before {
+  left: 0;
+  background: linear-gradient(
+    to left,
+    var(--clr-gradient-start),
+    var(--clr-gradient-end)
+  );
+}
+.banner-container:after {
+  right: 0;
+  background: linear-gradient(
+    to right,
+    var(--clr-gradient-start),
+    var(--clr-gradient-end)
+  );
+}
+.banner-container:before,
+.banner-container:after {
+  position: absolute;
+  top: 0;
+  width: 250px;
+  height: 100%;
+  content: '';
+  z-index: 2;
+  opacity: 1;
+}
+
+.banner-container:hover .banner-content {
+  animation-play-state: paused;
+}
+
+.banner-content {
+  display: inline-block;
+  white-space: nowrap;
+  animation: bannerScroll 35s linear infinite;
+}
+
+.banner-img {
+  height: 42px;
+  margin: 0 40px;
+}
+
+@keyframes bannerScroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-200%);
+  }
+}

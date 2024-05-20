@@ -19,6 +19,7 @@
 
   /* 'lightMode' */
   --clr-light: #ffffff;
+  --clr-banner: #c4c4c4c4;
   --clr-light-screen: #ffffffb2;
   --clr-dark: #292929;
   --clr-break: #d6d7db;
@@ -33,10 +34,13 @@
   --clr-screen: #0000008a;
   --clr-error: #ff5252;
   --clr-success: #5cff47;
+  --clr-gradient-start: #ffffff00;
+  --clr-gradient-end: #ffffff;
 }
 
 .darkMode {
   --clr-light: #080808;
+  --clr-banner: #1a1a1a;
   --clr-light-screen: #080808c4;
   --clr-dark: #d0d0d0;
   --clr-break: #7a7a7a;
@@ -51,4 +55,72 @@
   --clr-screen: #00000077;
   --clr-error: #ff0000;
   --clr-success: #1eff00;
+  --clr-gradient-start: #08080800;
+  --clr-gradient-end: #080808;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  min-width: 350px;
+  min-height: 100vh;
+  background-color: var(--clr-light);
+  color: var(--clr-dark);
+  transition: background-color 1s ease;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid var(--clr-dark);
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: var(--clr-light);
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: var(--clr-accent);
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto var(--clr-accent-dark);
+}
+
+html {
+  scroll-padding-top: 180px;
+  scroll-snap-type: y proximity;
+}
+
+section {
+  margin: 0px 0px 0px 0px;
+  scroll-snap-align: start;
+  scroll-snap-stop: normal;
+}
+
+#root {
+  margin: 0 auto;
+  text-align: left;
+  width: 100%;
 }
