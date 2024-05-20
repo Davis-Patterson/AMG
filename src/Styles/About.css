@@ -1,31 +1,78 @@
-@media screen and (max-width: 1150px) {
-  #about-container {
-    height: calc(100vh - 100px);
-    margin: 100px 0px 0px 0px;
-  }
+.about-header {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  min-height: 400px;
 }
 
-.about-container {
-  height: calc(100vh - 160px);
-  margin: 160px 0px 0px 0px;
-  padding: 0px 0px 0px 0px;
-  min-height: 600px;
+.about-header-logo-container,
+.about-header-pics-container {
+  transition: width 1s ease-in-out;
+}
+
+.about-header-logo-container {
   display: flex;
-  flex: 1;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 100%;
-  position: relative;
+  width: 40%;
+  min-height: 450px;
 }
 
-.about-img-container {
+.about-header-logo {
+  width: 300px;
+}
+
+.about-brand-container {
   display: flex;
   justify-content: center;
-  width: 100%;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
 }
 
-.homepage-logo {
+.about-brand-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.8em;
+  line-height: 0.8;
+  color: var(--clr-dark);
+  margin: 0px 0px 0px 0px;
+  font-weight: 400;
+  padding: 40px 0px 0px 0px;
+}
+
+.about-tagline {
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 1.4em;
+  font-weight: 500;
+  line-height: 0.9;
+  color: var(--clr-dark);
+  margin: 15px 0px 0px 0px;
+}
+
+.about-header-pics-container {
   width: 60%;
-  max-width: 500px;
+  height: 450px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background-color: var(--clr-accent);
+}
+
+.about-header-pics-container:hover {
+  width: 99%;
+}
+
+.about-header-pics-container:hover ~ .about-header-logo-container {
+  width: 1%;
+}
+
+.about-header-pics {
+  width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
