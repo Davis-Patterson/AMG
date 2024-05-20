@@ -15,7 +15,7 @@ function About() {
 
   return (
     <>
-      <main className='about-container'>
+      <main className='about-container' id='about-container'>
         <section className='about-img-container'>
           {/* <img
             src={currentLogo}

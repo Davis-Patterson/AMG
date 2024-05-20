@@ -12,7 +12,8 @@ import Contact from 'components/Contact';
 import 'styles/App.css';
 
 function App() {
-  const { setShowSplash, contentVisible } = useContext(AppContext);
+  const { setShowSplash, contentVisible, isTop, setIsTop } =
+    useContext(AppContext);
 
   const location = useLocation();
 

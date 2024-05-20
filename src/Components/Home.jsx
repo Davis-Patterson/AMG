@@ -15,7 +15,7 @@ function Home({}) {
 
   return (
     <>
-      <main className='home-container'>
+      <main className='home-container' id='home-container'>
         <section className='office-img-container'>
           <img src={OfficeStock} alt='office img' className='office-stock' />
         </section>

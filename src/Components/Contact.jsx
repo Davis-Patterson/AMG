@@ -15,7 +15,7 @@ function Contact() {
 
   return (
     <>
-      <main className='contact-container'>
+      <main className='contact-container' id='contact-container'>
         <section className='contact-img-container'>
           {/* <img
             src={currentLogo}

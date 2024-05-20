@@ -20,6 +20,7 @@ body {
   min-height: 100vh;
   background-color: var(--clr-light);
   color: var(--clr-dark);
+  transition: background-color 1s ease;
 }
 
 h1 {
@@ -47,7 +48,7 @@ button:focus-visible {
 }
 
 html {
-  scroll-padding-top: 65px;
+  scroll-padding-top: 180px;
   scroll-snap-type: y proximity;
 }
 

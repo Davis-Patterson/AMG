@@ -15,7 +15,7 @@ function Artists() {
 
   return (
     <>
-      <main className='artists-container'>
+      <main className='artists-container' id='artists-container'>
         <section className='artists-img-container'>
           {/* <img
             src={currentLogo}
