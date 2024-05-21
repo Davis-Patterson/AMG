@@ -1,8 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { AppContext } from 'contexts/AppContext';
 import Banner from 'utils/Banner';
-import AMGLogoBlack from 'assets/Logos/AMG-full-black.png';
-import AMGLogoWhite from 'assets/Logos/AMG-full-white.png';
 import ampPic from 'assets/Studio/amp.jpg';
 import lexiconPic from 'assets/Studio/lexicon.jpg';
 import o2rPic from 'assets/Studio/o2r.jpg';
@@ -17,6 +15,16 @@ import sslcloseupPic from 'assets/Studio/sslcloseup.jpg';
 import sslpatchbayPic from 'assets/Studio/sslpatchbay.jpg';
 import suite1Pic from 'assets/Studio/suite1.jpg';
 import suite2Pic from 'assets/Studio/suite2.jpg';
+import nextBlack from 'assets/Utils/next-black.svg';
+import nextWhite from 'assets/Utils/next-white.svg';
+import prevBlack from 'assets/Utils/prev-black.svg';
+import prevWhite from 'assets/Utils/prev-white.svg';
+import pauseBlack from 'assets/Utils/pause-black.svg';
+import pauseWhite from 'assets/Utils/pause-white.svg';
+import playBlack from 'assets/Utils/play-black.svg';
+import playWhite from 'assets/Utils/play-white.svg';
+import pipeBlack from 'assets/Utils/pipe-black.svg';
+import pipeWhite from 'assets/Utils/pipe-white.svg';
 import 'styles/About.css';
 
 function About() {
@@ -44,10 +52,15 @@ function About() {
     suite2Pic,
   ];
 
+  const currentNext = darkMode ? nextWhite : nextBlack;
+  const currentPrev = darkMode ? prevWhite : prevBlack;
+  const currentPipe = darkMode ? pipeWhite : pipeBlack;
+  const currentPlay = darkMode ? playWhite : playBlack;
+  const currentPause = darkMode ? pauseWhite : pauseBlack;
+  const currentPlayPause = isPaused ? currentPlay : currentPause;
+
   const initialIndexValue = 1;
   const lastPic = studioPics.length;
-
-  const currentLogo = darkMode ? AMGLogoWhite : AMGLogoBlack;
 
   const autoProg = () => {
     if (!isPaused) {
@@ -89,40 +102,52 @@ function About() {
   }, [isPaused, autoProg]);
 
   const handlePrev = () => {
-    setPicIndex((prevPicIndex) => {
-      if (prevPicIndex === 1) {
-        return lastPic;
-      } else {
-        return prevPicIndex - 1;
-      }
-    });
-    setProgress(0);
+    setFade('out');
+    setTimeout(() => {
+      setProgress(0);
+      setPicIndex((prevPicIndex) => {
+        if (prevPicIndex === 1) {
+          return lastPic;
+        } else {
+          return prevPicIndex - 1;
+        }
+      });
+      setFade('in');
+    }, 100);
   };
 
   const handleNext = () => {
-    setPicIndex((prevPicIndex) => {
-      if (prevPicIndex === lastPic) {
-        return 1;
-      } else {
-        return prevPicIndex + 1;
-      }
-    });
-    setProgress(0);
+    setFade('out');
+    setTimeout(() => {
+      setProgress(0);
+      setPicIndex((prevPicIndex) => {
+        if (prevPicIndex === lastPic) {
+          return 1;
+        } else {
+          return prevPicIndex + 1;
+        }
+      });
+      setFade('in');
+    }, 100);
+  };
+
+  const handlePause = () => {
+    setIsPaused(!isPaused);
   };
 
   return (
     <>
       <main className='page-container' id='page-container'>
         <header className='about-header' id='about-header'>
-          <section className='about-header-logo-container'>
-            <img
-              src={currentLogo}
-              alt='background img'
-              className='about-header-logo'
-            />
+          <div className='about-header-gradient-overlay' />
+          <div className='about-header-gradient-overlay' />
+          <section className='about-header-text-container'>
             <div className='about-brand-container'>
-              <p className='about-brand-title'>Aurum Management Group</p>
-              <p className='about-tagline'>// tagline //</p>
+              <h1 className='about-brand-title'>ABOUT US</h1>
+              <p className='about-tagline'>
+                A collective of music lovers, inspired entrepreneurs,
+                game-changing creatives and passionate teams.
+              </p>
             </div>
           </section>
           <section className='about-header-pics-container'>
@@ -136,6 +161,41 @@ function About() {
               />
             ))}
           </section>
+          <div className='progress-bar'>
+            <div
+              className='progress-bar-fill'
+              style={{ width: `${progress}%` }}
+            ></div>
+          </div>
+          <div className='controls-container'>
+            <div className='controls'>
+              <img
+                src={currentPrev}
+                alt='prev button'
+                className='controls-button'
+                onClick={handlePrev}
+              />
+              {/* <p className='controls-number'>{picIndex}</p> */}
+              <img
+                src={currentPipe}
+                alt='prev button'
+                className='controls-pipe'
+              />
+              {/* <p className='controls-number'>{lastPic}</p> */}
+              <img
+                src={currentNext}
+                alt='prev button'
+                className='controls-button'
+                onClick={handleNext}
+              />
+              <img
+                src={currentPlayPause}
+                alt='prev button'
+                className='controls-button'
+                onClick={handlePause}
+              />
+            </div>
+          </div>
         </header>
         <Banner />
         <div className='gap' />
