@@ -1,6 +1,6 @@
 .banner-container {
   overflow: hidden;
-  padding: 35px 0;
+  padding: 20px 0;
   background: var(--clr-banner);
   white-space: nowrap;
   position: relative;
@@ -43,15 +43,15 @@
 .banner-content {
   display: inline-block;
   white-space: nowrap;
-  animation: bannerScroll 35s linear infinite;
+  animation: bannerScrollLeft 35s linear infinite;
 }
 
 .banner-img {
-  height: 42px;
+  height: 30px;
   margin: 0 40px;
 }
 
-@keyframes bannerScroll {
+@keyframes bannerScrollLeft {
   from {
     transform: translateX(0);
   }
