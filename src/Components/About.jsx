@@ -25,19 +25,24 @@ import playBlack from 'assets/Utils/play-black.svg';
 import playWhite from 'assets/Utils/play-white.svg';
 import pipeBlack from 'assets/Utils/pipe-black.svg';
 import pipeWhite from 'assets/Utils/pipe-white.svg';
-import s6Engineer from 'assets/About/S6-engineer.jpg';
+import skylineImg from 'assets/About/skyline.jpg';
+import nycImg from 'assets/About/nyc-img.jpg';
+import londonImg from 'assets/About/london-img.jpg';
+import berlinImg from 'assets/About/berlin-img.jpg';
+import tokyoImg from 'assets/About/tokyo-img.jpg';
+import sydneyImg from 'assets/About/sydney-img.jpg';
 import 'styles/About.css';
 
 function About() {
   const { darkMode } = useContext(AppContext);
 
   const [picIndex, setPicIndex] = useState(1);
+  const [locationIndex, setLocationIndex] = useState(1);
   const [isPaused, setIsPaused] = useState(false);
   const [progress, setProgress] = useState(0);
   const [fade, setFade] = useState('in');
 
   const studioPics = [
-    ampPic,
     lexiconPic,
     o2rPic,
     outboard1Pic,
@@ -51,7 +56,11 @@ function About() {
     sslpatchbayPic,
     suite1Pic,
     suite2Pic,
+    ampPic,
   ];
+
+  const locationPics = [nycImg, londonImg, berlinImg, tokyoImg, sydneyImg];
+  const locationNames = ['New York', 'London', 'Berlin', 'Tokyo', 'Sydney'];
 
   const currentNext = darkMode ? nextWhite : nextBlack;
   const currentPrev = darkMode ? prevWhite : prevBlack;
@@ -136,6 +145,10 @@ function About() {
     setIsPaused(!isPaused);
   };
 
+  const handleLocationClick = (index) => {
+    setLocationIndex(index + 1);
+  };
+
   return (
     <>
       <main className='page-container' id='page-container'>
@@ -201,6 +214,10 @@ function About() {
         <Banner />
         <section className='about-content-container'>
           <div className='about-content'>
+            <div className='about-img-container'>
+              <div className='about-gradient' />
+              <img src={skylineImg} alt='about pic' className='about-img' />
+            </div>
             <div className='about-text-container'>
               <p className='about-text-title'>ABOUT US</p>
               <p className='about-text'>
@@ -213,13 +230,59 @@ function About() {
                 environmentally sustainable company is imperative to us, and
                 important to our longterm creative and commercial success.
               </p>
-            </div>
-            <div className='about-img-container'>
-              <img src={s6Engineer} alt='s6 engineer' className='about-img' />
+              <p className='about-text'>
+                It’s the universal language. It inspires us, moves us, thrills
+                us, heals us and ultimately unites us all. As the world’s
+                leading music company, it’s our responsibility to nurture music,
+                and to foster artistry and self-expression. In a world that
+                desperately needs to find more common ground, there is no better
+                way to provide it, than through music.
+              </p>
             </div>
           </div>
         </section>
-
+        <section className='location-container'>
+          <div className='about-location'>
+            <div className='location-text-container'>
+              <p className='location-text-title'>LOCATIONS</p>
+              <p className='location-text'>
+                Headquartered in the vibrant heart of New York City, a hub for
+                music and entertainment, our footprint extends globally, with
+                offices located strategically around the world. Fostering
+                innovation at the intersection of music and technology, each
+                location is dedicated to providing exceptional service and
+                support, ensuring we remain at the forefront of the industry.
+              </p>
+            </div>
+            <div className='location-img-container'>
+              <div className='location-gradient' />
+              {locationPics.map((picSrc, index) => (
+                <img
+                  key={index}
+                  src={picSrc}
+                  alt='location img'
+                  className='location-img'
+                  style={{
+                    display: locationIndex === index + 1 ? 'block' : 'none',
+                  }}
+                />
+              ))}
+            </div>
+            <div className='location-button-container'>
+              {locationNames.map((location, index) => (
+                <div
+                  key={index}
+                  className={`location-button ${
+                    locationIndex === index + 1 ? 'active' : ''
+                  }`}
+                  onClick={() => handleLocationClick(index)}
+                >
+                  <p className='location-button-text'>{location}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
         <div className='gap' />
       </main>
     </>
