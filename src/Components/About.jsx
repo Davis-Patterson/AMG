@@ -31,15 +31,18 @@ import londonImg from 'assets/About/london-img.jpg';
 import berlinImg from 'assets/About/berlin-img.jpg';
 import tokyoImg from 'assets/About/tokyo-img.jpg';
 import sydneyImg from 'assets/About/sydney-img.jpg';
+import locationsData from 'utilities/Locations.json';
 import 'styles/About.css';
 
 function About() {
   const { darkMode } = useContext(AppContext);
 
   const [picIndex, setPicIndex] = useState(1);
-  const [locationIndex, setLocationIndex] = useState(1);
+  const [locationIndex, setLocationIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const [progress, setProgress] = useState(0);
+  const [locations, setLocations] = useState([]);
+
   const [fade, setFade] = useState('in');
 
   const studioPics = [
@@ -89,6 +92,10 @@ function About() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
+    setLocations(locationsData);
   }, []);
 
   useEffect(() => {
@@ -146,7 +153,7 @@ function About() {
   };
 
   const handleLocationClick = (index) => {
-    setLocationIndex(index + 1);
+    setLocationIndex(index);
   };
 
   return (
@@ -246,12 +253,7 @@ function About() {
             <div className='location-text-container'>
               <p className='location-text-title'>LOCATIONS</p>
               <p className='location-text'>
-                Headquartered in the vibrant heart of New York City, a hub for
-                music and entertainment; our footprint extends globally, with
-                offices located strategically around the world. Fostering
-                innovation at the intersection of music and technology, each
-                location is dedicated to providing exceptional service and
-                support, ensuring we remain at the forefront of the industry.
+                {locations[locationIndex] ? locations[locationIndex].desc : ''}
               </p>
             </div>
             <div className='location-img-container'>
@@ -263,7 +265,7 @@ function About() {
                   alt='location img'
                   className='location-img'
                   style={{
-                    display: locationIndex === index + 1 ? 'block' : 'none',
+                    display: locationIndex === index ? 'block' : 'none',
                   }}
                 />
               ))}
@@ -273,7 +275,7 @@ function About() {
                 <div
                   key={index}
                   className={`location-button ${
-                    locationIndex === index + 1 ? 'active' : ''
+                    locationIndex === index ? 'active' : ''
                   }`}
                   onClick={() => handleLocationClick(index)}
                 >
