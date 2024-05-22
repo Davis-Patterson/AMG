@@ -22,6 +22,8 @@
   --clr-banner: #c4c4c4c4;
   --clr-light-screen: #ffffffb2;
   --clr-dark: #292929;
+  --clr-break: #acacac;
+  --clr-section: #dfdfdf;
   --clr-progress: #d6d7dbc4;
   --clr-accent: #20bcfa;
   --clr-accent-dark: #1171ca;
@@ -44,6 +46,8 @@
   --clr-banner: #1a1a1a;
   --clr-light-screen: #080808c4;
   --clr-dark: #d0d0d0;
+  --clr-break: #979797;
+  --clr-section: #181818;
   --clr-progress: #747474d8;
   --clr-accent: #2cb0ec;
   --clr-accent-dark: #2091fa;

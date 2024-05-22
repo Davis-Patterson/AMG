@@ -25,6 +25,7 @@ import playBlack from 'assets/Utils/play-black.svg';
 import playWhite from 'assets/Utils/play-white.svg';
 import pipeBlack from 'assets/Utils/pipe-black.svg';
 import pipeWhite from 'assets/Utils/pipe-white.svg';
+import s6Engineer from 'assets/About/S6-engineer.jpg';
 import 'styles/About.css';
 
 function About() {
@@ -143,7 +144,7 @@ function About() {
           <div className='about-header-gradient-overlay' />
           <section className='about-header-text-container'>
             <div className='about-brand-container'>
-              <h1 className='about-brand-title'>ABOUT US</h1>
+              <h1 className='about-brand-title'>WHO WE ARE</h1>
               <p className='about-tagline'>
                 A collective of music lovers, inspired entrepreneurs,
                 game-changing creatives and passionate teams.
@@ -198,6 +199,26 @@ function About() {
           </div>
         </header>
         <Banner />
+        <section className='about-content-container'>
+          <div className='about-content'>
+            <div className='about-text-container'>
+              <p className='about-text-title'>ABOUT US</p>
+              <p className='about-text'>
+                We believe in creating workplace experiences that foster
+                original thinking, encourage collaboration, and promote career
+                growth.
+              </p>
+              <p className='about-text'>
+                Striving to become a more ethical, equitable, and
+                environmentally sustainable company is imperative to us, and
+                important to our longterm creative and commercial success.
+              </p>
+            </div>
+            <div className='about-img-container'>
+              <img src={s6Engineer} alt='s6 engineer' className='about-img' />
+            </div>
+          </div>
+        </section>
         <div className='gap' />
       </main>
     </>
