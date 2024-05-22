@@ -247,7 +247,7 @@ function About() {
               <p className='location-text-title'>LOCATIONS</p>
               <p className='location-text'>
                 Headquartered in the vibrant heart of New York City, a hub for
-                music and entertainment, our footprint extends globally, with
+                music and entertainment; our footprint extends globally, with
                 offices located strategically around the world. Fostering
                 innovation at the intersection of music and technology, each
                 location is dedicated to providing exceptional service and
