@@ -124,7 +124,7 @@
 .indicator {
   position: absolute;
   top: 50%;
-  right: -132px;
+  right: -92px;
   transform: translateY(-50%);
   z-index: 1;
   display: flex;
@@ -132,7 +132,7 @@
 }
 
 .indicator-line {
-  width: 120px;
+  width: 80px;
   height: 2px;
   background-color: var(--clr-dark);
 }
