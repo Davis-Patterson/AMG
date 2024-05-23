@@ -9,11 +9,11 @@ import News from 'components/News';
 import Artists from 'components/Artists';
 import About from 'components/About';
 import Contact from 'components/Contact';
+import Article from 'components/Utils/Article';
 import 'styles/App.css';
 
 function App() {
-  const { setShowSplash, contentVisible, isTop, setIsTop } =
-    useContext(AppContext);
+  const { setShowSplash } = useContext(AppContext);
 
   const location = useLocation();
 
@@ -38,6 +38,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/news' element={<News />} />
+          <Route path='/news/:id' element={<Article />} />
           <Route path='/artists' element={<Artists />} />
           <Route path='/about' element={<About />} />
           <Route path='/contact' element={<Contact />} />

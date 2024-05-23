@@ -19,4 +19,5 @@
   flex-direction: column;
   width: 100%;
   position: relative;
+  background-color: var(--clr-light);
 }

@@ -1,26 +1,25 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { AppContext } from 'contexts/AppContext';
-import { fetchNews } from 'utils/Api';
+import { useNavigate } from 'react-router-dom';
 import onAirImg from 'assets/News/on-air.jpg';
 import 'styles/News.css';
 
 function News() {
-  const { darkMode } = useContext(AppContext);
+  const { darkMode, news, setShowSplash } = useContext(AppContext);
 
-  const [news, setNews] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  useEffect(() => {
-    const getNews = async () => {
-      const newsData = await fetchNews();
-      setNews(newsData);
-    };
+  const handleLinkClick = (path) => {
+    setShowSplash(true);
 
-    getNews();
-  }, []);
+    setTimeout(() => {
+      navigate(path);
+    }, 200);
+  };
 
   return (
     <>
@@ -55,12 +54,22 @@ function News() {
                   className='news-article-image'
                 />
                 <div className='news-article-text'>
-                  <h2 className='news-article-title'>{article.title}</h2>
+                  <div
+                    onClick={() => handleLinkClick(`/news/${article.id}`)}
+                    className='news-article-title'
+                  >
+                    {article.title}
+                  </div>
                   <p className='news-article-desc'>{article.desc}</p>
                   <p className='news-article-author'>
                     By {article.author} on {article.date}
                   </p>
-                  <button className='read-more-button'>Read More</button>
+                  <div
+                    onClick={() => handleLinkClick(`/news/${article.id}`)}
+                    className='read-more-button'
+                  >
+                    Read More
+                  </div>
                 </div>
               </div>
             ))}

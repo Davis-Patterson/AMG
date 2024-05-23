@@ -123,9 +123,15 @@
 }
 
 .news-article-title {
-  font-size: 1.5em;
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 1.6em;
+  font-weight: 900;
   color: var(--clr-news-title);
   margin: 0px 0px 5px 0px;
+  cursor: pointer;
+}
+.news-article-title:hover {
+  color: var(--clr-news-title-dark);
 }
 
 .news-article-desc {
@@ -150,8 +156,9 @@
   font-weight: bold;
   margin: 5px 0px 0px 0px;
   width: 150px;
+  text-align: center;
 }
 
 .read-more-button:hover {
-  background-color: #b51720;
+  background-color: var(--clr-news-title-dark);
 }
