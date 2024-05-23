@@ -1,6 +1,8 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState, useContext, useCallback } from 'react';
 import { AppContext } from 'contexts/AppContext';
 import Banner from 'utils/Banner';
+import whoBlack from 'assets/About/who-we-are-black.svg';
+import whoWhite from 'assets/About/who-we-are-white.svg';
 import ampPic from 'assets/Studio/amp.jpg';
 import lexiconPic from 'assets/Studio/lexicon.jpg';
 import o2rPic from 'assets/Studio/o2r.jpg';
@@ -26,28 +28,22 @@ import playWhite from 'assets/Utils/play-white.svg';
 import pipeBlack from 'assets/Utils/pipe-black.svg';
 import pipeWhite from 'assets/Utils/pipe-white.svg';
 import skylineImg from 'assets/About/skyline.jpg';
-import nycImg from 'assets/About/nyc-img.jpg';
-import londonImg from 'assets/About/london-img.jpg';
-import berlinImg from 'assets/About/berlin-img.jpg';
-import tokyoImg from 'assets/About/tokyo-img.jpg';
-import sydneyImg from 'assets/About/sydney-img.jpg';
-import locationsData from 'utilities/Locations.json';
+import Locations from './Utils/Locations';
 import 'styles/About.css';
 
 function About() {
   const { darkMode } = useContext(AppContext);
 
-  const [picIndex, setPicIndex] = useState(1);
-  const [locationIndex, setLocationIndex] = useState(0);
+  const [currentPicIndex, setCurrentPicIndex] = useState(0);
+  const [nextPicIndex, setNextPicIndex] = useState(1);
   const [isPaused, setIsPaused] = useState(false);
   const [progress, setProgress] = useState(0);
-  const [locations, setLocations] = useState([]);
-
-  const [fade, setFade] = useState('in');
+  const [isFading, setIsFading] = useState(false);
+  const [transitionDirection, setTransitionDirection] = useState('forward');
 
   const studioPics = [
-    lexiconPic,
     o2rPic,
+    lexiconPic,
     outboard1Pic,
     outboard2Pic,
     prodsuite1Pic,
@@ -62,9 +58,7 @@ function About() {
     ampPic,
   ];
 
-  const locationPics = [nycImg, londonImg, berlinImg, tokyoImg, sydneyImg];
-  const locationNames = ['New York', 'London', 'Berlin', 'Tokyo', 'Sydney'];
-
+  const currentWho = darkMode ? whoWhite : whoBlack;
   const currentNext = darkMode ? nextWhite : nextBlack;
   const currentPrev = darkMode ? prevWhite : prevBlack;
   const currentPipe = darkMode ? pipeWhite : pipeBlack;
@@ -72,30 +66,22 @@ function About() {
   const currentPause = darkMode ? pauseWhite : pauseBlack;
   const currentPlayPause = isPaused ? currentPlay : currentPause;
 
-  const initialIndexValue = 1;
-  const lastPic = studioPics.length;
-
-  const autoProg = () => {
+  const autoProg = useCallback(() => {
     if (!isPaused) {
-      setFade('out');
+      setTransitionDirection('forward');
+      setIsFading(true);
       setProgress(0);
+      setNextPicIndex((currentPicIndex + 1) % studioPics.length);
       setTimeout(() => {
-        if (picIndex < lastPic) {
-          setPicIndex((index) => index + 1);
-        } else {
-          setPicIndex(initialIndexValue);
-        }
-        setFade('in');
-      }, 200);
+        setCurrentPicIndex((currentPicIndex + 1) % studioPics.length);
+        setIsFading(false);
+      }, 2000);
     }
-  };
+  }, [isPaused, currentPicIndex, studioPics.length]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
-
-  useEffect(() => {
-    setLocations(locationsData);
+    setNextPicIndex((currentPicIndex + 1) % studioPics.length);
   }, []);
 
   useEffect(() => {
@@ -116,44 +102,36 @@ function About() {
     return () => {
       clearInterval(progressTimer);
     };
-  }, [isPaused, autoProg]);
+  }, [isPaused, progress, autoProg]);
 
   const handlePrev = () => {
-    setFade('out');
+    setTransitionDirection('reverse');
+    setIsFading(true);
+    setProgress(0);
+    setNextPicIndex(
+      (currentPicIndex - 1 + studioPics.length) % studioPics.length
+    );
     setTimeout(() => {
-      setProgress(0);
-      setPicIndex((prevPicIndex) => {
-        if (prevPicIndex === 1) {
-          return lastPic;
-        } else {
-          return prevPicIndex - 1;
-        }
-      });
-      setFade('in');
-    }, 100);
+      setCurrentPicIndex(
+        (currentPicIndex - 1 + studioPics.length) % studioPics.length
+      );
+      setIsFading(false);
+    }, 2000);
   };
 
   const handleNext = () => {
-    setFade('out');
+    setTransitionDirection('forward');
+    setIsFading(true);
+    setProgress(0);
+    setNextPicIndex((currentPicIndex + 1) % studioPics.length);
     setTimeout(() => {
-      setProgress(0);
-      setPicIndex((prevPicIndex) => {
-        if (prevPicIndex === lastPic) {
-          return 1;
-        } else {
-          return prevPicIndex + 1;
-        }
-      });
-      setFade('in');
-    }, 100);
+      setCurrentPicIndex((currentPicIndex + 1) % studioPics.length);
+      setIsFading(false);
+    }, 2000);
   };
 
   const handlePause = () => {
     setIsPaused(!isPaused);
-  };
-
-  const handleLocationClick = (index) => {
-    setLocationIndex(index);
   };
 
   return (
@@ -172,15 +150,28 @@ function About() {
             </div>
           </section>
           <section className='about-header-pics-container'>
-            {studioPics.map((picSrc, index) => (
-              <img
-                key={index}
-                src={picSrc}
-                alt='studio pics'
-                className='about-header-pics'
-                style={{ display: picIndex === index + 1 ? 'block' : 'none' }}
-              />
-            ))}
+            <img
+              src={studioPics[currentPicIndex]}
+              alt='current studio pic'
+              className={`about-header-pics ${
+                isFading
+                  ? transitionDirection === 'forward'
+                    ? 'fade-out'
+                    : 'fade-out-reverse'
+                  : ''
+              }`}
+            />
+            <img
+              src={studioPics[nextPicIndex]}
+              alt='next studio pic'
+              className={`about-header-pics ${
+                isFading
+                  ? transitionDirection === 'forward'
+                    ? 'fade-in'
+                    : 'fade-in-reverse'
+                  : ''
+              }`}
+            />
           </section>
           <div className='progress-bar'>
             <div
@@ -196,13 +187,11 @@ function About() {
                 className='controls-button'
                 onClick={handlePrev}
               />
-              {/* <p className='controls-number'>{picIndex}</p> */}
               <img
                 src={currentPipe}
                 alt='prev button'
                 className='controls-pipe'
               />
-              {/* <p className='controls-number'>{lastPic}</p> */}
               <img
                 src={currentNext}
                 alt='prev button'
@@ -248,43 +237,7 @@ function About() {
             </div>
           </div>
         </section>
-        <section className='location-container'>
-          <div className='about-location'>
-            <div className='location-text-container'>
-              <p className='location-text-title'>LOCATIONS</p>
-              <p className='location-text'>
-                {locations[locationIndex] ? locations[locationIndex].desc : ''}
-              </p>
-            </div>
-            <div className='location-img-container'>
-              <div className='location-gradient' />
-              {locationPics.map((picSrc, index) => (
-                <img
-                  key={index}
-                  src={picSrc}
-                  alt='location img'
-                  className='location-img'
-                  style={{
-                    display: locationIndex === index ? 'block' : 'none',
-                  }}
-                />
-              ))}
-            </div>
-            <div className='location-button-container'>
-              {locationNames.map((location, index) => (
-                <div
-                  key={index}
-                  className={`location-button ${
-                    locationIndex === index ? 'active' : ''
-                  }`}
-                  onClick={() => handleLocationClick(index)}
-                >
-                  <p className='location-button-text'>{location}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+        <Locations />
         <div className='gap' />
       </main>
     </>

@@ -1,0 +1,130 @@
+.location-container {
+  width: 100%;
+  /* padding: 10px; */
+  background-color: var(--clr-section);
+}
+
+.about-location {
+  width: 100%;
+  height: 100%;
+  background-color: var(--clr-light);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  position: relative;
+}
+
+.location-text-container {
+  background-color: var(--clr-light);
+  width: 50%;
+  padding: 50px 0px 100px 20px;
+}
+
+.location-text-title {
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 3.5em;
+  line-height: 0.8;
+  color: var(--clr-dark);
+  margin: 0px 0px 0px 0px;
+  font-weight: 900;
+  padding: 60px 20px;
+  /* text-decoration: underline; */
+}
+
+.location-text {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.2em;
+  line-height: 1;
+  color: var(--clr-dark);
+  margin: 0px 0px 0px 0px;
+  font-weight: 400;
+  padding: 10px 100px 10px 20px;
+  width: 90%;
+}
+
+.location-img-container {
+  position: relative;
+  background-color: var(--clr-section);
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.location-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.location-gradient {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to left,
+    var(--clr-transparent),
+    var(--clr-light)
+  );
+  z-index: 2;
+}
+
+.location-button-container {
+  width: 100px;
+  height: 300px;
+  z-index: 50;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.location-button {
+  margin: 15px 10px;
+  padding: 8px 3px;
+  width: 150px;
+  border: 2px solid var(--clr-accent);
+  background-color: var(--clr-accent);
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 4px 6px var(--clr-shadow);
+  cursor: pointer;
+}
+.location-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 12px var(--clr-shadow2);
+  background-color: var(--clr-accent-light);
+  border: 2px solid var(--clr-accent-light);
+  transition: transform 0.4s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+.location-button:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 4px var(--clr-shadow2);
+  transition: transform 0.1s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+.location-button.active {
+  background-color: var(--clr-accent-dark);
+  border: 2px solid var(--clr-accent-dark);
+}
+
+.location-button-text {
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 1.5em;
+  line-height: 0.8;
+  font-weight: 800;
+  color: var(--clr-light);
+}
