@@ -1,6 +1,5 @@
 .location-container {
   width: 100%;
-  /* padding: 10px; */
   background-color: var(--clr-section);
 }
 
@@ -25,10 +24,9 @@
   font-size: 3.5em;
   line-height: 0.8;
   color: var(--clr-dark);
-  margin: 0px 0px 0px 0px;
+  margin: 0;
   font-weight: 900;
   padding: 60px 20px;
-  /* text-decoration: underline; */
 }
 
 .location-text {
@@ -36,7 +34,7 @@
   font-size: 1.2em;
   line-height: 1;
   color: var(--clr-dark);
-  margin: 0px 0px 0px 0px;
+  margin: 0;
   font-weight: 400;
   padding: 10px 100px 10px 20px;
   width: 90%;
@@ -91,6 +89,7 @@
 }
 
 .location-button {
+  position: relative;
   margin: 15px 10px;
   padding: 8px 3px;
   width: 150px;
@@ -103,6 +102,7 @@
   text-align: center;
   box-shadow: 0 4px 6px var(--clr-shadow);
   cursor: pointer;
+  z-index: 2;
 }
 .location-button:hover {
   transform: translateY(-2px);
@@ -116,9 +116,32 @@
   box-shadow: 0 2px 4px var(--clr-shadow2);
   transition: transform 0.1s ease-in-out, box-shadow 0.3s ease-in-out;
 }
-.location-button.active {
+.location-button.selected {
   background-color: var(--clr-accent-dark);
   border: 2px solid var(--clr-accent-dark);
+}
+
+.indicator {
+  position: absolute;
+  top: 50%;
+  right: -132px;
+  transform: translateY(-50%);
+  z-index: 1;
+  display: flex;
+  align-items: center;
+}
+
+.indicator-line {
+  width: 120px;
+  height: 2px;
+  background-color: var(--clr-dark);
+}
+
+.indicator-circle {
+  width: 10px;
+  height: 10px;
+  background-color: var(--clr-dark);
+  border-radius: 50%;
 }
 
 .location-button-text {
