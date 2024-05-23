@@ -54,11 +54,17 @@ function Locations() {
               <div
                 key={index}
                 className={`location-button ${
-                  locationIndex === index ? 'active' : ''
+                  locationIndex === index ? 'selected' : ''
                 }`}
                 onClick={() => handleLocationClick(index)}
               >
                 <p className='location-button-text'>{location}</p>
+                {locationIndex === index && (
+                  <div className='indicator'>
+                    <div className='indicator-line'></div>
+                    <div className='indicator-circle'></div>
+                  </div>
+                )}
               </div>
             ))}
           </div>
