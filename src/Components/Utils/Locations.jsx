@@ -1,8 +1,9 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { AppContext } from 'contexts/AppContext';
 import nycImg from 'assets/About/nyc-img.jpg';
+import miamiImg from 'assets/About/miami-img.jpg';
+import laImg from 'assets/About/la-img.jpg';
 import londonImg from 'assets/About/london-img.jpg';
-import berlinImg from 'assets/About/berlin-img.jpg';
 import tokyoImg from 'assets/About/tokyo-img.jpg';
 import sydneyImg from 'assets/About/sydney-img.jpg';
 import locationsData from 'utilities/Locations.json';
@@ -14,8 +15,22 @@ function Locations() {
   const [locationIndex, setLocationIndex] = useState(0);
   const [locations, setLocations] = useState([]);
 
-  const locationPics = [nycImg, londonImg, berlinImg, tokyoImg, sydneyImg];
-  const locationNames = ['New York', 'London', 'Berlin', 'Tokyo', 'Sydney'];
+  const locationPics = [
+    nycImg,
+    miamiImg,
+    laImg,
+    londonImg,
+    tokyoImg,
+    sydneyImg,
+  ];
+  const locationNames = [
+    'New York',
+    'Miami',
+    'Los Angeles',
+    'London',
+    'Tokyo',
+    'Sydney',
+  ];
 
   useEffect(() => {
     setLocations(locationsData);

@@ -1,0 +1,42 @@
+[
+  {
+    "id": 2,
+    "date": "5/22/2024",
+    "title": "AMG website has been deployed.",
+    "desc": "The new website for Aurum Management Group, which has been in development since last week, has officially been deployed to Netlify. This is a major step towards the website being completed and available to the public.",
+    "image": "https://i.imgur.com/1MEIQsi.jpeg",
+    "author": "John Smith"
+  },
+  {
+    "id": 3,
+    "date": "5/15/2024",
+    "title": "New Album Release by Star Artist",
+    "desc": "AMG's star artist, DJ Moonlight, has released a new album that is already topping charts worldwide. The album features collaborations with several high-profile artists.",
+    "image": "https://i.imgur.com/FnyV0lA.jpeg",
+    "author": "Alice Johnson"
+  },
+  {
+    "id": 4,
+    "date": "5/10/2024",
+    "title": "AMG Annual Music Festival Announced",
+    "desc": "AMG has announced the dates and lineup for its annual music festival. The event will feature performances from top artists and promises to be an unforgettable experience.",
+    "image": "https://i.imgur.com/uxZJj8z.jpeg",
+    "author": "Bob Lee"
+  },
+  {
+    "id": 5,
+    "date": "5/5/2024",
+    "title": "Exclusive Interview with Rising Star",
+    "desc": "We sat down with rising star Lily Starling to talk about her journey, inspirations, and what's next for her career. Read the full interview here.",
+    "image": "https://i.imgur.com/g0UZimv.jpeg",
+    "author": "Susan Parker"
+  },
+  {
+    "id": 1,
+    "date": "4/20/2024",
+    "title": "Aerotype Productions signed to major deal.",
+    "desc": "Aerotype Productions has signed a major deal with Aurum Management Group. Rumor is spreading that they are also making a major motion picture about his life.",
+    "image": "https://i.imgur.com/uJHbdvZ.png",
+    "author": "Jane Doe"
+  }
+]

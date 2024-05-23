@@ -4,12 +4,16 @@
     "desc": "Headquartered in the vibrant heart of New York City, the epicenter of music and entertainment, our global footprint includes strategically located offices worldwide. By fostering innovation at the intersection of music and technology, each location is dedicated to providing exceptional service and support, ensuring we remain at the forefront of the industry."
   },
   {
-    "id": "London",
-    "desc": "Located in the dynamic and culturally rich city of London, our office is strategically positioned in one of the world's leading hubs for music and entertainment. With a focus on driving innovation at the intersection of music and technology, our London team is committed to delivering exceptional service and support, ensuring we lead the industry globally."
+    "id": "Miami",
+    "desc": "Situated in the vibrant and culturally diverse city of Miami, our office thrives in one of the most influential music hubs in the world. Known for its rich blend of musical genres and a thriving nightlife, Miami is a breeding ground for innovation at the intersection of music and technology. Our Miami team is dedicated to providing exceptional service and support, ensuring we remain at the forefront of the industry within this dynamic landscape."
   },
   {
-    "id": "Berlin",
-    "desc": "Situated in the vibrant and creative city of Berlin, our office thrives in a renowned center for music and artistic expression. By fostering cutting-edge advancements in music and technology, our Berlin team is dedicated to providing unparalleled service and support, maintaining our position at the forefront of the industry."
+    "id": "Los Angeles",
+    "desc": "Based in the dynamic and influential city of Los Angeles, our office is located in the heart of the entertainment industry. Renowned for its legendary music scene and home to countless iconic artists and venues, Los Angeles is a pivotal center for musical innovation and creativity. Our LA team is committed to delivering exceptional service and support, ensuring we stay ahead in this ever-evolving industry."
+  },
+  {
+    "id": "London",
+    "desc": "Located in the dynamic and culturally rich city of London, our office is strategically positioned in one of the world's leading hubs for music and entertainment. With a focus on driving innovation at the intersection of music and technology, our London team is committed to delivering exceptional service and support, ensuring we lead the industry globally."
   },
   {
     "id": "Tokyo",
