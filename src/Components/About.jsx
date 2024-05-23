@@ -28,7 +28,7 @@ import playWhite from 'assets/Utils/play-white.svg';
 import pipeBlack from 'assets/Utils/pipe-black.svg';
 import pipeWhite from 'assets/Utils/pipe-white.svg';
 import skylineImg from 'assets/About/skyline.jpg';
-import Locations from './Utils/Locations';
+import Locations from 'utils/Locations';
 import 'styles/About.css';
 
 function About() {
