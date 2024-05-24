@@ -9,6 +9,13 @@ function News() {
 
   const navigate = useNavigate();
 
+  const formatTitleForURL = (title) => {
+    return title
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/-+$/, '');
+  };
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -55,7 +62,13 @@ function News() {
                 />
                 <div className='news-article-text'>
                   <div
-                    onClick={() => handleLinkClick(`/news/${article.id}`)}
+                    onClick={() =>
+                      handleLinkClick(
+                        `/news/${article.id}/${formatTitleForURL(
+                          article.title
+                        )}`
+                      )
+                    }
                     className='news-article-title'
                   >
                     {article.title}
@@ -65,7 +78,13 @@ function News() {
                     By {article.author} on {article.date}
                   </p>
                   <div
-                    onClick={() => handleLinkClick(`/news/${article.id}`)}
+                    onClick={() =>
+                      handleLinkClick(
+                        `/news/${article.id}/${formatTitleForURL(
+                          article.title
+                        )}`
+                      )
+                    }
                     className='read-more-button'
                   >
                     Read More

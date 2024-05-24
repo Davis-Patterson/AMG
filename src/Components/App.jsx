@@ -38,7 +38,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/news' element={<News />} />
-          <Route path='/news/:id' element={<Article />} />
+          <Route path='/news/:id/:title' element={<Article />} />
           <Route path='/artists' element={<Artists />} />
           <Route path='/about' element={<About />} />
           <Route path='/contact' element={<Contact />} />
