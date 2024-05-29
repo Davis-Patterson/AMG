@@ -21,3 +21,46 @@
   position: relative;
   background-color: var(--clr-light);
 }
+
+.controls-container {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  padding: 5px;
+  border-radius: 20px;
+  background-color: var(--clr-screen);
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.controls-number {
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 1.8em;
+  font-weight: 500;
+  line-height: 0.9;
+  color: var(--clr-dark);
+}
+
+.controls-button {
+  height: 25px;
+  cursor: pointer;
+  margin: 3px 5px;
+  z-index: 30;
+  transform: scale 0.2s ease-in-out;
+}
+.controls-button:hover {
+  transform: scale(104%);
+}
+.controls-button:active {
+  transform: scale(98%);
+}
+
+.controls-pipe {
+  height: 18px;
+  margin: 3px 5px;
+}

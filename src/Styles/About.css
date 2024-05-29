@@ -97,11 +97,6 @@
   text-align: left;
 }
 
-.who-we-are {
-  width: 400px;
-  margin: 0px 0px 0px 50px;
-}
-
 .about-tagline {
   font-family: 'Titillium Web', sans-serif;
   font-size: 1.4em;
@@ -167,50 +162,6 @@
   width: 0%;
   transition: width 0.1s linear;
   border-radius: 4px;
-}
-
-.controls-container {
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
-  padding: 5px;
-  border-radius: 20px;
-  background-color: var(--clr-screen);
-  /* border: 1px solid var(--clr-light); */
-}
-
-.controls {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-}
-
-.controls-number {
-  font-family: 'Titillium Web', sans-serif;
-  font-size: 1.8em;
-  font-weight: 500;
-  line-height: 0.9;
-  color: var(--clr-dark);
-}
-
-.controls-button {
-  height: 30px;
-  cursor: pointer;
-  margin: 3px 8px;
-  z-index: 30;
-  transform: scale 0.2s ease-in-out;
-}
-.controls-button:hover {
-  transform: scale(104%);
-}
-.controls-button:active {
-  transform: scale(98%);
-}
-
-.controls-pipe {
-  height: 20px;
-  margin: 3px 8px;
 }
 
 .about-content-container {
