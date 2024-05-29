@@ -1,22 +1,6 @@
 import React, { useEffect, useState, useContext, useCallback } from 'react';
 import { AppContext } from 'contexts/AppContext';
 import Banner from 'utils/Banner';
-import whoBlack from 'assets/About/who-we-are-black.svg';
-import whoWhite from 'assets/About/who-we-are-white.svg';
-import ampPic from 'assets/Studio/amp.jpg';
-import lexiconPic from 'assets/Studio/lexicon.jpg';
-import o2rPic from 'assets/Studio/o2r.jpg';
-import outboard1Pic from 'assets/Studio/outboard1.jpg';
-import outboard2Pic from 'assets/Studio/outboard2.jpg';
-import prodsuite1Pic from 'assets/Studio/prodsuite1.jpg';
-import prodsuite2Pic from 'assets/Studio/prodsuite2.jpg';
-import s6protoolsPic from 'assets/Studio/s6protools.jpg';
-import ssl1Pic from 'assets/Studio/ssl1.jpg';
-import ssl2Pic from 'assets/Studio/ssl2.jpg';
-import sslcloseupPic from 'assets/Studio/sslcloseup.jpg';
-import sslpatchbayPic from 'assets/Studio/sslpatchbay.jpg';
-import suite1Pic from 'assets/Studio/suite1.jpg';
-import suite2Pic from 'assets/Studio/suite2.jpg';
 import nextBlack from 'assets/Utils/next-black.svg';
 import nextWhite from 'assets/Utils/next-white.svg';
 import prevBlack from 'assets/Utils/prev-black.svg';
@@ -32,7 +16,7 @@ import Locations from 'utils/Locations';
 import 'styles/About.css';
 
 function About() {
-  const { darkMode } = useContext(AppContext);
+  const { darkMode, studioData } = useContext(AppContext);
 
   const [currentPicIndex, setCurrentPicIndex] = useState(0);
   const [nextPicIndex, setNextPicIndex] = useState(1);
@@ -41,24 +25,6 @@ function About() {
   const [isFading, setIsFading] = useState(false);
   const [transitionDirection, setTransitionDirection] = useState('forward');
 
-  const studioPics = [
-    o2rPic,
-    lexiconPic,
-    outboard1Pic,
-    outboard2Pic,
-    prodsuite1Pic,
-    prodsuite2Pic,
-    s6protoolsPic,
-    ssl1Pic,
-    ssl2Pic,
-    sslcloseupPic,
-    sslpatchbayPic,
-    suite1Pic,
-    suite2Pic,
-    ampPic,
-  ];
-
-  const currentWho = darkMode ? whoWhite : whoBlack;
   const currentNext = darkMode ? nextWhite : nextBlack;
   const currentPrev = darkMode ? prevWhite : prevBlack;
   const currentPipe = darkMode ? pipeWhite : pipeBlack;
@@ -71,17 +37,17 @@ function About() {
       setTransitionDirection('forward');
       setIsFading(true);
       setProgress(0);
-      setNextPicIndex((currentPicIndex + 1) % studioPics.length);
+      setNextPicIndex((currentPicIndex + 1) % studioData.length);
       setTimeout(() => {
-        setCurrentPicIndex((currentPicIndex + 1) % studioPics.length);
+        setCurrentPicIndex((currentPicIndex + 1) % studioData.length);
         setIsFading(false);
       }, 2000);
     }
-  }, [isPaused, currentPicIndex, studioPics.length]);
+  }, [isPaused, currentPicIndex, studioData.length]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    setNextPicIndex((currentPicIndex + 1) % studioPics.length);
+    setNextPicIndex((currentPicIndex + 1) % studioData.length);
   }, []);
 
   useEffect(() => {
@@ -109,11 +75,11 @@ function About() {
     setIsFading(true);
     setProgress(0);
     setNextPicIndex(
-      (currentPicIndex - 1 + studioPics.length) % studioPics.length
+      (currentPicIndex - 1 + studioData.length) % studioData.length
     );
     setTimeout(() => {
       setCurrentPicIndex(
-        (currentPicIndex - 1 + studioPics.length) % studioPics.length
+        (currentPicIndex - 1 + studioData.length) % studioData.length
       );
       setIsFading(false);
     }, 2000);
@@ -123,9 +89,9 @@ function About() {
     setTransitionDirection('forward');
     setIsFading(true);
     setProgress(0);
-    setNextPicIndex((currentPicIndex + 1) % studioPics.length);
+    setNextPicIndex((currentPicIndex + 1) % studioData.length);
     setTimeout(() => {
-      setCurrentPicIndex((currentPicIndex + 1) % studioPics.length);
+      setCurrentPicIndex((currentPicIndex + 1) % studioData.length);
       setIsFading(false);
     }, 2000);
   };
@@ -151,7 +117,7 @@ function About() {
           </section>
           <section className='about-header-pics-container'>
             <img
-              src={studioPics[currentPicIndex]}
+              src={studioData[currentPicIndex].img}
               alt='current studio pic'
               className={`about-header-pics ${
                 isFading
@@ -162,7 +128,7 @@ function About() {
               }`}
             />
             <img
-              src={studioPics[nextPicIndex]}
+              src={studioData[nextPicIndex].img}
               alt='next studio pic'
               className={`about-header-pics ${
                 isFading
