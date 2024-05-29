@@ -2,19 +2,21 @@ import React, { useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { AppContext } from 'contexts/AppContext';
 import onAirImg from 'assets/News/on-air.jpg';
-import 'styles/Article.css';
+import 'styles/Artist.css';
 
-function Article() {
-  const { title } = useParams();
-  const { news, formatTitleForURL } = useContext(AppContext);
+function Artist() {
+  const { name } = useParams();
+  const { artistsData, formatTitleForURL } = useContext(AppContext);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const article = news.find((item) => formatTitleForURL(item.title) === title);
+  const artist = artistsData.find(
+    (artist) => formatTitleForURL(artist.name) === name
+  );
 
-  if (!article) {
+  if (!artist) {
     return (
       <main className='page-container' id='page-container'>
         <header className='news-header' id='about-header'>
@@ -24,7 +26,7 @@ function Article() {
             <div className='news-title-container'>
               <h1 className='news-title'>Not Found</h1>
               <p className='news-tagline'>
-                Unfortunately, we cannot find the article that you're looking
+                Unfortunately, we cannot find the artist that you're looking
                 for.
               </p>
             </div>
@@ -43,31 +45,31 @@ function Article() {
 
   return (
     <main className='page-container' id='page-container'>
-      <header className='article-header' id='article-header'>
-        <div className='article-header-gradient-overlay' />
-        <section className='article-header-pics-container'>
+      <header className='artist-header' id='artist-header'>
+        <div className='artist-header-gradient-overlay' />
+        <section className='artist-header-pics-container'>
           <img
-            src={article.image}
-            alt={article.title}
-            className='article-header-pics'
+            src={artist.img}
+            alt={artist.name}
+            className='artist-header-pics'
           />
         </section>
       </header>
-      <div className='article-detail-container'>
-        <div className='article-header-content'>
+      <div className='artist-detail-container'>
+        <div className='artist-header-content'>
           <img
-            src={article.image}
-            alt={article.title}
-            className='news-article-image'
+            src={artist.img}
+            alt={artist.name}
+            className='news-artist-image'
           />
-          <div className='article-title-container'>
-            <h2 className='article-title'>{article.title}</h2>
-            <p className='article-author'>By {article.author}</p>
-            <p className='article-author'>{article.date}</p>
+          <div className='artist-title-container'>
+            <h2 className='artist-title'>{artist.name}</h2>
+            {/* <p className='artist-info'>By {artist.name}</p>
+            <p className='artist-info'>{artist.name}</p> */}
           </div>
         </div>
-        <div className='article-text-content'>
-          <p className='article-desc'>{article.desc}</p>
+        <div className='artist-text-content'>
+          <p className='artist-bio'>{artist.bio}</p>
         </div>
       </div>
       <div className='gap' />
@@ -75,4 +77,4 @@ function Article() {
   );
 }
 
-export default Article;
+export default Artist;

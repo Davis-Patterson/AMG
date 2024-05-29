@@ -5,16 +5,10 @@ import onAirImg from 'assets/News/on-air.jpg';
 import 'styles/News.css';
 
 function News() {
-  const { darkMode, news, setShowSplash } = useContext(AppContext);
+  const { darkMode, news, setShowSplash, formatTitleForURL } =
+    useContext(AppContext);
 
   const navigate = useNavigate();
-
-  const formatTitleForURL = (title) => {
-    return title
-      .toLowerCase()
-      .replace(/[^a-z0-9]+/g, '-')
-      .replace(/-+$/, '');
-  };
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -64,9 +58,7 @@ function News() {
                   <div
                     onClick={() =>
                       handleLinkClick(
-                        `/news/${article.id}/${formatTitleForURL(
-                          article.title
-                        )}`
+                        `/news/${formatTitleForURL(article.title)}`
                       )
                     }
                     className='news-article-title'
@@ -80,9 +72,7 @@ function News() {
                   <div
                     onClick={() =>
                       handleLinkClick(
-                        `/news/${article.id}/${formatTitleForURL(
-                          article.title
-                        )}`
+                        `/news/${formatTitleForURL(article.title)}`
                       )
                     }
                     className='read-more-button'

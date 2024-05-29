@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useContext, useCallback } from 'react';
 import { AppContext } from 'contexts/AppContext';
+import { useNavigate } from 'react-router-dom';
 import Banner from 'utils/Banner';
 import nextBlack from 'assets/Utils/next-black.svg';
 import nextWhite from 'assets/Utils/next-white.svg';
@@ -14,10 +15,17 @@ import pipeWhite from 'assets/Utils/pipe-white.svg';
 import 'styles/Artists.css';
 
 function Artists() {
-  const { darkMode, artistsData } = useContext(AppContext);
+  const {
+    darkMode,
+    artistsData,
+    setShowSplash,
+    currentArtistsPicIndex,
+    setCurrentArtistsPicIndex,
+    nextArtistsPicIndex,
+    setNextArtistsPicIndex,
+    formatTitleForURL,
+  } = useContext(AppContext);
 
-  const [currentPicIndex, setCurrentPicIndex] = useState(0);
-  const [nextPicIndex, setNextPicIndex] = useState(1);
   const [isPaused, setIsPaused] = useState(false);
   const [progress, setProgress] = useState(0);
   const [isFading, setIsFading] = useState(false);
@@ -30,22 +38,34 @@ function Artists() {
   const currentPause = darkMode ? pauseWhite : pauseBlack;
   const currentPlayPause = isPaused ? currentPlay : currentPause;
 
+  const navigate = useNavigate();
+
+  const handleLinkClick = (path) => {
+    setShowSplash(true);
+
+    setTimeout(() => {
+      navigate(path);
+    }, 200);
+  };
+
   const autoProg = useCallback(() => {
     if (!isPaused) {
       setTransitionDirection('forward');
       setIsFading(true);
       setProgress(0);
-      setNextPicIndex((currentPicIndex + 1) % artistsData.length);
+      setNextArtistsPicIndex((currentArtistsPicIndex + 1) % artistsData.length);
       setTimeout(() => {
-        setCurrentPicIndex((currentPicIndex + 1) % artistsData.length);
+        setCurrentArtistsPicIndex(
+          (currentArtistsPicIndex + 1) % artistsData.length
+        );
         setIsFading(false);
       }, 2000);
     }
-  }, [isPaused, currentPicIndex, artistsData.length]);
+  }, [isPaused, currentArtistsPicIndex, artistsData.length]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    setNextPicIndex((currentPicIndex + 1) % artistsData.length);
+    setNextArtistsPicIndex((currentArtistsPicIndex + 1) % artistsData.length);
   }, []);
 
   useEffect(() => {
@@ -72,12 +92,12 @@ function Artists() {
     setTransitionDirection('reverse');
     setIsFading(true);
     setProgress(0);
-    setNextPicIndex(
-      (currentPicIndex - 1 + artistsData.length) % artistsData.length
+    setNextArtistsPicIndex(
+      (currentArtistsPicIndex - 1 + artistsData.length) % artistsData.length
     );
     setTimeout(() => {
-      setCurrentPicIndex(
-        (currentPicIndex - 1 + artistsData.length) % artistsData.length
+      setCurrentArtistsPicIndex(
+        (currentArtistsPicIndex - 1 + artistsData.length) % artistsData.length
       );
       setIsFading(false);
     }, 2000);
@@ -87,9 +107,11 @@ function Artists() {
     setTransitionDirection('forward');
     setIsFading(true);
     setProgress(0);
-    setNextPicIndex((currentPicIndex + 1) % artistsData.length);
+    setNextArtistsPicIndex((currentArtistsPicIndex + 1) % artistsData.length);
     setTimeout(() => {
-      setCurrentPicIndex((currentPicIndex + 1) % artistsData.length);
+      setCurrentArtistsPicIndex(
+        (currentArtistsPicIndex + 1) % artistsData.length
+      );
       setIsFading(false);
     }, 2000);
   };
@@ -115,7 +137,7 @@ function Artists() {
           </section>
           <section className='artists-header-pics-container'>
             <img
-              src={artistsData[currentPicIndex].img}
+              src={artistsData[currentArtistsPicIndex].img}
               alt='current studio pic'
               className={`artists-header-pics ${
                 isFading
@@ -126,7 +148,7 @@ function Artists() {
               }`}
             />
             <img
-              src={artistsData[nextPicIndex].img}
+              src={artistsData[nextArtistsPicIndex].img}
               alt='next studio pic'
               className={`artists-header-pics ${
                 isFading
@@ -175,7 +197,13 @@ function Artists() {
         <section className='artists-content-container'>
           <div className='artists-content'>
             {artistsData.map((artist, index) => (
-              <div key={index} className='artist-card'>
+              <div
+                key={index}
+                className='artist-card'
+                onClick={() =>
+                  handleLinkClick(`/artists/${formatTitleForURL(artist.name)}`)
+                }
+              >
                 <img
                   src={artist.img}
                   alt={artist.name}
