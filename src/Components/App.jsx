@@ -10,6 +10,7 @@ import Artists from 'components/Artists';
 import About from 'components/About';
 import Contact from 'components/Contact';
 import Article from 'components/Utils/Article';
+import Artist from 'components/Utils/Artist';
 import 'styles/App.css';
 
 function App() {
@@ -38,8 +39,9 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/news' element={<News />} />
-          <Route path='/news/:id/:title' element={<Article />} />
+          <Route path='/news/:title' element={<Article />} />
           <Route path='/artists' element={<Artists />} />
+          <Route path='/artists/:name' element={<Artist />} />
           <Route path='/about' element={<About />} />
           <Route path='/contact' element={<Contact />} />
         </Routes>

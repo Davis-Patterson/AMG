@@ -11,6 +11,12 @@ export const AppProvider = ({ children }) => {
   const [dropdown, setDropdown] = useState(false);
   const [news, setNews] = useState([]);
 
+  const [currentAboutPicIndex, setCurrentAboutPicIndex] = useState(0);
+  const [nextAboutPicIndex, setNextAboutPicIndex] = useState(1);
+
+  const [currentArtistsPicIndex, setCurrentArtistsPicIndex] = useState(0);
+  const [nextArtistsPicIndex, setNextArtistsPicIndex] = useState(1);
+
   const studioData = [
     { name: 'O2R', img: 'https://i.imgur.com/IhLt3Yk.jpeg' },
     { name: 'Lexicon', img: 'https://i.imgur.com/b3os6DI.jpeg' },
@@ -30,10 +36,29 @@ export const AppProvider = ({ children }) => {
   ];
 
   const artistsData = [
-    { name: 'Aerotype Productions', img: 'https://i.imgur.com/uJHbdvZ.png' },
-    { name: 'DJ Moonlight', img: 'https://i.imgur.com/FnyV0lA.jpeg' },
-    { name: 'Lily Sterling', img: 'https://i.imgur.com/g0UZimv.jpeg' },
+    {
+      name: 'Aerotype Productions',
+      img: 'https://i.imgur.com/uJHbdvZ.png',
+      bio: 'This is a test bio that will be filled in later.',
+    },
+    {
+      name: 'DJ Moonlight',
+      img: 'https://i.imgur.com/FnyV0lA.jpeg',
+      bio: 'This is a test bio that will be filled in later.',
+    },
+    {
+      name: 'Lily Sterling',
+      img: 'https://i.imgur.com/g0UZimv.jpeg',
+      bio: 'This is a test bio that will be filled in later.',
+    },
   ];
+
+  const formatTitleForURL = (name) => {
+    return name
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/-+$/, '');
+  };
 
   useEffect(() => {
     const getNews = async () => {
@@ -56,8 +81,17 @@ export const AppProvider = ({ children }) => {
         dropdown,
         setDropdown,
         news,
+        currentAboutPicIndex,
+        setCurrentAboutPicIndex,
+        nextAboutPicIndex,
+        setNextAboutPicIndex,
+        currentArtistsPicIndex,
+        setCurrentArtistsPicIndex,
+        nextArtistsPicIndex,
+        setNextArtistsPicIndex,
         studioData,
         artistsData,
+        formatTitleForURL,
       }}
     >
       {children}

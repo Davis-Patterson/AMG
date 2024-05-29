@@ -16,10 +16,15 @@ import Locations from 'utils/Locations';
 import 'styles/About.css';
 
 function About() {
-  const { darkMode, studioData } = useContext(AppContext);
+  const {
+    darkMode,
+    studioData,
+    currentAboutPicIndex,
+    setCurrentAboutPicIndex,
+    nextAboutPicIndex,
+    setNextAboutPicIndex,
+  } = useContext(AppContext);
 
-  const [currentPicIndex, setCurrentPicIndex] = useState(0);
-  const [nextPicIndex, setNextPicIndex] = useState(1);
   const [isPaused, setIsPaused] = useState(false);
   const [progress, setProgress] = useState(0);
   const [isFading, setIsFading] = useState(false);
@@ -37,17 +42,17 @@ function About() {
       setTransitionDirection('forward');
       setIsFading(true);
       setProgress(0);
-      setNextPicIndex((currentPicIndex + 1) % studioData.length);
+      setNextAboutPicIndex((currentAboutPicIndex + 1) % studioData.length);
       setTimeout(() => {
-        setCurrentPicIndex((currentPicIndex + 1) % studioData.length);
+        setCurrentAboutPicIndex((currentAboutPicIndex + 1) % studioData.length);
         setIsFading(false);
       }, 2000);
     }
-  }, [isPaused, currentPicIndex, studioData.length]);
+  }, [isPaused, currentAboutPicIndex, studioData.length]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    setNextPicIndex((currentPicIndex + 1) % studioData.length);
+    setNextAboutPicIndex((currentAboutPicIndex + 1) % studioData.length);
   }, []);
 
   useEffect(() => {
@@ -74,12 +79,12 @@ function About() {
     setTransitionDirection('reverse');
     setIsFading(true);
     setProgress(0);
-    setNextPicIndex(
-      (currentPicIndex - 1 + studioData.length) % studioData.length
+    setNextAboutPicIndex(
+      (currentAboutPicIndex - 1 + studioData.length) % studioData.length
     );
     setTimeout(() => {
-      setCurrentPicIndex(
-        (currentPicIndex - 1 + studioData.length) % studioData.length
+      setCurrentAboutPicIndex(
+        (currentAboutPicIndex - 1 + studioData.length) % studioData.length
       );
       setIsFading(false);
     }, 2000);
@@ -89,9 +94,9 @@ function About() {
     setTransitionDirection('forward');
     setIsFading(true);
     setProgress(0);
-    setNextPicIndex((currentPicIndex + 1) % studioData.length);
+    setNextAboutPicIndex((currentAboutPicIndex + 1) % studioData.length);
     setTimeout(() => {
-      setCurrentPicIndex((currentPicIndex + 1) % studioData.length);
+      setCurrentAboutPicIndex((currentAboutPicIndex + 1) % studioData.length);
       setIsFading(false);
     }, 2000);
   };
@@ -117,7 +122,7 @@ function About() {
           </section>
           <section className='about-header-pics-container'>
             <img
-              src={studioData[currentPicIndex].img}
+              src={studioData[currentAboutPicIndex].img}
               alt='current studio pic'
               className={`about-header-pics ${
                 isFading
@@ -128,7 +133,7 @@ function About() {
               }`}
             />
             <img
-              src={studioData[nextPicIndex].img}
+              src={studioData[nextAboutPicIndex].img}
               alt='next studio pic'
               className={`about-header-pics ${
                 isFading
