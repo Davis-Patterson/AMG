@@ -19,8 +19,8 @@ function About() {
   const {
     darkMode,
     studioData,
-    currentAboutPicIndex,
-    setCurrentAboutPicIndex,
+    aboutPicIndex,
+    setAboutPicIndex,
     nextAboutPicIndex,
     setNextAboutPicIndex,
   } = useContext(AppContext);
@@ -39,20 +39,13 @@ function About() {
 
   const autoProg = useCallback(() => {
     if (!isPaused) {
-      setTransitionDirection('forward');
-      setIsFading(true);
       setProgress(0);
-      setNextAboutPicIndex((currentAboutPicIndex + 1) % studioData.length);
-      setTimeout(() => {
-        setCurrentAboutPicIndex((currentAboutPicIndex + 1) % studioData.length);
-        setIsFading(false);
-      }, 2000);
+      setAboutPicIndex((aboutPicIndex + 1) % studioData.length);
     }
-  }, [isPaused, currentAboutPicIndex, studioData.length]);
+  }, [isPaused, aboutPicIndex, studioData.length]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    setNextAboutPicIndex((currentAboutPicIndex + 1) % studioData.length);
   }, []);
 
   useEffect(() => {
@@ -76,29 +69,15 @@ function About() {
   }, [isPaused, progress, autoProg]);
 
   const handlePrev = () => {
-    setTransitionDirection('reverse');
-    setIsFading(true);
     setProgress(0);
-    setNextAboutPicIndex(
-      (currentAboutPicIndex - 1 + studioData.length) % studioData.length
+    setAboutPicIndex(
+      (aboutPicIndex - 1 + studioData.length) % studioData.length
     );
-    setTimeout(() => {
-      setCurrentAboutPicIndex(
-        (currentAboutPicIndex - 1 + studioData.length) % studioData.length
-      );
-      setIsFading(false);
-    }, 2000);
   };
 
   const handleNext = () => {
-    setTransitionDirection('forward');
-    setIsFading(true);
     setProgress(0);
-    setNextAboutPicIndex((currentAboutPicIndex + 1) % studioData.length);
-    setTimeout(() => {
-      setCurrentAboutPicIndex((currentAboutPicIndex + 1) % studioData.length);
-      setIsFading(false);
-    }, 2000);
+    setAboutPicIndex((aboutPicIndex + 1) % studioData.length);
   };
 
   const handlePause = () => {
@@ -110,7 +89,6 @@ function About() {
       <main className='page-container' id='page-container'>
         <header className='about-header' id='about-header'>
           <div className='about-header-gradient-overlay' />
-          <div className='about-header-gradient-overlay' />
           <section className='about-header-text-container'>
             <div className='about-brand-container'>
               <h1 className='about-brand-title'>WHO WE ARE</h1>
@@ -121,28 +99,20 @@ function About() {
             </div>
           </section>
           <section className='about-header-pics-container'>
-            <img
-              src={studioData[currentAboutPicIndex].img}
-              alt='current studio pic'
-              className={`about-header-pics ${
-                isFading
-                  ? transitionDirection === 'forward'
-                    ? 'fade-out'
-                    : 'fade-out-reverse'
-                  : ''
-              }`}
-            />
-            <img
-              src={studioData[nextAboutPicIndex].img}
-              alt='next studio pic'
-              className={`about-header-pics ${
-                isFading
-                  ? transitionDirection === 'forward'
-                    ? 'fade-in'
-                    : 'fade-in-reverse'
-                  : ''
-              }`}
-            />
+            <div
+              className='about-header-pics-wrapper'
+              style={{ transform: `translateX(${-100 * aboutPicIndex}%)` }}
+            >
+              {studioData.map((img, index) => (
+                <div key={index} className='about-header-pic-wrapper'>
+                  <img
+                    src={img.img}
+                    alt={img.name}
+                    className='about-header-pic'
+                  />
+                </div>
+              ))}
+            </div>
           </section>
           <div className='progress-bar'>
             <div
@@ -158,20 +128,16 @@ function About() {
                 className='controls-button'
                 onClick={handlePrev}
               />
-              <img
-                src={currentPipe}
-                alt='prev button'
-                className='controls-pipe'
-              />
+              <img src={currentPipe} alt='pipe' className='controls-pipe' />
               <img
                 src={currentNext}
-                alt='prev button'
+                alt='next button'
                 className='controls-button'
                 onClick={handleNext}
               />
               <img
                 src={currentPlayPause}
-                alt='prev button'
+                alt='play/pause button'
                 className='controls-button'
                 onClick={handlePause}
               />

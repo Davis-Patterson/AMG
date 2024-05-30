@@ -19,17 +19,13 @@ function Artists() {
     darkMode,
     artistsData,
     setShowSplash,
-    currentArtistsPicIndex,
-    setCurrentArtistsPicIndex,
-    nextArtistsPicIndex,
-    setNextArtistsPicIndex,
+    artistsPicIndex,
+    setArtistsPicIndex,
     formatTitleForURL,
   } = useContext(AppContext);
 
   const [isPaused, setIsPaused] = useState(false);
   const [progress, setProgress] = useState(0);
-  const [isFading, setIsFading] = useState(false);
-  const [transitionDirection, setTransitionDirection] = useState('forward');
 
   const currentNext = darkMode ? nextWhite : nextBlack;
   const currentPrev = darkMode ? prevWhite : prevBlack;
@@ -50,22 +46,13 @@ function Artists() {
 
   const autoProg = useCallback(() => {
     if (!isPaused) {
-      setTransitionDirection('forward');
-      setIsFading(true);
       setProgress(0);
-      setNextArtistsPicIndex((currentArtistsPicIndex + 1) % artistsData.length);
-      setTimeout(() => {
-        setCurrentArtistsPicIndex(
-          (currentArtistsPicIndex + 1) % artistsData.length
-        );
-        setIsFading(false);
-      }, 2000);
+      setArtistsPicIndex((artistsPicIndex + 1) % artistsData.length);
     }
-  }, [isPaused, currentArtistsPicIndex, artistsData.length]);
+  }, [isPaused, artistsPicIndex, artistsData.length]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    setNextArtistsPicIndex((currentArtistsPicIndex + 1) % artistsData.length);
   }, []);
 
   useEffect(() => {
@@ -89,31 +76,15 @@ function Artists() {
   }, [isPaused, progress, autoProg]);
 
   const handlePrev = () => {
-    setTransitionDirection('reverse');
-    setIsFading(true);
     setProgress(0);
-    setNextArtistsPicIndex(
-      (currentArtistsPicIndex - 1 + artistsData.length) % artistsData.length
+    setArtistsPicIndex(
+      (artistsPicIndex - 1 + artistsData.length) % artistsData.length
     );
-    setTimeout(() => {
-      setCurrentArtistsPicIndex(
-        (currentArtistsPicIndex - 1 + artistsData.length) % artistsData.length
-      );
-      setIsFading(false);
-    }, 2000);
   };
 
   const handleNext = () => {
-    setTransitionDirection('forward');
-    setIsFading(true);
     setProgress(0);
-    setNextArtistsPicIndex((currentArtistsPicIndex + 1) % artistsData.length);
-    setTimeout(() => {
-      setCurrentArtistsPicIndex(
-        (currentArtistsPicIndex + 1) % artistsData.length
-      );
-      setIsFading(false);
-    }, 2000);
+    setArtistsPicIndex((artistsPicIndex + 1) % artistsData.length);
   };
 
   const handlePause = () => {
@@ -125,7 +96,6 @@ function Artists() {
       <main className='page-container' id='page-container'>
         <header className='artists-header' id='artists-header'>
           <div className='artists-header-gradient-overlay' />
-          {/* <div className='artists-header-gradient-overlay' /> */}
           <section className='artists-header-text-container'>
             <div className='artists-brand-container'>
               <h1 className='artists-brand-title'>ARTISTS</h1>
@@ -136,28 +106,20 @@ function Artists() {
             </div>
           </section>
           <section className='artists-header-pics-container'>
-            <img
-              src={artistsData[currentArtistsPicIndex].img}
-              alt='current studio pic'
-              className={`artists-header-pics ${
-                isFading
-                  ? transitionDirection === 'forward'
-                    ? 'fade-out'
-                    : 'fade-out-reverse'
-                  : ''
-              }`}
-            />
-            <img
-              src={artistsData[nextArtistsPicIndex].img}
-              alt='next studio pic'
-              className={`artists-header-pics ${
-                isFading
-                  ? transitionDirection === 'forward'
-                    ? 'fade-in'
-                    : 'fade-in-reverse'
-                  : ''
-              }`}
-            />
+            <div
+              className='artists-header-pics-wrapper'
+              style={{ transform: `translateX(${-100 * artistsPicIndex}%)` }}
+            >
+              {artistsData.map((artist, index) => (
+                <div key={index} className='artists-header-pic-wrapper'>
+                  <img
+                    src={artist.img}
+                    alt={artist.name}
+                    className='artists-header-pic'
+                  />
+                </div>
+              ))}
+            </div>
           </section>
           <div className='progress-bar'>
             <div
@@ -173,20 +135,16 @@ function Artists() {
                 className='controls-button'
                 onClick={handlePrev}
               />
-              <img
-                src={currentPipe}
-                alt='prev button'
-                className='controls-pipe'
-              />
+              <img src={currentPipe} alt='pipe' className='controls-pipe' />
               <img
                 src={currentNext}
-                alt='prev button'
+                alt='next button'
                 className='controls-button'
                 onClick={handleNext}
               />
               <img
                 src={currentPlayPause}
-                alt='prev button'
+                alt='play/pause button'
                 className='controls-button'
                 onClick={handlePause}
               />
