@@ -47,6 +47,10 @@ function About() {
   }, []);
 
   useEffect(() => {
+    setAboutPicIndex(1);
+  }, [setAboutPicIndex]);
+
+  useEffect(() => {
     const progressTimer = setInterval(() => {
       setProgress((prevProgress) => {
         if (!isPaused && prevProgress < 100) {

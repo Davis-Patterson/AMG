@@ -15,6 +15,7 @@ export const AppProvider = ({ children }) => {
   const [artistsPicIndex, setArtistsPicIndex] = useState(0);
 
   const studioData = [
+    { name: 'Lexicon', img: 'https://i.imgur.com/b3os6DI.jpeg' },
     { name: 'O2R', img: 'https://i.imgur.com/IhLt3Yk.jpeg' },
     { name: 'Outboard 1', img: 'https://i.imgur.com/ZrcbpDn.jpeg' },
     { name: 'Outboard 2', img: 'https://i.imgur.com/5UNtUH3.jpeg' },
@@ -29,7 +30,6 @@ export const AppProvider = ({ children }) => {
     { name: 'Suite 1', img: 'https://i.imgur.com/0tRM8gn.jpeg' },
     { name: 'Suite 2', img: 'https://i.imgur.com/OmjVrom.jpeg' },
     { name: 'Amp', img: 'https://i.imgur.com/1noSx2f.jpg' },
-    { name: 'Lexicon', img: 'https://i.imgur.com/b3os6DI.jpeg' },
   ];
 
   const artistsData = [
