@@ -27,8 +27,6 @@ function About() {
 
   const [isPaused, setIsPaused] = useState(false);
   const [progress, setProgress] = useState(0);
-  const [isFading, setIsFading] = useState(false);
-  const [transitionDirection, setTransitionDirection] = useState('forward');
 
   const currentNext = darkMode ? nextWhite : nextBlack;
   const currentPrev = darkMode ? prevWhite : prevBlack;
@@ -40,7 +38,7 @@ function About() {
   const autoProg = useCallback(() => {
     if (!isPaused) {
       setProgress(0);
-      setAboutPicIndex((aboutPicIndex + 1) % studioData.length);
+      setAboutPicIndex((aboutPicIndex + 1) % (studioData.length + 2));
     }
   }, [isPaused, aboutPicIndex, studioData.length]);
 
@@ -71,17 +69,36 @@ function About() {
   const handlePrev = () => {
     setProgress(0);
     setAboutPicIndex(
-      (aboutPicIndex - 1 + studioData.length) % studioData.length
+      (aboutPicIndex - 1 + studioData.length + 2) % (studioData.length + 2)
     );
   };
 
   const handleNext = () => {
     setProgress(0);
-    setAboutPicIndex((aboutPicIndex + 1) % studioData.length);
+    setAboutPicIndex((aboutPicIndex + 1) % (studioData.length + 2));
   };
 
   const handlePause = () => {
     setIsPaused(!isPaused);
+  };
+
+  const handleTransitionEnd = () => {
+    const wrapper = document.querySelector('.about-header-pics-wrapper');
+    if (aboutPicIndex === studioData.length + 1) {
+      setAboutPicIndex(1);
+      wrapper.style.transition = 'none';
+      wrapper.style.transform = `translateX(-100%)`;
+      setTimeout(() => {
+        wrapper.style.transition = '';
+      }, 50);
+    } else if (aboutPicIndex === 0) {
+      setAboutPicIndex(studioData.length);
+      wrapper.style.transition = 'none';
+      wrapper.style.transform = `translateX(-${100 * studioData.length}%)`;
+      setTimeout(() => {
+        wrapper.style.transition = '';
+      }, 50);
+    }
   };
 
   return (
@@ -102,7 +119,15 @@ function About() {
             <div
               className='about-header-pics-wrapper'
               style={{ transform: `translateX(${-100 * aboutPicIndex}%)` }}
+              onTransitionEnd={handleTransitionEnd}
             >
+              <div className='about-header-pic-wrapper'>
+                <img
+                  src={studioData[studioData.length - 1].img}
+                  alt={studioData[studioData.length - 1].name}
+                  className='about-header-pic'
+                />
+              </div>
               {studioData.map((img, index) => (
                 <div key={index} className='about-header-pic-wrapper'>
                   <img
@@ -112,12 +137,22 @@ function About() {
                   />
                 </div>
               ))}
+              <div className='about-header-pic-wrapper'>
+                <img
+                  src={studioData[0].img}
+                  alt={studioData[0].name}
+                  className='about-header-pic'
+                />
+              </div>
             </div>
           </section>
           <div className='progress-bar'>
             <div
               className='progress-bar-fill'
-              style={{ width: `${progress}%` }}
+              style={{
+                width: `${progress}%`,
+                transition: progress === 0 ? 'none' : 'width 0.1s linear',
+              }}
             ></div>
           </div>
           <div className='controls-container'>

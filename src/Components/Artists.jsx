@@ -47,7 +47,7 @@ function Artists() {
   const autoProg = useCallback(() => {
     if (!isPaused) {
       setProgress(0);
-      setArtistsPicIndex((artistsPicIndex + 1) % artistsData.length);
+      setArtistsPicIndex((artistsPicIndex + 1) % (artistsData.length + 2));
     }
   }, [isPaused, artistsPicIndex, artistsData.length]);
 
@@ -78,17 +78,36 @@ function Artists() {
   const handlePrev = () => {
     setProgress(0);
     setArtistsPicIndex(
-      (artistsPicIndex - 1 + artistsData.length) % artistsData.length
+      (artistsPicIndex - 1 + artistsData.length + 2) % (artistsData.length + 2)
     );
   };
 
   const handleNext = () => {
     setProgress(0);
-    setArtistsPicIndex((artistsPicIndex + 1) % artistsData.length);
+    setArtistsPicIndex((artistsPicIndex + 1) % (artistsData.length + 2));
   };
 
   const handlePause = () => {
     setIsPaused(!isPaused);
+  };
+
+  const handleTransitionEnd = () => {
+    const wrapper = document.querySelector('.artists-header-pics-wrapper');
+    if (artistsPicIndex === artistsData.length + 1) {
+      setArtistsPicIndex(1);
+      wrapper.style.transition = 'none';
+      wrapper.style.transform = `translateX(-100%)`;
+      setTimeout(() => {
+        wrapper.style.transition = '';
+      }, 50);
+    } else if (artistsPicIndex === 0) {
+      setArtistsPicIndex(artistsData.length);
+      wrapper.style.transition = 'none';
+      wrapper.style.transform = `translateX(-${100 * artistsData.length}%)`;
+      setTimeout(() => {
+        wrapper.style.transition = '';
+      }, 50);
+    }
   };
 
   return (
@@ -109,7 +128,15 @@ function Artists() {
             <div
               className='artists-header-pics-wrapper'
               style={{ transform: `translateX(${-100 * artistsPicIndex}%)` }}
+              onTransitionEnd={handleTransitionEnd}
             >
+              <div className='artists-header-pic-wrapper'>
+                <img
+                  src={artistsData[artistsData.length - 1].img}
+                  alt={artistsData[artistsData.length - 1].name}
+                  className='artists-header-pic'
+                />
+              </div>
               {artistsData.map((artist, index) => (
                 <div key={index} className='artists-header-pic-wrapper'>
                   <img
@@ -119,12 +146,22 @@ function Artists() {
                   />
                 </div>
               ))}
+              <div className='artists-header-pic-wrapper'>
+                <img
+                  src={artistsData[0].img}
+                  alt={artistsData[0].name}
+                  className='artists-header-pic'
+                />
+              </div>
             </div>
           </section>
           <div className='progress-bar'>
             <div
               className='progress-bar-fill'
-              style={{ width: `${progress}%` }}
+              style={{
+                width: `${progress}%`,
+                transition: progress === 0 ? 'none' : 'width 0.1s linear',
+              }}
             ></div>
           </div>
           <div className='controls-container'>

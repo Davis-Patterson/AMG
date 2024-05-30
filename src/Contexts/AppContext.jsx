@@ -15,8 +15,8 @@ export const AppProvider = ({ children }) => {
   const [artistsPicIndex, setArtistsPicIndex] = useState(0);
 
   const studioData = [
-    { name: 'O2R', img: 'https://i.imgur.com/IhLt3Yk.jpeg' },
     { name: 'Lexicon', img: 'https://i.imgur.com/b3os6DI.jpeg' },
+    { name: 'O2R', img: 'https://i.imgur.com/IhLt3Yk.jpeg' },
     { name: 'Outboard 1', img: 'https://i.imgur.com/ZrcbpDn.jpeg' },
     { name: 'Outboard 2', img: 'https://i.imgur.com/5UNtUH3.jpeg' },
     { name: 'Outboard 3', img: 'https://i.imgur.com/EUCcYJh.jpeg' },
