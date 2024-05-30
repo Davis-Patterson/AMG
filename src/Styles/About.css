@@ -1,39 +1,3 @@
-@keyframes wipe-in {
-  0% {
-    transform: translateX(100%);
-  }
-  100% {
-    transform: translateX(0%);
-  }
-}
-
-@keyframes wipe-out {
-  0% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(-100%);
-  }
-}
-
-@keyframes wipe-in-reverse {
-  0% {
-    transform: translateX(-100%);
-  }
-  100% {
-    transform: translateX(0%);
-  }
-}
-
-@keyframes wipe-out-reverse {
-  0% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(100%);
-  }
-}
-
 .about-header {
   display: flex;
   flex-direction: column;
@@ -56,11 +20,6 @@
   z-index: 5;
 }
 
-.about-header-logo-container,
-.about-header-pics-container {
-  transition: width 1s ease-in-out;
-}
-
 .about-header-text-container {
   display: flex;
   justify-content: center;
@@ -72,10 +31,6 @@
   position: absolute;
   left: 0;
   z-index: 10;
-}
-
-.about-header-logo {
-  width: 300px;
 }
 
 .about-brand-container {
@@ -111,63 +66,37 @@
 .about-header-pics-container {
   width: 100%;
   height: 550px;
+  overflow: hidden;
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
-  position: relative;
 }
 
-.about-header-pics {
+.about-header-pics-wrapper {
+  display: flex;
+  transition: transform 0.9s ease-in-out;
+  height: 100%;
+}
+
+.about-header-pic-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  flex-shrink: 0;
+  flex-grow: 0;
+}
+
+.about-header-pic {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  position: absolute;
-  top: 0;
-  left: 0;
-  transition: transform 1.5s ease-in-out;
-}
-
-.about-header-pics.fade-in {
-  transform: translateX(0);
-  animation: wipe-in 2s forwards;
-}
-
-.about-header-pics.fade-out {
-  transform: translateX(-100%);
-  animation: wipe-out 2s forwards;
-}
-
-.about-header-pics.fade-in-reverse {
-  animation: wipe-in-reverse 2s forwards;
-}
-
-.about-header-pics.fade-out-reverse {
-  animation: wipe-out-reverse 2s forwards;
-}
-
-.progress-bar {
-  width: 100%;
-  height: 6px;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  background-color: var(--clr-transparent);
-  z-index: 0;
-}
-
-.progress-bar-fill {
-  height: 100%;
-  background-color: var(--clr-progress);
-  width: 0%;
-  transition: width 0.1s linear;
-  border-radius: 4px;
 }
 
 .about-content-container {
   width: 100%;
   margin: 0px;
-  /* background-color: var(--clr-grey); */
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -175,7 +104,6 @@
 
 .about-content {
   background-color: var(--clr-section);
-  /* margin: 10px; */
   width: 100%;
   display: flex;
   flex-direction: row;

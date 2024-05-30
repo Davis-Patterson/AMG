@@ -11,15 +11,12 @@ export const AppProvider = ({ children }) => {
   const [dropdown, setDropdown] = useState(false);
   const [news, setNews] = useState([]);
 
-  const [currentAboutPicIndex, setCurrentAboutPicIndex] = useState(0);
-  const [nextAboutPicIndex, setNextAboutPicIndex] = useState(1);
-
-  const [currentArtistsPicIndex, setCurrentArtistsPicIndex] = useState(0);
-  const [nextArtistsPicIndex, setNextArtistsPicIndex] = useState(1);
+  const [aboutPicIndex, setAboutPicIndex] = useState(0);
+  const [artistsPicIndex, setArtistsPicIndex] = useState(0);
 
   const studioData = [
-    { name: 'O2R', img: 'https://i.imgur.com/IhLt3Yk.jpeg' },
     { name: 'Lexicon', img: 'https://i.imgur.com/b3os6DI.jpeg' },
+    { name: 'O2R', img: 'https://i.imgur.com/IhLt3Yk.jpeg' },
     { name: 'Outboard 1', img: 'https://i.imgur.com/ZrcbpDn.jpeg' },
     { name: 'Outboard 2', img: 'https://i.imgur.com/5UNtUH3.jpeg' },
     { name: 'Outboard 3', img: 'https://i.imgur.com/EUCcYJh.jpeg' },
@@ -37,11 +34,6 @@ export const AppProvider = ({ children }) => {
 
   const artistsData = [
     {
-      name: 'Aerotype Productions',
-      img: 'https://i.imgur.com/uJHbdvZ.png',
-      bio: 'This is a test bio that will be filled in later.',
-    },
-    {
       name: 'DJ Moonlight',
       img: 'https://i.imgur.com/FnyV0lA.jpeg',
       bio: 'This is a test bio that will be filled in later.',
@@ -49,6 +41,11 @@ export const AppProvider = ({ children }) => {
     {
       name: 'Lily Sterling',
       img: 'https://i.imgur.com/g0UZimv.jpeg',
+      bio: 'This is a test bio that will be filled in later.',
+    },
+    {
+      name: 'Aerotype Productions',
+      img: 'https://i.imgur.com/uJHbdvZ.png',
       bio: 'This is a test bio that will be filled in later.',
     },
   ];
@@ -81,14 +78,10 @@ export const AppProvider = ({ children }) => {
         dropdown,
         setDropdown,
         news,
-        currentAboutPicIndex,
-        setCurrentAboutPicIndex,
-        nextAboutPicIndex,
-        setNextAboutPicIndex,
-        currentArtistsPicIndex,
-        setCurrentArtistsPicIndex,
-        nextArtistsPicIndex,
-        setNextArtistsPicIndex,
+        aboutPicIndex,
+        setAboutPicIndex,
+        artistsPicIndex,
+        setArtistsPicIndex,
         studioData,
         artistsData,
         formatTitleForURL,
