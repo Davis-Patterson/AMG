@@ -56,6 +56,10 @@ function Artists() {
   }, []);
 
   useEffect(() => {
+    setArtistsPicIndex(1);
+  }, [setArtistsPicIndex]);
+
+  useEffect(() => {
     const progressTimer = setInterval(() => {
       setProgress((prevProgress) => {
         if (!isPaused && prevProgress < 100) {
