@@ -91,6 +91,51 @@
   object-fit: cover;
 }
 
+.artists-header-overlays {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+}
+
+.artists-header-pic-name-container {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+  z-index: 50;
+}
+
+.artists-header-pics-name-wrapper {
+  display: flex;
+  transition: transform 1.2s ease-in-out;
+  height: 100%;
+}
+
+.artists-header-pic-name-wrapper {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  width: 200%;
+  flex-shrink: 0;
+  flex-grow: 0;
+}
+
+.artists-header-pic-name {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1em;
+  line-height: 1;
+  color: var(--clr-text);
+  padding: 5px 10px;
+  margin: 0 5px;
+  border-radius: 3px;
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+  white-space: nowrap;
+}
+
 .artists-content-container {
   width: 85%;
   display: flex;
