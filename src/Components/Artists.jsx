@@ -97,20 +97,29 @@ function Artists() {
 
   const handleTransitionEnd = () => {
     const wrapper = document.querySelector('.artists-header-pics-wrapper');
+    const nameWrapper = document.querySelector(
+      '.artists-header-pics-name-wrapper'
+    );
     if (artistsPicIndex === artistsData.length + 1) {
       setArtistsPicIndex(1);
       wrapper.style.transition = 'none';
+      nameWrapper.style.transition = 'none';
       wrapper.style.transform = `translateX(-100%)`;
+      nameWrapper.style.transform = `translateX(-100%)`;
       setTimeout(() => {
         wrapper.style.transition = '';
-      }, 50);
+        nameWrapper.style.transition = '';
+      }, 100);
     } else if (artistsPicIndex === 0) {
       setArtistsPicIndex(artistsData.length);
       wrapper.style.transition = 'none';
+      nameWrapper.style.transition = 'none';
       wrapper.style.transform = `translateX(-${100 * artistsData.length}%)`;
+      nameWrapper.style.transform = `translateX(-${100 * artistsData.length}%)`;
       setTimeout(() => {
         wrapper.style.transition = '';
-      }, 50);
+        nameWrapper.style.transition = '';
+      }, 100);
     }
   };
 
@@ -159,38 +168,63 @@ function Artists() {
               </div>
             </div>
           </section>
-          <div className='progress-bar'>
-            <div
-              className='progress-bar-fill'
-              style={{
-                width: `${progress}%`,
-                transition: progress === 0 ? 'none' : 'width 0.1s linear',
-              }}
-            ></div>
-          </div>
-          <div className='controls-container'>
-            <div className='controls'>
-              <img
-                src={currentPrev}
-                alt='prev button'
-                className='controls-button'
-                onClick={handlePrev}
-              />
-              <img src={currentPipe} alt='pipe' className='controls-pipe' />
-              <img
-                src={currentNext}
-                alt='next button'
-                className='controls-button'
-                onClick={handleNext}
-              />
-              <img
-                src={currentPlayPause}
-                alt='play/pause button'
-                className='controls-button'
-                onClick={handlePause}
-              />
+          <section className='artists-header-overlays'>
+            <div className='artists-header-pic-name-container'>
+              <div
+                className='artists-header-pics-name-wrapper'
+                style={{ transform: `translateX(${-200 * artistsPicIndex}%)` }}
+                onTransitionEnd={handleTransitionEnd}
+              >
+                <div className='artists-header-pic-name-wrapper'>
+                  <p className='artists-header-pic-name'>
+                    {artistsData[artistsData.length - 1].name}
+                  </p>
+                </div>
+                {artistsData.map((artist, index) => (
+                  <div className='artists-header-pic-name-wrapper' key={index}>
+                    <p className='artists-header-pic-name'>{artist.name}</p>
+                  </div>
+                ))}
+                <div className='artists-header-pic-name-wrapper'>
+                  <p className='artists-header-pic-name'>
+                    {artistsData[0].name}
+                  </p>
+                </div>
+              </div>
             </div>
-          </div>
+            <div className='controls-container'>
+              <div className='controls'>
+                <img
+                  src={currentPrev}
+                  alt='prev button'
+                  className='controls-button'
+                  onClick={handlePrev}
+                />
+                <img src={currentPipe} alt='pipe' className='controls-pipe' />
+                <img
+                  src={currentNext}
+                  alt='next button'
+                  className='controls-button'
+                  onClick={handleNext}
+                />
+                <img
+                  src={currentPlayPause}
+                  alt='play/pause button'
+                  className='controls-button'
+                  onClick={handlePause}
+                />
+              </div>
+            </div>
+            <div className='progress-bar'>
+              <div
+                className='progress-bar-fill'
+                style={{
+                  width: `${progress}%`,
+                  transition: progress === 0 ? 'none' : 'width 0.1s linear',
+                }}
+              ></div>
+            </div>
+          </section>
         </header>
         <Banner />
         <section className='artists-content-container'>
