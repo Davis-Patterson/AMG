@@ -88,19 +88,28 @@ function About() {
 
   const handleTransitionEnd = () => {
     const wrapper = document.querySelector('.about-header-pics-wrapper');
+    const titleWrapper = document.querySelector(
+      '.about-header-pics-title-wrapper'
+    );
     if (aboutPicIndex === studioData.length + 1) {
       setAboutPicIndex(1);
       wrapper.style.transition = 'none';
+      titleWrapper.style.transition = 'none';
       wrapper.style.transform = `translateX(-100%)`;
+      titleWrapper.style.transform = `translateX(-100%)`;
       setTimeout(() => {
         wrapper.style.transition = '';
+        titleWrapper.style.transition = '';
       }, 50);
     } else if (aboutPicIndex === 0) {
       setAboutPicIndex(studioData.length);
       wrapper.style.transition = 'none';
+      titleWrapper.style.transition = 'none';
       wrapper.style.transform = `translateX(-${100 * studioData.length}%)`;
+      titleWrapper.style.transform = `translateX(-${100 * studioData.length}%)`;
       setTimeout(() => {
         wrapper.style.transition = '';
+        titleWrapper.style.transition = '';
       }, 50);
     }
   };
@@ -128,7 +137,7 @@ function About() {
               <div className='about-header-pic-wrapper'>
                 <img
                   src={studioData[studioData.length - 1].img}
-                  alt={studioData[studioData.length - 1].name}
+                  alt={studioData[studioData.length - 1].title}
                   className='about-header-pic'
                 />
               </div>
@@ -136,7 +145,7 @@ function About() {
                 <div key={index} className='about-header-pic-wrapper'>
                   <img
                     src={img.img}
-                    alt={img.name}
+                    alt={img.title}
                     className='about-header-pic'
                   />
                 </div>
@@ -144,44 +153,69 @@ function About() {
               <div className='about-header-pic-wrapper'>
                 <img
                   src={studioData[0].img}
-                  alt={studioData[0].name}
+                  alt={studioData[0].title}
                   className='about-header-pic'
                 />
               </div>
             </div>
           </section>
-          <div className='progress-bar'>
-            <div
-              className='progress-bar-fill'
-              style={{
-                width: `${progress}%`,
-                transition: progress === 0 ? 'none' : 'width 0.1s linear',
-              }}
-            ></div>
-          </div>
-          <div className='controls-container'>
-            <div className='controls'>
-              <img
-                src={currentPrev}
-                alt='prev button'
-                className='controls-button'
-                onClick={handlePrev}
-              />
-              <img src={currentPipe} alt='pipe' className='controls-pipe' />
-              <img
-                src={currentNext}
-                alt='next button'
-                className='controls-button'
-                onClick={handleNext}
-              />
-              <img
-                src={currentPlayPause}
-                alt='play/pause button'
-                className='controls-button'
-                onClick={handlePause}
-              />
+          <section className='about-header-overlays'>
+            <div className='about-header-pic-title-container'>
+              <div
+                className='about-header-pics-title-wrapper'
+                style={{ transform: `translateX(${-100 * aboutPicIndex}%)` }}
+                onTransitionEnd={handleTransitionEnd}
+              >
+                <div className='about-header-pic-title-wrapper'>
+                  <p className='about-header-pic-title'>
+                    {studioData[studioData.length - 1].title}
+                  </p>
+                </div>
+                {studioData.map((title, index) => (
+                  <div className='about-header-pic-title-wrapper' key={index}>
+                    <p className='about-header-pic-title'>{title.title}</p>
+                  </div>
+                ))}
+                <div className='about-header-pic-title-wrapper'>
+                  <p className='about-header-pic-title'>
+                    {studioData[0].title}
+                  </p>
+                </div>
+              </div>
             </div>
-          </div>
+            <div className='controls-container'>
+              <div className='controls'>
+                <img
+                  src={currentPrev}
+                  alt='prev button'
+                  className='controls-button'
+                  onClick={handlePrev}
+                />
+                <img src={currentPipe} alt='pipe' className='controls-pipe' />
+                <img
+                  src={currentNext}
+                  alt='next button'
+                  className='controls-button'
+                  onClick={handleNext}
+                />
+                <img
+                  src={currentPlayPause}
+                  alt='play/pause button'
+                  className='controls-button'
+                  onClick={handlePause}
+                />
+              </div>
+            </div>
+            <div className='progress-bar'>
+              <div
+                className='progress-bar-fill'
+                style={{
+                  width: `${progress}%`,
+                  transition: progress === 0 ? 'none' : 'width 0.1s linear',
+                }}
+              ></div>
+            </div>
+          </section>
         </header>
         <Banner />
         <section className='about-content-container'>

@@ -29,6 +29,7 @@
   padding: 5px;
   border-radius: 20px;
   background-color: var(--clr-screen);
+  z-index: 51;
 }
 
 .controls {
