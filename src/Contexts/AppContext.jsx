@@ -137,6 +137,8 @@ export const AppProvider = ({ children }) => {
     },
   ];
 
+  const noUserImg = 'https://i.imgur.com/B4UC9KD.png';
+
   const formatTitleForURL = (name) => {
     return name
       .toLowerCase()
@@ -175,6 +177,7 @@ export const AppProvider = ({ children }) => {
         studioData,
         artistData,
         locData,
+        noUserImg,
         formatTitleForURL,
       }}
     >

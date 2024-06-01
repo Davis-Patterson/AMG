@@ -21,6 +21,7 @@ function Artists() {
     setShowSplash,
     artistsPicIndex,
     setArtistsPicIndex,
+    noUserImg,
     formatTitleForURL,
   } = useContext(AppContext);
 
@@ -145,7 +146,11 @@ function Artists() {
             >
               <div className='artists-header-pic-wrapper'>
                 <img
-                  src={artistData[artistData.length - 1].img}
+                  src={
+                    artistData[artistData.length - 1].banner ||
+                    artistData[artistData.length - 1].img ||
+                    noUserImg
+                  }
                   alt={artistData[artistData.length - 1].name}
                   className='artists-header-pic'
                 />
@@ -153,7 +158,7 @@ function Artists() {
               {artistData.map((artist, index) => (
                 <div key={index} className='artists-header-pic-wrapper'>
                   <img
-                    src={artist.img}
+                    src={artist.banner || artist.img || noUserImg}
                     alt={artist.name}
                     className='artists-header-pic'
                   />
@@ -161,7 +166,7 @@ function Artists() {
               ))}
               <div className='artists-header-pic-wrapper'>
                 <img
-                  src={artistData[0].img}
+                  src={artistData[0].banner || artistData[0].img || noUserImg}
                   alt={artistData[0].name}
                   className='artists-header-pic'
                 />
@@ -238,7 +243,7 @@ function Artists() {
                 }
               >
                 <img
-                  src={artist.img}
+                  src={artist.img || noUserImg}
                   alt={artist.name}
                   className='artist-img'
                 />
