@@ -4,11 +4,9 @@ import { AppContext } from 'contexts/AppContext';
 import onAirImg from 'assets/News/on-air.jpg';
 import 'styles/Artist.css';
 
-const defaultImage = 'https://i.imgur.com/B4UC9KD.png';
-
 function Artist() {
   const { name } = useParams();
-  const { artistData, formatTitleForURL } = useContext(AppContext);
+  const { artistData, noUserImg, formatTitleForURL } = useContext(AppContext);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -18,7 +16,7 @@ function Artist() {
     (artist) => formatTitleForURL(artist.name) === name
   );
 
-  const headerImage = artist.banner || artist.img || defaultImage;
+  const headerImage = artist.banner || artist.img || noUserImg;
 
   if (!artist) {
     return (
@@ -62,7 +60,7 @@ function Artist() {
       <div className='artist-detail-container'>
         <div className='artist-header-content'>
           <img
-            src={artist.img || defaultImage}
+            src={artist.img || noUserImg}
             alt={artist.name}
             className='news-artist-image'
           />
