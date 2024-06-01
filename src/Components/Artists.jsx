@@ -172,7 +172,7 @@ function Artists() {
             <div className='artists-header-pic-name-container'>
               <div
                 className='artists-header-pics-name-wrapper'
-                style={{ transform: `translateX(${-200 * artistsPicIndex}%)` }}
+                style={{ transform: `translateX(${-100 * artistsPicIndex}%)` }}
                 onTransitionEnd={handleTransitionEnd}
               >
                 <div className='artists-header-pic-name-wrapper'>

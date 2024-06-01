@@ -17,6 +17,9 @@ export const AppProvider = ({ children }) => {
 
   const homeData = [
     { title: 'Studer A827', img: 'https://i.imgur.com/QZb5qkH.jpeg' },
+    { title: 'Lexicon 480L', img: 'https://i.imgur.com/b3os6DI.jpeg' },
+    { title: 'API 1608 Control Room', img: 'https://i.imgur.com/42QeuF0.jpeg' },
+    { title: 'SSL 4000G+', img: 'https://i.imgur.com/C4RFROH.jpeg' },
   ];
 
   const studioData = [
@@ -73,6 +76,39 @@ export const AppProvider = ({ children }) => {
     },
   ];
 
+  const locData = [
+    {
+      id: 'New York',
+      desc: 'Headquartered in the vibrant heart of New York City, the epicenter of music and entertainment, our global footprint includes strategically located offices worldwide. By fostering innovation at the intersection of music and technology, each location is dedicated to providing exceptional service and support, ensuring we remain at the forefront of the industry.',
+      img: 'https://i.imgur.com/rseDwDZ.jpeg',
+    },
+    {
+      id: 'Miami',
+      desc: 'Situated in the vibrant and culturally diverse city of Miami, our office thrives in one of the most influential music hubs in the world. Known for its rich blend of musical genres and a thriving nightlife, Miami is a breeding ground for innovation at the intersection of music and technology. Our Miami team is dedicated to providing exceptional service and support, ensuring we remain at the forefront of the industry within this dynamic landscape.',
+      img: 'https://i.imgur.com/moeFGfL.jpeg',
+    },
+    {
+      id: 'Los Angeles',
+      desc: 'Based in the dynamic and influential city of Los Angeles, our office is located in the heart of the entertainment industry. Renowned for its legendary music scene and home to countless iconic artists and venues, Los Angeles is a pivotal center for musical innovation and creativity. Our LA team is committed to delivering exceptional service and support, ensuring we stay ahead in this ever-evolving industry.',
+      img: 'https://i.imgur.com/kGz09mw.jpeg',
+    },
+    {
+      id: 'London',
+      desc: "Located in the dynamic and culturally rich city of London, our office is strategically positioned in one of the world's leading hubs for music and entertainment. With a focus on driving innovation at the intersection of music and technology, our London team is committed to delivering exceptional service and support, ensuring we lead the industry globally.",
+      img: 'https://i.imgur.com/oQqU0ZJ.jpeg',
+    },
+    {
+      id: 'Tokyo',
+      desc: 'Positioned in the bustling and innovative city of Tokyo, our office is at the heart of a major global music and entertainment hub. Embracing the fusion of music and technology, our Tokyo team is committed to offering exceptional service and support, ensuring we continue to lead the industry worldwide.',
+      img: 'https://i.imgur.com/uVMAL9H.jpeg',
+    },
+    {
+      id: 'Sydney',
+      desc: 'Located in the lively and picturesque city of Sydney, our office is strategically placed in a key center for music and entertainment. With a strong emphasis on pioneering advancements in music and technology, our Sydney team is dedicated to delivering outstanding service and support, keeping us at the cutting edge of the industry.',
+      img: 'https://i.imgur.com/wMCjAjB.jpeg',
+    },
+  ];
+
   const formatTitleForURL = (name) => {
     return name
       .toLowerCase()
@@ -110,6 +146,7 @@ export const AppProvider = ({ children }) => {
         homeData,
         studioData,
         artistsData,
+        locData,
         formatTitleForURL,
       }}
     >
