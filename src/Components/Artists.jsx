@@ -288,16 +288,19 @@ function Artists() {
                   handleLinkClick(`/artists/${formatTitleForURL(artist.name)}`)
                 }
               >
-                <img
-                  src={artist.img || noUserImg}
-                  alt={artist.name}
-                  className='artist-img'
-                />
+                <div className='artist-img-container'>
+                  <img
+                    src={artist.img || noUserImg}
+                    alt={artist.name}
+                    className='artist-img'
+                  />
+                </div>
                 <p className='artist-name'>{artist.name}</p>
               </div>
             ))}
           </div>
         </section>
+
         <div className='gap' />
       </main>
     </>

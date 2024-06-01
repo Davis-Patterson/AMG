@@ -139,7 +139,7 @@
 }
 
 .artists-content-container {
-  width: 85%;
+  width: 98%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -179,9 +179,21 @@
   transition: transform 0.3s ease-in-out;
 }
 
-.artist-img {
+.artist-img-container {
   width: 100%;
-  height: 150px;
+  padding-top: 66.66%;
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  background-color: var(--clr-light);
+}
+
+.artist-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   border-radius: 8px;
 }
