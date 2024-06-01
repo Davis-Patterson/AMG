@@ -16,14 +16,8 @@ import Locations from 'utils/Locations';
 import 'styles/About.css';
 
 function About() {
-  const {
-    darkMode,
-    studioData,
-    aboutPicIndex,
-    setAboutPicIndex,
-    nextAboutPicIndex,
-    setNextAboutPicIndex,
-  } = useContext(AppContext);
+  const { darkMode, studioData, aboutPicIndex, setAboutPicIndex } =
+    useContext(AppContext);
 
   const [isPaused, setIsPaused] = useState(false);
   const [progress, setProgress] = useState(0);

@@ -11,8 +11,13 @@ export const AppProvider = ({ children }) => {
   const [dropdown, setDropdown] = useState(false);
   const [news, setNews] = useState([]);
 
+  const [homeIndex, setHomeIndex] = useState(0);
   const [aboutPicIndex, setAboutPicIndex] = useState(0);
   const [artistsPicIndex, setArtistsPicIndex] = useState(0);
+
+  const homeData = [
+    { title: 'Studer A827', img: 'https://i.imgur.com/QZb5qkH.jpeg' },
+  ];
 
   const studioData = [
     { title: 'Lexicon 480L', img: 'https://i.imgur.com/b3os6DI.jpeg' },
@@ -49,17 +54,22 @@ export const AppProvider = ({ children }) => {
     {
       name: 'DJ Moonlight',
       img: 'https://i.imgur.com/FnyV0lA.jpeg',
-      bio: 'This is a test bio that will be filled in later.',
+      bio: 'DJ Moonlight, a trailblazing figure in the electronic music scene, has captivated audiences worldwide with his unique soundscapes and electrifying performances. Born and raised in Berlin, he started his journey as a classical pianist before discovering his passion for electronic music. His sets blend deep house, techno, and ambient music, creating an immersive experience that transports listeners to another realm. With over a decade of experience, DJ Moonlight has played at some of the most prestigious festivals and clubs around the globe, including Tomorrowland, Coachella, and Berghain. His innovative approach to music production has earned him numerous awards and accolades, solidifying his status as a pioneer in the industry.',
     },
     {
       name: 'Lily Sterling',
       img: 'https://i.imgur.com/g0UZimv.jpeg',
-      bio: 'This is a test bio that will be filled in later.',
+      bio: "Lily Sterling is a singer-songwriter whose soulful voice and heartfelt lyrics have resonated with fans across the world. Growing up in Nashville, Tennessee, she was surrounded by music from a young age, learning to play the guitar and piano by the time she was ten. Her music blends elements of country, folk, and pop, creating a sound that is both timeless and contemporary. Lily's debut album, 'Whispers in the Wind,' received critical acclaim for its raw emotion and lyrical depth. She has toured extensively, sharing stages with renowned artists like Taylor Swift and Kacey Musgraves. Known for her authenticity and vulnerability, Lily continues to inspire her fans with her powerful storytelling and captivating performances.",
     },
     {
       name: 'Aerotype Productions',
       img: 'https://i.imgur.com/uJHbdvZ.png',
-      bio: 'This is a test bio that will be filled in later.',
+      bio: "Aerotype Productions is a hit producer known for his innovative approach to music production and sound design. Producer James 'Aerotype' Smith has revolutionized the electronic music landscape with his genre-defying tracks. His music combines elements of hip-hop, EDM, and cinematic soundscapes, creating an audio-visual experience that is both captivating and immersive. Aerotype Productions has collaborated with top artists like Kendrick Lamar, Skrillex, and The Weeknd, contributing to some of the biggest hits in recent years. His work has been featured in blockbuster films, video games, and major advertising campaigns, making him a household name in the industry. With a commitment to pushing the boundaries of music and technology, Aerotype Productions continues to set new standards in the world of sound.",
+    },
+    {
+      name: 'Don L',
+      img: 'https://i.imgur.com/UqmbO5f.jpeg',
+      bio: "Don L, born Donald Ladon in Reno, NV, is a versatile artist whose music spans across indie rock, folk, and hip-hop. His ability to blend these genres seamlessly has set him apart in the music industry. Donald began his career in the underground rap scene, quickly gaining recognition for his unique sound, his breakthrough mixtape, 'Rise of the Don,' highlighted his genre-blending talent. He has toured the world, gracing the stages of renowned festivals such as SXSW, Lollapalooza, and Glastonbury. His dynamic performances and charismatic stage presence have earned him a loyal fan base and critical acclaim. Throughout his career, Don L has received numerous awards for his innovative albums. His dedication to his craft and his ability to connect with listeners on a profound level make him a standout figure in the music world.",
     },
   ];
 
@@ -91,10 +101,13 @@ export const AppProvider = ({ children }) => {
         dropdown,
         setDropdown,
         news,
+        homeIndex,
+        setHomeIndex,
         aboutPicIndex,
         setAboutPicIndex,
         artistsPicIndex,
         setArtistsPicIndex,
+        homeData,
         studioData,
         artistsData,
         formatTitleForURL,
