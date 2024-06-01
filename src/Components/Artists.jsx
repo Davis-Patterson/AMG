@@ -17,7 +17,7 @@ import 'styles/Artists.css';
 function Artists() {
   const {
     darkMode,
-    artistsData,
+    artistData,
     setShowSplash,
     artistsPicIndex,
     setArtistsPicIndex,
@@ -47,9 +47,9 @@ function Artists() {
   const autoProg = useCallback(() => {
     if (!isPaused) {
       setProgress(0);
-      setArtistsPicIndex((artistsPicIndex + 1) % (artistsData.length + 2));
+      setArtistsPicIndex((artistsPicIndex + 1) % (artistData.length + 2));
     }
-  }, [isPaused, artistsPicIndex, artistsData.length]);
+  }, [isPaused, artistsPicIndex, artistData.length]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -82,13 +82,13 @@ function Artists() {
   const handlePrev = () => {
     setProgress(0);
     setArtistsPicIndex(
-      (artistsPicIndex - 1 + artistsData.length + 2) % (artistsData.length + 2)
+      (artistsPicIndex - 1 + artistData.length + 2) % (artistData.length + 2)
     );
   };
 
   const handleNext = () => {
     setProgress(0);
-    setArtistsPicIndex((artistsPicIndex + 1) % (artistsData.length + 2));
+    setArtistsPicIndex((artistsPicIndex + 1) % (artistData.length + 2));
   };
 
   const handlePause = () => {
@@ -100,7 +100,7 @@ function Artists() {
     const nameWrapper = document.querySelector(
       '.artists-header-pics-name-wrapper'
     );
-    if (artistsPicIndex === artistsData.length + 1) {
+    if (artistsPicIndex === artistData.length + 1) {
       setArtistsPicIndex(1);
       wrapper.style.transition = 'none';
       nameWrapper.style.transition = 'none';
@@ -111,11 +111,11 @@ function Artists() {
         nameWrapper.style.transition = '';
       }, 100);
     } else if (artistsPicIndex === 0) {
-      setArtistsPicIndex(artistsData.length);
+      setArtistsPicIndex(artistData.length);
       wrapper.style.transition = 'none';
       nameWrapper.style.transition = 'none';
-      wrapper.style.transform = `translateX(-${100 * artistsData.length}%)`;
-      nameWrapper.style.transform = `translateX(-${100 * artistsData.length}%)`;
+      wrapper.style.transform = `translateX(-${100 * artistData.length}%)`;
+      nameWrapper.style.transform = `translateX(-${100 * artistData.length}%)`;
       setTimeout(() => {
         wrapper.style.transition = '';
         nameWrapper.style.transition = '';
@@ -145,12 +145,12 @@ function Artists() {
             >
               <div className='artists-header-pic-wrapper'>
                 <img
-                  src={artistsData[artistsData.length - 1].img}
-                  alt={artistsData[artistsData.length - 1].name}
+                  src={artistData[artistData.length - 1].img}
+                  alt={artistData[artistData.length - 1].name}
                   className='artists-header-pic'
                 />
               </div>
-              {artistsData.map((artist, index) => (
+              {artistData.map((artist, index) => (
                 <div key={index} className='artists-header-pic-wrapper'>
                   <img
                     src={artist.img}
@@ -161,8 +161,8 @@ function Artists() {
               ))}
               <div className='artists-header-pic-wrapper'>
                 <img
-                  src={artistsData[0].img}
-                  alt={artistsData[0].name}
+                  src={artistData[0].img}
+                  alt={artistData[0].name}
                   className='artists-header-pic'
                 />
               </div>
@@ -177,17 +177,17 @@ function Artists() {
               >
                 <div className='artists-header-pic-name-wrapper'>
                   <p className='artists-header-pic-name'>
-                    {artistsData[artistsData.length - 1].name}
+                    {artistData[artistData.length - 1].name}
                   </p>
                 </div>
-                {artistsData.map((artist, index) => (
+                {artistData.map((artist, index) => (
                   <div className='artists-header-pic-name-wrapper' key={index}>
                     <p className='artists-header-pic-name'>{artist.name}</p>
                   </div>
                 ))}
                 <div className='artists-header-pic-name-wrapper'>
                   <p className='artists-header-pic-name'>
-                    {artistsData[0].name}
+                    {artistData[0].name}
                   </p>
                 </div>
               </div>
@@ -229,7 +229,7 @@ function Artists() {
         <Banner />
         <section className='artists-content-container'>
           <div className='artists-content'>
-            {artistsData.map((artist, index) => (
+            {artistData.map((artist, index) => (
               <div
                 key={index}
                 className='artist-card'
