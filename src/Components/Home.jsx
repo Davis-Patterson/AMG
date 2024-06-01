@@ -76,9 +76,9 @@ function Home() {
   };
 
   const handleTransitionEnd = () => {
-    const wrapper = document.querySelector('.about-header-pics-wrapper');
+    const wrapper = document.querySelector('.home-header-pics-wrapper');
     const titleWrapper = document.querySelector(
-      '.about-header-pics-title-wrapper'
+      '.home-header-pics-title-wrapper'
     );
     if (homeIndex === homeData.length + 1) {
       setHomeIndex(1);
@@ -106,57 +106,58 @@ function Home() {
   return (
     <>
       <main className='page-container' id='page-container'>
-        <header className='about-header' id='about-header'>
-          <section className='about-header-pics-container'>
+        <header className='home-header' id='home-header'>
+          <section className='home-header-pics-container'>
             <div
-              className='about-header-pics-wrapper'
+              className='home-header-pics-wrapper'
               style={{ transform: `translateX(${-100 * homeIndex}%)` }}
               onTransitionEnd={handleTransitionEnd}
             >
-              <div className='about-header-pic-wrapper'>
+              <div className='home-header-pic-wrapper'>
                 <img
                   src={homeData[homeData.length - 1].img}
                   alt={homeData[homeData.length - 1].title}
-                  className='about-header-pic'
+                  className='home-header-pic'
                 />
               </div>
               {homeData.map((img, index) => (
-                <div key={index} className='about-header-pic-wrapper'>
+                <div key={index} className='home-header-pic-wrapper'>
                   <img
                     src={img.img}
                     alt={img.title}
-                    className='about-header-pic'
+                    className='home-header-pic'
                   />
                 </div>
               ))}
-              <div className='about-header-pic-wrapper'>
+              <div className='home-header-pic-wrapper'>
                 <img
                   src={homeData[0].img}
                   alt={homeData[0].title}
-                  className='about-header-pic'
+                  className='home-header-pic'
                 />
               </div>
             </div>
           </section>
-          <section className='about-header-overlays'>
-            <div className='about-header-pic-title-container'>
+          <section className='home-header-overlays'>
+            <div className='home-header-pic-title-gradient' />
+            <div className='home-header-pic-title-container'>
               <div
-                className='about-header-pics-title-wrapper'
+                className='home-header-pics-title-wrapper'
                 style={{ transform: `translateX(${-100 * homeIndex}%)` }}
                 onTransitionEnd={handleTransitionEnd}
               >
-                <div className='about-header-pic-title-wrapper'>
-                  <p className='about-header-pic-title'>
+                <div className='home-header-pic-title-wrapper'>
+                  <p className='home-header-pic-title'>
                     {homeData[homeData.length - 1].title}
                   </p>
                 </div>
                 {homeData.map((title, index) => (
-                  <div className='about-header-pic-title-wrapper' key={index}>
-                    <p className='about-header-pic-title'>{title.title}</p>
+                  <div className='home-header-pic-title-wrapper' key={index}>
+                    <p className='home-header-pic-title'>{title.title}</p>
                   </div>
                 ))}
-                <div className='about-header-pic-title-wrapper'>
-                  <p className='about-header-pic-title'>{homeData[0].title}</p>
+                <div className='home-header-pic-title-wrapper'>
+                  <p className='home-header-pic-title'>{homeData[0].title}</p>
                 </div>
               </div>
             </div>

@@ -1,39 +1,15 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { AppContext } from 'contexts/AppContext';
-import nycImg from 'assets/About/nyc-img.jpg';
-import miamiImg from 'assets/About/miami-img.jpg';
-import laImg from 'assets/About/la-img.jpg';
-import londonImg from 'assets/About/london-img.jpg';
-import tokyoImg from 'assets/About/tokyo-img.jpg';
-import sydneyImg from 'assets/About/sydney-img.jpg';
-import locationsData from 'utilities/Locations.json';
 import 'styles/Locations.css';
 
 function Locations() {
-  const { darkMode } = useContext(AppContext);
+  const { darkMode, locData } = useContext(AppContext);
 
   const [locationIndex, setLocationIndex] = useState(0);
   const [locations, setLocations] = useState([]);
 
-  const locationPics = [
-    nycImg,
-    miamiImg,
-    laImg,
-    londonImg,
-    tokyoImg,
-    sydneyImg,
-  ];
-  const locationNames = [
-    'New York',
-    'Miami',
-    'Los Angeles',
-    'London',
-    'Tokyo',
-    'Sydney',
-  ];
-
   useEffect(() => {
-    setLocations(locationsData);
+    setLocations(locData);
   }, []);
 
   const handleLocationClick = (index) => {
@@ -52,11 +28,11 @@ function Locations() {
           </div>
           <div className='location-img-container'>
             <div className='location-gradient' />
-            {locationPics.map((picSrc, index) => (
+            {locations.map((location, index) => (
               <img
                 key={index}
-                src={picSrc}
-                alt='location img'
+                src={location.img}
+                alt={`${location.id} img`}
                 className='location-img'
                 style={{
                   display: locationIndex === index ? 'block' : 'none',
@@ -65,7 +41,7 @@ function Locations() {
             ))}
           </div>
           <div className='location-button-container'>
-            {locationNames.map((location, index) => (
+            {locations.map((location, index) => (
               <div
                 key={index}
                 className={`location-button ${
@@ -73,7 +49,7 @@ function Locations() {
                 }`}
                 onClick={() => handleLocationClick(index)}
               >
-                <p className='location-button-text'>{location}</p>
+                <p className='location-button-text'>{location.id}</p>
                 {locationIndex === index && (
                   <div className='indicator'>
                     <div className='indicator-line'></div>
