@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useContext, useCallback } from 'react';
 import { AppContext } from 'contexts/AppContext';
 import Banner from 'utils/Banner';
+import Locations from 'utils/Locations';
 import nextBlack from 'assets/Utils/next-black.svg';
 import nextWhite from 'assets/Utils/next-white.svg';
 import prevBlack from 'assets/Utils/prev-black.svg';
@@ -12,7 +13,9 @@ import playWhite from 'assets/Utils/play-white.svg';
 import pipeBlack from 'assets/Utils/pipe-black.svg';
 import pipeWhite from 'assets/Utils/pipe-white.svg';
 import skylineImg from 'assets/About/skyline.jpg';
-import Locations from 'utils/Locations';
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
+import CircularProgress from '@mui/material/CircularProgress';
 import 'styles/About.css';
 
 function About() {
@@ -107,6 +110,49 @@ function About() {
       }, 50);
     }
   };
+
+  if (!studioData || studioData.length === 0) {
+    return (
+      <>
+        <main className='page-container' id='page-container'>
+          <header className='about-header' id='about-header'>
+            <div className='about-header-gradient-overlay' />
+            <section className='about-header-text-container'>
+              <div className='about-brand-container'>
+                <h1 className='about-brand-title'>WHO WE ARE</h1>
+                <p className='about-tagline'>
+                  A collective of music lovers, inspired entrepreneurs,
+                  game-changing creatives and passionate teams.
+                </p>
+              </div>
+            </section>
+            <section className='about-header-pics-container'>
+              <Skeleton className='header-skeleton' />
+            </section>
+          </header>
+          <Banner />
+          <section className='loading-content-container'>
+            <div className='loading-content'>
+              <div className='loading-text-container'>
+                <h2 className='loading-text'>LOADING</h2>
+                <CircularProgress
+                  size={22}
+                  sx={{ color: 'var(--clr-text)', marginLeft: '2px' }}
+                />
+              </div>
+              <div className='skeleton-wrapper'>
+                <Skeleton className='skeleton' />
+                <Skeleton className='skeleton' />
+                <Skeleton className='skeleton' />
+                <Skeleton className='skeleton' />
+              </div>
+            </div>
+          </section>
+          <div className='gap' />
+        </main>
+      </>
+    );
+  }
 
   return (
     <>

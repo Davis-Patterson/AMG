@@ -12,6 +12,9 @@ import playBlack from 'assets/Utils/play-black.svg';
 import playWhite from 'assets/Utils/play-white.svg';
 import pipeBlack from 'assets/Utils/pipe-black.svg';
 import pipeWhite from 'assets/Utils/pipe-white.svg';
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
+import CircularProgress from '@mui/material/CircularProgress';
 import 'styles/Artists.css';
 
 function Artists() {
@@ -46,7 +49,7 @@ function Artists() {
   };
 
   const autoProg = useCallback(() => {
-    if (!isPaused) {
+    if (!isPaused && artistData.length > 0) {
       setProgress(0);
       setArtistsPicIndex((artistsPicIndex + 1) % (artistData.length + 2));
     }
@@ -123,6 +126,49 @@ function Artists() {
       }, 100);
     }
   };
+
+  if (!artistData || artistData.length === 0) {
+    return (
+      <>
+        <main className='page-container' id='page-container'>
+          <header className='artists-header' id='artists-header'>
+            <div className='artists-header-gradient-overlay' />
+            <section className='artists-header-text-container'>
+              <div className='artists-brand-container'>
+                <h1 className='artists-brand-title'>ARTISTS</h1>
+                <p className='artists-tagline'>
+                  Celebrating talent, nurturing visionaries, and amplifying
+                  voices around the world.
+                </p>
+              </div>
+            </section>
+            <section className='artists-header-pics-container'>
+              <Skeleton className='header-skeleton' />
+            </section>
+          </header>
+          <Banner />
+          <section className='loading-content-container'>
+            <div className='loading-content'>
+              <div className='loading-text-container'>
+                <h2 className='loading-text'>LOADING</h2>
+                <CircularProgress
+                  size={22}
+                  sx={{ color: 'var(--clr-text)', marginLeft: '2px' }}
+                />
+              </div>
+              <div className='skeleton-wrapper'>
+                <Skeleton className='skeleton' />
+                <Skeleton className='skeleton' />
+                <Skeleton className='skeleton' />
+                <Skeleton className='skeleton' />
+              </div>
+            </div>
+          </section>
+          <div className='gap' />
+        </main>
+      </>
+    );
+  }
 
   return (
     <>

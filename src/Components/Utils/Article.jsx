@@ -6,13 +6,15 @@ import 'styles/Article.css';
 
 function Article() {
   const { title } = useParams();
-  const { news, formatTitleForURL } = useContext(AppContext);
+  const { newsData, formatTitleForURL } = useContext(AppContext);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const article = news.find((item) => formatTitleForURL(item.title) === title);
+  const article = newsData.find(
+    (item) => formatTitleForURL(item.title) === title
+  );
 
   if (!article) {
     return (

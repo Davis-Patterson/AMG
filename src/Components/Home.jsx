@@ -10,6 +10,7 @@ import playBlack from 'assets/Utils/play-black.svg';
 import playWhite from 'assets/Utils/play-white.svg';
 import pipeBlack from 'assets/Utils/pipe-black.svg';
 import pipeWhite from 'assets/Utils/pipe-white.svg';
+import CircularProgress from '@mui/material/CircularProgress';
 import 'styles/Home.css';
 
 function Home() {
@@ -102,6 +103,27 @@ function Home() {
       }, 50);
     }
   };
+
+  if (!homeData || homeData.length === 0) {
+    return (
+      <>
+        <main className='page-container' id='page-container'>
+          <header className='home-header' id='home-header'>
+            <section className='home-header-pics-container'>
+              <div className='loading-text-container'>
+                <h2 className='loading-text'>LOADING</h2>
+                <CircularProgress
+                  size={22}
+                  sx={{ color: 'var(--clr-text)', marginLeft: '2px' }}
+                />
+              </div>
+            </section>
+          </header>
+          <div className='gap' />
+        </main>
+      </>
+    );
+  }
 
   return (
     <>
