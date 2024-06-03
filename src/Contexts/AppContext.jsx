@@ -14,7 +14,9 @@ export const AppProvider = ({ children }) => {
   const [showSplash, setShowSplash] = useState(true);
   const [darkMode, setDarkMode] = useLocalStorageState('darkMode', true);
   const [mute, setMute] = useState(true);
-  const [dropdown, setDropdown] = useState(false);
+  const [menu, setMenu] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState(null);
+  const [contactFloat, setContactFloat] = useState(false);
 
   const [homeIndex, setHomeIndex] = useState(0);
   const [aboutPicIndex, setAboutPicIndex] = useState(0);
@@ -73,8 +75,12 @@ export const AppProvider = ({ children }) => {
         setDarkMode,
         mute,
         setMute,
-        dropdown,
-        setDropdown,
+        menu,
+        setMenu,
+        openDropdown,
+        setOpenDropdown,
+        contactFloat,
+        setContactFloat,
         homeIndex,
         setHomeIndex,
         aboutPicIndex,

@@ -1,0 +1,93 @@
+.contact-float-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 90;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.contact-float-button {
+  background-color: var(--clr-accent);
+  color: var(--clr-light);
+  padding: 10px 20px;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px var(--clr-shadow);
+  transition: all 0.3s ease-in-out;
+}
+.contact-float-button:hover {
+  background-color: var(--clr-accent-dark);
+}
+
+.contact-float-button h2 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.contact-float-content {
+  background-color: var(--clr-light);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px var(--clr-shadow);
+  margin-top: 10px;
+  width: 300px;
+  position: relative;
+}
+
+.contact-float-content h2 {
+  margin: 0 0 10px;
+  font-size: 18px;
+}
+
+.contact-float-content form {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-float-content input,
+.contact-float-content textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid var(--clr-break);
+  border-radius: 5px;
+  background-color: var(--clr-light);
+}
+.contact-float-content input:hover,
+.contact-float-content textarea:hover {
+  border: 1px solid var(--clr-dark);
+}
+.contact-float-content textarea {
+  resize: vertical;
+  min-height: 70px;
+  max-height: calc(40vh);
+}
+
+.contact-float-content button {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--clr-accent);
+  color: var(--clr-light);
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.contact-float-content button:hover {
+  background-color: var(--clr-accent-dark);
+}
+
+.close-icon {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  scale: 105%;
+}
+.close-icon:hover {
+  scale: 100%;
+}

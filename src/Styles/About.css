@@ -104,7 +104,6 @@
 .about-header-pic-title-container {
   position: absolute;
   bottom: 10px;
-  left: 10px;
   display: flex;
   transition: transform 0.9s ease-in-out 0.5s;
   width: 100%;
@@ -138,6 +137,7 @@
   opacity: 1;
   transition: opacity 0.5s ease-in-out;
   white-space: nowrap;
+  transition: color 0.3s;
 }
 
 .about-content-container {
