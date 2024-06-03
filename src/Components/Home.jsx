@@ -127,9 +127,12 @@ function Home() {
 
   return (
     <>
-      <main className='page-container' id='page-container'>
-        <header className='home-header' id='home-header'>
-          <section className='home-header-pics-container'>
+      <main className='home-container' id='home-container'>
+        <header className='home-display' id='home-header'>
+          <section
+            className='home-header-pics-container'
+            id='home-header-pics-container'
+          >
             <div
               className='home-header-pics-wrapper'
               style={{ transform: `translateX(${-100 * homeIndex}%)` }}

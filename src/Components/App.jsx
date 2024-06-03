@@ -4,7 +4,9 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 import Nav from 'components/Nav';
 import Home from 'components/Home';
 import Footer from 'components/Footer';
-import Splash from 'components/Splash';
+import Splash from 'utils/Splash';
+import Menu from 'utils/Menu';
+import ContactFloat from 'utils/ContactFloat';
 import News from 'components/News';
 import Artists from 'components/Artists';
 import About from 'components/About';
@@ -34,6 +36,7 @@ function App() {
   return (
     <>
       <Splash />
+      <Menu />
       <>
         <Nav />
         <Routes>
@@ -45,6 +48,7 @@ function App() {
           <Route path='/about' element={<About />} />
           <Route path='/contact' element={<Contact />} />
         </Routes>
+        <ContactFloat />
         <Footer />
       </>
     </>

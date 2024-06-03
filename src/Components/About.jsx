@@ -274,7 +274,7 @@ function About() {
               <p className='about-text'>
                 Striving to become a more ethical, equitable, and
                 environmentally sustainable company is imperative to us, and
-                important to our longterm creative and commercial success.
+                important to our long-term creative and commercial success.
               </p>
               <p className='about-text'>
                 It’s the universal language. It inspires us, moves us, thrills

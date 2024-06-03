@@ -9,6 +9,8 @@ import darkMuteIcon from 'assets/Utils/mute-black.svg';
 import lightMuteIcon from 'assets/Utils/mute-white.svg';
 import darkUnmuteIcon from 'assets/Utils/unmute-black.svg';
 import lightUnmuteIcon from 'assets/Utils/unmute-white.svg';
+import xBlack from 'assets/Utils/x-black.svg';
+import xWhite from 'assets/Utils/x-white.svg';
 import DehazeIcon from '@mui/icons-material/Dehaze';
 import 'styles/Nav.css';
 
@@ -19,8 +21,9 @@ const Nav = () => {
     setShowSplash,
     mute,
     setMute,
-    dropdown,
-    setDropdown,
+    menu,
+    setMenu,
+    setOpenDropdown,
   } = useContext(AppContext);
   const [isTop, setIsTop] = useState(true);
 
@@ -31,14 +34,16 @@ const Nav = () => {
   const currentUnmuteIcon = darkMode ? lightUnmuteIcon : darkUnmuteIcon;
   const currentSoundIcon = mute ? currentMuteIcon : currentUnmuteIcon;
 
-  const dropdownRef = useRef(null);
+  const currentX = darkMode ? xWhite : xBlack;
+
+  const menuRef = useRef(null);
   const menuIconRef = useRef(null);
 
   const navigate = useNavigate();
 
   const handleNavClick = (path) => {
     setShowSplash(true);
-    setDropdown(false);
+    setMenu(false);
 
     setTimeout(() => {
       navigate(path);
@@ -71,23 +76,19 @@ const Nav = () => {
         return;
       }
 
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setDropdown(false);
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setMenu(false);
       }
     }
 
-    if (dropdown) {
+    if (menu) {
       document.addEventListener('mousedown', handleClickOutside);
     }
 
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, [dropdown]);
-
-  const handleDarkModeChange = (event) => {
-    setDarkMode(event.target.checked);
-  };
+  }, [menu]);
 
   const handleDarkModeClick = (event) => {
     setDarkMode(!darkMode);
@@ -98,7 +99,9 @@ const Nav = () => {
   };
 
   const handleMenu = () => {
-    setDropdown(!dropdown);
+    setMenu(!menu);
+    setOpenDropdown(null);
+    document.body.classList.remove('menu-open');
   };
 
   useEffect(() => {
@@ -170,63 +173,27 @@ const Nav = () => {
               id='mute-toggle'
               onClick={handleMuteClick}
             />
-            <DehazeIcon
-              className='menu-icon'
-              onClick={handleMenu}
-              ref={menuIconRef}
-              id='menu-icon'
-              style={{ display: 'none' }}
-            />
+            <div className='nav-menu-toggle' id='nav-menu-toggle'>
+              {!menu && (
+                <DehazeIcon
+                  className='menu-icon'
+                  onClick={handleMenu}
+                  ref={menuIconRef}
+                  id='menu-icon'
+                />
+              )}
+              {menu && (
+                <img
+                  src={currentX}
+                  className='menu-close-icon'
+                  id='menu-close-icon'
+                  onClick={handleMenu}
+                  ref={menuIconRef}
+                />
+              )}
+            </div>
           </section>
         </main>
-        {dropdown && (
-          <div className='dropdown-menu' id='dropdown-menu' ref={dropdownRef}>
-            <div className='dropdown-links'>
-              <div
-                onClick={() => handleNavClick('/news')}
-                className='dropdown-link'
-                id='dropdown-link'
-              >
-                News
-              </div>
-              <div
-                onClick={() => handleNavClick('/artists')}
-                className='dropdown-link'
-                id='dropdown-link'
-              >
-                Artists
-              </div>
-              <div
-                onClick={() => handleNavClick('/about')}
-                className='dropdown-link'
-                id='dropdown-link'
-              >
-                About
-              </div>
-              <div
-                onClick={() => handleNavClick('/contact')}
-                className='dropdown-link'
-                id='dropdown-link'
-              >
-                Contact
-              </div>
-            </div>
-            <div className='dropdown-toggles' id='dropdown-toggles'>
-              <img
-                src={currentDarkmodeIcon}
-                alt='darkmode icon'
-                className='dropdown-dark-toggle'
-                onClick={handleDarkModeClick}
-              />
-              <img
-                src={currentSoundIcon}
-                alt='mute/unmute icon'
-                className='dropdown-mute-toggle'
-                onClick={handleMuteClick}
-              />
-            </div>
-          </div>
-        )}
       </nav>
     </>
   );
