@@ -5,7 +5,7 @@ import Nav from 'components/Nav';
 import Home from 'components/Home';
 import Footer from 'components/Footer';
 import Splash from 'utils/Splash';
-import Menu from 'utils/Menu';
+import Menu from 'components/Menu';
 import ContactFloat from 'utils/ContactFloat';
 import News from 'components/News';
 import Artists from 'components/Artists';

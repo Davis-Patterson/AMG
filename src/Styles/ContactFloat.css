@@ -54,10 +54,11 @@
   border: 1px solid var(--clr-break);
   border-radius: 5px;
   background-color: var(--clr-light);
+  color: var(--clr-dark);
 }
 .contact-float-content input:hover,
 .contact-float-content textarea:hover {
-  border: 1px solid var(--clr-dark);
+  border: 1px solid var(--clr-accent);
 }
 .contact-float-content textarea {
   resize: vertical;

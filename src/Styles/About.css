@@ -196,14 +196,21 @@
   z-index: 2;
 }
 
-.about-text-title {
+.about-text-title,
+.about-contact-text-title {
   font-family: 'Titillium Web', sans-serif;
   font-size: 3.5em;
   line-height: 0.8;
   color: var(--clr-dark);
-  margin: 0px 0px 0px 0px;
   font-weight: 900;
+}
+.about-text-title {
   padding: 40px 20px;
+  margin: 0px 0px 0px 0px;
+}
+.about-contact-text-title {
+  padding: 20px 20px;
+  margin: 10px 0px 20px 0px;
 }
 
 .about-text {
@@ -214,4 +221,21 @@
   margin: 0px 0px 0px 0px;
   font-weight: 400;
   padding: 10px 20px;
+}
+
+.about-contact-container {
+  width: 95%;
+  margin: 20px 20px 20px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-contact-content {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
