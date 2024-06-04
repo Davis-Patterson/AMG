@@ -28,6 +28,14 @@ export const AppProvider = ({ children }) => {
   const [artistData, setArtistData] = useState([]);
   const [locData, setLocData] = useState([]);
 
+  const [form, setForm] = useState({
+    email: '',
+    message: '',
+  });
+  const [sending, setSending] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState(false);
+
   const noUserImg = 'https://i.imgur.com/B4UC9KD.png';
 
   const formatTitleForURL = (name) => {
@@ -35,6 +43,43 @@ export const AppProvider = ({ children }) => {
       .toLowerCase()
       .replace(/[^a-z0-9]+/g, '-')
       .replace(/-+$/, '');
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setForm((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setSending(true);
+    // put client here
+    // .then(
+    (result) => {
+      setSending(false);
+      setSuccess(true);
+      console.log('Email successfully sent!', result.text);
+      setTimeout(() => {
+        setSuccess(false);
+      }, 5000);
+      setForm({
+        user_name: '',
+        email: '',
+        message: '',
+      });
+    },
+      (error) => {
+        setSending(false);
+        setError(true);
+        console.log('Failed to send email:', error.text);
+        setTimeout(() => {
+          setError(false);
+        }, 3000);
+      };
+    // );
   };
 
   useEffect(() => {
@@ -93,7 +138,17 @@ export const AppProvider = ({ children }) => {
         studioData,
         locData,
         noUserImg,
+        form,
+        setForm,
+        sending,
+        setSending,
+        success,
+        setSuccess,
+        error,
+        setError,
         formatTitleForURL,
+        handleChange,
+        handleSubmit,
       }}
     >
       {children}

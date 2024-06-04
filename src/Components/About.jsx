@@ -17,6 +17,7 @@ import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import CircularProgress from '@mui/material/CircularProgress';
 import 'styles/About.css';
+import Email from './Utils/Email';
 
 function About() {
   const { darkMode, studioData, aboutPicIndex, setAboutPicIndex } =
@@ -288,6 +289,12 @@ function About() {
           </div>
         </section>
         <Locations />
+        <div className='about-contact-container'>
+          <div className='about-contact-content'>
+            <p className='about-contact-text-title'>Contact us:</p>
+            <Email />
+          </div>
+        </div>
         <div className='gap' />
       </main>
     </>

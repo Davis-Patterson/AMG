@@ -1,0 +1,64 @@
+.email-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  margin: 0 auto;
+  width: 95%;
+  max-width: 600px;
+  background-color: var(--clr-menu);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px var(--clr-shadow);
+}
+
+.email-form-container input,
+.email-form-container textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid var(--clr-divider);
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: var(--clr-transparent);
+  color: var(--clr-dark);
+}
+.email-form-container textarea {
+  height: 150px;
+  min-height: 100px;
+  max-height: 300px;
+  resize: vertical;
+}
+.email-form-container input::placeholder,
+.email-form-container textarea::placeholder {
+  color: var(--clr-divider);
+  font-style: italic;
+  opacity: 1;
+}
+
+.email-form-container label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.1em;
+  font-weight: 500;
+  line-height: 0.9;
+  margin-top: 10px;
+  color: var(--clr-dark);
+  text-align: left;
+  width: 100%;
+}
+
+.email-form-container button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 20px;
+  background-color: var(--clr-accent);
+  border: none;
+  border-radius: 4px;
+  color: var(--clr-light);
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.email-form-container button:hover {
+  background-color: #0056b3;
+}

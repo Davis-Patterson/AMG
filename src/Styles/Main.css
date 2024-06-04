@@ -35,10 +35,11 @@
   --clr-white: #fff;
   --clr-black: #000000;
   --clr-nav: #505050;
-  --clr-menu: #e4e4e4f1;
+  --clr-menu: #f5f5f5f1;
   --clr-screen: #ebebeb5e;
   --clr-shadow: #00000042;
   --clr-shadow2: #0000006e;
+  --clr-shadow3: #0000009f;
   --clr-news-title: #f71e25;
   --clr-news-title-dark: #b51720;
   --clr-news-break: #ddd;
@@ -71,6 +72,7 @@
   --clr-screen: #0c0c0c77;
   --clr-shadow: #0e0e0e38;
   --clr-shadow2: #000000f1;
+  --clr-shadow3: #6e6e6e9f;
   --clr-news-title: #dd1118;
   --clr-news-title-dark: #b30c12;
   --clr-news-break: #2b2b2b;

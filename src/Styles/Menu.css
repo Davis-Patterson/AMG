@@ -168,8 +168,14 @@
   padding: 4px;
 }
 .menu-content-link:hover .menu-news-title,
+.menu-content-link:hover .menu-news-subtitle,
 .menu-content-link:hover .menu-artists-title {
   color: var(--clr-accent);
+  transition: color 0.3s ease;
+}
+.menu-content-link:hover .menu-news-image {
+  box-shadow: 0 4px 8px var(--clr-shadow3);
+  transition: box-shadow 0.15s ease-in-out;
 }
 
 .menu-news-image {

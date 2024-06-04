@@ -88,7 +88,7 @@ function News() {
           <section className='news-header-pics-container'>
             <img
               src={onAirImg}
-              alt='current studio pic'
+              alt='news header img'
               className='news-header-pics'
             />
           </section>
