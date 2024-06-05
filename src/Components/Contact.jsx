@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { AppContext } from 'contexts/AppContext';
+import Locations from 'utils/Locations';
 import amgReception from 'assets/Contact/amg-reception.jpg';
 import 'styles/Contact.css';
 import Email from './Utils/Email';
@@ -41,6 +42,7 @@ function Contact() {
             />
           </section>
         </header>
+        <Locations />
         <div className='contact-content-container'>
           <div className='contact-content'>
             <p className='contact-text-title'>Message us:</p>
