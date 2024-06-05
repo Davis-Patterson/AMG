@@ -26,6 +26,9 @@ import aboutBlack from 'assets/Utils/about-black.svg';
 import aboutWhite from 'assets/Utils/about-white.svg';
 import contactBlack from 'assets/Utils/contact-black.svg';
 import contactWhite from 'assets/Utils/contact-white.svg';
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
+import CircularProgress from '@mui/material/CircularProgress';
 import 'styles/Menu.css';
 
 const Menu = () => {
@@ -298,25 +301,59 @@ const Menu = () => {
             {openDropdown === 'news' && (
               <div className='menu-item-content'>
                 <div className='menu-content-scroll-container'>
-                  {newsData.map((article) => (
-                    <div
-                      key={article.id}
-                      className='menu-content-link'
-                      onClick={() =>
-                        handleLinkClick(
-                          `/news/${formatTitleForURL(article.title)}`
-                        )
-                      }
-                    >
-                      <img
-                        src={article.image}
-                        alt={article.title}
-                        className='menu-news-image'
-                      />
-                      <div className='menu-news-title'>{article.title}</div>
-                      <div className='menu-news-subtitle'>{article.date}</div>
+                  {newsData && newsData.length > 0 ? (
+                    newsData.map((article) => (
+                      <div
+                        key={article.id}
+                        className='menu-content-link'
+                        onClick={() =>
+                          handleLinkClick(
+                            `/news/${formatTitleForURL(article.title)}`
+                          )
+                        }
+                      >
+                        <img
+                          src={article.image}
+                          alt={article.title}
+                          className='menu-news-image'
+                        />
+                        <div className='menu-news-title'>{article.title}</div>
+                        <div className='menu-news-subtitle'>{article.date}</div>
+                      </div>
+                    ))
+                  ) : (
+                    <div className='loading-skeletons'>
+                      {Array(4)
+                        .fill()
+                        .map((_, index) => (
+                          <div key={index} className='skeleton-container'>
+                            <div className='skeleton-image'>
+                              <Skeleton height={150} width={150} />
+                              <CircularProgress
+                                size={30}
+                                sx={{
+                                  color: 'var(--clr-divider)',
+                                  position: 'absolute',
+                                  top: '45%',
+                                  left: '40%',
+                                  transform: 'translate(-50%, -50%)',
+                                }}
+                              />
+                            </div>
+                            <Skeleton
+                              width={150}
+                              height={20}
+                              style={{ marginTop: 8 }}
+                            />
+                            <Skeleton
+                              width={100}
+                              height={15}
+                              style={{ marginTop: 2 }}
+                            />
+                          </div>
+                        ))}
                     </div>
-                  ))}
+                  )}
                 </div>
               </div>
             )}
@@ -351,24 +388,53 @@ const Menu = () => {
             {openDropdown === 'artists' && (
               <div className='menu-item-content'>
                 <div className='menu-content-scroll-container'>
-                  {artistData.map((artist) => (
-                    <div
-                      key={artist.name}
-                      className='menu-content-link'
-                      onClick={() =>
-                        handleLinkClick(
-                          `/artists/${formatTitleForURL(artist.name)}`
-                        )
-                      }
-                    >
-                      <img
-                        src={artist.img}
-                        alt={artist.name}
-                        className='menu-news-image'
-                      />
-                      <div className='menu-artists-title'>{artist.name}</div>
+                  {artistData && artistData.length > 0 ? (
+                    artistData.map((artist) => (
+                      <div
+                        key={artist.name}
+                        className='menu-content-link'
+                        onClick={() =>
+                          handleLinkClick(
+                            `/artists/${formatTitleForURL(artist.name)}`
+                          )
+                        }
+                      >
+                        <img
+                          src={artist.img}
+                          alt={artist.name}
+                          className='menu-news-image'
+                        />
+                        <div className='menu-artists-title'>{artist.name}</div>
+                      </div>
+                    ))
+                  ) : (
+                    <div className='loading-skeletons'>
+                      {Array(4)
+                        .fill()
+                        .map((_, index) => (
+                          <div key={index} className='skeleton-container'>
+                            <div className='skeleton-image'>
+                              <Skeleton height={150} width={150} />
+                              <CircularProgress
+                                size={30}
+                                sx={{
+                                  color: 'var(--clr-divider)',
+                                  position: 'absolute',
+                                  top: '45%',
+                                  left: '40%',
+                                  transform: 'translate(-50%, -50%)',
+                                }}
+                              />
+                            </div>
+                            <Skeleton
+                              width={150}
+                              height={20}
+                              style={{ marginTop: 8 }}
+                            />
+                          </div>
+                        ))}
                     </div>
-                  ))}
+                  )}
                 </div>
               </div>
             )}
@@ -403,103 +469,140 @@ const Menu = () => {
             {openDropdown === 'about' && (
               <div className='menu-item-content'>
                 <div className='menu-about-content' id='menu-about-content'>
-                  <div
-                    className='menu-content-slide-container'
-                    id='menu-content-slide-container'
-                  >
-                    <div
-                      className='menu-slide-pics-wrapper'
-                      style={{
-                        transform: `translateX(-${aboutIndex * 100}%)`,
-                      }}
-                      onTransitionEnd={handleTransitionEnd}
-                    >
-                      <div className='menu-slide-pic-wrapper'>
-                        <img
-                          src={studioData[studioData.length - 1].img}
-                          alt={studioData[studioData.length - 1].title}
-                          className='menu-slide-pic'
-                        />
+                  {studioData && studioData.length > 0 ? (
+                    <>
+                      <div
+                        className='menu-content-slide-container'
+                        id='menu-content-slide-container'
+                      >
+                        <div
+                          className='menu-slide-pics-wrapper'
+                          style={{
+                            transform: `translateX(-${aboutIndex * 100}%)`,
+                          }}
+                          onTransitionEnd={handleTransitionEnd}
+                        >
+                          <div className='menu-slide-pic-wrapper'>
+                            <img
+                              src={studioData[studioData.length - 1].img}
+                              alt={studioData[studioData.length - 1].title}
+                              className='menu-slide-pic'
+                            />
+                          </div>
+                          {studioData.map((img, index) => (
+                            <div key={index} className='menu-slide-pic-wrapper'>
+                              <img
+                                src={img.img}
+                                alt={img.title}
+                                className='menu-slide-pic'
+                              />
+                            </div>
+                          ))}
+                          <div className='menu-slide-pic-wrapper'>
+                            <img
+                              src={studioData[0].img}
+                              alt={studioData[0].title}
+                              className='menu-slide-pic'
+                            />
+                          </div>
+                        </div>
+                        <div className='progress-bar'>
+                          <div
+                            className='progress-bar-fill'
+                            style={{
+                              width: `${progress}%`,
+                              transition:
+                                progress === 0 ? 'none' : 'width 0.1s linear',
+                            }}
+                          ></div>
+                        </div>
+                        <div className='toggle-pics-container-left'>
+                          <div
+                            className='pic-slider-btn-left'
+                            onClick={handlePrev}
+                          >
+                            <ArrowBigLeft />
+                          </div>
+                        </div>
+                        <div className='toggle-pics-container-right'>
+                          <div
+                            className='pic-slider-btn-right'
+                            onClick={handleNext}
+                          >
+                            <ArrowBigRight />
+                          </div>
+                        </div>
                       </div>
-                      {studioData.map((img, index) => (
-                        <div key={index} className='menu-slide-pic-wrapper'>
-                          <img
-                            src={img.img}
-                            alt={img.title}
-                            className='menu-slide-pic'
+                      <div
+                        className='menu-content-text-container'
+                        id='menu-content-text-container'
+                      >
+                        <div className='menu-content-title-container'>
+                          <div
+                            className='menu-slide-titles-wrapper'
+                            style={{
+                              transform: `translateX(-${aboutIndex * 100}%)`,
+                            }}
+                            onTransitionEnd={handleTransitionEnd}
+                          >
+                            <div className='menu-slide-title-wrapper'>
+                              <p className='menu-slide-pics-title'>
+                                {studioData[studioData.length - 1].title}
+                              </p>
+                            </div>
+                            {studioData.map((title, index) => (
+                              <div
+                                key={index}
+                                className='menu-slide-title-wrapper'
+                              >
+                                <p className='menu-slide-pics-title'>
+                                  {title.title}
+                                </p>
+                              </div>
+                            ))}
+                            <div className='menu-slide-title-wrapper'>
+                              <p className='menu-slide-pics-title'>
+                                {studioData[0].title}
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                        <p className='menu-content-text'>
+                          Fostering creativity and collaboration while striving
+                          for ethical, equitable, and sustainable practices. We
+                          nurture artistry and self-expression, uniting people
+                          through the universal language of music.
+                        </p>
+                      </div>
+                    </>
+                  ) : (
+                    <div className='loading-skeletons'>
+                      <div className='skeleton-container-about'>
+                        <div className='skeleton-image-about'>
+                          <Skeleton height={180} />
+                          <CircularProgress
+                            size={40}
+                            sx={{
+                              color: 'var(--clr-divider)',
+                              position: 'absolute',
+                              top: '40%',
+                              left: '42%',
+                              transform: 'translate(-50%, -50%)',
+                            }}
                           />
                         </div>
-                      ))}
-                      <div className='menu-slide-pic-wrapper'>
-                        <img
-                          src={studioData[0].img}
-                          alt={studioData[0].title}
-                          className='menu-slide-pic'
-                        />
-                      </div>
-                    </div>
-                    <div className='progress-bar'>
-                      <div
-                        className='progress-bar-fill'
-                        style={{
-                          width: `${progress}%`,
-                          transition:
-                            progress === 0 ? 'none' : 'width 0.1s linear',
-                        }}
-                      ></div>
-                    </div>
-                    <div className='toggle-pics-container-left'>
-                      <div className='pic-slider-btn-left' onClick={handlePrev}>
-                        <ArrowBigLeft />
-                      </div>
-                    </div>
-                    <div className='toggle-pics-container-right'>
-                      <div
-                        className='pic-slider-btn-right'
-                        onClick={handleNext}
-                      >
-                        <ArrowBigRight />
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    className='menu-content-text-container'
-                    id='menu-content-text-container'
-                  >
-                    <div className='menu-content-title-container'>
-                      <div
-                        className='menu-slide-titles-wrapper'
-                        style={{
-                          transform: `translateX(-${aboutIndex * 100}%)`,
-                        }}
-                        onTransitionEnd={handleTransitionEnd}
-                      >
-                        <div className='menu-slide-title-wrapper'>
-                          <p className='menu-slide-pics-title'>
-                            {studioData[studioData.length - 1].title}
-                          </p>
-                        </div>
-                        {studioData.map((title, index) => (
-                          <div key={index} className='menu-slide-title-wrapper'>
-                            <p className='menu-slide-pics-title'>
-                              {title.title}
-                            </p>
-                          </div>
-                        ))}
-                        <div className='menu-slide-title-wrapper'>
-                          <p className='menu-slide-pics-title'>
-                            {studioData[0].title}
-                          </p>
+                        <div className='skeleton-text-about'>
+                          <Skeleton
+                            count={6}
+                            width={300}
+                            height={15}
+                            style={{ marginBottom: 2 }}
+                            className='menu-about-skeletons'
+                          />
                         </div>
                       </div>
                     </div>
-                    <p className='menu-content-text'>
-                      Fostering creativity and collaboration while striving for
-                      ethical, equitable, and sustainable practices. We nurture
-                      artistry and self-expression, uniting people through the
-                      universal language of music.
-                    </p>
-                  </div>
+                  )}
                 </div>
               </div>
             )}
