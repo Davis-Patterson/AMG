@@ -149,18 +149,31 @@ function Artists() {
           <Banner />
           <section className='loading-content-container'>
             <div className='loading-content'>
-              <div className='loading-text-container'>
-                <h2 className='loading-text'>LOADING</h2>
-                <CircularProgress
-                  size={22}
-                  sx={{ color: 'var(--clr-text)', marginLeft: '2px' }}
-                />
-              </div>
-              <div className='skeleton-wrapper'>
-                <Skeleton className='skeleton' />
-                <Skeleton className='skeleton' />
-                <Skeleton className='skeleton' />
-                <Skeleton className='skeleton' />
+              <div className='skeleton-artist-cards'>
+                {Array(4)
+                  .fill()
+                  .map((_, index) => (
+                    <div key={index} className='skeleton-artist-card'>
+                      <div className='skeleton-artist-image'>
+                        <Skeleton height={200} width={200} />
+                        <div className='circular-progress-container'>
+                          <CircularProgress
+                            size={40}
+                            sx={{
+                              color: 'var(--clr-divider)',
+                            }}
+                          />
+                        </div>
+                      </div>
+                      <div className='skeleton-artist-name-container'>
+                        <Skeleton
+                          width={200}
+                          height={20}
+                          className='skeleton-artist-name'
+                        />
+                      </div>
+                    </div>
+                  ))}
               </div>
             </div>
           </section>

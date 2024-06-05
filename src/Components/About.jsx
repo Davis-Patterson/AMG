@@ -18,6 +18,7 @@ import 'react-loading-skeleton/dist/skeleton.css';
 import CircularProgress from '@mui/material/CircularProgress';
 import 'styles/About.css';
 import Email from './Utils/Email';
+import { display } from '@mui/system';
 
 function About() {
   const { darkMode, studioData, aboutPicIndex, setAboutPicIndex } =
@@ -128,7 +129,12 @@ function About() {
               </div>
             </section>
             <section className='about-header-pics-container'>
-              <Skeleton className='header-skeleton' />
+              <Skeleton
+                className='header-skeleton'
+                width={'100%'}
+                height={'100vh'}
+                style={{ display: 'block' }}
+              />
             </section>
           </header>
           <Banner />

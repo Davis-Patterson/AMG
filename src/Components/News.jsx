@@ -50,18 +50,54 @@ function News() {
           </header>
           <section className='loading-content-container'>
             <div className='loading-content'>
-              <div className='loading-text-container'>
-                <h2 className='loading-text'>LOADING</h2>
-                <CircularProgress
-                  size={22}
-                  sx={{ color: 'var(--clr-text)', marginLeft: '2px' }}
-                />
-              </div>
-              <div className='skeleton-wrapper'>
-                <Skeleton className='skeleton' />
-                <Skeleton className='skeleton' />
-                <Skeleton className='skeleton' />
-                <Skeleton className='skeleton' />
+              <div className='skeleton-article-cards'>
+                {Array(4)
+                  .fill()
+                  .map((_, index) => (
+                    <div key={index} className='skeleton-article-card'>
+                      <div className='skeleton-article-image'>
+                        <Skeleton height={150} width={150} />
+                        <div className='circular-progress-container'>
+                          <CircularProgress
+                            size={40}
+                            sx={{
+                              color: 'var(--clr-divider)',
+                            }}
+                          />
+                        </div>
+                      </div>
+                      <div className='skeleton-article-content'>
+                        <div className='skeleton-shadow-container'>
+                          <Skeleton
+                            width={300}
+                            height={15}
+                            style={{ marginBottom: 0 }}
+                          />
+                        </div>
+                        <div className='skeleton-shadow-container'>
+                          <Skeleton
+                            width={300}
+                            height={15}
+                            style={{ marginBottom: 0 }}
+                          />
+                        </div>
+                        <div className='skeleton-shadow-container'>
+                          <Skeleton
+                            width={300}
+                            height={15}
+                            style={{ marginBottom: 0 }}
+                          />
+                        </div>
+                        <div className='skeleton-button-shadow-container'>
+                          <Skeleton
+                            width={100}
+                            height={30}
+                            style={{ marginTop: 10 }}
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  ))}
               </div>
             </div>
           </section>
@@ -81,7 +117,7 @@ function News() {
             <div className='news-title-container'>
               <h1 className='news-title'>NEWS</h1>
               <p className='news-tagline'>
-                Shaping culture through the power of artistry.
+                Shaping culture through the power of articlery.
               </p>
             </div>
           </section>

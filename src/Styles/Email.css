@@ -8,7 +8,7 @@
   max-width: 600px;
   background-color: var(--clr-menu);
   border-radius: 8px;
-  box-shadow: 0 4px 8px var(--clr-shadow);
+  box-shadow: 0 4px 8px var(--clr-shadow1);
 }
 
 .email-form-container input,
@@ -21,13 +21,17 @@
   font-size: 16px;
   background-color: var(--clr-transparent);
   color: var(--clr-dark);
+  outline: none; /* Disable default focus styles */
+  transition: border-color 0.3s ease; /* Add transition for border color */
 }
+
 .email-form-container textarea {
   height: 150px;
   min-height: 100px;
   max-height: 300px;
   resize: vertical;
 }
+
 .email-form-container input::placeholder,
 .email-form-container textarea::placeholder {
   color: var(--clr-divider);
@@ -61,4 +65,12 @@
 
 .email-form-container button:hover {
   background-color: #0056b3;
+}
+
+/* Add custom hover and focus styles for inputs and textarea */
+.email-form-container input:hover,
+.email-form-container textarea:hover,
+.email-form-container input:focus,
+.email-form-container textarea:focus {
+  border-color: var(--clr-accent); /* Highlight border in accent color */
 }

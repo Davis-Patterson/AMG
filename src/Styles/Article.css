@@ -46,7 +46,7 @@
   /* max-width: 800px; */
   padding: 20px;
   background-color: var(--clr-light);
-  box-shadow: 0 2px 8px var(--clr-shadow);
+  box-shadow: 0 2px 8px var(--clr-shadow1);
   margin-top: -50px;
   z-index: 2;
 }

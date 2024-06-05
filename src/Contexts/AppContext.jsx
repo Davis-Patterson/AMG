@@ -105,10 +105,17 @@ export const AppProvider = ({ children }) => {
     };
 
     getHomeData();
+    getLocData();
+
     getNews();
     getArtistData();
     getStudioData();
-    getLocData();
+
+    // setTimeout(() => {
+    //   getNews();
+    //   getArtistData();
+    //   getStudioData();
+    // }, 4000);
   }, []);
 
   return (
