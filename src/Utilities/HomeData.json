@@ -1,18 +1,14 @@
 [
   {
-    "title": "Studer A827",
-    "img": "https://i.imgur.com/QZb5qkH.jpeg"
+    "title": "Summer Vybes",
+    "artist": "Don L",
+    "date": "2019",
+    "video": "/src/assets/Home/summer-vybes-1080.webm"
   },
   {
-    "title": "Lexicon 480L",
-    "img": "https://i.imgur.com/b3os6DI.jpeg"
-  },
-  {
-    "title": "API 1608 Control Room",
-    "img": "https://i.imgur.com/42QeuF0.jpeg"
-  },
-  {
-    "title": "SSL 4000G+",
-    "img": "https://i.imgur.com/C4RFROH.jpeg"
+    "title": "Starman",
+    "artist": "Aerotype Productions",
+    "date": "2020",
+    "video": "/src/assets/Home/starman-1080.webm"
   }
 ]

@@ -14,11 +14,12 @@
   padding: 10px 20px;
   border-radius: 50px;
   cursor: pointer;
-  box-shadow: 0 2px 5px var(--clr-shadow1);
+  box-shadow: 0 2px 5px var(--clr-shadow2);
   transition: all 0.3s ease-in-out;
 }
 .contact-float-button:hover {
   background-color: var(--clr-accent-dark);
+  box-shadow: 0 4px 8px var(--clr-shadow3);
 }
 
 .contact-float-button h2 {
