@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from 'react';
+import React, { useEffect, useContext, lazy } from 'react';
 import { AppContext } from 'contexts/AppContext';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import Nav from 'components/Nav';
@@ -7,13 +7,14 @@ import Footer from 'components/Footer';
 import Splash from 'utils/Splash';
 import Menu from 'components/Menu';
 import ContactFloat from 'utils/ContactFloat';
-import News from 'components/News';
-import Artists from 'components/Artists';
-import About from 'components/About';
-import Contact from 'components/Contact';
-import Article from 'components/Utils/Article';
-import Artist from 'components/Utils/Artist';
 import 'styles/App.css';
+
+const News = lazy(() => import('components/News'));
+const Artists = lazy(() => import('components/Artists'));
+const About = lazy(() => import('components/About'));
+const Contact = lazy(() => import('components/Contact'));
+const Article = lazy(() => import('utils/Article'));
+const Artist = lazy(() => import('utils/Artist'));
 
 function App() {
   const { setShowSplash } = useContext(AppContext);

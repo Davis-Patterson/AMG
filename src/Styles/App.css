@@ -10,8 +10,8 @@
 }
 
 .page-container {
-  min-height: calc(100vh - 100px);
-  margin: 160px 0px 0px 0px;
+  min-height: calc(100vh - 125px);
+  margin: 125px 0px 0px 0px;
   padding: 0px;
   display: flex;
   /* justify-content: center; */
