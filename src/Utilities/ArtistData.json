@@ -11,7 +11,16 @@
     "spotify": "",
     "apple": "",
     "management": "Alex Johnson, Maria Thompson",
-    "videos": []
+    "videos": [],
+    "news": [
+      {
+        "date": "5/15/2024",
+        "title": "New Album Release by Star Artist",
+        "desc": "AMG's star artist, DJ Moonlight, has released a new album that is already topping charts worldwide. The album features collaborations with several high-profile artists.",
+        "image": "https://i.imgur.com/FnyV0lA.jpeg",
+        "author": "Alice Johnson"
+      }
+    ]
   },
   {
     "name": "Lily Sterling",
@@ -25,7 +34,8 @@
     "spotify": "",
     "apple": "",
     "management": "James Carter, Susan White",
-    "videos": []
+    "videos": [],
+    "news": []
   },
   {
     "name": "Aerotype Productions",
@@ -55,6 +65,16 @@
             "resolution": "720p"
           }
         ]
+      }
+    ],
+    "news": [
+      {
+        "id": 5,
+        "date": "4/20/2024",
+        "title": "Aerotype Productions signed to major deal.",
+        "desc": "Aerotype Productions has signed a major deal with Aurum Management Group. Rumor is spreading that they are also making a major motion picture about his life.",
+        "image": "https://i.imgur.com/uJHbdvZ.png",
+        "author": "Jane Doe"
       }
     ]
   },
@@ -87,6 +107,16 @@
           }
         ]
       }
+    ],
+    "news": [
+      {
+        "id": 6,
+        "date": "3/28/2024",
+        "title": "Don L to headline Coachella.",
+        "desc": "Don L, known for his genre-blending music and captivating performances, is set to headline the 2024 Coachella Music Festival. This highly anticipated performance will mark a significant milestone in his career, showcasing his versatility as an artist. Fans can expect a dynamic setlist featuring his hits across indie rock, folk, and hip-hop, along with some surprise collaborations. Don L's unique sound and energetic stage presence are sure to make this an unforgettable experience for festival-goers.",
+        "image": "https://i.imgur.com/kJedYiC.jpeg",
+        "author": "Joseph Corolla"
+      }
     ]
   },
   {
@@ -101,7 +131,8 @@
     "spotify": "",
     "apple": "",
     "management": "David Miller, Rachel Adams",
-    "videos": []
+    "videos": [],
+    "news": []
   },
   {
     "name": "Raven Songbird",
@@ -115,7 +146,8 @@
     "spotify": "",
     "apple": "",
     "management": "Robert Johnson, Amanda Black",
-    "videos": []
+    "videos": [],
+    "news": []
   },
   {
     "name": "Hiroshi Tanaka",
@@ -129,7 +161,8 @@
     "spotify": "",
     "apple": "",
     "management": "William Lee, Sarah King",
-    "videos": []
+    "videos": [],
+    "news": []
   },
   {
     "name": "Emma Lou James",
@@ -143,6 +176,7 @@
     "spotify": "",
     "apple": "",
     "management": "John Anderson, Emily Davis",
-    "videos": []
+    "videos": [],
+    "news": []
   }
 ]
