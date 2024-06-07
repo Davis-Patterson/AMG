@@ -2,19 +2,18 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
 
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      components: '/src/Components',
-      assets: '/src/assets',
-      contexts: '/src/Contexts',
-      shared: '/src/shared',
-      utilities: '/src/Utilities',
-      styles: '/src/Styles',
-      artists: '/src/Components/Artists',
-      utils: '/src/Components/Utils',
+      components: path.resolve(__dirname, 'src/Components'),
+      assets: path.resolve(__dirname, 'src/assets'),
+      contexts: path.resolve(__dirname, 'src/Contexts'),
+      shared: path.resolve(__dirname, 'src/shared'),
+      utilities: path.resolve(__dirname, 'src/Utilities'),
+      styles: path.resolve(__dirname, 'src/Styles'),
+      artists: path.resolve(__dirname, 'src/Components/Artists'),
+      utils: path.resolve(__dirname, 'src/Components/Utils'),
     },
   },
   assetsInclude: [
@@ -25,6 +24,7 @@ export default defineConfig({
     '**/*.JPG',
     '**/*.jpeg',
     '**/*.JPEG',
+    '**/*.webm',
   ],
   build: {
     outDir: 'dist',
