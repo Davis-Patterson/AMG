@@ -44,7 +44,7 @@ module.exports = {
   },
   plugins: [
     new CopyWebpackPlugin({
-      patterns: [{ from: 'src/assets/home', to: 'assets/home' }],
+      patterns: [{ from: 'src/assets/Home', to: 'assets/home' }],
     }),
   ],
 };
