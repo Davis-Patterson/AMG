@@ -1,16 +1,52 @@
 import React, { useEffect, useContext, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { AppContext } from 'contexts/AppContext';
-import onAirImg from 'assets/News/on-air.jpg';
+import appleBlack from 'assets/Utils/apple-black.svg';
+import appleWhite from 'assets/Utils/apple-white.svg';
+import fBlack from 'assets/Utils/f-black.svg';
+import fWhite from 'assets/Utils/f-white.svg';
+import igBlack from 'assets/Utils/ig-black.svg';
+import igWhite from 'assets/Utils/ig-white.svg';
+import spotifyBlack from 'assets/Utils/spotify-black.svg';
+import spotifyWhite from 'assets/Utils/spotify-white.svg';
+import twitterxBlack from 'assets/Utils/twitterx-black.svg';
+import twitterxWhite from 'assets/Utils/twitterx-white.svg';
+import youtubeBlack from 'assets/Utils/youtube-black.svg';
+import youtubeWhite from 'assets/Utils/youtube-white.svg';
 import Skeleton from 'react-loading-skeleton';
-import 'react-loading-skeleton/dist/skeleton.css';
 import CircularProgress from '@mui/material/CircularProgress';
 import 'styles/Artist.css';
 
 function Artist() {
   const { name } = useParams();
-  const { artistData, noUserImg, formatTitleForURL } = useContext(AppContext);
+  const {
+    darkMode,
+    artistData,
+    newsData,
+    setShowSplash,
+    noUserImg,
+    formatTitleForURL,
+  } = useContext(AppContext);
   const [artist, setArtist] = useState(null);
+
+  const navigate = useNavigate();
+
+  const handleLinkClick = (path) => {
+    setShowSplash(true);
+
+    setTimeout(() => {
+      navigate(path);
+    }, 200);
+  };
+
+  const icons = {
+    apple: darkMode ? appleWhite : appleBlack,
+    facebook: darkMode ? fWhite : fBlack,
+    instagram: darkMode ? igWhite : igBlack,
+    spotify: darkMode ? spotifyWhite : spotifyBlack,
+    twitter: darkMode ? twitterxWhite : twitterxBlack,
+    youtube: darkMode ? youtubeWhite : youtubeBlack,
+  };
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -31,9 +67,7 @@ function Artist() {
             <div className='circular-progress-container'>
               <CircularProgress
                 size={40}
-                sx={{
-                  color: 'var(--clr-divider)',
-                }}
+                sx={{ color: 'var(--clr-divider)' }}
               />
             </div>
           </section>
@@ -47,55 +81,19 @@ function Artist() {
                   <div className='circular-progress-container'>
                     <CircularProgress
                       size={40}
-                      sx={{
-                        color: 'var(--clr-divider)',
-                      }}
+                      sx={{ color: 'var(--clr-divider)' }}
                     />
                   </div>
                 </div>
                 <div className='skeleton-article-content'>
-                  <div className='skeleton-shadow-container'>
+                  {[...Array(6)].map((_, i) => (
                     <Skeleton
+                      key={i}
                       width={300}
                       height={15}
                       style={{ marginBottom: 0 }}
                     />
-                  </div>
-                  <div className='skeleton-shadow-container'>
-                    <Skeleton
-                      width={300}
-                      height={15}
-                      style={{ marginBottom: 0 }}
-                    />
-                  </div>
-                  <div className='skeleton-shadow-container'>
-                    <Skeleton
-                      width={300}
-                      height={15}
-                      style={{ marginBottom: 0 }}
-                    />
-                  </div>
-                  <div className='skeleton-shadow-container'>
-                    <Skeleton
-                      width={300}
-                      height={15}
-                      style={{ marginBottom: 0 }}
-                    />
-                  </div>
-                  <div className='skeleton-shadow-container'>
-                    <Skeleton
-                      width={300}
-                      height={15}
-                      style={{ marginBottom: 0 }}
-                    />
-                  </div>
-                  <div className='skeleton-shadow-container'>
-                    <Skeleton
-                      width={300}
-                      height={15}
-                      style={{ marginBottom: 0 }}
-                    />
-                  </div>
+                  ))}
                 </div>
               </div>
             </div>
@@ -111,7 +109,6 @@ function Artist() {
       <main className='page-container' id='page-container'>
         <header className='news-header' id='about-header'>
           <div className='news-header-gradient-overlay' />
-          <div className='news-header-gradient-overlay' />
           <section className='news-header-text-container'>
             <div className='news-title-container'>
               <h1 className='news-title'>Not Found</h1>
@@ -123,7 +120,7 @@ function Artist() {
           </section>
           <section className='news-header-pics-container'>
             <img
-              src={onAirImg}
+              src='on-air.jpg'
               alt='current studio pic'
               className='news-header-pics'
             />
@@ -134,6 +131,8 @@ function Artist() {
   }
 
   const headerImage = artist.banner || artist.img || noUserImg;
+
+  const relevantNews = newsData.filter((news) => news.artist === artist.name);
 
   return (
     <main className='page-container' id='page-container'>
@@ -147,7 +146,7 @@ function Artist() {
           />
         </section>
       </header>
-      <div className='artist-detail-container'>
+      <div className='artist-detail-container' id='artist-detail-container'>
         <div className='artist-header-content'>
           <img
             src={artist.img || noUserImg}
@@ -156,13 +155,73 @@ function Artist() {
           />
           <div className='artist-title-container'>
             <h2 className='artist-title'>{artist.name}</h2>
-            {/* <p className='artist-info'>By {artist.name}</p>
-            <p className='artist-info'>{artist.name}</p> */}
+            <div className='artist-social-icons'>
+              {Object.keys(icons).map(
+                (key) =>
+                  artist[key] && (
+                    <a
+                      key={key}
+                      href={artist[key]}
+                      target='_blank'
+                      rel='noopener noreferrer'
+                    >
+                      <img
+                        src={icons[key]}
+                        alt={key}
+                        className='artist-social-icon'
+                      />
+                    </a>
+                  )
+              )}
+            </div>
           </div>
         </div>
-        <div className='artist-text-content'>
-          <p className='artist-bio'>{artist.bio}</p>
+        <div className='artist-content' id='artist-content'>
+          <div className='artist-bio' id='artist-bio'>
+            <h3 className='section-title'>Bio</h3>
+            <p>{artist.bio}</p>
+          </div>
+          <div className='artist-other' id='artist-other'>
+            <h3 className='section-title'>Management</h3>
+            <p>{artist.management}</p>
+          </div>
         </div>
+        {relevantNews.length > 0 && (
+          <div className='artist-news'>
+            <h3 className='section-title'>News</h3>
+            {relevantNews.map((news) => (
+              <div key={news.id} className='artist-news-article'>
+                <img
+                  src={news.image}
+                  alt={news.title}
+                  className='artist-news-article-image'
+                />
+                <div className='artist-news-article-content'>
+                  <h4
+                    className='artist-news-article-title'
+                    onClick={() =>
+                      handleLinkClick(`/news/${formatTitleForURL(news.title)}`)
+                    }
+                  >
+                    {news.title}
+                  </h4>
+                  <p className='artist-news-article-desc'>{news.desc}</p>
+                  <p className='artist-news-article-date'>
+                    By {news.author} on {news.date}
+                  </p>
+                  <div
+                    onClick={() =>
+                      handleLinkClick(`/news/${formatTitleForURL(news.title)}`)
+                    }
+                    className='read-more-button'
+                  >
+                    Read More
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
       <div className='gap' />
     </main>

@@ -9,7 +9,7 @@ import 'styles/Article.css';
 
 function Article() {
   const { title } = useParams();
-  const { newsData, formatTitleForURL } = useContext(AppContext);
+  const { darkMode, newsData, formatTitleForURL } = useContext(AppContext);
   const [article, setArticle] = useState(null);
 
   useEffect(() => {
