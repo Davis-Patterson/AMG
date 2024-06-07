@@ -40,20 +40,22 @@ function Home() {
 
   const handleVideoEnd = () => {
     setProgress(0);
-
     if (homeIndex < homeData.length - 1) {
       setHomeIndex((prevIndex) => prevIndex + 1);
     } else {
       setHomeIndex(0);
-      videoRefs.current.forEach((video) => {
-        if (video) video.currentTime = 0;
-      });
     }
   };
 
   useEffect(() => {
     const currentVideo = videoRefs.current[homeIndex];
     if (currentVideo) {
+      videoRefs.current.forEach((video, index) => {
+        if (video && index !== homeIndex) {
+          video.pause();
+          video.currentTime = 0;
+        }
+      });
       currentVideo.play();
     }
   }, [homeIndex]);
@@ -94,14 +96,20 @@ function Home() {
                 <video
                   ref={(el) => (videoRefs.current[index] = el)}
                   className='home-header-video'
-                  autoPlay
+                  autoPlay={index === homeIndex}
                   muted={mute}
                   onTimeUpdate={handleVideoProgress}
                   onEnded={handleVideoEnd}
                   playsInline
+                  key={index}
                 >
-                  <source src={item.videoWebm} type='video/webm' />
-                  <source src={item.videoMp4} type='video/mp4' />
+                  {item.videoSources.map((source, srcIndex) => (
+                    <source
+                      key={srcIndex}
+                      src={source.src}
+                      type={source.type}
+                    />
+                  ))}
                 </video>
               </div>
             ))}
