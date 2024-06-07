@@ -3,12 +3,12 @@
     "title": "Summer Vybes",
     "artist": "Don L",
     "date": "2019",
-    "video": "/assets/Home/summer-vybes-1080.webm"
+    "video": "https://amgbucket.s3.us-east-2.amazonaws.com/summer-vybes-1080.webm"
   },
   {
     "title": "Starman",
     "artist": "Aerotype Productions",
     "date": "2020",
-    "video": "/assets/Home/starman-1080.webm"
+    "video": "https://amgbucket.s3.us-east-2.amazonaws.com/starman-1080.webm"
   }
 ]
