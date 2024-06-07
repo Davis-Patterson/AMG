@@ -4,3 +4,7 @@ to-do:
 
 -optimize components for mobile, including 'article'
   -banner component not working on mobile, icons dissapear
+
+-make 'news' and 'artists' searchable 
+
+-put 'news' field in artistData, instead of importing and filtering newsData in artist component 

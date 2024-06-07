@@ -24,7 +24,6 @@ function Artist() {
     darkMode,
     mute,
     artistData,
-    newsData,
     setShowSplash,
     noUserImg,
     formatTitleForURL,
@@ -137,8 +136,6 @@ function Artist() {
 
   const headerImage = artist.banner || artist.img || noUserImg;
 
-  const relevantNews = newsData.filter((news) => news.artist === artist.name);
-
   return (
     <main className='page-container' id='page-container'>
       <header className='artist-header' id='artist-header'>
@@ -214,11 +211,11 @@ function Artist() {
             ))}
           </section>
         )}
-        {relevantNews.length > 0 && (
+        {artist.news && artist.news.length > 0 && (
           <section className='artist-news'>
             <h3 className='section-title'>News</h3>
-            {relevantNews.map((news) => (
-              <div key={news.id} className='artist-news-article'>
+            {artist.news.map((news, index) => (
+              <div key={index} className='artist-news-article'>
                 <img
                   src={news.image}
                   alt={news.title}
