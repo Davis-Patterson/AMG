@@ -109,23 +109,23 @@ function Article() {
   if (!article) {
     return (
       <main className='page-container' id='page-container'>
-        <header className='news-header' id='about-header'>
-          <div className='news-header-gradient-overlay' />
-          <div className='news-header-gradient-overlay' />
-          <section className='news-header-text-container'>
-            <div className='news-title-container'>
-              <h1 className='news-title'>Not Found</h1>
-              <p className='news-tagline'>
+        <header className='temp-header' id='about-header'>
+          <div className='temp-header-gradient-overlay' />
+          <div className='temp-header-gradient-overlay' />
+          <section className='temp-header-text-container'>
+            <div className='temp-title-container'>
+              <h1 className='temp-title'>Not Found</h1>
+              <p className='temp-tagline'>
                 Unfortunately, we cannot find the article that you're looking
                 for.
               </p>
             </div>
           </section>
-          <section className='news-header-pics-container'>
+          <section className='temp-header-pics-container'>
             <img
               src={onAirImg}
               alt='current studio pic'
-              className='news-header-pics'
+              className='temp-header-pics'
             />
           </section>
         </header>

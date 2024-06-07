@@ -1,6 +1,7 @@
 import React, { useEffect, useContext, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { AppContext } from 'contexts/AppContext';
+import onAirImg from 'assets/News/on-air.jpg';
 import appleBlack from 'assets/Utils/apple-black.svg';
 import appleWhite from 'assets/Utils/apple-white.svg';
 import fBlack from 'assets/Utils/f-black.svg';
@@ -21,6 +22,7 @@ function Artist() {
   const { name } = useParams();
   const {
     darkMode,
+    mute,
     artistData,
     newsData,
     setShowSplash,
@@ -49,7 +51,6 @@ function Artist() {
   };
 
   useEffect(() => {
-    window.scrollTo(0, 0);
     if (artistData.length > 0) {
       const foundArtist = artistData.find(
         (artist) => formatTitleForURL(artist.name) === name
@@ -57,6 +58,10 @@ function Artist() {
       setArtist(foundArtist);
     }
   }, [artistData, name, formatTitleForURL]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   if (!artistData || artistData.length === 0) {
     return (
@@ -107,22 +112,22 @@ function Artist() {
   if (!artist) {
     return (
       <main className='page-container' id='page-container'>
-        <header className='news-header' id='about-header'>
-          <div className='news-header-gradient-overlay' />
-          <section className='news-header-text-container'>
-            <div className='news-title-container'>
-              <h1 className='news-title'>Not Found</h1>
-              <p className='news-tagline'>
+        <header className='temp-header' id='about-header'>
+          <div className='temp-header-gradient-overlay' />
+          <section className='temp-header-text-container'>
+            <div className='temp-title-container'>
+              <h1 className='temp-title'>Not Found</h1>
+              <p className='temp-tagline'>
                 Unfortunately, we cannot find the artist that you're looking
                 for.
               </p>
             </div>
           </section>
-          <section className='news-header-pics-container'>
+          <section className='temp-header-pics-container'>
             <img
-              src='on-air.jpg'
+              src={onAirImg}
               alt='current studio pic'
-              className='news-header-pics'
+              className='temp-header-pics'
             />
           </section>
         </header>
@@ -146,8 +151,11 @@ function Artist() {
           />
         </section>
       </header>
-      <div className='artist-detail-container' id='artist-detail-container'>
-        <div className='artist-header-content'>
+      <section
+        className='artist-detail-title-container'
+        id='artist-detail-title-container'
+      >
+        <div className='artist-title-content'>
           <img
             src={artist.img || noUserImg}
             alt={artist.name}
@@ -176,7 +184,7 @@ function Artist() {
             </div>
           </div>
         </div>
-        <div className='artist-content' id='artist-content'>
+        <section className='artist-detail-content' id='artist-detail-content'>
           <div className='artist-bio' id='artist-bio'>
             <h3 className='section-title'>Bio</h3>
             <p>{artist.bio}</p>
@@ -185,9 +193,29 @@ function Artist() {
             <h3 className='section-title'>Management</h3>
             <p>{artist.management}</p>
           </div>
-        </div>
+        </section>
+        {artist.videos && artist.videos.length > 0 && (
+          <section className='artist-content' id='artist-content'>
+            <h3 className='section-title'>Content</h3>
+            {artist.videos.map((video, index) => (
+              <div key={index} className='video-container'>
+                <video className='artist-video' autoPlay muted={mute} controls>
+                  {video.videoSources.map((source, index) => (
+                    <source key={index} src={source.src} type={source.type} />
+                  ))}
+                  Your browser does not support the video tag.
+                </video>
+                <div className='video-title-artist-container'>
+                  <p className='video-title-artist'>
+                    {video.title} - {video.artist}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </section>
+        )}
         {relevantNews.length > 0 && (
-          <div className='artist-news'>
+          <section className='artist-news'>
             <h3 className='section-title'>News</h3>
             {relevantNews.map((news) => (
               <div key={news.id} className='artist-news-article'>
@@ -220,9 +248,9 @@ function Artist() {
                 </div>
               </div>
             ))}
-          </div>
+          </section>
         )}
-      </div>
+      </section>
       <div className='gap' />
     </main>
   );

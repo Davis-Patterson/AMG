@@ -1,3 +1,6 @@
 to-do: 
 
 - footer links broken, still looking for dropdown state
+
+-optimize components for mobile, including 'article'
+  -banner component not working on mobile, icons dissapear
