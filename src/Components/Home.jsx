@@ -93,15 +93,16 @@ function Home() {
               <div key={index} className='home-header-video-wrapper'>
                 <video
                   ref={(el) => (videoRefs.current[index] = el)}
-                  src={item.video}
-                  type='video/webm'
                   className='home-header-video'
                   autoPlay
                   muted={mute}
                   onTimeUpdate={handleVideoProgress}
                   onEnded={handleVideoEnd}
                   playsInline
-                />
+                >
+                  <source src={item.videoWebm} type='video/webm' />
+                  <source src={item.videoMp4} type='video/mp4' />
+                </video>
               </div>
             ))}
           </div>
