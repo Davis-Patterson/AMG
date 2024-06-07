@@ -1,5 +1,5 @@
 @media screen and (max-width: 1125px) {
-  #artist-content {
+  #artist-detail-content {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -18,7 +18,7 @@
 }
 
 @media screen and (max-width: 750px) {
-  #artist-detail-container {
+  #artist-detail-title-container {
     width: 100%;
     padding: 10px;
     background-color: var(--clr-light);
@@ -73,10 +73,10 @@
   z-index: 0;
 }
 
-.artist-detail-container {
+.artist-detail-title-container {
   width: 80%;
   max-width: 1000px;
-  padding: 20px;
+  padding: 20px 20px 50px 20px;
   background-color: var(--clr-light);
   box-shadow: 0 2px 8px var(--clr-shadow1);
   margin-top: -50px;
@@ -85,7 +85,7 @@
   flex-direction: column;
 }
 
-.artist-header-content {
+.artist-title-content {
   display: flex;
   align-items: center;
 }
@@ -113,14 +113,14 @@
 .artist-social-icons {
   display: flex;
   gap: 15px;
+  margin: 0px 0px 0px px;
 }
 
 .artist-social-icon {
-  width: 24px;
   height: 24px;
 }
 
-.artist-content {
+.artist-detail-content {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -150,6 +150,33 @@
   font-size: 1.1em;
   line-height: 1.6;
   color: var(--clr-dark);
+}
+
+.artist-content {
+  margin: 20px 0px 20px 0px;
+}
+
+.artist-video {
+  width: 100%;
+  max-width: 1000px;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+}
+
+.video-title-artist-container {
+  width: 100%;
+  display: flex;
+  justify-content: left;
+}
+
+.video-title-artist {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.15em;
+  font-weight: 600;
+  color: var(--clr-dark);
+  margin-top: 10px;
+  text-align: left;
 }
 
 .artist-news {

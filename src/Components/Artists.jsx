@@ -33,6 +33,10 @@ function Artists() {
     setArtistsPicIndex(1);
   }, [setArtistsPicIndex]);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   if (!artistData || artistData.length === 0) {
     return (
       <>

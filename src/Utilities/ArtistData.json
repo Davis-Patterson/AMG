@@ -10,7 +10,8 @@
     "youtube": "https://www.youtube.com/",
     "spotify": "",
     "apple": "",
-    "management": "Alex Johnson, Maria Thompson"
+    "management": "Alex Johnson, Maria Thompson",
+    "videos": []
   },
   {
     "name": "Lily Sterling",
@@ -23,7 +24,8 @@
     "youtube": "https://www.youtube.com/",
     "spotify": "",
     "apple": "",
-    "management": "James Carter, Susan White"
+    "management": "James Carter, Susan White",
+    "videos": []
   },
   {
     "name": "Aerotype Productions",
@@ -36,7 +38,25 @@
     "youtube": "https://www.youtube.com/",
     "spotify": "",
     "apple": "",
-    "management": "Emily Williams, Daniel Brown"
+    "management": "Emily Williams, Daniel Brown",
+    "videos": [
+      {
+        "title": "Starman",
+        "artist": "Aerotype Productions",
+        "videoSources": [
+          {
+            "src": "https://amgbucket.s3.amazonaws.com/starman-1080.webm",
+            "type": "video/webm",
+            "resolution": "1080p"
+          },
+          {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/starman-720.mp4",
+            "type": "video/mp4",
+            "resolution": "720p"
+          }
+        ]
+      }
+    ]
   },
   {
     "name": "Don L",
@@ -49,7 +69,25 @@
     "youtube": "https://www.youtube.com/",
     "spotify": "",
     "apple": "",
-    "management": "Michael Roberts, Linda Green"
+    "management": "Michael Roberts, Linda Green",
+    "videos": [
+      {
+        "title": "Summer Vybes",
+        "artist": "Don L",
+        "videoSources": [
+          {
+            "src": "https://amgbucket.s3.amazonaws.com/summer-vybes-1080.webm",
+            "type": "video/webm",
+            "resolution": "1080p"
+          },
+          {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/summer-vybes-720.mp4",
+            "type": "video/mp4",
+            "resolution": "720p"
+          }
+        ]
+      }
+    ]
   },
   {
     "name": "Shaolin Prince",
@@ -62,7 +100,8 @@
     "youtube": "https://www.youtube.com/",
     "spotify": "",
     "apple": "",
-    "management": "David Miller, Rachel Adams"
+    "management": "David Miller, Rachel Adams",
+    "videos": []
   },
   {
     "name": "Raven Songbird",
@@ -75,7 +114,8 @@
     "youtube": "https://www.youtube.com/",
     "spotify": "",
     "apple": "",
-    "management": "Robert Johnson, Amanda Black"
+    "management": "Robert Johnson, Amanda Black",
+    "videos": []
   },
   {
     "name": "Hiroshi Tanaka",
@@ -88,7 +128,8 @@
     "youtube": "https://www.youtube.com/",
     "spotify": "",
     "apple": "",
-    "management": "William Lee, Sarah King"
+    "management": "William Lee, Sarah King",
+    "videos": []
   },
   {
     "name": "Emma Lou James",
@@ -101,6 +142,7 @@
     "youtube": "https://www.youtube.com/",
     "spotify": "",
     "apple": "",
-    "management": "John Anderson, Emily Davis"
+    "management": "John Anderson, Emily Davis",
+    "videos": []
   }
 ]

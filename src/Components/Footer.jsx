@@ -6,13 +6,12 @@ import AMGLogoWhite from 'assets/Logos/AMG-full-white.png';
 import 'styles/Footer.css';
 
 const Footer = ({}) => {
-  const { darkMode, setShowSplash, setDropdown } = useContext(AppContext);
+  const { darkMode, setShowSplash } = useContext(AppContext);
   const currentLogo = darkMode ? AMGLogoWhite : AMGLogoBlack;
 
   const navigate = useNavigate();
 
   const handleFooterClick = (path) => {
-    setDropdown(false);
     setShowSplash(true);
 
     setTimeout(() => {
