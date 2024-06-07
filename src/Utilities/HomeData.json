@@ -3,12 +3,12 @@
     "title": "Summer Vybes",
     "artist": "Don L",
     "date": "2019",
-    "video": "/src/assets/Home/summer-vybes-1080.webm"
+    "video": "/assets/Home/summer-vybes-1080.webm"
   },
   {
     "title": "Starman",
     "artist": "Aerotype Productions",
     "date": "2020",
-    "video": "/src/assets/Home/starman-1080.webm"
+    "video": "/assets/Home/starman-1080.webm"
   }
 ]
