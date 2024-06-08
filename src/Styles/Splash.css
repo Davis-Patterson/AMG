@@ -30,6 +30,15 @@
   opacity: 0;
   animation: fadeInGrow 1.15s ease-in-out;
   margin: 0px 0px 50px 0px;
+  transition: opacity 1s ease-in-out;
+}
+
+.splash-container.fade-in .splash-logo {
+  opacity: 1;
+}
+
+.splash-container.fade-out .splash-logo {
+  opacity: 0;
 }
 
 @keyframes fadeInGrow {

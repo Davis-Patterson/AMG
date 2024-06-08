@@ -111,13 +111,24 @@ function News() {
     <>
       <main className='page-container' id='page-container'>
         <header className='news-header' id='about-header'>
-          <div className='news-header-gradient-overlay' />
-          <div className='news-header-gradient-overlay' />
-          <section className='news-header-text-container'>
-            <div className='news-title-container'>
-              <h1 className='news-title'>NEWS</h1>
-              <p className='news-tagline'>
-                Shaping culture through the power of articlery.
+          <div
+            className='news-header-gradient-overlay'
+            id='news-header-gradient-overlay'
+          />
+          <div
+            className='news-header-gradient-overlay'
+            id='news-header-gradient-overlay'
+          />
+          <section
+            className='news-header-text-container'
+            id='news-header-text-container'
+          >
+            <div className='news-title-container' id='news-title-container'>
+              <h1 className='news-title' id='news-title'>
+                NEWS
+              </h1>
+              <p className='news-tagline' id='news-tagline'>
+                Shaping culture through the power of artistry.
               </p>
             </div>
           </section>
@@ -129,7 +140,7 @@ function News() {
             />
           </section>
         </header>
-        <div className='news-content-container'>
+        <div className='news-content-container' id='news-content-container'>
           <div className='filter-controls-container'></div>
           <div className='news-content'>
             {newsData.map((article) => (
@@ -137,7 +148,8 @@ function News() {
                 <img
                   src={article.image}
                   alt={article.title}
-                  className='news-article-image'
+                  className='news-news-article-image'
+                  id='news-news-article-image'
                 />
                 <div className='news-article-text'>
                   <div

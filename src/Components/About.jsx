@@ -27,7 +27,10 @@ function About() {
       <>
         <main className='page-container' id='page-container'>
           <header className='about-header' id='about-header'>
-            <div className='about-header-gradient-overlay' />
+            <div
+              className='about-header-gradient-overlay'
+              id='about-header-gradient-overlay'
+            />
             <section className='about-header-text-container'>
               <div className='about-brand-container'>
                 <h1 className='about-brand-title'>WHO WE ARE</h1>
@@ -74,10 +77,15 @@ function About() {
     <>
       <main className='page-container' id='page-container'>
         <header className='about-header' id='about-header'>
-          <div className='about-header-gradient-overlay' />
+          <div
+            className='about-header-gradient-overlay'
+            id='about-header-gradient-overlay'
+          />
           <section className='about-header-text-container'>
             <div className='about-brand-container'>
-              <h1 className='about-brand-title'>WHO WE ARE</h1>
+              <h1 className='about-title-title' id='about-title-title'>
+                WHO WE ARE
+              </h1>
               <p className='about-tagline'>
                 A collective of music lovers, inspired entrepreneurs,
                 game-changing creatives and passionate teams.
@@ -92,25 +100,30 @@ function About() {
           />
         </header>
         <Banner />
-        <section className='about-content-container'>
-          <div className='about-content'>
-            <div className='about-img-container'>
-              <div className='about-gradient' />
+        <section
+          className='about-content-container'
+          id='about-content-container'
+        >
+          <div className='about-content' id='about-content'>
+            <div className='about-img-container' id='about-img-container'>
+              <div className='about-gradient' id='about-gradient' />
               <img src={skylineImg} alt='about pic' className='about-img' />
             </div>
-            <div className='about-text-container'>
-              <p className='about-text-title'>ABOUT US</p>
-              <p className='about-text'>
+            <div className='about-text-container' id='about-text-container'>
+              <p className='about-text-title' id='about-text-title'>
+                ABOUT US
+              </p>
+              <p className='about-text' id='about-text'>
                 We believe in creating workplace experiences that foster
                 original thinking, encourage collaboration, and promote career
                 growth.
               </p>
-              <p className='about-text'>
+              <p className='about-text' id='about-text'>
                 Striving to become a more ethical, equitable, and
                 environmentally sustainable company is imperative to us, and
                 important to our long-term creative and commercial success.
               </p>
-              <p className='about-text'>
+              <p className='about-text' id='about-text'>
                 It’s the universal language. It inspires us, moves us, thrills
                 us, heals us and ultimately unites us all. As the world’s
                 leading music company, it’s our responsibility to nurture music,

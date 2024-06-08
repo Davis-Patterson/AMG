@@ -19,15 +19,17 @@ function Locations() {
   return (
     <>
       <section className='location-container'>
-        <div className='about-location'>
-          <div className='location-text-container'>
-            <p className='location-text-title'>LOCATIONS</p>
-            <p className='location-text'>
+        <div className='about-location' id='about-location'>
+          <div className='location-text-container' id='location-text-container'>
+            <p className='location-text-title' id='location-text-title'>
+              LOCATIONS
+            </p>
+            <p className='location-text' id='location-text'>
               {locations[locationIndex] ? locations[locationIndex].desc : ''}
             </p>
           </div>
-          <div className='location-img-container'>
-            <div className='location-gradient' />
+          <div className='location-img-container' id='location-img-container'>
+            <div className='location-gradient' id='location-gradient' />
             {locations.map((location, index) => (
               <img
                 key={index}
@@ -40,18 +42,22 @@ function Locations() {
               />
             ))}
           </div>
-          <div className='location-button-container'>
+          <div
+            className='location-button-container'
+            id='location-button-container'
+          >
             {locations.map((location, index) => (
               <div
                 key={index}
                 className={`location-button ${
                   locationIndex === index ? 'selected' : ''
                 }`}
+                id={`${locationIndex === index ? 'selected' : ''}`}
                 onClick={() => handleLocationClick(index)}
               >
                 <p className='location-button-text'>{location.id}</p>
                 {locationIndex === index && (
-                  <div className='indicator'>
+                  <div className='indicator' id='indicator'>
                     <div className='indicator-line'></div>
                     <div className='indicator-circle'></div>
                   </div>

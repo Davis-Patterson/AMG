@@ -97,10 +97,18 @@ function Artists() {
     <>
       <main className='page-container' id='page-container'>
         <header className='artists-header' id='artists-header'>
-          <div className='artists-header-gradient-overlay' />
+          <div
+            className='artists-header-gradient-overlay'
+            id='artists-header-gradient-overlay'
+          />
           <section className='artists-header-text-container'>
-            <div className='artists-brand-container'>
-              <h1 className='artists-brand-title'>ARTISTS</h1>
+            <div
+              className='artists-brand-container'
+              id='artists-brand-container'
+            >
+              <h1 className='artists-title-title' id='artists-title-title'>
+                ARTISTS
+              </h1>
               <p className='artists-tagline'>
                 Celebrating talent, nurturing visionaries, and amplifying voices
                 around the world.
@@ -115,25 +123,32 @@ function Artists() {
           />
         </header>
         <Banner />
-        <section className='artists-content-container'>
-          <div className='artists-content'>
+        <section
+          className='artists-content-container'
+          id='artists-content-container'
+        >
+          <div className='artists-content' id='artists-content'>
             {artistData.map((artist, index) => (
               <div
                 key={index}
                 className='artist-card'
+                id='artist-card'
                 onClick={() =>
                   handleLinkClick(`/artists/${formatTitleForURL(artist.name)}`)
                 }
               >
-                <div className='artist-img-container'>
+                <div className='artist-img-container' id='artist-img-container'>
                   <img
                     src={artist.img || noUserImg}
                     alt={artist.name}
                     className='artist-img'
+                    id='artist-img'
                     loading='lazy'
                   />
                 </div>
-                <p className='artist-name'>{artist.name}</p>
+                <p className='artist-name' id='artist-name'>
+                  {artist.name}
+                </p>
               </div>
             ))}
           </div>
