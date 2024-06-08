@@ -11,11 +11,31 @@ function News() {
   const { darkMode, newsData, setShowSplash, formatTitleForURL } =
     useContext(AppContext);
 
+  const [sortOrder, setSortOrder] = useState('date-desc');
+  const [sortedNews, setSortedNews] = useState([]);
+
   const navigate = useNavigate();
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  useEffect(() => {
+    if (newsData) {
+      const sortedData = [...newsData].sort((a, b) => {
+        if (sortOrder === 'name-asc') {
+          return a.title.localeCompare(b.title);
+        } else if (sortOrder === 'name-desc') {
+          return b.title.localeCompare(a.title);
+        } else if (sortOrder === 'date-asc') {
+          return new Date(a.date) - new Date(b.date);
+        } else if (sortOrder === 'date-desc') {
+          return new Date(b.date) - new Date(a.date);
+        }
+      });
+      setSortedNews(sortedData);
+    }
+  }, [newsData, sortOrder]);
 
   const handleLinkClick = (path) => {
     setShowSplash(true);
@@ -140,45 +160,57 @@ function News() {
             />
           </section>
         </header>
-        <div className='news-content-container' id='news-content-container'>
-          <div className='filter-controls-container'></div>
-          <div className='news-content'>
-            {newsData.map((article) => (
-              <div key={article.id} className='news-article'>
-                <img
-                  src={article.image}
-                  alt={article.title}
-                  className='news-news-article-image'
-                  id='news-news-article-image'
-                />
-                <div className='news-article-text'>
-                  <div
-                    onClick={() =>
-                      handleLinkClick(
-                        `/news/${formatTitleForURL(article.title)}`
-                      )
-                    }
-                    className='news-article-title'
-                  >
-                    {article.title}
-                  </div>
-                  <p className='news-article-desc'>{article.desc}</p>
-                  <p className='news-article-author'>
-                    By {article.author} on {article.date}
-                  </p>
-                  <div
-                    onClick={() =>
-                      handleLinkClick(
-                        `/news/${formatTitleForURL(article.title)}`
-                      )
-                    }
-                    className='read-more-button'
-                  >
-                    Read More
+        <div className='news-container-container' id='news-content-container'>
+          <div className='filter-dropdown'>
+            <select
+              value={sortOrder}
+              onChange={(e) => setSortOrder(e.target.value)}
+            >
+              <option value='name-asc'>Name ⇑</option>
+              <option value='name-desc'>Name ⇓</option>
+              <option value='date-asc'>Date ⇑</option>
+              <option value='date-desc'>Date ⇓</option>
+            </select>
+          </div>
+          <div className='news-content-container' id='news-content-container'>
+            <div className='news-content'>
+              {sortedNews.map((article) => (
+                <div key={article.id} className='news-article'>
+                  <img
+                    src={article.image}
+                    alt={article.title}
+                    className='news-news-article-image'
+                    id='news-news-article-image'
+                  />
+                  <div className='news-article-text'>
+                    <div
+                      onClick={() =>
+                        handleLinkClick(
+                          `/news/${formatTitleForURL(article.title)}`
+                        )
+                      }
+                      className='news-article-title'
+                    >
+                      {article.title}
+                    </div>
+                    <p className='news-article-desc'>{article.desc}</p>
+                    <p className='news-article-author'>
+                      By {article.author} on {article.date}
+                    </p>
+                    <div
+                      onClick={() =>
+                        handleLinkClick(
+                          `/news/${formatTitleForURL(article.title)}`
+                        )
+                      }
+                      className='read-more-button'
+                    >
+                      Read More
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
         <div className='gap' />
