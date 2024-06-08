@@ -3,6 +3,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap');
 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -26,6 +27,7 @@
   --clr-divider: #acacac;
   --clr-section: #dfdfdf;
   --clr-grey: #a0a0a0;
+  --clr-more: #d3d3d3;
   --clr-progress: #d6d7dbc4;
   --clr-accent-light: #60cffc;
   --clr-accent: #007bff;
@@ -59,6 +61,7 @@
   --clr-break: #979797;
   --clr-section: #181818;
   --clr-grey: #5c5c5c;
+  --clr-more: #868686;
   --clr-progress: #b4b4b4e7;
   --clr-accent-light: #4cb7e9;
   --clr-accent: #4fa4ff;

@@ -1,3 +1,51 @@
+@media screen and (max-width: 650px) {
+  #about-location {
+    flex-direction: column;
+  }
+  #location-text-container {
+    width: 100%;
+    padding: 20px 20px 0px 20px;
+    margin-bottom: -5px;
+  }
+  #location-text-title {
+    padding: 20px 20px 10px 20px;
+    font-size: 3em;
+  }
+  #location-text {
+    padding: 20px 20px 10px 20px;
+    width: 100%;
+    font-size: 1em;
+  }
+  #location-img-container {
+    width: 100%;
+    height: 350px;
+  }
+  #location-gradient {
+    background: linear-gradient(
+      to bottom,
+      var(--clr-light),
+      var(--clr-transparent)
+    );
+  }
+  #location-button-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    height: auto;
+    top: unset;
+    bottom: 28%;
+  }
+  #indicator {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 530px) {
+  #location-button-container {
+    bottom: 12%;
+  }
+}
+
 .location-container {
   width: 100%;
   background-color: var(--clr-section);

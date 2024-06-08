@@ -28,6 +28,12 @@
   }
 }
 
+@media screen and (max-width: 500px) {
+  #footer-link-container {
+    width: 100%;
+  }
+}
+
 .footer-container {
   width: 100%;
   min-height: 350px;
@@ -57,6 +63,7 @@
 
 .footer-logo {
   width: 300px;
+  cursor: pointer;
 }
 
 .attribution {

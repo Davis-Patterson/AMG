@@ -16,12 +16,20 @@ function Contact() {
     <>
       <main className='page-container' id='page-container'>
         <header className='contact-header' id='about-header'>
-          <div className='contact-header-gradient-overlay' />
-          <div className='contact-header-gradient-overlay' />
+          <div
+            className='contact-header-gradient-overlay'
+            id='contact-header-gradient-overlay'
+          />
+          <div
+            className='contact-header-gradient-overlay'
+            id='contact-header-gradient-overlay'
+          />
           <section className='contact-header-text-container'>
             <div className='contact-title-container'>
-              <h1 className='contact-title'>CONTACT</h1>
-              <p className='contact-tagline'>
+              <h1 className='contact-title' id='contact-title'>
+                CONTACT
+              </h1>
+              <p className='contact-tagline' id='contact-tagline'>
                 Send us a message! You can also find us on{' '}
                 <a
                   href='https://www.instagram.com/'
@@ -43,10 +51,13 @@ function Contact() {
           </section>
         </header>
         <Locations />
-        <div className='contact-content-container'>
-          <div className='contact-content'>
+        <div
+          className='contact-content-container'
+          id='contact-content-container'
+        >
+          <div className='contact-content' id='contact-content'>
             <p className='contact-text-title'>Message us:</p>
-            <p className='contact-text-disclaimer'>
+            <p className='contact-text-disclaimer' id='contact-text-disclaimer'>
               Aurum Management Group (AMG) values its relationships and welcomes
               the opportunity to collaborate with established individuals in the
               music industry. However, please note that AMG and its personnel

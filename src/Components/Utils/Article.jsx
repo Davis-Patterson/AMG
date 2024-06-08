@@ -136,7 +136,6 @@ function Article() {
   return (
     <main className='page-container' id='page-container'>
       <header className='article-header' id='article-header'>
-        <div className='article-header-gradient-overlay' />
         <section className='article-header-pics-container'>
           <img
             src={article.image}
@@ -145,12 +144,13 @@ function Article() {
           />
         </section>
       </header>
-      <div className='article-detail-container'>
+      <div className='article-detail-container' id='article-detail-container'>
         <div className='article-header-content'>
           <img
             src={article.image}
             alt={article.title}
             className='news-article-image'
+            id='news-article-image'
           />
           <div className='article-title-container'>
             <h2 className='article-title'>{article.title}</h2>
@@ -159,7 +159,9 @@ function Article() {
           </div>
         </div>
         <div className='article-text-content'>
-          <p className='article-desc'>{article.desc}</p>
+          <p className='article-desc' id='article-desc'>
+            {article.desc}
+          </p>
         </div>
       </div>
       <div className='gap' />

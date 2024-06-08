@@ -1,4 +1,11 @@
-import React, { useEffect, useContext, lazy } from 'react';
+import React, {
+  useState,
+  useEffect,
+  useContext,
+  lazy,
+  startTransition,
+  Suspense,
+} from 'react';
 import { AppContext } from 'contexts/AppContext';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import Nav from 'components/Nav';
@@ -18,20 +25,23 @@ const Artist = lazy(() => import('utils/Artist'));
 
 function App() {
   const { setShowSplash } = useContext(AppContext);
-
   const location = useLocation();
+  const [isPending, setPending] = useState(false);
 
   useEffect(() => {
-    const path = location.pathname.replace('/', '');
-    setShowSplash(true);
+    startTransition(() => {
+      setPending(true);
+      setShowSplash(true);
 
-    const splashTimeout = setTimeout(() => {
-      setShowSplash(false);
-    }, 1000);
+      const splashTimeout = setTimeout(() => {
+        setShowSplash(false);
+        setPending(false);
+      }, 1000);
 
-    return () => {
-      clearTimeout(splashTimeout);
-    };
+      return () => {
+        clearTimeout(splashTimeout);
+      };
+    });
   }, [location, setShowSplash]);
 
   return (
@@ -42,12 +52,54 @@ function App() {
         <Nav />
         <Routes>
           <Route path='/' element={<Home />} />
-          <Route path='/news' element={<News />} />
-          <Route path='/news/:title' element={<Article />} />
-          <Route path='/artists' element={<Artists />} />
-          <Route path='/artists/:name' element={<Artist />} />
-          <Route path='/about' element={<About />} />
-          <Route path='/contact' element={<Contact />} />
+          <Route
+            path='/news'
+            element={
+              <Suspense fallback={<Splash />}>
+                <News />
+              </Suspense>
+            }
+          />
+          <Route
+            path='/news/:title'
+            element={
+              <Suspense fallback={<Splash />}>
+                <Article />
+              </Suspense>
+            }
+          />
+          <Route
+            path='/artists'
+            element={
+              <Suspense fallback={<Splash />}>
+                <Artists />
+              </Suspense>
+            }
+          />
+          <Route
+            path='/artists/:name'
+            element={
+              <Suspense fallback={<Splash />}>
+                <Artist />
+              </Suspense>
+            }
+          />
+          <Route
+            path='/about'
+            element={
+              <Suspense fallback={<Splash />}>
+                <About />
+              </Suspense>
+            }
+          />
+          <Route
+            path='/contact'
+            element={
+              <Suspense fallback={<Splash />}>
+                <Contact />
+              </Suspense>
+            }
+          />
         </Routes>
         <ContactFloat />
         <Footer />

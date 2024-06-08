@@ -1,3 +1,35 @@
+@media screen and (max-width: 650px) {
+  #contact-header-gradient-overlay {
+    width: 90%;
+  }
+  #contact-title {
+    font-size: 3.2em;
+  }
+  #contact-tagline {
+    font-size: 1.25em;
+  }
+  #contact-content-container {
+    width: 100%;
+    padding: 20px;
+    margin: 0;
+  }
+  #contact-content {
+    width: 100%;
+  }
+  #contact-text-disclaimer {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 460px) {
+  #contact-title {
+    font-size: 3em;
+  }
+  #contact-tagline {
+    font-size: 1.15em;
+  }
+}
+
 .contact-header {
   display: flex;
   flex-direction: column;

@@ -29,6 +29,7 @@ function Artist() {
     formatTitleForURL,
   } = useContext(AppContext);
   const [artist, setArtist] = useState(null);
+  const [bioReadMore, setBioReadMore] = useState(false);
 
   const navigate = useNavigate();
 
@@ -61,6 +62,14 @@ function Artist() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  const handleReadMore = () => {
+    setBioReadMore(true);
+  };
+
+  const toggleReadMore = () => {
+    setBioReadMore(!bioReadMore);
+  };
 
   if (!artistData || artistData.length === 0) {
     return (
@@ -139,7 +148,6 @@ function Artist() {
   return (
     <main className='page-container' id='page-container'>
       <header className='artist-header' id='artist-header'>
-        <div className='artist-header-gradient-overlay' />
         <section className='artist-header-pics-container'>
           <img
             src={headerImage}
@@ -157,9 +165,12 @@ function Artist() {
             src={artist.img || noUserImg}
             alt={artist.name}
             className='news-artist-image'
+            id='news-artist-image'
           />
           <div className='artist-title-container'>
-            <h2 className='artist-title'>{artist.name}</h2>
+            <h2 className='artist-title' id='artist-title'>
+              {artist.name}
+            </h2>
             <div className='artist-social-icons'>
               {Object.keys(icons).map(
                 (key) =>
@@ -174,6 +185,7 @@ function Artist() {
                         src={icons[key]}
                         alt={key}
                         className='artist-social-icon'
+                        id='artist-social-icon'
                       />
                     </a>
                   )
@@ -182,9 +194,28 @@ function Artist() {
           </div>
         </div>
         <section className='artist-detail-content' id='artist-detail-content'>
-          <div className='artist-bio' id='artist-bio'>
+          <div className='artist-bio-container' id='artist-bio'>
             <h3 className='section-title'>Bio</h3>
-            <p>{artist.bio}</p>
+            <div className='section-text-container'>
+              <div
+                className={`${
+                  bioReadMore ? 'text-gradient-hidden' : 'text-gradient-shown'
+                }`}
+              />
+              <p
+                className={`${
+                  bioReadMore
+                    ? 'artist-bio-text-expanded'
+                    : 'artist-bio-text-hidden'
+                }`}
+                onClick={handleReadMore}
+              >
+                {artist.bio}
+              </p>
+            </div>
+            <p className='read-more-text' onClick={toggleReadMore}>
+              {bioReadMore ? 'read less' : 'read more'}
+            </p>
           </div>
           <div className='artist-other' id='artist-other'>
             <h3 className='section-title'>Management</h3>
@@ -215,7 +246,11 @@ function Artist() {
           <section className='artist-news'>
             <h3 className='section-title'>News</h3>
             {artist.news.map((news, index) => (
-              <div key={index} className='artist-news-article'>
+              <div
+                key={index}
+                className='artist-news-article'
+                id='artist-news-article'
+              >
                 <img
                   src={news.image}
                   alt={news.title}
