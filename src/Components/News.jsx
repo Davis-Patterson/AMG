@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { AppContext } from 'contexts/AppContext';
-import { useNavigate } from 'react-router-dom';
 import onAirImg from 'assets/News/on-air.jpg';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
@@ -8,13 +7,16 @@ import CircularProgress from '@mui/material/CircularProgress';
 import 'styles/News.css';
 
 function News() {
-  const { darkMode, newsData, setShowSplash, formatTitleForURL } =
-    useContext(AppContext);
+  const {
+    darkMode,
+    newsData,
+    setShowSplash,
+    handleLinkClick,
+    formatTitleForURL,
+  } = useContext(AppContext);
 
   const [sortOrder, setSortOrder] = useState('date-desc');
   const [sortedNews, setSortedNews] = useState([]);
-
-  const navigate = useNavigate();
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -36,14 +38,6 @@ function News() {
       setSortedNews(sortedData);
     }
   }, [newsData, sortOrder]);
-
-  const handleLinkClick = (path) => {
-    setShowSplash(true);
-
-    setTimeout(() => {
-      navigate(path);
-    }, 200);
-  };
 
   if (!newsData || newsData.length === 0) {
     return (
@@ -193,7 +187,9 @@ function News() {
                     >
                       {article.title}
                     </div>
-                    <p className='news-article-desc'>{article.desc}</p>
+                    <p className='news-article-desc'>
+                      {article.content[0].content}
+                    </p>
                     <p className='news-article-author'>
                       By {article.author} on {article.date}
                     </p>

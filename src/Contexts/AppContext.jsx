@@ -1,4 +1,5 @@
 import React, { createContext, useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   fetchNews,
   fetchHome,
@@ -37,6 +38,16 @@ export const AppProvider = ({ children }) => {
   const [error, setError] = useState(false);
 
   const noUserImg = 'https://i.imgur.com/B4UC9KD.png';
+
+  const navigate = useNavigate();
+
+  const handleLinkClick = (path) => {
+    setShowSplash(true);
+
+    setTimeout(() => {
+      navigate(path);
+    }, 200);
+  };
 
   const formatTitleForURL = (name) => {
     return name
@@ -153,6 +164,7 @@ export const AppProvider = ({ children }) => {
         setSuccess,
         error,
         setError,
+        handleLinkClick,
         formatTitleForURL,
         handleChange,
         handleSubmit,

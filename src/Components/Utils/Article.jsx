@@ -9,18 +9,35 @@ import 'styles/Article.css';
 
 function Article() {
   const { title } = useParams();
-  const { darkMode, newsData, formatTitleForURL } = useContext(AppContext);
+  const { darkMode, newsData, handleLinkClick, formatTitleForURL } =
+    useContext(AppContext);
   const [article, setArticle] = useState(null);
+  const [recentNews, setRecentNews] = useState(null);
 
   useEffect(() => {
-    window.scrollTo(0, 0);
     if (newsData.length > 0) {
       const foundNews = newsData.find(
         (item) => formatTitleForURL(item.title) === title
       );
       setArticle(foundNews);
+      const sortedData = newsData
+        .filter((item) => formatTitleForURL(item.title) !== title)
+        .sort((a, b) => new Date(b.date) - new Date(a.date))
+        .slice(0, 2);
+      setRecentNews(sortedData);
     }
   }, [newsData, title, formatTitleForURL]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const getDescriptionText = (desc, attribution, date) => {
+    if (!desc && !attribution && !date) return '';
+    if (desc && (attribution || date))
+      return `${desc} - ${attribution || ''} ${date || ''}`.trim();
+    return `${attribution || ''} ${date || ''}`.trim();
+  };
 
   if (!newsData || newsData.length === 0) {
     return (
@@ -144,7 +161,10 @@ function Article() {
           />
         </section>
       </header>
-      <div className='article-detail-container' id='article-detail-container'>
+      <section
+        className='article-detail-container'
+        id='article-detail-container'
+      >
         <div className='article-header-content'>
           <img
             src={article.image}
@@ -159,11 +179,84 @@ function Article() {
           </div>
         </div>
         <div className='article-text-content'>
-          <p className='article-desc' id='article-desc'>
-            {article.desc}
-          </p>
+          {article.content.map((section) => (
+            <div key={section.section}>
+              {section.img && (
+                <div className='article-section-image-container'>
+                  <img
+                    src={section.img}
+                    alt='section img'
+                    className='article-section-image'
+                  />
+                </div>
+              )}
+              <p className='image-description'>
+                {getDescriptionText(
+                  section.desc,
+                  section.attribution,
+                  section.date
+                )}
+              </p>
+              <p className='article-section-text'>{section.content}</p>
+            </div>
+          ))}
         </div>
-      </div>
+        <div className='article-artist-container'>
+          <h3 className='section-title'>Artist</h3>
+        </div>
+        <div className='other-news-container'>
+          <h3 className='section-title'>Recent News</h3>
+          {recentNews &&
+            recentNews.map((newsItem) => (
+              <div
+                key={newsItem.id}
+                className='recent-news-article'
+                id='recent-news-article'
+              >
+                <div
+                  className='recent-news-article-image-container'
+                  id='recent-news-article-image-container'
+                >
+                  <img
+                    src={newsItem.image}
+                    alt={newsItem.title}
+                    className='recent-news-article-image'
+                    id='recent-news-article-image'
+                  />
+                </div>
+                <div className='recent-news-article-text'>
+                  <div
+                    onClick={() =>
+                      handleLinkClick(
+                        `/news/${formatTitleForURL(newsItem.title)}`
+                      )
+                    }
+                    className='recent-news-article-title'
+                    id='recent-news-article-title'
+                  >
+                    {newsItem.title}
+                  </div>
+                  <p className='recent-news-article-desc'>
+                    {newsItem.content[0].content}
+                  </p>
+                  <p className='recent-news-article-author'>
+                    By {newsItem.author} on {newsItem.date}
+                  </p>
+                  <div
+                    onClick={() =>
+                      handleLinkClick(
+                        `/news/${formatTitleForURL(newsItem.title)}`
+                      )
+                    }
+                    className='read-more-button'
+                  >
+                    Read More
+                  </div>
+                </div>
+              </div>
+            ))}
+        </div>
+      </section>
       <div className='gap' />
     </main>
   );
