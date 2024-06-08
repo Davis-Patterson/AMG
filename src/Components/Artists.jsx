@@ -19,6 +19,9 @@ function Artists() {
     formatTitleForURL,
   } = useContext(AppContext);
 
+  const [sortOrder, setSortOrder] = useState('desc');
+  const [sortedArtists, setSortedArtists] = useState([]);
+
   const navigate = useNavigate();
 
   const handleLinkClick = (path) => {
@@ -36,6 +39,19 @@ function Artists() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  useEffect(() => {
+    if (artistData) {
+      const sortedData = [...artistData].sort((a, b) => {
+        if (sortOrder === 'desc') {
+          return a.name.localeCompare(b.name);
+        } else {
+          return b.name.localeCompare(a.name);
+        }
+      });
+      setSortedArtists(sortedData);
+    }
+  }, [artistData, sortOrder]);
 
   if (!artistData || artistData.length === 0) {
     return (
@@ -127,8 +143,17 @@ function Artists() {
           className='artists-content-container'
           id='artists-content-container'
         >
+          <div className='filter-dropdown'>
+            <select
+              value={sortOrder}
+              onChange={(e) => setSortOrder(e.target.value)}
+            >
+              <option value='asc'>Name ⇑</option>
+              <option value='desc'>Name ⇓</option>
+            </select>
+          </div>
           <div className='artists-content' id='artists-content'>
-            {artistData.map((artist, index) => (
+            {sortedArtists.map((artist, index) => (
               <div
                 key={index}
                 className='artist-card'

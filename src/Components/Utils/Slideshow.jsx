@@ -27,18 +27,20 @@ const Slideshow = ({ data, index, setIndex, slideClass }) => {
   const autoProg = useCallback(() => {
     if (!isPaused) {
       setProgress(0);
-      setIndex((index + 1) % (data.length + 1));
+      setIndex((prevIndex) => (prevIndex + 1) % (data.length + 2));
     }
-  }, [isPaused, index, data.length, setIndex]);
+  }, [isPaused, data.length, setIndex]);
 
   const handlePrev = () => {
     setProgress(0);
-    setIndex((index - 1 + data.length + 1) % (data.length + 1));
+    setIndex(
+      (prevIndex) => (prevIndex - 1 + data.length + 2) % (data.length + 2)
+    );
   };
 
   const handleNext = () => {
     setProgress(0);
-    setIndex((index + 1) % (data.length + 1));
+    setIndex((prevIndex) => (prevIndex + 1) % (data.length + 2));
   };
 
   const handlePause = () => {
@@ -72,12 +74,23 @@ const Slideshow = ({ data, index, setIndex, slideClass }) => {
     const titleWrapper = document.querySelector(
       `.${slideClass}-header-pics-title-wrapper`
     );
-    if (index === data.length) {
-      setIndex(0);
+
+    if (index === data.length + 1) {
+      setIndex(1);
       wrapper.style.transition = 'none';
       titleWrapper.style.transition = 'none';
-      wrapper.style.transform = `translateX(0%)`;
-      titleWrapper.style.transform = `translateX(0%)`;
+      wrapper.style.transform = `translateX(${-100}%)`;
+      titleWrapper.style.transform = `translateX(${-100}%)`;
+      setTimeout(() => {
+        wrapper.style.transition = '';
+        titleWrapper.style.transition = '';
+      }, 50);
+    } else if (index === 0) {
+      setIndex(data.length);
+      wrapper.style.transition = 'none';
+      titleWrapper.style.transition = 'none';
+      wrapper.style.transform = `translateX(${-100 * data.length}%)`;
+      titleWrapper.style.transform = `translateX(${-100 * data.length}%)`;
       setTimeout(() => {
         wrapper.style.transition = '';
         titleWrapper.style.transition = '';
@@ -93,8 +106,16 @@ const Slideshow = ({ data, index, setIndex, slideClass }) => {
           style={{ transform: `translateX(${-100 * index}%)` }}
           onTransitionEnd={handleTransitionEnd}
         >
-          {data.map((item, index) => (
-            <div key={index} className={`${slideClass}-header-pic-wrapper`}>
+          <div className={`${slideClass}-header-pic-wrapper`}>
+            <img
+              src={data[data.length - 1].banner || data[data.length - 1].img}
+              alt={data[data.length - 1].title || data[data.length - 1].name}
+              className={`${slideClass}-header-pic`}
+              loading='lazy'
+            />
+          </div>
+          {data.map((item, idx) => (
+            <div key={idx} className={`${slideClass}-header-pic-wrapper`}>
               <img
                 src={item.banner || item.img}
                 alt={item.title || item.name}
@@ -103,7 +124,6 @@ const Slideshow = ({ data, index, setIndex, slideClass }) => {
               />
             </div>
           ))}
-          {/* Clone of the first video for seamless looping */}
           <div className={`${slideClass}-header-pic-wrapper`}>
             <img
               src={data[0].banner || data[0].img}
@@ -121,19 +141,24 @@ const Slideshow = ({ data, index, setIndex, slideClass }) => {
             style={{ transform: `translateX(${-100 * index}%)` }}
             onTransitionEnd={handleTransitionEnd}
           >
-            {data.map((title, index) => (
+            <div className={`${slideClass}-header-pic-title-wrapper`}>
+              <p className={`${slideClass}-header-pic-title`}>
+                {data[data.length - 1].title || data[data.length - 1].name}
+              </p>
+            </div>
+            {data.map((title, idx) => (
               <div
                 className={`${slideClass}-header-pic-title-wrapper`}
-                key={index}
+                key={idx}
               >
                 <p className={`${slideClass}-header-pic-title`}>
-                  {title.title}
+                  {title.title || title.name}
                 </p>
               </div>
             ))}
             <div className={`${slideClass}-header-pic-title-wrapper`}>
               <p className={`${slideClass}-header-pic-title`}>
-                {data[0].title}
+                {data[0].title || data[0].name}
               </p>
             </div>
           </div>
