@@ -219,7 +219,9 @@ function Artist() {
           </div>
           <div className='artist-other' id='artist-other'>
             <h3 className='section-title'>Management</h3>
-            <p>{artist.management}</p>
+            <p className='artist-management' id='artist-management'>
+              {artist.management}
+            </p>
           </div>
         </section>
         {artist.videos && artist.videos.length > 0 && (
