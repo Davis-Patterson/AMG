@@ -16,6 +16,7 @@ function Artists() {
     artistsPicIndex,
     setArtistsPicIndex,
     noUserImg,
+    handleLinkClick,
     formatTitleForURL,
   } = useContext(AppContext);
 
@@ -23,14 +24,6 @@ function Artists() {
   const [sortedArtists, setSortedArtists] = useState([]);
 
   const navigate = useNavigate();
-
-  const handleLinkClick = (path) => {
-    setShowSplash(true);
-
-    setTimeout(() => {
-      navigate(path);
-    }, 200);
-  };
 
   useEffect(() => {
     setArtistsPicIndex(1);
