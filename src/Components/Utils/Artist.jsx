@@ -244,7 +244,7 @@ function Artist() {
         </section>
         {artist.videos && artist.videos.length > 0 && (
           <section className='artist-content' id='artist-content'>
-            <h3 className='section-title'>Content</h3>
+            <h3 className='section-title'>Media</h3>
             {artist.videos.map((video, index) => (
               <div key={index} className='video-container'>
                 <video className='artist-video' autoPlay muted={mute} controls>
