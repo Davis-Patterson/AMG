@@ -5,3 +5,6 @@ to-do:
 -'news' results pagination (artists too?)
 
 -make 'news' and 'artists' searchable 
+
+
+-expand 'management' for artists; ie expand data to include contact email etc. 
