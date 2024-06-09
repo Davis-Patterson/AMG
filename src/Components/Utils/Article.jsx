@@ -34,6 +34,7 @@ function Article() {
 
   const getDescriptionText = (desc, attribution, date) => {
     if (!desc && !attribution && !date) return '';
+    if (desc && !attribution && !date) return `${desc}`;
     if (desc && (attribution || date))
       return `${desc} - ${attribution || ''} ${date || ''}`.trim();
     return `${attribution || ''} ${date || ''}`.trim();
@@ -201,11 +202,52 @@ function Article() {
             </div>
           ))}
         </div>
-        <div className='article-artist-container'>
-          <h3 className='section-title'>Artist</h3>
-        </div>
+        {article.artist && article.artist.length > 0 && (
+          <div className='article-artist-container'>
+            <h3 className='section-title'>Artist</h3>
+            {article.artist.map((artistItem, index) => (
+              <div key={index} className='article-artist'>
+                <img
+                  src={artistItem.img}
+                  alt={artistItem.name}
+                  className='article-artist-image'
+                  onClick={() =>
+                    handleLinkClick(
+                      `/artists/${formatTitleForURL(artistItem.name)}`
+                    )
+                  }
+                />
+                <div className='article-artist-content'>
+                  <h4
+                    className='article-artist-name'
+                    onClick={() =>
+                      handleLinkClick(
+                        `/artists/${formatTitleForURL(artistItem.name)}`
+                      )
+                    }
+                  >
+                    {artistItem.name}
+                  </h4>
+                  <p className='article-artist-bio'>
+                    {artistItem.bio.substring(0, 100)}...
+                  </p>
+                  <div
+                    onClick={() =>
+                      handleLinkClick(
+                        `/artists/${formatTitleForURL(artistItem.name)}`
+                      )
+                    }
+                    className='show-more-button'
+                  >
+                    Show More
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
         <div className='other-news-container'>
-          <h3 className='section-title'>Recent News</h3>
+          <h3 className='section-title'>Other News</h3>
           {recentNews &&
             recentNews.map((newsItem) => (
               <div
@@ -222,6 +264,11 @@ function Article() {
                     alt={newsItem.title}
                     className='recent-news-article-image'
                     id='recent-news-article-image'
+                    onClick={() =>
+                      handleLinkClick(
+                        `/news/${formatTitleForURL(newsItem.title)}`
+                      )
+                    }
                   />
                 </div>
                 <div className='recent-news-article-text'>

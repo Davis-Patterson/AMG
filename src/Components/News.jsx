@@ -25,9 +25,9 @@ function News() {
   useEffect(() => {
     if (newsData) {
       const sortedData = [...newsData].sort((a, b) => {
-        if (sortOrder === 'name-asc') {
+        if (sortOrder === 'title-asc') {
           return a.title.localeCompare(b.title);
-        } else if (sortOrder === 'name-desc') {
+        } else if (sortOrder === 'title-desc') {
           return b.title.localeCompare(a.title);
         } else if (sortOrder === 'date-asc') {
           return new Date(a.date) - new Date(b.date);
@@ -160,10 +160,10 @@ function News() {
               value={sortOrder}
               onChange={(e) => setSortOrder(e.target.value)}
             >
-              <option value='name-asc'>Name ⇑</option>
-              <option value='name-desc'>Name ⇓</option>
               <option value='date-asc'>Date ⇑</option>
               <option value='date-desc'>Date ⇓</option>
+              <option value='title-asc'>Title ⇑</option>
+              <option value='title-desc'>Title ⇓</option>
             </select>
           </div>
           <div className='news-content-container' id='news-content-container'>

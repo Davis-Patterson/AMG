@@ -60,7 +60,13 @@
     "title": "New Album Release by Star Artist",
     "image": "https://i.imgur.com/FnyV0lA.jpeg",
     "author": "Alice Johnson",
-    "artist": "DJ Moonlight",
+    "artist": [
+      {
+        "name": "DJ Moonlight",
+        "img": "https://i.imgur.com/FnyV0lA.jpeg",
+        "bio": "DJ Moonlight, a trailblazing figure in the electronic music scene, has captivated audiences worldwide with his unique soundscapes and electrifying performances. Born and raised in Berlin, he started his journey as a classical pianist before discovering his passion for electronic music. His sets blend deep house, techno, and ambient music, creating an immersive experience that transports listeners to another realm. With over a decade of experience, DJ Moonlight has played at some of the most prestigious festivals and clubs around the globe, including Tomorrowland, Coachella, and Berghain. His innovative approach to music production has earned him numerous awards and accolades, solidifying his status as a pioneer in the industry."
+      }
+    ],
     "content": [
       {
         "section": 1,
@@ -124,7 +130,13 @@
     "title": "Shaolin Prince Releases Groundbreaking New Album 'Echoes of the Future'",
     "image": "https://i.imgur.com/TqtYawx.jpg",
     "author": "Jamie Lee",
-    "artist": "Shaolin Prince",
+    "artist": [
+      {
+        "name": "Shaolin Prince",
+        "img": "https://i.imgur.com/a6qtOyO.jpeg",
+        "bio": "Shaolin Prince, born Marcus Thompson in New York, is a critically acclaimed hip-hop artist known for his peaceful, non-violent messages aimed at teaching kids about peaceful existence and life morals. Growing up in a challenging neighborhood, Marcus found solace in music and martial arts, which influenced his artistic persona. His debut album, 'Peaceful Warrior,' received widespread acclaim for its thoughtful lyrics and positive messages. Shaolin Prince has performed at numerous community events and festivals, using his platform to advocate for peace and education. His music has been praised for its ability to inspire and uplift, making him a beloved figure in the hip-hop community."
+      }
+    ],
     "content": [
       {
         "section": 1,
@@ -225,7 +237,13 @@
     "title": "Exclusive Interview with Rising Star",
     "image": "https://i.imgur.com/g0UZimv.jpeg",
     "author": "Susan Parker",
-    "artist": "Lily Sterling",
+    "artist": [
+      {
+        "name": "Lily Sterling",
+        "img": "https://i.imgur.com/g0UZimv.jpeg",
+        "bio": "Lily Sterling is a singer-songwriter whose soulful voice and heartfelt lyrics have resonated with fans across the world. Growing up in Nashville, Tennessee, she was surrounded by music from a young age, learning to play the guitar and piano by the time she was ten. Her music blends elements of country, folk, and pop, creating a sound that is both timeless and contemporary. Lily's debut album, 'Whispers in the Wind,' received critical acclaim for its raw emotion and lyrical depth. She has toured extensively, sharing stages with renowned artists like Taylor Swift and Kacey Musgraves. Known for her authenticity and vulnerability, Lily continues to inspire her fans with her powerful storytelling and captivating performances."
+      }
+    ],
     "content": [
       {
         "section": 1,
@@ -289,7 +307,13 @@
     "title": "Aerotype Productions Signed to Major Deal",
     "image": "https://i.imgur.com/uJHbdvZ.png",
     "author": "Jane Doe",
-    "artist": "Aerotype Productions",
+    "artist": [
+      {
+        "name": "Aerotype Productions",
+        "img": "https://i.imgur.com/trV1UTe.jpeg",
+        "bio": "Aerotype Productions is a hit producer known for his innovative approach to music production and sound design. Producer James 'Aerotype' Smith has revolutionized the electronic music landscape with his genre-defying tracks. His music combines elements of hip-hop, EDM, and cinematic soundscapes, creating an audio-visual experience that is both captivating and immersive. Aerotype Productions has collaborated with top artists like Kendrick Lamar, Skrillex, and The Weeknd, contributing to some of the biggest hits in recent years. His work has been featured in blockbuster films, video games, and major advertising campaigns, making him a household name in the industry. With a commitment to pushing the boundaries of music and technology, Aerotype Productions continues to set new standards in the world of sound."
+      }
+    ],
     "content": [
       {
         "section": 1,
@@ -344,7 +368,13 @@
     "title": "Don L to Headline Coachella",
     "image": "https://i.imgur.com/kJedYiC.jpeg",
     "author": "Joseph Corolla",
-    "artist": "Don L",
+    "artist": [
+      {
+        "name": "Don L",
+        "img": "https://i.imgur.com/UqmbO5f.jpeg",
+        "bio": "Don L, born Donald Ladon in Pheonix, AZ, is a versatile artist whose music spans across indie rock, folk, and hip-hop. His ability to blend these genres seamlessly has set him apart in the music industry. Donald began his career in the underground rap scene, quickly gaining recognition for his unique sound, his breakthrough mixtape, 'Rise of the Don,' highlighted his genre-blending talent. He has toured the world, gracing the stages of renowned festivals such as SXSW, Lollapalooza, and Glastonbury. His dynamic performances and charismatic stage presence have earned him a loyal fan base and critical acclaim. Throughout his career, Don L has received numerous awards for his innovative albums. His dedication to his craft and his ability to connect with listeners on a profound level make him a standout figure in the music world."
+      }
+    ],
     "content": [
       {
         "section": 1,
@@ -359,7 +389,7 @@
         "section": 2,
         "subtitle": "Expectations for the Performance",
         "img": "https://i.imgur.com/kJedYiC.jpeg",
-        "desc": "",
+        "desc": "Don L in his music video for 'Summer Vybes'",
         "date": "",
         "attribution": "",
         "content": "As a headliner, Don L plans to deliver a spectacular show, complete with visually stunning stage designs and interactive elements that engage the audience. His ability to seamlessly transition between different musical styles will be a highlight of the festival."

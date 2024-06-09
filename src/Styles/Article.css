@@ -195,6 +195,93 @@
   margin-bottom: 10px;
 }
 
+.article-artist-container {
+  margin-bottom: 40px;
+}
+
+.article-artist {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.article-artist-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin-right: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: box-shadow 0.1s ease-in-out;
+}
+.article-artist-image:hover {
+  box-shadow: 0 4px 8px var(--clr-shadow2);
+}
+
+.article-artist-content {
+  flex: 1;
+}
+
+.article-artist-name {
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 1.5em;
+  font-weight: 700;
+  color: var(--clr-dark);
+  margin-bottom: 10px;
+  cursor: pointer;
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+}
+.article-artist-name::before {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px;
+  left: 50%;
+  background-color: var(--clr-accent);
+  transition: width 0.4s ease, left 0.4s ease;
+  transform: translateX(-50%);
+}
+
+.article-artist-name:hover::before,
+.article-artist-name:active::before {
+  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.article-artist-name:hover,
+.article-artist-name:active {
+  color: var(--clr-accent);
+}
+
+.article-artist-bio {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1em;
+  color: var(--clr-dark);
+  margin-bottom: 10px;
+}
+
+.show-more-button {
+  font-family: 'Playfair Display', serif;
+  background-color: var(--clr-show-more1);
+  color: var(--clr-light);
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-align: center;
+  width: 150px;
+  line-height: 1.1;
+}
+
+.show-more-button:hover {
+  background-color: var(--clr-show-more2);
+}
+
 .recent-news-article {
   display: flex;
   margin-bottom: 10px;
@@ -208,6 +295,11 @@
   margin-right: 20px;
   overflow: hidden;
   position: relative;
+  cursor: pointer;
+  transition: box-shadow 0.1s ease-in-out;
+}
+.recent-news-article-image-container:hover {
+  box-shadow: 0 4px 8px var(--clr-shadow2);
 }
 
 .recent-news-article-image {
