@@ -41,10 +41,11 @@
   }
   #recent-news-article-image-container {
     width: 100%;
+    height: 200px;
   }
   #recent-news-article-image {
-    width: unset;
     height: unset;
+    object-fit: cover;
   }
   #recent-news-article-title {
     margin: 10px 0px 0px 0px;
@@ -279,7 +280,7 @@
 }
 
 .show-more-button:hover {
-  background-color: var(--clr-show-more2);
+  background-color: var(--clr-accent);
 }
 
 .recent-news-article {
