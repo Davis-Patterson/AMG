@@ -257,6 +257,9 @@ function Artist() {
                   src={news.image}
                   alt={news.title}
                   className='artist-news-article-image'
+                  onClick={() =>
+                    handleLinkClick(`/news/${formatTitleForURL(news.title)}`)
+                  }
                 />
                 <div className='artist-news-article-content'>
                   <h4
@@ -267,7 +270,9 @@ function Artist() {
                   >
                     {news.title}
                   </h4>
-                  <p className='artist-news-article-desc'>{news.desc}</p>
+                  <p className='artist-news-article-desc'>
+                    {news.content[0].content}
+                  </p>
                   <p className='artist-news-article-date'>
                     By {news.author} on {news.date}
                   </p>

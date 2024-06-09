@@ -1,4 +1,4 @@
-import newsData from '/src/Utilities/News.json';
+import newsData from '/src/Utilities/NewsData.json';
 import homeData from '/src/Utilities/HomeData.json';
 import studioData from '/src/Utilities/StudioData.json';
 import artistData from '/src/Utilities/ArtistData.json';
