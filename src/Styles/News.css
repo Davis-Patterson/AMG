@@ -163,6 +163,11 @@
   height: 200px;
   object-fit: cover;
   margin-right: 20px;
+  cursor: pointer;
+  transition: box-shadow 0.1s ease-in-out;
+}
+.news-news-article-image:hover {
+  box-shadow: 0 4px 8px var(--clr-shadow2);
 }
 
 .news-article-text {
@@ -205,24 +210,6 @@
   font-size: 0.9em;
   color: var(--clr-text);
   margin: 5px 0px 10px 0px;
-}
-
-.read-more-button {
-  font-family: 'Playfair Display', serif;
-  background-color: var(--clr-news-title);
-  color: var(--clr-light);
-  border: none;
-  padding: 10px 15px;
-  cursor: pointer;
-  text-transform: uppercase;
-  font-weight: bold;
-  margin: 5px 0px 0px 0px;
-  width: 150px;
-  text-align: center;
-}
-
-.read-more-button:hover {
-  background-color: var(--clr-news-title-dark);
 }
 
 .skeleton-article-cards {

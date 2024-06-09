@@ -213,15 +213,33 @@ function Artist() {
                 {artist.bio}
               </p>
             </div>
-            <p className='read-more-text' onClick={toggleReadMore}>
-              {bioReadMore ? 'read less' : 'read more'}
-            </p>
+            <div onClick={toggleReadMore} className='show-more-text-button'>
+              <span>
+                <p className='show-more-text-button-text'>
+                  {bioReadMore ? 'show less' : 'show more'}
+                </p>
+              </span>
+            </div>
           </div>
           <div className='artist-other' id='artist-other'>
-            <h3 className='section-title'>Management</h3>
-            <p className='artist-management' id='artist-management'>
-              {artist.management}
-            </p>
+            {artist.management && artist.management.length > 0 && (
+              <>
+                <h3 className='section-title'>Management</h3>
+                {artist.management.map((manager, index) => (
+                  <div key={index} className='manager-container'>
+                    <p className='artist-management' id='artist-management'>
+                      {manager.name}
+                    </p>
+                    <p
+                      className='artist-management-email'
+                      id='artist-management'
+                    >
+                      {manager.email}
+                    </p>
+                  </div>
+                ))}
+              </>
+            )}
           </div>
         </section>
         {artist.videos && artist.videos.length > 0 && (
@@ -282,7 +300,9 @@ function Artist() {
                     }
                     className='read-more-button'
                   >
-                    Read More
+                    <span>
+                      <p className='read-more-button-text'>Read More</p>
+                    </span>
                   </div>
                 </div>
               </div>

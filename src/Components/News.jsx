@@ -175,6 +175,11 @@ function News() {
                     alt={article.title}
                     className='news-news-article-image'
                     id='news-news-article-image'
+                    onClick={() =>
+                      handleLinkClick(
+                        `/news/${formatTitleForURL(article.title)}`
+                      )
+                    }
                   />
                   <div className='news-article-text'>
                     <div
@@ -201,7 +206,9 @@ function News() {
                       }
                       className='read-more-button'
                     >
-                      Read More
+                      <span>
+                        <p className='read-more-button-text'>Read More</p>
+                      </span>
                     </div>
                   </div>
                 </div>

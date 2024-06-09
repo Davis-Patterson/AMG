@@ -263,24 +263,63 @@
   font-size: 1em;
   color: var(--clr-dark);
   margin-bottom: 10px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .show-more-button {
-  font-family: 'Playfair Display', serif;
   background-color: var(--clr-show-more1);
-  color: var(--clr-light);
-  border: none;
+  border: 1px solid var(--clr-show-more1);
   padding: 10px 15px;
   cursor: pointer;
   text-transform: uppercase;
   font-weight: bold;
-  text-align: center;
+  margin: 5px 0px 0px 0px;
   width: 150px;
-  line-height: 1.1;
+  position: relative;
+  overflow: hidden;
+  transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out;
 }
 
-.show-more-button:hover {
+.show-more-button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background-color: var(--clr-accent);
+  z-index: 0;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease-in-out;
+}
+
+.show-more-button:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.show-more-button span {
+  position: relative;
+  z-index: 1;
+}
+
+.show-more-button-text {
+  font-family: 'Poppins', sans-serif;
+  color: var(--clr-light);
+  text-transform: uppercase;
+  font-weight: bold;
+  text-align: center;
+  line-height: 1.1;
+  z-index: 10;
+}
+
+.show-more-button:hover .show-more-button-text {
+  color: var(--clr-light);
 }
 
 .recent-news-article {
@@ -352,22 +391,4 @@
   font-size: 0.9em;
   color: var(--clr-text);
   margin: 5px 0px 10px 0px;
-}
-
-.read-more-button {
-  font-family: 'Playfair Display', serif;
-  background-color: var(--clr-news-title);
-  color: var(--clr-light);
-  border: none;
-  padding: 10px 15px;
-  cursor: pointer;
-  text-transform: uppercase;
-  font-weight: bold;
-  margin: 5px 0px 0px 0px;
-  width: 150px;
-  text-align: center;
-}
-
-.read-more-button:hover {
-  background-color: var(--clr-news-title-dark);
 }

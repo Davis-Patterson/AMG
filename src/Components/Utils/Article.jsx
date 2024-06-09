@@ -228,9 +228,7 @@ function Article() {
                   >
                     {artistItem.name}
                   </h4>
-                  <p className='article-artist-bio'>
-                    {artistItem.bio.substring(0, 100)}...
-                  </p>
+                  <p className='article-artist-bio'>{artistItem.bio}...</p>
                   <div
                     onClick={() =>
                       handleLinkClick(
@@ -239,7 +237,9 @@ function Article() {
                     }
                     className='show-more-button'
                   >
-                    Show More
+                    <span>
+                      <p className='show-more-button-text'>Show More</p>
+                    </span>
                   </div>
                 </div>
               </div>
@@ -297,7 +297,9 @@ function Article() {
                     }
                     className='read-more-button'
                   >
-                    Read More
+                    <span>
+                      <p className='read-more-button-text'>Read More</p>
+                    </span>
                   </div>
                 </div>
               </div>
