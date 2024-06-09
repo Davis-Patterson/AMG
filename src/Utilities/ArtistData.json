@@ -10,7 +10,16 @@
     "youtube": "https://www.youtube.com/",
     "spotify": "",
     "apple": "",
-    "management": "Alex Johnson, Maria Thompson",
+    "management": [
+      {
+        "name": "Alex Johnson",
+        "email": "email@example.com"
+      },
+      {
+        "name": "Maria Thompson",
+        "email": "email@example.com"
+      }
+    ],
     "videos": [],
     "news": [
       {
@@ -90,7 +99,16 @@
     "youtube": "https://www.youtube.com/",
     "spotify": "",
     "apple": "",
-    "management": "James Carter, Susan White",
+    "management": [
+      {
+        "name": "James Carter",
+        "email": "email@example.com"
+      },
+      {
+        "name": "Susan White",
+        "email": "email@example.com"
+      }
+    ],
     "videos": [],
     "news": [
       {
@@ -170,7 +188,16 @@
     "youtube": "https://www.youtube.com/",
     "spotify": "",
     "apple": "",
-    "management": "Emily Williams, Daniel Brown",
+    "management": [
+      {
+        "name": "Emily Williams",
+        "email": "email@example.com"
+      },
+      {
+        "name": "Daniel Brown",
+        "email": "email@example.com"
+      }
+    ],
     "videos": [
       {
         "title": "Starman",
@@ -258,7 +285,16 @@
     "youtube": "https://www.youtube.com/",
     "spotify": "",
     "apple": "",
-    "management": "Michael Roberts, Linda Green",
+    "management": [
+      {
+        "name": "Michael Roberts",
+        "email": "email@example.com"
+      },
+      {
+        "name": "Linda Green",
+        "email": "email@example.com"
+      }
+    ],
     "videos": [
       {
         "title": "Summer Vybes",
@@ -346,7 +382,16 @@
     "youtube": "https://www.youtube.com/",
     "spotify": "",
     "apple": "",
-    "management": "David Miller, Rachel Adams",
+    "management": [
+      {
+        "name": "David Miller",
+        "email": "email@example.com"
+      },
+      {
+        "name": "Rachel Adams",
+        "email": "email@example.com"
+      }
+    ],
     "videos": [],
     "news": [
       {
@@ -408,7 +453,16 @@
     "youtube": "https://www.youtube.com/",
     "spotify": "",
     "apple": "",
-    "management": "Robert Johnson, Amanda Black",
+    "management": [
+      {
+        "name": "Robert Johnson",
+        "email": "email@example.com"
+      },
+      {
+        "name": "Amanda Black",
+        "email": "email@example.com"
+      }
+    ],
     "videos": [],
     "news": []
   },
@@ -423,7 +477,12 @@
     "youtube": "https://www.youtube.com/",
     "spotify": "",
     "apple": "",
-    "management": "William Lee, Sarah King",
+    "management": [
+      {
+        "name": "William Lee",
+        "email": "email@example.com"
+      }
+    ],
     "videos": [],
     "news": []
   },
@@ -438,7 +497,12 @@
     "youtube": "https://www.youtube.com/",
     "spotify": "",
     "apple": "",
-    "management": "John Anderson, Emily Davis",
+    "management": [
+      {
+        "name": "Emily Davis",
+        "email": "email@example.com"
+      }
+    ],
     "videos": [],
     "news": []
   }
