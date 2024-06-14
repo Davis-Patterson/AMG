@@ -4,6 +4,18 @@
   environment = { NODE_VERSION = "18.20.3" }
 
 [[redirects]]
+  from = "https://aurumgroup.netlify.app/*"
+  to = "https://aurummanagementgroup.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://aurummanagementgroup.com/*"
+  to = "https://aurummanagementgroup.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
