@@ -7,4 +7,6 @@ to-do:
 -make 'news' and 'artists' searchable 
 
 
--expand 'management' for artists; ie expand data to include contact email etc. 
+-add optional phone number to management 
+
+-add music to artist media section
