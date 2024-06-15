@@ -10,6 +10,12 @@
   force = true
 
 [[redirects]]
+  from = "https://main--aurumgroup.netlify.app/*"
+  to = "https://aurummanagementgroup.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "http://aurummanagementgroup.com/*"
   to = "https://aurummanagementgroup.com/:splat"
   status = 301
