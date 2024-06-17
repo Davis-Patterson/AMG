@@ -12,7 +12,7 @@ import ArrowsFillBlack from 'assets/Banner/arrows-fill-black.svg';
 import ArrowsFillWhite from 'assets/Banner/arrows-fill-white.svg';
 import ArrowsOutlineBlack from 'assets/Banner/arrows-outline-black.svg';
 import ArrowsOutlineWhite from 'assets/Banner/arrows-outline-white.svg';
-import 'styles/Banner.css';
+import 'styles/Utils/Banner.css';
 
 function Banner() {
   const { darkMode } = useContext(AppContext);

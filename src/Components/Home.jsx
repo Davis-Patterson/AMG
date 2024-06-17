@@ -1,36 +1,24 @@
 import React, { useEffect, useState, useContext, useRef } from 'react';
 import { AppContext } from 'contexts/AppContext';
-import { useNavigate } from 'react-router-dom';
 import CircularProgress from '@mui/material/CircularProgress';
 import 'styles/Home.css';
 
 function Home() {
   const {
-    darkMode,
     mute,
     homeData,
-    setShowSplash,
     homeIndex,
     setHomeIndex,
+    handleLinkClick,
     formatTitleForURL,
   } = useContext(AppContext);
 
   const [progress, setProgress] = useState(0);
   const videoRefs = useRef([]);
 
-  const navigate = useNavigate();
-
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
-  const handleLinkClick = (path) => {
-    setShowSplash(true);
-
-    setTimeout(() => {
-      navigate(path);
-    }, 200);
-  };
 
   const handleVideoProgress = (event) => {
     const video = event.target;

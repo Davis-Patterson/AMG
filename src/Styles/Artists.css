@@ -185,6 +185,7 @@
   width: 100%;
   flex-shrink: 0;
   flex-grow: 0;
+  cursor: pointer;
 }
 
 .artists-header-pic-title {

@@ -2,7 +2,7 @@ import React, { useState, useContext, useRef, useEffect } from 'react';
 import { AppContext } from 'contexts/AppContext';
 import xBlack from 'assets/Utils/[x]-black.svg';
 import xWhite from 'assets/Utils/[x]-white.svg';
-import 'styles/ContactFloat.css';
+import 'styles/Utils/ContactFloat.css';
 
 function ContactFloat() {
   const { darkMode, contactFloat, setContactFloat } = useContext(AppContext);

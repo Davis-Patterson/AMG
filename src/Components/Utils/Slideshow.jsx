@@ -10,9 +10,13 @@ import playBlack from 'assets/Utils/play-black.svg';
 import playWhite from 'assets/Utils/play-white.svg';
 import pipeBlack from 'assets/Utils/pipe-black.svg';
 import pipeWhite from 'assets/Utils/pipe-white.svg';
+import Skeleton from 'react-loading-skeleton';
+import 'react-loading-skeleton/dist/skeleton.css';
+import CircularProgress from '@mui/material/CircularProgress';
 
 const Slideshow = ({ data, index, setIndex, slideClass }) => {
-  const { darkMode } = useContext(AppContext);
+  const { darkMode, handleLinkClick, formatTitleForURL } =
+    useContext(AppContext);
 
   const [isPaused, setIsPaused] = useState(false);
   const [progress, setProgress] = useState(0);
@@ -98,6 +102,24 @@ const Slideshow = ({ data, index, setIndex, slideClass }) => {
     }
   };
 
+  if (!data || data.length === 0) {
+    return (
+      <>
+        <section className='artists-header-pics-container'>
+          <Skeleton className='header-skeleton' />
+          <div className='circular-progress-container'>
+            <CircularProgress
+              size={40}
+              sx={{
+                color: 'var(--clr-dark)',
+              }}
+            />
+          </div>
+        </section>
+      </>
+    );
+  }
+
   return (
     <>
       <section className={`${slideClass}-header-pics-container`}>
@@ -141,7 +163,18 @@ const Slideshow = ({ data, index, setIndex, slideClass }) => {
             style={{ transform: `translateX(${-100 * index}%)` }}
             onTransitionEnd={handleTransitionEnd}
           >
-            <div className={`${slideClass}-header-pic-title-wrapper`}>
+            <div
+              className={`${slideClass}-header-pic-title-wrapper`}
+              onClick={() =>
+                slideClass === 'artists'
+                  ? handleLinkClick(
+                      `/artists/${formatTitleForURL(
+                        data[data.length - 1].name
+                      )}`
+                    )
+                  : null
+              }
+            >
               <p className={`${slideClass}-header-pic-title`}>
                 {data[data.length - 1].title || data[data.length - 1].name}
               </p>
@@ -149,6 +182,13 @@ const Slideshow = ({ data, index, setIndex, slideClass }) => {
             {data.map((title, idx) => (
               <div
                 className={`${slideClass}-header-pic-title-wrapper`}
+                onClick={() =>
+                  slideClass === 'artists'
+                    ? handleLinkClick(
+                        `/artists/${formatTitleForURL(title.name)}`
+                      )
+                    : null
+                }
                 key={idx}
               >
                 <p className={`${slideClass}-header-pic-title`}>
@@ -156,7 +196,16 @@ const Slideshow = ({ data, index, setIndex, slideClass }) => {
                 </p>
               </div>
             ))}
-            <div className={`${slideClass}-header-pic-title-wrapper`}>
+            <div
+              className={`${slideClass}-header-pic-title-wrapper`}
+              onClick={() =>
+                slideClass === 'artists'
+                  ? handleLinkClick(
+                      `/artists/${formatTitleForURL(data[0].name)}`
+                    )
+                  : null
+              }
+            >
               <p className={`${slideClass}-header-pic-title`}>
                 {data[0].title || data[0].name}
               </p>

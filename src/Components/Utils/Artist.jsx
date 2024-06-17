@@ -16,7 +16,7 @@ import youtubeBlack from 'assets/Utils/youtube-black.svg';
 import youtubeWhite from 'assets/Utils/youtube-white.svg';
 import Skeleton from 'react-loading-skeleton';
 import CircularProgress from '@mui/material/CircularProgress';
-import 'styles/Artist.css';
+import 'styles/Utils/Artist.css';
 
 function Artist() {
   const { name } = useParams();
@@ -24,22 +24,14 @@ function Artist() {
     darkMode,
     mute,
     artistData,
-    setShowSplash,
     noUserImg,
+    handleLinkClick,
     formatTitleForURL,
   } = useContext(AppContext);
   const [artist, setArtist] = useState(null);
   const [bioReadMore, setBioReadMore] = useState(false);
 
   const navigate = useNavigate();
-
-  const handleLinkClick = (path) => {
-    setShowSplash(true);
-
-    setTimeout(() => {
-      navigate(path);
-    }, 200);
-  };
 
   const icons = {
     apple: darkMode ? appleWhite : appleBlack,

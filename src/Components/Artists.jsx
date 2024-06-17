@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useContext, useCallback } from 'react';
 import { AppContext } from 'contexts/AppContext';
-import { useNavigate } from 'react-router-dom';
 import Banner from 'utils/Banner';
 import Slideshow from 'utils/Slideshow';
 import Skeleton from 'react-loading-skeleton';
@@ -22,8 +21,6 @@ function Artists() {
 
   const [sortOrder, setSortOrder] = useState('desc');
   const [sortedArtists, setSortedArtists] = useState([]);
-
-  const navigate = useNavigate();
 
   useEffect(() => {
     setArtistsPicIndex(1);
@@ -54,7 +51,7 @@ function Artists() {
             <div className='artists-header-gradient-overlay' />
             <section className='artists-header-text-container'>
               <div className='artists-brand-container'>
-                <h1 className='artists-brand-title'>ARTISTS</h1>
+                <h1 className='artists-title-title'>ARTISTS</h1>
                 <p className='artists-tagline'>
                   Celebrating talent, nurturing visionaries, and amplifying
                   voices around the world.
@@ -125,7 +122,7 @@ function Artists() {
             </div>
           </section>
           <Slideshow
-            data={artistData}
+            data={sortedArtists}
             index={artistsPicIndex}
             setIndex={setArtistsPicIndex}
             slideClass='artists'
