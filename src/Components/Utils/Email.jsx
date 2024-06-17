@@ -1,6 +1,6 @@
 import React, { useState, useContext, useRef, useEffect } from 'react';
 import { AppContext } from 'contexts/AppContext';
-import 'styles/Email.css';
+import 'styles/Utils/Email.css';
 
 function Email() {
   const {

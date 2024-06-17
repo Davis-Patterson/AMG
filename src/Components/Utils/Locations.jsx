@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { AppContext } from 'contexts/AppContext';
-import 'styles/Locations.css';
+import 'styles/Utils/Locations.css';
 
 function Locations() {
   const { darkMode, locData } = useContext(AppContext);

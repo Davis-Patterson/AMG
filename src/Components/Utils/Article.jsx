@@ -5,7 +5,7 @@ import onAirImg from 'assets/News/on-air.jpg';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import CircularProgress from '@mui/material/CircularProgress';
-import 'styles/Article.css';
+import 'styles/Utils/Article.css';
 
 function Article() {
   const { title } = useParams();
