@@ -1,6 +1,8 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { AppContext } from 'contexts/AppContext';
 import onAirImg from 'assets/News/on-air.jpg';
+import Banner from 'utils/Banner';
+import Slideshow from 'utils/Slideshow';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import CircularProgress from '@mui/material/CircularProgress';
@@ -8,9 +10,9 @@ import 'styles/News.css';
 
 function News() {
   const {
-    darkMode,
     newsData,
-    setShowSplash,
+    newsIndex,
+    setNewsIndex,
     handleLinkClick,
     formatTitleForURL,
   } = useContext(AppContext);
@@ -36,6 +38,7 @@ function News() {
         }
       });
       setSortedNews(sortedData);
+      setNewsIndex(1);
     }
   }, [newsData, sortOrder]);
 
@@ -44,7 +47,6 @@ function News() {
       <>
         <main className='page-container' id='page-container'>
           <header className='news-header' id='about-header'>
-            <div className='news-header-gradient-overlay' />
             <div className='news-header-gradient-overlay' />
             <section className='news-header-text-container'>
               <div className='news-title-container'>
@@ -129,10 +131,6 @@ function News() {
             className='news-header-gradient-overlay'
             id='news-header-gradient-overlay'
           />
-          <div
-            className='news-header-gradient-overlay'
-            id='news-header-gradient-overlay'
-          />
           <section
             className='news-header-text-container'
             id='news-header-text-container'
@@ -146,14 +144,14 @@ function News() {
               </p>
             </div>
           </section>
-          <section className='news-header-pics-container'>
-            <img
-              src={onAirImg}
-              alt='news header img'
-              className='news-header-pics'
-            />
-          </section>
+          <Slideshow
+            data={sortedNews}
+            index={newsIndex}
+            setIndex={setNewsIndex}
+            slideClass='news'
+          />
         </header>
+        <Banner />
         <div className='news-container-container' id='news-content-container'>
           <div className='filter-dropdown'>
             <select
@@ -171,7 +169,7 @@ function News() {
               {sortedNews.map((article) => (
                 <div key={article.id} className='news-article'>
                   <img
-                    src={article.image}
+                    src={article.img}
                     alt={article.title}
                     className='news-news-article-image'
                     id='news-news-article-image'

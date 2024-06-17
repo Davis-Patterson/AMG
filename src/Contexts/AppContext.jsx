@@ -20,13 +20,14 @@ export const AppProvider = ({ children }) => {
   const [contactFloat, setContactFloat] = useState(false);
 
   const [homeIndex, setHomeIndex] = useState(0);
-  const [aboutPicIndex, setAboutPicIndex] = useState(0);
-  const [artistsPicIndex, setArtistsPicIndex] = useState(0);
+  const [newsIndex, setNewsIndex] = useState(0);
+  const [artistsIndex, setArtistsIndex] = useState(0);
+  const [aboutIndex, setAboutIndex] = useState(0);
 
-  const [newsData, setNewsData] = useState([]);
   const [homeData, setHomeData] = useState([]);
-  const [studioData, setStudioData] = useState([]);
+  const [newsData, setNewsData] = useState([]);
   const [artistData, setArtistData] = useState([]);
+  const [studioData, setStudioData] = useState([]);
   const [locData, setLocData] = useState([]);
 
   const [form, setForm] = useState({
@@ -146,10 +147,12 @@ export const AppProvider = ({ children }) => {
         setContactFloat,
         homeIndex,
         setHomeIndex,
-        aboutPicIndex,
-        setAboutPicIndex,
-        artistsPicIndex,
-        setArtistsPicIndex,
+        newsIndex,
+        setNewsIndex,
+        artistsIndex,
+        setArtistsIndex,
+        aboutIndex,
+        setAboutIndex,
         homeData,
         newsData,
         artistData,

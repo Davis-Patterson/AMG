@@ -20,6 +20,7 @@ const Slideshow = ({ data, index, setIndex, slideClass }) => {
 
   const [isPaused, setIsPaused] = useState(false);
   const [progress, setProgress] = useState(0);
+  const [maxLength, setMaxLength] = useState(42);
 
   const currentNext = darkMode ? nextWhite : nextBlack;
   const currentPrev = darkMode ? prevWhite : prevBlack;
@@ -50,6 +51,33 @@ const Slideshow = ({ data, index, setIndex, slideClass }) => {
   const handlePause = () => {
     setIsPaused(!isPaused);
   };
+
+  const truncateTitle = (title) => {
+    return title.length > maxLength ? title.slice(0, maxLength) + '...' : title;
+  };
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 380) {
+        setMaxLength(18);
+      } else if (window.innerWidth < 410) {
+        setMaxLength(20);
+      } else if (window.innerWidth < 460) {
+        setMaxLength(25);
+      } else if (window.innerWidth < 560) {
+        setMaxLength(30);
+      } else {
+        setMaxLength(42);
+      }
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   useEffect(() => {
     const progressTimer = setInterval(() => {
@@ -166,48 +194,55 @@ const Slideshow = ({ data, index, setIndex, slideClass }) => {
             <div
               className={`${slideClass}-header-pic-title-wrapper`}
               onClick={() =>
-                slideClass === 'artists'
+                slideClass === 'artists' || slideClass === 'news'
                   ? handleLinkClick(
-                      `/artists/${formatTitleForURL(
-                        data[data.length - 1].name
+                      `/${slideClass}/${formatTitleForURL(
+                        data[data.length - 1].name ||
+                          data[data.length - 1].title
                       )}`
                     )
                   : null
               }
             >
               <p className={`${slideClass}-header-pic-title`}>
-                {data[data.length - 1].title || data[data.length - 1].name}
+                {truncateTitle(
+                  data[data.length - 1].title || data[data.length - 1].name
+                )}
               </p>
             </div>
-            {data.map((title, idx) => (
+            {data.map((item, idx) => (
               <div
                 className={`${slideClass}-header-pic-title-wrapper`}
                 onClick={() =>
-                  slideClass === 'artists'
+                  slideClass === 'artists' || slideClass === 'news'
                     ? handleLinkClick(
-                        `/artists/${formatTitleForURL(title.name)}`
+                        `/${slideClass}/${formatTitleForURL(
+                          item.name || item.title
+                        )}`
                       )
                     : null
                 }
                 key={idx}
               >
                 <p className={`${slideClass}-header-pic-title`}>
-                  {title.title || title.name}
+                  {truncateTitle(item.title || item.name)}
                 </p>
               </div>
             ))}
             <div
               className={`${slideClass}-header-pic-title-wrapper`}
               onClick={() =>
-                slideClass === 'artists'
+                slideClass === 'artists' || slideClass === 'news'
                   ? handleLinkClick(
-                      `/artists/${formatTitleForURL(data[0].name)}`
+                      `/${slideClass}/${formatTitleForURL(
+                        data[0].name || data[0].title
+                      )}`
                     )
                   : null
               }
             >
               <p className={`${slideClass}-header-pic-title`}>
-                {data[0].title || data[0].name}
+                {truncateTitle(data[0].title || data[0].name)}
               </p>
             </div>
           </div>

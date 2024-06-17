@@ -9,11 +9,9 @@ import 'styles/Artists.css';
 
 function Artists() {
   const {
-    darkMode,
     artistData,
-    setShowSplash,
-    artistsPicIndex,
-    setArtistsPicIndex,
+    artistsIndex,
+    setArtistsIndex,
     noUserImg,
     handleLinkClick,
     formatTitleForURL,
@@ -23,8 +21,8 @@ function Artists() {
   const [sortedArtists, setSortedArtists] = useState([]);
 
   useEffect(() => {
-    setArtistsPicIndex(1);
-  }, [setArtistsPicIndex]);
+    setArtistsIndex(1);
+  }, [setArtistsIndex]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -123,8 +121,8 @@ function Artists() {
           </section>
           <Slideshow
             data={sortedArtists}
-            index={artistsPicIndex}
-            setIndex={setArtistsPicIndex}
+            index={artistsIndex}
+            setIndex={setArtistsIndex}
             slideClass='artists'
           />
         </header>
