@@ -3,7 +3,7 @@
     "id": 1,
     "date": "5/22/2024",
     "title": "AMG Website Has Been Deployed",
-    "image": "https://i.imgur.com/1MEIQsi.jpeg",
+    "img": "https://i.imgur.com/1MEIQsi.jpeg",
     "author": "John Smith",
     "artist": "",
     "content": [
@@ -58,7 +58,7 @@
     "id": 2,
     "date": "5/15/2024",
     "title": "New Album Release by Star Artist",
-    "image": "https://i.imgur.com/FnyV0lA.jpeg",
+    "img": "https://i.imgur.com/FnyV0lA.jpeg",
     "author": "Alice Johnson",
     "artist": [
       {
@@ -128,7 +128,7 @@
     "id": 3,
     "date": "6/02/2024",
     "title": "Shaolin Prince Releases Groundbreaking New Album 'Echoes of the Future'",
-    "image": "https://i.imgur.com/TqtYawx.jpg",
+    "img": "https://i.imgur.com/TqtYawx.jpg",
     "author": "Jamie Lee",
     "artist": [
       {
@@ -180,7 +180,7 @@
     "id": 4,
     "date": "5/10/2024",
     "title": "AMG Annual Music Festival Announced",
-    "image": "https://i.imgur.com/uxZJj8z.jpeg",
+    "img": "https://i.imgur.com/uxZJj8z.jpeg",
     "author": "Bob Lee",
     "artist": "",
     "content": [
@@ -235,7 +235,7 @@
     "id": 5,
     "date": "5/5/2024",
     "title": "Exclusive Interview with Rising Star",
-    "image": "https://i.imgur.com/g0UZimv.jpeg",
+    "img": "https://i.imgur.com/g0UZimv.jpeg",
     "author": "Susan Parker",
     "artist": [
       {
@@ -305,7 +305,7 @@
     "id": 6,
     "date": "4/20/2024",
     "title": "Aerotype Productions Signed to Major Deal",
-    "image": "https://i.imgur.com/uJHbdvZ.png",
+    "img": "https://i.imgur.com/uJHbdvZ.png",
     "author": "Jane Doe",
     "artist": [
       {
@@ -366,7 +366,7 @@
     "id": 7,
     "date": "3/28/2024",
     "title": "Don L to Headline Coachella",
-    "image": "https://i.imgur.com/kJedYiC.jpeg",
+    "img": "https://i.imgur.com/kJedYiC.jpeg",
     "author": "Joseph Corolla",
     "artist": [
       {

@@ -11,7 +11,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 import 'styles/About.css';
 
 function About() {
-  const { darkMode, studioData, aboutPicIndex, setAboutPicIndex } =
+  const { darkMode, studioData, aboutIndex, setAboutIndex } =
     useContext(AppContext);
 
   useEffect(() => {
@@ -19,8 +19,8 @@ function About() {
   }, []);
 
   useEffect(() => {
-    setAboutPicIndex(1);
-  }, [setAboutPicIndex]);
+    setAboutIndex(1);
+  }, [setAboutIndex]);
 
   if (!studioData || studioData.length === 0) {
     return (
@@ -94,8 +94,8 @@ function About() {
           </section>
           <Slideshow
             data={studioData}
-            index={aboutPicIndex}
-            setIndex={setAboutPicIndex}
+            index={aboutIndex}
+            setIndex={setAboutIndex}
             slideClass='about'
           />
         </header>

@@ -156,7 +156,7 @@ function Article() {
       <header className='article-header' id='article-header'>
         <section className='article-header-pics-container'>
           <img
-            src={article.image}
+            src={article.img}
             alt={article.title}
             className='article-header-pics'
           />
@@ -168,7 +168,7 @@ function Article() {
       >
         <div className='article-header-content'>
           <img
-            src={article.image}
+            src={article.img}
             alt={article.title}
             className='news-article-image'
             id='news-article-image'
@@ -260,7 +260,7 @@ function Article() {
                   id='recent-news-article-image-container'
                 >
                   <img
-                    src={newsItem.image}
+                    src={newsItem.img}
                     alt={newsItem.title}
                     className='recent-news-article-image'
                     id='recent-news-article-image'
