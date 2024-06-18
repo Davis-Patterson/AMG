@@ -225,15 +225,12 @@
   object-fit: cover;
   margin-right: 20px;
   cursor: pointer;
-  transition: box-shadow 0.1s ease-in-out;
-}
-
-.news-news-article-image:hover {
-  box-shadow: 0 4px 8px var(--clr-shadow2);
   transition: box-shadow 0.3s ease-in-out;
 }
+.news-news-article-image:hover {
+  box-shadow: 0 4px 8px var(--clr-shadow2);
+}
 
-/* Apply the hover effect to the parent when the image is hovered */
 .news-news-article-image:hover + .news-article-text,
 .news-news-article-image:hover {
   transform: translateY(-2px);
