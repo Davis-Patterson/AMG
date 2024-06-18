@@ -33,7 +33,7 @@ function About() {
             />
             <section className='about-header-text-container'>
               <div className='about-brand-container'>
-                <h1 className='about-brand-title'>WHO WE ARE</h1>
+                <h1 className='about-title-title'>WHO WE ARE</h1>
                 <p className='about-tagline'>
                   A collective of music lovers, inspired entrepreneurs,
                   game-changing creatives and passionate teams.

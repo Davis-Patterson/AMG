@@ -55,11 +55,17 @@ function Artist() {
     window.scrollTo(0, 0);
   }, []);
 
-  const handleReadMore = () => {
+  const handleReadMore = (event) => {
+    if (event.button !== 0) return;
+    event.preventDefault();
+    event.stopPropagation();
     setBioReadMore(true);
   };
 
-  const toggleReadMore = () => {
+  const toggleReadMore = (event) => {
+    if (event.button !== 0) return;
+    event.preventDefault();
+    event.stopPropagation();
     setBioReadMore(!bioReadMore);
   };
 
@@ -200,12 +206,15 @@ function Artist() {
                     ? 'artist-bio-text-expanded'
                     : 'artist-bio-text-hidden'
                 }`}
-                onClick={handleReadMore}
+                onMouseDown={(event) => handleReadMore(event)}
               >
                 {artist.bio}
               </p>
             </div>
-            <div onClick={toggleReadMore} className='show-more-text-button'>
+            <div
+              onMouseDown={(event) => toggleReadMore(event)}
+              className='show-more-text-button'
+            >
               <span>
                 <p className='show-more-text-button-text'>
                   {bioReadMore ? 'show less' : 'show more'}
@@ -267,15 +276,21 @@ function Artist() {
                   src={news.image}
                   alt={news.title}
                   className='artist-news-article-image'
-                  onClick={() =>
-                    handleLinkClick(`/news/${formatTitleForURL(news.title)}`)
+                  onMouseDown={(event) =>
+                    handleLinkClick(
+                      event,
+                      `/news/${formatTitleForURL(news.title)}`
+                    )
                   }
                 />
                 <div className='artist-news-article-content'>
                   <h4
                     className='artist-news-article-title'
-                    onClick={() =>
-                      handleLinkClick(`/news/${formatTitleForURL(news.title)}`)
+                    onMouseDown={(event) =>
+                      handleLinkClick(
+                        event,
+                        `/news/${formatTitleForURL(news.title)}`
+                      )
                     }
                   >
                     {news.title}
@@ -287,8 +302,11 @@ function Artist() {
                     By {news.author} on {news.date}
                   </p>
                   <div
-                    onClick={() =>
-                      handleLinkClick(`/news/${formatTitleForURL(news.title)}`)
+                    onMouseDown={(event) =>
+                      handleLinkClick(
+                        event,
+                        `/news/${formatTitleForURL(news.title)}`
+                      )
                     }
                     className='read-more-button'
                   >

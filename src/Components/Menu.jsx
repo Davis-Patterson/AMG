@@ -108,14 +108,11 @@ const Menu = () => {
 
   const currentUp = darkMode ? dropUpWhite : dropUpBlack;
   const currentDown = darkMode ? dropDownWhite : dropDownBlack;
-
   const currentNews = darkMode ? newsWhite : newsBlack;
   const currentArtists = darkMode ? artistsWhite : artistsBlack;
   const currentAbout = darkMode ? aboutWhite : aboutBlack;
   const currentContact = darkMode ? contactWhite : contactBlack;
-
   const currentDarkmodeIcon = darkMode ? darkmodeIcon : lightmodeIcon;
-
   const currentMuteIcon = darkMode ? lightMuteIcon : darkMuteIcon;
   const currentUnmuteIcon = darkMode ? lightUnmuteIcon : darkUnmuteIcon;
   const currentSoundIcon = mute ? currentMuteIcon : currentUnmuteIcon;
@@ -129,7 +126,10 @@ const Menu = () => {
     }
   }, [isPaused, aboutIndex, studioData.length]);
 
-  const handleLinkClick = (path) => {
+  const handleLinkClick = (event, path) => {
+    if (event.button !== 0) return;
+    event.preventDefault();
+    event.stopPropagation();
     setShowSplash(true);
 
     setTimeout(() => {
@@ -143,21 +143,22 @@ const Menu = () => {
     }, 5);
   };
 
-  const handleDarkModeClick = () => {
+  const handleDarkModeClick = (event) => {
+    if (event.button !== 0) return;
+    event.preventDefault();
+    event.stopPropagation();
     setDarkMode(!darkMode);
   };
 
-  const handleMuteClick = () => {
+  const handleMuteClick = (event) => {
+    if (event.button !== 0) return;
+    event.preventDefault();
+    event.stopPropagation();
     setMute(!mute);
   };
 
-  const handleMenu = () => {
-    setOpenDropdown(null);
-    setMenu(false);
-    document.body.classList.remove('menu-open');
-  };
-
   const toggleDropdown = (event, dropdown) => {
+    event.preventDefault();
     event.stopPropagation();
     setOpenDropdown((prev) => (prev === dropdown ? null : dropdown));
   };
@@ -227,14 +228,20 @@ const Menu = () => {
     }
   }, [darkMode]);
 
-  const handlePrev = () => {
+  const handlePrev = (event) => {
+    if (event.button !== 0) return;
+    event.preventDefault();
+    event.stopPropagation();
     setProgress(0);
     setAboutIndex(
       (aboutIndex - 1 + studioData.length + 2) % (studioData.length + 2)
     );
   };
 
-  const handleNext = () => {
+  const handleNext = (event) => {
+    if (event.button !== 0) return;
+    event.preventDefault();
+    event.stopPropagation();
     setProgress(0);
     setAboutIndex((aboutIndex + 1) % (studioData.length + 2));
   };
@@ -273,7 +280,12 @@ const Menu = () => {
             <h2 className='menu-header-text'>MENU</h2>
           </div>
           <div className='menu-links' ref={addToRefs}>
-            <div className='menu-item' onClick={() => handleLinkClick('/news')}>
+            <div
+              className='menu-item'
+              onMouseDown={(event) => {
+                handleLinkClick(event, '/news');
+              }}
+            >
               <div className='menu-item-icon'>
                 <img
                   src={currentNews}
@@ -287,7 +299,9 @@ const Menu = () => {
               </div>
               <div
                 className='menu-item-dropdown-icon'
-                onClick={(event) => toggleDropdown(event, 'news')}
+                onMouseDown={(event) => {
+                  toggleDropdown(event, 'news');
+                }}
                 ref={addToRefs}
               >
                 <img
@@ -306,14 +320,15 @@ const Menu = () => {
                       <div
                         key={article.id}
                         className='menu-content-link'
-                        onClick={() =>
+                        onMouseDown={(event) => {
                           handleLinkClick(
+                            event,
                             `/news/${formatTitleForURL(article.title)}`
-                          )
-                        }
+                          );
+                        }}
                       >
                         <img
-                          src={article.image}
+                          src={article.img}
                           alt={article.title}
                           className='menu-news-image'
                         />
@@ -323,7 +338,7 @@ const Menu = () => {
                     ))
                   ) : (
                     <div className='loading-skeletons'>
-                      {Array(4)
+                      {Array(5)
                         .fill()
                         .map((_, index) => (
                           <div key={index} className='skeleton-container'>
@@ -345,11 +360,7 @@ const Menu = () => {
                               height={20}
                               style={{ marginTop: 8 }}
                             />
-                            <Skeleton
-                              width={100}
-                              height={15}
-                              style={{ marginTop: 2 }}
-                            />
+                            <Skeleton width={150} height={14} />
                           </div>
                         ))}
                     </div>
@@ -359,7 +370,9 @@ const Menu = () => {
             )}
             <div
               className='menu-item'
-              onClick={() => handleLinkClick('/artists')}
+              onMouseDown={(event) => {
+                handleLinkClick(event, '/artists');
+              }}
             >
               <div className='menu-item-icon'>
                 <img
@@ -374,7 +387,9 @@ const Menu = () => {
               </div>
               <div
                 className='menu-item-dropdown-icon'
-                onClick={(event) => toggleDropdown(event, 'artists')}
+                onMouseDown={(event) => {
+                  toggleDropdown(event, 'artists');
+                }}
                 ref={addToRefs}
               >
                 <img
@@ -393,11 +408,12 @@ const Menu = () => {
                       <div
                         key={artist.name}
                         className='menu-content-link'
-                        onClick={() =>
+                        onMouseDown={(event) => {
                           handleLinkClick(
+                            event,
                             `/artists/${formatTitleForURL(artist.name)}`
-                          )
-                        }
+                          );
+                        }}
                       >
                         <img
                           src={artist.img}
@@ -409,7 +425,7 @@ const Menu = () => {
                     ))
                   ) : (
                     <div className='loading-skeletons'>
-                      {Array(4)
+                      {Array(5)
                         .fill()
                         .map((_, index) => (
                           <div key={index} className='skeleton-container'>
@@ -440,7 +456,9 @@ const Menu = () => {
             )}
             <div
               className='menu-item'
-              onClick={() => handleLinkClick('/about')}
+              onMouseDown={(event) => {
+                handleLinkClick(event, '/about');
+              }}
             >
               <div className='menu-item-icon'>
                 <img
@@ -455,7 +473,9 @@ const Menu = () => {
               </div>
               <div
                 className='menu-item-dropdown-icon'
-                onClick={(event) => toggleDropdown(event, 'about')}
+                onMouseDown={(event) => {
+                  toggleDropdown(event, 'about');
+                }}
                 ref={addToRefs}
               >
                 <img
@@ -519,7 +539,9 @@ const Menu = () => {
                         <div className='toggle-pics-container-left'>
                           <div
                             className='pic-slider-btn-left'
-                            onClick={handlePrev}
+                            onMouseDown={(event) => {
+                              handlePrev(event);
+                            }}
                           >
                             <ArrowBigLeft />
                           </div>
@@ -527,7 +549,9 @@ const Menu = () => {
                         <div className='toggle-pics-container-right'>
                           <div
                             className='pic-slider-btn-right'
-                            onClick={handleNext}
+                            onMouseDown={(event) => {
+                              handleNext(event);
+                            }}
                           >
                             <ArrowBigRight />
                           </div>
@@ -608,7 +632,9 @@ const Menu = () => {
             )}
             <div
               className='menu-item'
-              onClick={() => handleLinkClick('/contact')}
+              onMouseDown={(event) => {
+                handleLinkClick(event, '/contact');
+              }}
             >
               <div className='menu-item-icon'>
                 <img
@@ -623,7 +649,11 @@ const Menu = () => {
               </div>
               <div
                 className='menu-item-dropdown-icon'
-                onClick={(event) => toggleDropdown(event, 'contact')}
+                onMouseDown={(event) => {
+                  event.preventDefault();
+                  event.stopPropagation();
+                  toggleDropdown(event, 'contact');
+                }}
                 ref={addToRefs}
               >
                 <img
@@ -665,14 +695,14 @@ const Menu = () => {
               src={currentDarkmodeIcon}
               alt='darkmode icon'
               className='menu-dark-toggle'
-              onClick={handleDarkModeClick}
+              onMouseDown={(event) => handleDarkModeClick(event)}
               ref={addToRefs}
             />
             <img
               src={currentSoundIcon}
               alt='mute/unmute icon'
               className='menu-mute-toggle'
-              onClick={handleMuteClick}
+              onMouseDown={(event) => handleMuteClick(event)}
               ref={addToRefs}
             />
           </div>

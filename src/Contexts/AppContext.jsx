@@ -42,7 +42,10 @@ export const AppProvider = ({ children }) => {
 
   const navigate = useNavigate();
 
-  const handleLinkClick = (path) => {
+  const handleLinkClick = (event, path) => {
+    if (event.button !== 0) return;
+    event.preventDefault();
+    event.stopPropagation();
     setShowSplash(true);
 
     setTimeout(() => {

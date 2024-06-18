@@ -211,8 +211,9 @@ function Article() {
                   src={artistItem.img}
                   alt={artistItem.name}
                   className='article-artist-image'
-                  onClick={() =>
+                  onMouseDown={(event) =>
                     handleLinkClick(
+                      event,
                       `/artists/${formatTitleForURL(artistItem.name)}`
                     )
                   }
@@ -220,8 +221,9 @@ function Article() {
                 <div className='article-artist-content'>
                   <h4
                     className='article-artist-name'
-                    onClick={() =>
+                    onMouseDown={(event) =>
                       handleLinkClick(
+                        event,
                         `/artists/${formatTitleForURL(artistItem.name)}`
                       )
                     }
@@ -230,8 +232,9 @@ function Article() {
                   </h4>
                   <p className='article-artist-bio'>{artistItem.bio}...</p>
                   <div
-                    onClick={() =>
+                    onMouseDown={(event) =>
                       handleLinkClick(
+                        event,
                         `/artists/${formatTitleForURL(artistItem.name)}`
                       )
                     }
@@ -264,8 +267,9 @@ function Article() {
                     alt={newsItem.title}
                     className='recent-news-article-image'
                     id='recent-news-article-image'
-                    onClick={() =>
+                    onMouseDown={(event) =>
                       handleLinkClick(
+                        event,
                         `/news/${formatTitleForURL(newsItem.title)}`
                       )
                     }
@@ -273,8 +277,9 @@ function Article() {
                 </div>
                 <div className='recent-news-article-text'>
                   <div
-                    onClick={() =>
+                    onMouseDown={(event) =>
                       handleLinkClick(
+                        event,
                         `/news/${formatTitleForURL(newsItem.title)}`
                       )
                     }
@@ -290,8 +295,9 @@ function Article() {
                     By {newsItem.author} on {newsItem.date}
                   </p>
                   <div
-                    onClick={() =>
+                    onMouseDown={(event) =>
                       handleLinkClick(
+                        event,
                         `/news/${formatTitleForURL(newsItem.title)}`
                       )
                     }
