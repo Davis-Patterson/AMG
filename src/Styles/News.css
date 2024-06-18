@@ -181,7 +181,6 @@
   opacity: 1;
   transition: opacity 0.5s ease-in-out;
   white-space: nowrap;
-  transition: color 0.3s;
 }
 .news-header-pic-link-title-wrapper:hover .news-header-pic-title {
   color: var(--clr-news-title);

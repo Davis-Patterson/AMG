@@ -214,7 +214,6 @@
   opacity: 1;
   transition: opacity 0.5s ease-in-out;
   white-space: nowrap;
-  transition: color 0.3s;
 }
 .artists-header-pic-link-title-wrapper:hover .artists-header-pic-title {
   color: var(--clr-accent);
