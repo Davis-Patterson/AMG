@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { AppContext } from 'contexts/AppContext';
 import Locations from 'utils/Locations';
-import amgReception from 'assets/Contact/amg-reception.jpg';
 import 'styles/Contact.css';
 import Email from './Utils/Email';
 
@@ -44,7 +43,7 @@ function Contact() {
           </section>
           <section className='contact-header-pics-container'>
             <img
-              src={amgReception}
+              src='https://amgbucket.s3.us-east-2.amazonaws.com/home/ak3s9je.webp'
               alt='contact header img'
               className='contact-header-pics'
             />
