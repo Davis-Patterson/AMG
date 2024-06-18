@@ -39,7 +39,7 @@ export const AppProvider = ({ children }) => {
   const [error, setError] = useState(false);
 
   const noUserImg =
-    'https://amgbucket.s3.us-east-2.amazonaws.com/home/no-user.webp';
+    'https://amgbucket.s3.us-east-2.amazonaws.com/extra/no-user.webp';
 
   const navigate = useNavigate();
 
