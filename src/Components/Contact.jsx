@@ -1,11 +1,14 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { AppContext } from 'contexts/AppContext';
+import Slideshow from 'utils/Slideshow';
+import Banner from 'utils/Banner';
 import Locations from 'utils/Locations';
+import Email from 'utils/Email';
 import 'styles/Contact.css';
-import Email from './Utils/Email';
 
 function Contact() {
-  const { darkMode } = useContext(AppContext);
+  const { darkMode, contactData, contactIndex, setContactIndex } =
+    useContext(AppContext);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -41,14 +44,14 @@ function Contact() {
               </p>
             </div>
           </section>
-          <section className='contact-header-pics-container'>
-            <img
-              src='https://amgbucket.s3.us-east-2.amazonaws.com/home/ak3s9je.webp'
-              alt='contact header img'
-              className='contact-header-pics'
-            />
-          </section>
+          <Slideshow
+            data={contactData}
+            index={contactIndex}
+            setIndex={setContactIndex}
+            slideClass='contact'
+          />
         </header>
+        <Banner />
         <Locations />
         <div
           className='contact-content-container'

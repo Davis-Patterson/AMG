@@ -2,6 +2,7 @@ import newsData from '/src/Utilities/NewsData.json';
 import homeData from '/src/Utilities/HomeData.json';
 import studioData from '/src/Utilities/StudioData.json';
 import artistData from '/src/Utilities/ArtistData.json';
+import contactData from '/src/Utilities/ContactData.json';
 import locData from '/src/Utilities/LocationData.json';
 
 export const fetchNews = async () => {
@@ -18,6 +19,10 @@ export const fetchStudio = async () => {
 
 export const fetchArtists = async () => {
   return Promise.resolve(artistData);
+};
+
+export const fetchContact = async () => {
+  return Promise.resolve(contactData);
 };
 
 export const fetchLoc = async () => {

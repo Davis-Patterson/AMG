@@ -5,6 +5,7 @@ import {
   fetchHome,
   fetchStudio,
   fetchArtists,
+  fetchContact,
   fetchLoc,
 } from 'utils/Api';
 import useLocalStorageState from 'use-local-storage-state';
@@ -23,11 +24,13 @@ export const AppProvider = ({ children }) => {
   const [newsIndex, setNewsIndex] = useState(0);
   const [artistsIndex, setArtistsIndex] = useState(0);
   const [aboutIndex, setAboutIndex] = useState(0);
+  const [contactIndex, setContactIndex] = useState(0);
 
   const [homeData, setHomeData] = useState([]);
   const [newsData, setNewsData] = useState([]);
   const [artistData, setArtistData] = useState([]);
   const [studioData, setStudioData] = useState([]);
+  const [contactData, setContactData] = useState([]);
   const [locData, setLocData] = useState([]);
 
   const [form, setForm] = useState({
@@ -115,12 +118,17 @@ export const AppProvider = ({ children }) => {
       const studioDataData = await fetchStudio();
       setStudioData(studioDataData);
     };
+    const getContactData = async () => {
+      const contactDataData = await fetchContact();
+      setContactData(contactDataData);
+    };
     const getLocData = async () => {
       const locDataData = await fetchLoc();
       setLocData(locDataData);
     };
 
     getHomeData();
+    getContactData();
     getLocData();
 
     getNews();
@@ -157,10 +165,13 @@ export const AppProvider = ({ children }) => {
         setArtistsIndex,
         aboutIndex,
         setAboutIndex,
+        contactIndex,
+        setContactIndex,
         homeData,
         newsData,
         artistData,
         studioData,
+        contactData,
         locData,
         noUserImg,
         form,

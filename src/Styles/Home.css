@@ -161,6 +161,10 @@
   white-space: nowrap;
   cursor: pointer;
 }
+.home-header-video-title-wrapper:hover .home-header-video-title {
+  color: var(--clr-accent);
+  font-weight: 600;
+}
 
 .home-content-container {
   width: 100%;

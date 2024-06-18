@@ -330,6 +330,12 @@
   box-shadow: 0 4px 8px var(--clr-shadow2);
 }
 
+.artist-news-article-image:hover + .artist-news-article-content,
+.artist-news-article-image:hover {
+  transform: translateY(-2px);
+  transition: transform 0.15s ease-in-out;
+}
+
 .artist-news-article-content {
   display: flex;
   flex-direction: column;
