@@ -174,7 +174,9 @@ function Article() {
             id='news-article-image'
           />
           <div className='article-title-container'>
-            <h2 className='article-title'>{article.title}</h2>
+            <h2 className='article-title' id='article-title'>
+              {article.title}
+            </h2>
             <p className='article-author'>By {article.author}</p>
             <p className='article-author'>{article.date}</p>
           </div>
