@@ -38,7 +38,8 @@ export const AppProvider = ({ children }) => {
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(false);
 
-  const noUserImg = 'https://i.imgur.com/B4UC9KD.png';
+  const noUserImg =
+    'https://amgbucket.s3.us-east-2.amazonaws.com/home/no-user.webp';
 
   const navigate = useNavigate();
 

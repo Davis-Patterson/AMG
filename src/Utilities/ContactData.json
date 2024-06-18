@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "title": "AMG reception desk",
+    "img": "https://amgbucket.s3.us-east-2.amazonaws.com/home/ak3s9je.webp"
+  },
+  {
+    "id": 2,
+    "title": "New York",
+    "img": "https://amgbucket.s3.us-east-2.amazonaws.com/locations/rsedwdz.webp"
+  },
+  {
+    "id": 3,
+    "title": "Miami",
+    "img": "https://amgbucket.s3.us-east-2.amazonaws.com/locations/moefgfl.webp"
+  },
+  {
+    "id": 4,
+    "title": "Los Angeles",
+    "img": "https://amgbucket.s3.us-east-2.amazonaws.com/locations/kgz09mw.webp"
+  },
+  {
+    "id": 5,
+    "title": "London",
+    "img": "https://amgbucket.s3.us-east-2.amazonaws.com/locations/oqqu0zj.webp"
+  },
+  {
+    "id": 6,
+    "title": "Tokyo",
+    "img": "https://amgbucket.s3.us-east-2.amazonaws.com/locations/uvmal9h.webp"
+  },
+  {
+    "id": 7,
+    "title": "Sydney",
+    "img": "https://amgbucket.s3.us-east-2.amazonaws.com/locations/wmcjajb.webp"
+  }
+]

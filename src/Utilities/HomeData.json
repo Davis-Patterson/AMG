@@ -5,12 +5,12 @@
     "date": "2019",
     "videoSources": [
       {
-        "src": "https://amgbucket.s3.amazonaws.com/summer-vybes-1080.webm",
+        "src": "https://amgbucket.s3.amazonaws.com/videos/summer-vybes-1080.webm",
         "type": "video/webm",
         "resolution": "1080p"
       },
       {
-        "src": "https://amgbucket.s3.us-east-2.amazonaws.com/summer-vybes-720.mp4",
+        "src": "https://amgbucket.s3.us-east-2.amazonaws.com/videos/summer-vybes-720.mp4",
         "type": "video/mp4",
         "resolution": "720p"
       }
@@ -22,12 +22,12 @@
     "date": "2020",
     "videoSources": [
       {
-        "src": "https://amgbucket.s3.amazonaws.com/starman-1080.webm",
+        "src": "https://amgbucket.s3.amazonaws.com/videos/starman-1080.webm",
         "type": "video/webm",
         "resolution": "1080p"
       },
       {
-        "src": "https://amgbucket.s3.us-east-2.amazonaws.com/starman-720.mp4",
+        "src": "https://amgbucket.s3.us-east-2.amazonaws.com/videos/starman-720.mp4",
         "type": "video/mp4",
         "resolution": "720p"
       }

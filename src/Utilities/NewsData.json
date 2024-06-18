@@ -3,7 +3,7 @@
     "id": 1,
     "date": "5/22/2024",
     "title": "AMG Website Has Been Deployed",
-    "img": "https://i.imgur.com/1MEIQsi.jpeg",
+    "img": "https://amgbucket.s3.us-east-2.amazonaws.com/news/1meiqsi.webp",
     "author": "John Smith",
     "artist": "",
     "content": [
@@ -19,7 +19,7 @@
       {
         "section": 2,
         "subtitle": "Features",
-        "img": "https://i.imgur.com/1MEIQsi.jpeg",
+        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/news/1meiqsi.webp",
         "desc": "",
         "date": "",
         "attribution": "",
@@ -58,12 +58,12 @@
     "id": 2,
     "date": "5/15/2024",
     "title": "New Album Release by Star Artist",
-    "img": "https://i.imgur.com/FnyV0lA.jpeg",
+    "img": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/fnyv0la.webp",
     "author": "Alice Johnson",
     "artist": [
       {
         "name": "DJ Moonlight",
-        "img": "https://i.imgur.com/FnyV0lA.jpeg",
+        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/fnyv0la.webp",
         "bio": "DJ Moonlight, a trailblazing figure in the electronic music scene, has captivated audiences worldwide with his unique soundscapes and electrifying performances. Born and raised in Berlin, he started his journey as a classical pianist before discovering his passion for electronic music. His sets blend deep house, techno, and ambient music, creating an immersive experience that transports listeners to another realm. With over a decade of experience, DJ Moonlight has played at some of the most prestigious festivals and clubs around the globe, including Tomorrowland, Coachella, and Berghain. His innovative approach to music production has earned him numerous awards and accolades, solidifying his status as a pioneer in the industry."
       }
     ],
@@ -128,12 +128,12 @@
     "id": 3,
     "date": "6/02/2024",
     "title": "Shaolin Prince Releases Groundbreaking New Album 'Echoes of the Future'",
-    "img": "https://i.imgur.com/TqtYawx.jpg",
+    "img": "https://amgbucket.s3.us-east-2.amazonaws.com/news/tqtyawx.webp",
     "author": "Jamie Lee",
     "artist": [
       {
         "name": "Shaolin Prince",
-        "img": "https://i.imgur.com/a6qtOyO.jpeg",
+        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/news/tqtyawx.webp",
         "bio": "Shaolin Prince, born Marcus Thompson in New York, is a critically acclaimed hip-hop artist known for his peaceful, non-violent messages aimed at teaching kids about peaceful existence and life morals. Growing up in a challenging neighborhood, Marcus found solace in music and martial arts, which influenced his artistic persona. His debut album, 'Peaceful Warrior,' received widespread acclaim for its thoughtful lyrics and positive messages. Shaolin Prince has performed at numerous community events and festivals, using his platform to advocate for peace and education. His music has been praised for its ability to inspire and uplift, making him a beloved figure in the hip-hop community."
       }
     ],
@@ -150,7 +150,7 @@
       {
         "section": 2,
         "subtitle": "Critical Acclaim",
-        "img": "https://i.imgur.com/U91CHNv.jpeg",
+        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/news/u91chnv.webp",
         "desc": "Shaolin Prince at his album release party",
         "date": "6/01/24",
         "attribution": "Jamie Lee",
@@ -180,7 +180,7 @@
     "id": 4,
     "date": "5/10/2024",
     "title": "AMG Annual Music Festival Announced",
-    "img": "https://i.imgur.com/uxZJj8z.jpeg",
+    "img": "https://amgbucket.s3.us-east-2.amazonaws.com/news/uxzjj8z.webp",
     "author": "Bob Lee",
     "artist": "",
     "content": [
@@ -205,7 +205,7 @@
       {
         "section": 3,
         "subtitle": "Event Details",
-        "img": "https://i.imgur.com/uxZJj8z.jpeg",
+        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/news/uxzjj8z.webp",
         "desc": "",
         "date": "",
         "attribution": "",
@@ -235,12 +235,12 @@
     "id": 5,
     "date": "5/5/2024",
     "title": "Exclusive Interview with Rising Star",
-    "img": "https://i.imgur.com/g0UZimv.jpeg",
+    "img": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/g0uzimv.webp",
     "author": "Susan Parker",
     "artist": [
       {
         "name": "Lily Sterling",
-        "img": "https://i.imgur.com/g0UZimv.jpeg",
+        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/g0uzimv.webp",
         "bio": "Lily Sterling is a singer-songwriter whose soulful voice and heartfelt lyrics have resonated with fans across the world. Growing up in Nashville, Tennessee, she was surrounded by music from a young age, learning to play the guitar and piano by the time she was ten. Her music blends elements of country, folk, and pop, creating a sound that is both timeless and contemporary. Lily's debut album, 'Whispers in the Wind,' received critical acclaim for its raw emotion and lyrical depth. She has toured extensively, sharing stages with renowned artists like Taylor Swift and Kacey Musgraves. Known for her authenticity and vulnerability, Lily continues to inspire her fans with her powerful storytelling and captivating performances."
       }
     ],
@@ -266,7 +266,7 @@
       {
         "section": 3,
         "subtitle": "Breakthrough Success",
-        "img": "https://i.imgur.com/g0UZimv.jpeg",
+        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/g0uzimv.webp",
         "desc": "",
         "date": "",
         "attribution": "",
@@ -305,12 +305,12 @@
     "id": 6,
     "date": "4/20/2024",
     "title": "Aerotype Productions Signed to Major Deal",
-    "img": "https://i.imgur.com/uJHbdvZ.png",
+    "img": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/ujhbdvz.webp",
     "author": "Jane Doe",
     "artist": [
       {
         "name": "Aerotype Productions",
-        "img": "https://i.imgur.com/trV1UTe.jpeg",
+        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/trv1ute.webp",
         "bio": "Aerotype Productions is a hit producer known for his innovative approach to music production and sound design. Producer James 'Aerotype' Smith has revolutionized the electronic music landscape with his genre-defying tracks. His music combines elements of hip-hop, EDM, and cinematic soundscapes, creating an audio-visual experience that is both captivating and immersive. Aerotype Productions has collaborated with top artists like Kendrick Lamar, Skrillex, and The Weeknd, contributing to some of the biggest hits in recent years. His work has been featured in blockbuster films, video games, and major advertising campaigns, making him a household name in the industry. With a commitment to pushing the boundaries of music and technology, Aerotype Productions continues to set new standards in the world of sound."
       }
     ],
@@ -336,7 +336,7 @@
       {
         "section": 3,
         "subtitle": "Motion Picture Rumors",
-        "img": "https://i.imgur.com/uJHbdvZ.png",
+        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/trv1ute.webp",
         "desc": "",
         "date": "",
         "attribution": "",
@@ -366,12 +366,12 @@
     "id": 7,
     "date": "3/28/2024",
     "title": "Don L to Headline Coachella",
-    "img": "https://i.imgur.com/kJedYiC.jpeg",
+    "img": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/uqmbo5f.webp",
     "author": "Joseph Corolla",
     "artist": [
       {
         "name": "Don L",
-        "img": "https://i.imgur.com/UqmbO5f.jpeg",
+        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/uqmbo5f.webp",
         "bio": "Don L, born Donald Ladon in Pheonix, AZ, is a versatile artist whose music spans across indie rock, folk, and hip-hop. His ability to blend these genres seamlessly has set him apart in the music industry. Donald began his career in the underground rap scene, quickly gaining recognition for his unique sound, his breakthrough mixtape, 'Rise of the Don,' highlighted his genre-blending talent. He has toured the world, gracing the stages of renowned festivals such as SXSW, Lollapalooza, and Glastonbury. His dynamic performances and charismatic stage presence have earned him a loyal fan base and critical acclaim. Throughout his career, Don L has received numerous awards for his innovative albums. His dedication to his craft and his ability to connect with listeners on a profound level make him a standout figure in the music world."
       }
     ],
@@ -388,7 +388,7 @@
       {
         "section": 2,
         "subtitle": "Expectations for the Performance",
-        "img": "https://i.imgur.com/kJedYiC.jpeg",
+        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/kjedyic.webp",
         "desc": "Don L in his music video for 'Summer Vybes'",
         "date": "",
         "attribution": "",
