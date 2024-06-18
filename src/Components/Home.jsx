@@ -115,8 +115,9 @@ function Home() {
                 <div
                   className='home-header-video-title-wrapper'
                   key={index}
-                  onClick={() =>
+                  onMouseDown={(event) =>
                     handleLinkClick(
+                      event,
                       `/artists/${formatTitleForURL(title.artist)}`
                     )
                   }

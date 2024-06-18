@@ -57,11 +57,15 @@ function News() {
               </div>
             </section>
             <section className='news-header-pics-container'>
-              <img
-                src={onAirImg}
-                alt='current studio pic'
-                className='news-header-pics'
-              />
+              <div className='news-header-pics-wrapper'>
+                <div className='news-header-pic-wrapper'>
+                  <img
+                    src={onAirImg}
+                    alt='current studio pic'
+                    className='news-header-pic'
+                  />
+                </div>
+              </div>
             </section>
           </header>
           <section className='loading-content-container'>
@@ -173,16 +177,18 @@ function News() {
                     alt={article.title}
                     className='news-news-article-image'
                     id='news-news-article-image'
-                    onClick={() =>
+                    onMouseDown={(event) =>
                       handleLinkClick(
+                        event,
                         `/news/${formatTitleForURL(article.title)}`
                       )
                     }
                   />
                   <div className='news-article-text'>
                     <div
-                      onClick={() =>
+                      onMouseDown={(event) =>
                         handleLinkClick(
+                          event,
                           `/news/${formatTitleForURL(article.title)}`
                         )
                       }
@@ -197,8 +203,9 @@ function News() {
                       By {article.author} on {article.date}
                     </p>
                     <div
-                      onClick={() =>
+                      onMouseDown={(event) =>
                         handleLinkClick(
+                          event,
                           `/news/${formatTitleForURL(article.title)}`
                         )
                       }

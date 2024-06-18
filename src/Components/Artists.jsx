@@ -146,8 +146,11 @@ function Artists() {
                 key={index}
                 className='artist-card'
                 id='artist-card'
-                onClick={() =>
-                  handleLinkClick(`/artists/${formatTitleForURL(artist.name)}`)
+                onMouseDown={(event) =>
+                  handleLinkClick(
+                    event,
+                    `/artists/${formatTitleForURL(artist.name)}`
+                  )
                 }
               >
                 <div className='artist-img-container' id='artist-img-container'>

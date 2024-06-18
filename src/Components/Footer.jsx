@@ -12,7 +12,10 @@ const Footer = ({}) => {
   const location = useLocation();
   const currentPath = location.pathname;
 
-  const handleFooterClick = (path) => {
+  const handleFooterClick = (event, path) => {
+    if (event.button !== 0) return;
+    event.preventDefault();
+    event.stopPropagation();
     setShowSplash(true);
 
     setTimeout(() => {
@@ -37,7 +40,7 @@ const Footer = ({}) => {
               src={currentLogo}
               alt='AMG logo'
               className='footer-logo'
-              onClick={() => handleFooterClick('/')}
+              onMouseDown={(event) => handleFooterClick(event, '/')}
             />
           </div>
           <div className='attribution' id='attribution'>
@@ -55,7 +58,7 @@ const Footer = ({}) => {
             .map((link) => (
               <div
                 key={link.path}
-                onClick={() => handleFooterClick(link.path)}
+                onMouseDown={(event) => handleFooterClick(event, link.path)}
                 className='footer-link'
                 id='footer-link'
               >

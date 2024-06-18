@@ -36,19 +36,28 @@ const Slideshow = ({ data, index, setIndex, slideClass }) => {
     }
   }, [isPaused, data.length, setIndex]);
 
-  const handlePrev = () => {
+  const handlePrev = (event) => {
+    if (event.button !== 0) return;
+    event.preventDefault();
+    event.stopPropagation();
     setProgress(0);
     setIndex(
       (prevIndex) => (prevIndex - 1 + data.length + 2) % (data.length + 2)
     );
   };
 
-  const handleNext = () => {
+  const handleNext = (event) => {
+    if (event.button !== 0) return;
+    event.preventDefault();
+    event.stopPropagation();
     setProgress(0);
     setIndex((prevIndex) => (prevIndex + 1) % (data.length + 2));
   };
 
-  const handlePause = () => {
+  const handlePause = (event) => {
+    if (event.button !== 0) return;
+    event.preventDefault();
+    event.stopPropagation();
     setIsPaused(!isPaused);
   };
 
@@ -192,10 +201,15 @@ const Slideshow = ({ data, index, setIndex, slideClass }) => {
             onTransitionEnd={handleTransitionEnd}
           >
             <div
-              className={`${slideClass}-header-pic-title-wrapper`}
-              onClick={() =>
+              className={
+                slideClass === 'artists' || slideClass === 'news'
+                  ? `${slideClass}-header-pic-link-title-wrapper`
+                  : `${slideClass}-header-pic-title-wrapper`
+              }
+              onMouseDown={(event) =>
                 slideClass === 'artists' || slideClass === 'news'
                   ? handleLinkClick(
+                      event,
                       `/${slideClass}/${formatTitleForURL(
                         data[data.length - 1].name ||
                           data[data.length - 1].title
@@ -212,10 +226,15 @@ const Slideshow = ({ data, index, setIndex, slideClass }) => {
             </div>
             {data.map((item, idx) => (
               <div
-                className={`${slideClass}-header-pic-title-wrapper`}
-                onClick={() =>
+                className={
+                  slideClass === 'artists' || slideClass === 'news'
+                    ? `${slideClass}-header-pic-link-title-wrapper`
+                    : `${slideClass}-header-pic-title-wrapper`
+                }
+                onMouseDown={(event) =>
                   slideClass === 'artists' || slideClass === 'news'
                     ? handleLinkClick(
+                        event,
                         `/${slideClass}/${formatTitleForURL(
                           item.name || item.title
                         )}`
@@ -230,10 +249,15 @@ const Slideshow = ({ data, index, setIndex, slideClass }) => {
               </div>
             ))}
             <div
-              className={`${slideClass}-header-pic-title-wrapper`}
-              onClick={() =>
+              className={
+                slideClass === 'artists' || slideClass === 'news'
+                  ? `${slideClass}-header-pic-link-title-wrapper`
+                  : `${slideClass}-header-pic-title-wrapper`
+              }
+              onMouseDown={(event) =>
                 slideClass === 'artists' || slideClass === 'news'
                   ? handleLinkClick(
+                      event,
                       `/${slideClass}/${formatTitleForURL(
                         data[0].name || data[0].title
                       )}`
@@ -253,20 +277,20 @@ const Slideshow = ({ data, index, setIndex, slideClass }) => {
               src={currentPrev}
               alt='prev button'
               className='controls-button'
-              onClick={handlePrev}
+              onMouseDown={(event) => handlePrev(event)}
             />
             <img src={currentPipe} alt='pipe' className='controls-pipe' />
             <img
               src={currentNext}
               alt='next button'
               className='controls-button'
-              onClick={handleNext}
+              onMouseDown={(event) => handleNext(event)}
             />
             <img
               src={currentPlayPause}
               alt='play/pause button'
               className='controls-button'
-              onClick={handlePause}
+              onMouseDown={(event) => handlePause(event)}
             />
           </div>
         </div>

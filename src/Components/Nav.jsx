@@ -29,11 +29,9 @@ const Nav = () => {
 
   const currentLogo = darkMode ? AMGLogoWhite : AMGLogoBlack;
   const currentDarkmodeIcon = darkMode ? darkmodeIcon : lightmodeIcon;
-
   const currentMuteIcon = darkMode ? lightMuteIcon : darkMuteIcon;
   const currentUnmuteIcon = darkMode ? lightUnmuteIcon : darkUnmuteIcon;
   const currentSoundIcon = mute ? currentMuteIcon : currentUnmuteIcon;
-
   const currentX = darkMode ? xWhite : xBlack;
 
   const menuRef = useRef(null);
@@ -41,7 +39,10 @@ const Nav = () => {
 
   const navigate = useNavigate();
 
-  const handleNavClick = (path) => {
+  const handleNavClick = (event, path) => {
+    if (event.button !== 0) return;
+    event.preventDefault();
+    event.stopPropagation();
     setShowSplash(true);
     setMenu(false);
 
@@ -91,14 +92,23 @@ const Nav = () => {
   }, [menu]);
 
   const handleDarkModeClick = (event) => {
+    if (event.button !== 0) return;
+    event.preventDefault();
+    event.stopPropagation();
     setDarkMode(!darkMode);
   };
 
   const handleMuteClick = (event) => {
+    if (event.button !== 0) return;
+    event.preventDefault();
+    event.stopPropagation();
     setMute(!mute);
   };
 
-  const handleMenu = () => {
+  const handleMenu = (event) => {
+    if (event.button !== 0) return;
+    event.preventDefault();
+    event.stopPropagation();
     setMenu(!menu);
     setOpenDropdown(null);
     document.body.classList.remove('menu-open');
@@ -120,7 +130,10 @@ const Nav = () => {
       >
         <main className='nav-contents'>
           <section className='home-button-container'>
-            <div onClick={() => handleNavClick('/')} className='home-button'>
+            <div
+              onMouseDown={(event) => handleNavClick(event, '/')}
+              className='home-button'
+            >
               <img
                 src={currentLogo}
                 alt='AMG logo'
@@ -132,28 +145,28 @@ const Nav = () => {
           </section>
           <section className='nav-buttons-container' id='nav-buttons-container'>
             <div
-              onClick={() => handleNavClick('/news')}
+              onMouseDown={(event) => handleNavClick(event, '/news')}
               className='nav-button'
               id='nav-button'
             >
               News
             </div>
             <div
-              onClick={() => handleNavClick('/artists')}
+              onMouseDown={(event) => handleNavClick(event, '/artists')}
               className='nav-button'
               id='nav-button'
             >
               Artists
             </div>
             <div
-              onClick={() => handleNavClick('/about')}
+              onMouseDown={(event) => handleNavClick(event, '/about')}
               className='nav-button'
               id='nav-button'
             >
               About
             </div>
             <div
-              onClick={() => handleNavClick('/contact')}
+              onMouseDown={(event) => handleNavClick(event, '/contact')}
               className='nav-button'
               id='nav-button'
             >
@@ -164,20 +177,20 @@ const Nav = () => {
               alt='darkmode icon'
               className='dark-toggle'
               id='dark-toggle'
-              onClick={handleDarkModeClick}
+              onMouseDown={(event) => handleDarkModeClick(event)}
             />
             <img
               src={currentSoundIcon}
               alt='mute/unmute icon'
               className='mute-toggle'
               id='mute-toggle'
-              onClick={handleMuteClick}
+              onMouseDown={(event) => handleMuteClick(event)}
             />
             <div className='nav-menu-toggle' id='nav-menu-toggle'>
               {!menu && (
                 <DehazeIcon
                   className='menu-icon'
-                  onClick={handleMenu}
+                  onMouseDown={(event) => handleMenu(event)}
                   ref={menuIconRef}
                   id='menu-icon'
                 />
@@ -187,7 +200,7 @@ const Nav = () => {
                   src={currentX}
                   className='menu-close-icon'
                   id='menu-close-icon'
-                  onClick={handleMenu}
+                  onMouseDown={(event) => handleMenu(event)}
                   ref={menuIconRef}
                 />
               )}

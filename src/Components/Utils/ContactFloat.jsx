@@ -62,6 +62,13 @@ function ContactFloat() {
     }
   };
 
+  const handleContactFloat = (event, value) => {
+    if (event.button !== 0) return;
+    event.preventDefault();
+    event.stopPropagation();
+    setContactFloat(value);
+  };
+
   useEffect(() => {
     if (contactFloat) {
       document.addEventListener('mousedown', handleClickOutside);
@@ -82,7 +89,7 @@ function ContactFloat() {
       {!contactFloat && (
         <div
           className='contact-float-button'
-          onClick={() => setContactFloat(!contactFloat)}
+          onMouseDown={(event) => handleContactFloat(event, !contactFloat)}
         >
           <h2>CONTACT</h2>
         </div>
@@ -92,7 +99,7 @@ function ContactFloat() {
           <img
             src={currentX}
             className='close-icon'
-            onClick={() => setContactFloat(false)}
+            onMouseDown={(event) => handleContactFloat(event, false)}
           ></img>
           <h2>CONTACT US</h2>
           <form className='float-form' onSubmit={handleSubmit}>

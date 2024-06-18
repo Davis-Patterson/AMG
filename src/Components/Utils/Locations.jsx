@@ -12,7 +12,10 @@ function Locations() {
     setLocations(locData);
   }, []);
 
-  const handleLocationClick = (index) => {
+  const handleLocationClick = (event, index) => {
+    if (event.button !== 0) return;
+    event.preventDefault();
+    event.stopPropagation();
     setLocationIndex(index);
   };
 
@@ -53,7 +56,7 @@ function Locations() {
                   locationIndex === index ? 'selected' : ''
                 }`}
                 id={`${locationIndex === index ? 'selected' : ''}`}
-                onClick={() => handleLocationClick(index)}
+                onMouseDown={(event) => handleLocationClick(event, index)}
               >
                 <p className='location-button-text'>{location.id}</p>
                 {locationIndex === index && (
