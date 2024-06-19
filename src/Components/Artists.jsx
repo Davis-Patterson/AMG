@@ -41,6 +41,13 @@ function Artists() {
     }
   }, [artistData, sortOrder]);
 
+  const getImgImg = (artist) => {
+    if (artist.img && Array.isArray(artist.img)) {
+      return artist.img[0]?.img || noUserImg;
+    }
+    return artist.img || noUserImg;
+  };
+
   if (!artistData || artistData.length === 0) {
     return (
       <>
@@ -64,7 +71,7 @@ function Artists() {
           <section className='loading-content-container'>
             <div className='loading-content'>
               <div className='skeleton-artist-cards'>
-                {Array(4)
+                {Array(6)
                   .fill()
                   .map((_, index) => (
                     <div key={index} className='skeleton-artist-card'>
@@ -155,7 +162,7 @@ function Artists() {
               >
                 <div className='artist-img-container' id='artist-img-container'>
                   <img
-                    src={artist.img || noUserImg}
+                    src={getImgImg(artist)}
                     alt={artist.name}
                     className='artist-img'
                     id='artist-img'

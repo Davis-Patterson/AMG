@@ -59,13 +59,21 @@ function Contact() {
         >
           <div className='contact-content' id='contact-content'>
             <p className='contact-text-title'>Message us:</p>
-            <p className='contact-text-disclaimer' id='contact-text-disclaimer'>
-              Aurum Management Group (AMG) values its relationships and welcomes
-              the opportunity to collaborate with established individuals in the
-              music industry. However, please note that AMG and its personnel
-              cannot accept or consider any unsolicited recordings, musical
-              compositions, or other materials.
-            </p>
+            <div className='contact-disclaimer-container'>
+              <p className='contact-text-note' id='contact-text-note'>
+                NOTE:
+              </p>
+              <p
+                className='contact-text-disclaimer'
+                id='contact-text-disclaimer'
+              >
+                Aurum Management Group (AMG) values its relationships and
+                welcomes the opportunity to collaborate with established
+                individuals in the music industry. However, please note that AMG
+                and its personnel cannot accept or consider any unsolicited
+                recordings, musical compositions, or other materials.
+              </p>
+            </div>
             <Email />
           </div>
         </div>

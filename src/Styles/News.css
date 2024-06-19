@@ -157,9 +157,9 @@
   display: flex;
   transition: transform 1.2s ease-in-out;
   height: 100%;
+  width: 100%;
 }
 
-.news-header-pic-link-title-wrapper,
 .news-header-pic-title-wrapper {
   display: flex;
   justify-content: left;
@@ -167,10 +167,10 @@
   width: 100%;
   flex-shrink: 0;
   flex-grow: 0;
-  cursor: pointer;
 }
 
-.news-header-pic-title {
+.news-header-pic-title,
+.news-header-pic-link-title {
   font-family: 'Montserrat', sans-serif;
   font-size: 1em;
   line-height: 1;
@@ -182,9 +182,13 @@
   transition: opacity 0.5s ease-in-out;
   white-space: nowrap;
 }
-.news-header-pic-link-title-wrapper:hover .news-header-pic-title {
+.news-header-pic-title:hover,
+.news-header-pic-link-title:hover {
   color: var(--clr-news-title);
   font-weight: 600;
+}
+.news-header-pic-link-title {
+  cursor: pointer;
 }
 
 .news-container-container {

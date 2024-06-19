@@ -69,6 +69,33 @@ function Artist() {
     setBioReadMore(!bioReadMore);
   };
 
+  const getBannerOrImg = (artist) => {
+    if (
+      artist.banner &&
+      Array.isArray(artist.banner) &&
+      artist.banner[0]?.img
+    ) {
+      return artist.banner[0]?.img;
+    } else if (artist.img && Array.isArray(artist.img)) {
+      return artist.img[0]?.img || artist.img;
+    }
+    return noUserImg;
+  };
+
+  const getImgImg = (artist) => {
+    if (artist.img && Array.isArray(artist.img)) {
+      return artist.img[0]?.img || artist.img || noUserImg;
+    }
+    return artist.img || noUserImg;
+  };
+
+  const getBannerAlign = (artist) => {
+    if (artist.banner && Array.isArray(artist.banner)) {
+      return artist.banner[0]?.align || 'center';
+    }
+    return 'center';
+  };
+
   if (!artistData || artistData.length === 0) {
     return (
       <main className='page-container' id='page-container'>
@@ -141,16 +168,15 @@ function Artist() {
     );
   }
 
-  const headerImage = artist.banner || artist.img || noUserImg;
-
   return (
     <main className='page-container' id='page-container'>
       <header className='artist-header' id='artist-header'>
         <section className='artist-header-pics-container'>
           <img
-            src={headerImage}
+            src={getBannerOrImg(artist)}
             alt={artist.name}
             className='artist-header-pics'
+            style={{ objectPosition: getBannerAlign(artist) }}
           />
         </section>
       </header>
@@ -160,7 +186,7 @@ function Artist() {
       >
         <div className='artist-title-content'>
           <img
-            src={artist.img || noUserImg}
+            src={getImgImg(artist)}
             alt={artist.name}
             className='news-artist-image'
             id='news-artist-image'
@@ -273,7 +299,7 @@ function Artist() {
                 id='artist-news-article'
               >
                 <img
-                  src={news.image}
+                  src={news.img}
                   alt={news.title}
                   className='artist-news-article-image'
                   onMouseDown={(event) =>
