@@ -148,6 +148,7 @@
   display: flex;
   transition: transform 1.2s ease-in-out;
   height: 100%;
+  width: 100%;
 }
 
 .contact-header-pic-title-wrapper {
@@ -196,15 +197,30 @@
   margin: 10px 0px 0px 0px;
 }
 
+.contact-disclaimer-container {
+  padding: 20px;
+  margin: 0px 0px 20px 0px;
+  max-width: 600px;
+  border: 1px solid var(--clr-notice);
+  border-radius: 5px;
+  background-color: var(--clr-notice);
+}
+
+.contact-text-note {
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 1.8rem;
+  line-height: 1;
+  color: var(--clr-light);
+  font-weight: 900;
+  margin: 0px 0px 15px 0px;
+}
+
 .contact-text-disclaimer {
   font-family: 'Montserrat', sans-serif;
   font-size: 1.1rem;
   line-height: 1;
-  color: var(--clr-dark);
-  font-weight: 900;
-  padding: 5px 20px 0px 20px;
-  margin: 0px 0px 20px 0px;
-  width: 75%;
+  color: var(--clr-light);
+  font-weight: 400;
 }
 
 .about-contact-container {

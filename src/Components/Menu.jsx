@@ -42,9 +42,14 @@ const Menu = () => {
     setMenu,
     openDropdown,
     setOpenDropdown,
+    setContactFloat,
     newsData,
     artistData,
     studioData,
+    form,
+    noUserImg,
+    handleChange,
+    handleSubmit,
     formatTitleForURL,
   } = useContext(AppContext);
 
@@ -52,50 +57,9 @@ const Menu = () => {
   const [progress, setProgress] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
 
-  const [form, setForm] = useState({
-    email: '',
-    message: '',
-  });
   const [sending, setSending] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(false);
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setForm((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setSending(true);
-    // put client here
-    // .then(
-    (result) => {
-      setSending(false);
-      setSuccess(true);
-      console.log('Email successfully sent!', result.text);
-      setTimeout(() => {
-        setSuccess(false);
-      }, 5000);
-      setForm({
-        user_name: '',
-        email: '',
-        message: '',
-      });
-    },
-      (error) => {
-        setSending(false);
-        setError(true);
-        console.log('Failed to send email:', error.text);
-        setTimeout(() => {
-          setError(false);
-        }, 3000);
-      };
-    // );
-  };
 
   const menuRefs = useRef([]);
   menuRefs.current = [];
@@ -131,6 +95,7 @@ const Menu = () => {
     event.preventDefault();
     event.stopPropagation();
     setShowSplash(true);
+    setContactFloat(false);
 
     setTimeout(() => {
       setOpenDropdown(null);
@@ -244,6 +209,13 @@ const Menu = () => {
     event.stopPropagation();
     setProgress(0);
     setAboutIndex((aboutIndex + 1) % (studioData.length + 2));
+  };
+
+  const getImgImg = (item) => {
+    if (item.img && Array.isArray(item.img)) {
+      return item.img[0]?.img || item.img || noUserImg;
+    }
+    return item.img || noUserImg;
   };
 
   const handleTransitionEnd = () => {
@@ -416,7 +388,7 @@ const Menu = () => {
                         }}
                       >
                         <img
-                          src={artist.img}
+                          src={getImgImg(artist)}
                           alt={artist.name}
                           className='menu-news-image'
                         />
@@ -669,6 +641,14 @@ const Menu = () => {
                 <div className='menu-contact-content'>
                   <h2>Send us a message:</h2>
                   <form className='menu-form' onSubmit={handleSubmit}>
+                    <input
+                      type='text'
+                      placeholder='Your name'
+                      name='name'
+                      value={form.name}
+                      onChange={handleChange}
+                      required
+                    />
                     <input
                       type='email'
                       placeholder='Your email'

@@ -24,6 +24,7 @@ const Nav = () => {
     menu,
     setMenu,
     setOpenDropdown,
+    setContactFloat,
   } = useContext(AppContext);
   const [isTop, setIsTop] = useState(true);
 
@@ -45,6 +46,7 @@ const Nav = () => {
     event.stopPropagation();
     setShowSplash(true);
     setMenu(false);
+    setContactFloat(false);
 
     setTimeout(() => {
       navigate(path);

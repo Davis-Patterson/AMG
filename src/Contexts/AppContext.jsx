@@ -51,6 +51,7 @@ export const AppProvider = ({ children }) => {
     event.preventDefault();
     event.stopPropagation();
     setShowSplash(true);
+    setContactFloat(false);
 
     setTimeout(() => {
       navigate(path);

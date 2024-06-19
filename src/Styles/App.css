@@ -85,7 +85,7 @@
 
 .filter-dropdown {
   position: absolute;
-  top: 10px;
+  top: 8px;
   right: 10px;
   z-index: 20;
   background: var(--clr-screen);

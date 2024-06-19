@@ -38,26 +38,17 @@
   opacity: 1;
 }
 
-.banner-container:hover .banner-content {
-  animation-play-state: paused;
+.banner-wrapper {
+  display: flex;
+  width: 200%;
 }
 
 .banner-content {
-  display: inline-block;
+  display: flex;
   white-space: nowrap;
-  animation: bannerScrollLeft 35s linear infinite;
 }
 
 .banner-img {
   height: 30px;
   margin: 0 40px;
-}
-
-@keyframes bannerScrollLeft {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-200%);
-  }
 }

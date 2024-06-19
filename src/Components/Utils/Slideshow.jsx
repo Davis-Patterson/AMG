@@ -15,7 +15,7 @@ import 'react-loading-skeleton/dist/skeleton.css';
 import CircularProgress from '@mui/material/CircularProgress';
 
 const Slideshow = ({ data, index, setIndex, slideClass }) => {
-  const { darkMode, handleLinkClick, formatTitleForURL } =
+  const { darkMode, noUserImg, handleLinkClick, formatTitleForURL } =
     useContext(AppContext);
 
   const [isPaused, setIsPaused] = useState(false);
@@ -108,6 +108,23 @@ const Slideshow = ({ data, index, setIndex, slideClass }) => {
     };
   }, [isPaused, progress, autoProg]);
 
+  const getBannerOrImg = (item) => {
+    if (item.banner && Array.isArray(item.banner) && item.banner[0]?.img) {
+      return item.banner[0]?.img;
+    }
+    if (item.img && Array.isArray(item.img)) {
+      return item.img[0]?.img || item.img;
+    }
+    return item.banner || item.img || noUserImg;
+  };
+
+  const getBannerAlign = (item) => {
+    if (item.banner && Array.isArray(item.banner)) {
+      return item.banner[0]?.align || 'center';
+    }
+    return 'center';
+  };
+
   const handleTransitionEnd = () => {
     const wrapper = document.querySelector(
       `.${slideClass}-header-pics-wrapper`
@@ -167,27 +184,37 @@ const Slideshow = ({ data, index, setIndex, slideClass }) => {
         >
           <div className={`${slideClass}-header-pic-wrapper`}>
             <img
-              src={data[data.length - 1].banner || data[data.length - 1].img}
+              src={getBannerOrImg(data[data.length - 1])}
               alt={data[data.length - 1].title || data[data.length - 1].name}
               className={`${slideClass}-header-pic`}
+              id={`${slideClass}-header-pic`}
+              style={{ objectPosition: getBannerAlign(data[data.length - 1]) }}
               loading='lazy'
             />
           </div>
           {data.map((item, idx) => (
-            <div key={idx} className={`${slideClass}-header-pic-wrapper`}>
+            <div
+              key={idx}
+              className={`${slideClass}-header-pic-wrapper`}
+              id={`${slideClass}-header-pic-wrapper`}
+            >
               <img
-                src={item.banner || item.img}
+                src={getBannerOrImg(item)}
                 alt={item.title || item.name}
                 className={`${slideClass}-header-pic`}
+                id={`${slideClass}-header-pic`}
+                style={{ objectPosition: getBannerAlign(item) }}
                 loading='lazy'
               />
             </div>
           ))}
           <div className={`${slideClass}-header-pic-wrapper`}>
             <img
-              src={data[0].banner || data[0].img}
+              src={getBannerOrImg(data[0])}
               alt={data[0].title || data[0].name}
               className={`${slideClass}-header-pic`}
+              id={`${slideClass}-header-pic`}
+              style={{ objectPosition: getBannerAlign(data[0]) }}
               loading='lazy'
             />
           </div>
@@ -200,25 +227,25 @@ const Slideshow = ({ data, index, setIndex, slideClass }) => {
             style={{ transform: `translateX(${-100 * index}%)` }}
             onTransitionEnd={handleTransitionEnd}
           >
-            <div
-              className={
-                slideClass === 'artists' || slideClass === 'news'
-                  ? `${slideClass}-header-pic-link-title-wrapper`
-                  : `${slideClass}-header-pic-title-wrapper`
-              }
-              onMouseDown={(event) =>
-                slideClass === 'artists' || slideClass === 'news'
-                  ? handleLinkClick(
-                      event,
-                      `/${slideClass}/${formatTitleForURL(
-                        data[data.length - 1].name ||
-                          data[data.length - 1].title
-                      )}`
-                    )
-                  : null
-              }
-            >
-              <p className={`${slideClass}-header-pic-title`}>
+            <div className={`${slideClass}-header-pic-title-wrapper`}>
+              <p
+                className={
+                  slideClass === 'artists' || slideClass === 'news'
+                    ? `${slideClass}-header-pic-link-title`
+                    : `${slideClass}-header-pic-title`
+                }
+                onMouseDown={(event) =>
+                  slideClass === 'artists' || slideClass === 'news'
+                    ? handleLinkClick(
+                        event,
+                        `/${slideClass}/${formatTitleForURL(
+                          data[data.length - 1].name ||
+                            data[data.length - 1].title
+                        )}`
+                      )
+                    : null
+                }
+              >
                 {truncateTitle(
                   data[data.length - 1].title || data[data.length - 1].name
                 )}
@@ -226,46 +253,48 @@ const Slideshow = ({ data, index, setIndex, slideClass }) => {
             </div>
             {data.map((item, idx) => (
               <div
+                className={`${slideClass}-header-pic-title-wrapper`}
+                key={idx}
+              >
+                <p
+                  className={
+                    slideClass === 'artists' || slideClass === 'news'
+                      ? `${slideClass}-header-pic-link-title`
+                      : `${slideClass}-header-pic-title`
+                  }
+                  onMouseDown={(event) =>
+                    slideClass === 'artists' || slideClass === 'news'
+                      ? handleLinkClick(
+                          event,
+                          `/${slideClass}/${formatTitleForURL(
+                            item.name || item.title
+                          )}`
+                        )
+                      : null
+                  }
+                >
+                  {truncateTitle(item.title || item.name)}
+                </p>
+              </div>
+            ))}
+            <div className={`${slideClass}-header-pic-title-wrapper`}>
+              <p
                 className={
                   slideClass === 'artists' || slideClass === 'news'
-                    ? `${slideClass}-header-pic-link-title-wrapper`
-                    : `${slideClass}-header-pic-title-wrapper`
+                    ? `${slideClass}-header-pic-link-title`
+                    : `${slideClass}-header-pic-title`
                 }
                 onMouseDown={(event) =>
                   slideClass === 'artists' || slideClass === 'news'
                     ? handleLinkClick(
                         event,
                         `/${slideClass}/${formatTitleForURL(
-                          item.name || item.title
+                          data[0].name || data[0].title
                         )}`
                       )
                     : null
                 }
-                key={idx}
               >
-                <p className={`${slideClass}-header-pic-title`}>
-                  {truncateTitle(item.title || item.name)}
-                </p>
-              </div>
-            ))}
-            <div
-              className={
-                slideClass === 'artists' || slideClass === 'news'
-                  ? `${slideClass}-header-pic-link-title-wrapper`
-                  : `${slideClass}-header-pic-title-wrapper`
-              }
-              onMouseDown={(event) =>
-                slideClass === 'artists' || slideClass === 'news'
-                  ? handleLinkClick(
-                      event,
-                      `/${slideClass}/${formatTitleForURL(
-                        data[0].name || data[0].title
-                      )}`
-                    )
-                  : null
-              }
-            >
-              <p className={`${slideClass}-header-pic-title`}>
                 {truncateTitle(data[0].title || data[0].name)}
               </p>
             </div>
