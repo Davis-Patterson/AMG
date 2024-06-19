@@ -87,7 +87,7 @@
   position: absolute;
   top: 10px;
   right: 10px;
-  z-index: 90;
+  z-index: 20;
   background: var(--clr-screen);
   border: 1px solid var(--clr-divider);
   border-radius: 5px;
