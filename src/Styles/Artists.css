@@ -1,3 +1,139 @@
+@media screen and (max-width: 1210px) {
+  #artist-card {
+    width: 320px;
+  }
+  #artist-name {
+    font-size: 1.15em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+@media screen and (max-width: 1120px) {
+  #artist-card {
+    width: 300px;
+  }
+  #artist-name {
+    font-size: 1.15em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+@media screen and (max-width: 1060px) {
+  #artist-card {
+    width: 280px;
+  }
+  #artist-name {
+    font-size: 1.15em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  #artist-card {
+    width: 260px;
+  }
+  #artist-name {
+    font-size: 1.15em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+@media screen and (max-width: 940px) {
+  #artist-card {
+    width: 250px;
+  }
+  #artist-name {
+    font-size: 1.15em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+@media screen and (max-width: 906px) {
+  #artists-content {
+    gap: 10px;
+  }
+}
+
+@media screen and (max-width: 886px) {
+  #artists-content {
+    gap: 8px;
+  }
+  #artist-card {
+    margin: 5px;
+  }
+}
+
+@media screen and (max-width: 852px) {
+  #artists-content {
+    gap: 5px;
+  }
+}
+
+@media screen and (max-width: 846px) {
+  #artists-content {
+    gap: 2px;
+  }
+  #artist-card {
+    width: 350px;
+  }
+  #artist-name {
+    font-size: 1.25em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  #artists-content-container {
+    width: 100%;
+    padding: 40px 0px 20px 0px;
+  }
+}
+
+@media screen and (max-width: 738px) {
+  #artist-card {
+    width: 320px;
+  }
+  #artist-name {
+    font-size: 1.15em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  #artist-card {
+    width: 300px;
+  }
+  #artist-name {
+    font-size: 1.15em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  #artist-card {
+    width: 280px;
+  }
+  #artist-name {
+    font-size: 1.15em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
 @media screen and (max-width: 630px) {
   #artists-header-gradient-overlay {
     width: 90%;
@@ -37,14 +173,6 @@
     margin: 0;
     border: 0px;
   }
-  #artist-card:hover #artist-img {
-    transform: scale(102%);
-    transition: transform 0.3s ease-in-out;
-  }
-  #artist-card:hover {
-    transform: scale(102%);
-    transition: transform 0.3s ease-in-out;
-  }
   #artist-img-container {
     width: 100%;
     height: 100%;
@@ -58,6 +186,12 @@
     height: 100%;
     border-radius: 0;
   }
+  #artist-card:hover {
+    transform: translateY(0px);
+  }
+  #artist-card:hover #artist-img {
+    transform: scale(1.02);
+  }
   #artist-name {
     position: absolute;
     bottom: 0px;
@@ -68,6 +202,9 @@
     font-size: 1.2em;
     font-weight: 400;
     line-height: 0.8;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   #artist-card:hover #artist-name {
     font-weight: 600;
@@ -252,7 +389,7 @@
   background-color: var(--clr-light);
   border: 1px solid var(--clr-light);
   overflow: hidden;
-  min-width: 250px;
+  width: 350px;
   margin: 10px;
   cursor: pointer;
 }
@@ -278,16 +415,25 @@
   height: 100%;
   object-fit: cover;
   border-radius: 8px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.artist-name-container {
+  width: 100%;
+  text-align: center;
 }
 
 .artist-name {
   font-family: 'Montserrat', sans-serif;
-  font-size: 1.2em;
+  font-size: 1.3em;
   font-weight: 400;
   line-height: 1;
   color: var(--clr-dark);
   padding: 10px;
   margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .artist-card:hover .artist-name {
   color: var(--clr-accent);

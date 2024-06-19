@@ -162,9 +162,11 @@ function Artists() {
                     loading='lazy'
                   />
                 </div>
-                <p className='artist-name' id='artist-name'>
-                  {artist.name}
-                </p>
+                <div className='artist-name-container'>
+                  <p className='artist-name' id='artist-name'>
+                    {artist.name}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
