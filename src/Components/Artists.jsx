@@ -10,6 +10,7 @@ import 'styles/Artists.css';
 function Artists() {
   const {
     artistData,
+    amgBanner,
     artistsIndex,
     setArtistsIndex,
     noUserImg,
@@ -67,7 +68,7 @@ function Artists() {
               <Skeleton className='header-skeleton' />
             </section>
           </header>
-          <Banner />
+          <Banner data={amgBanner} />
           <section className='loading-content-container'>
             <div className='loading-content'>
               <div className='skeleton-artist-cards'>
@@ -133,7 +134,7 @@ function Artists() {
             slideClass='artists'
           />
         </header>
-        <Banner />
+        <Banner data={artistData} />
         <section
           className='artists-content-container'
           id='artists-content-container'
