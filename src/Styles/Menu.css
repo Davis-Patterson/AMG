@@ -123,11 +123,6 @@
 }
 
 .menu-link {
-  font-family: 'Titillium Web', sans-serif;
-  font-size: 1em;
-  font-weight: 900;
-  line-height: 1;
-  color: var(--clr-dark);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -136,7 +131,15 @@
   transition: color 0.3s;
   width: 90%;
 }
-.menu-item:hover .menu-link {
+
+.menu-link-text {
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 1em;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--clr-dark);
+}
+.menu-item:hover .menu-link-text {
   color: var(--clr-accent);
 }
 
@@ -400,7 +403,7 @@
 .menu-form textarea {
   width: 100%;
   padding: 10px;
-  margin-bottom: 0.5rem;
+  margin-bottom: 4px;
   font-family: 'Montserrat', sans-serif;
   font-size: 1rem;
   border: 1px solid var(--clr-divider);

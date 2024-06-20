@@ -58,11 +58,14 @@ function Locations() {
                 id={`${locationIndex === index ? 'selected' : ''}`}
                 onMouseDown={(event) => handleLocationClick(event, index)}
               >
-                <p className='location-button-text'>{location.id}</p>
+                {location.id}
                 {locationIndex === index && (
                   <div className='indicator' id='indicator'>
-                    <div className='indicator-line'></div>
-                    <div className='indicator-circle'></div>
+                    <div className='indicator-line' id='indicator-line'></div>
+                    <div
+                      className='indicator-circle'
+                      id='indicator-circle'
+                    ></div>
                   </div>
                 )}
               </div>

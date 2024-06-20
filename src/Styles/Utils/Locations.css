@@ -1,15 +1,27 @@
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 1000px) {
+  #location-text-title {
+    padding: 20px 20px 15px 20px;
+    font-size: 3em;
+  }
+  #location-text {
+    font-size: 1.1em;
+  }
+}
+
+@media screen and (max-width: 860px) {
   #about-location {
     flex-direction: column;
   }
   #location-text-container {
     width: 100%;
+    height: unset;
     padding: 20px 20px 0px 20px;
     margin-bottom: -5px;
   }
   #location-text-title {
     padding: 20px 20px 10px 20px;
     font-size: 3em;
+    text-align: center;
   }
   #location-text {
     padding: 20px 20px 10px 20px;
@@ -34,9 +46,32 @@
     height: auto;
     top: unset;
     bottom: 28%;
+    justify-content: center;
+  }
+  #location-button {
+    position: relative;
   }
   #indicator {
-    display: none;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    z-index: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2px;
+  }
+  #indicator-line {
+    width: 2px;
+    height: 60px;
+    background-color: var(--clr-dark);
+  }
+  #indicator-circle {
+    width: 10px;
+    height: 10px;
+    background-color: var(--clr-dark);
+    border-radius: 50%;
   }
 }
 
@@ -64,7 +99,11 @@
 .location-text-container {
   background-color: var(--clr-light);
   width: 50%;
-  padding: 50px 0px 100px 20px;
+  height: 560px;
+  padding: 50px 0px 50px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .location-text-title {
@@ -74,7 +113,7 @@
   color: var(--clr-dark);
   margin: 0;
   font-weight: 900;
-  padding: 60px 20px;
+  padding: 40px 20px 40px 20px;
 }
 
 .location-text {
@@ -137,6 +176,11 @@
 }
 
 .location-button {
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 1.5em;
+  line-height: 0.8;
+  font-weight: 800;
+  color: var(--clr-light);
   position: relative;
   margin: 10px 10px;
   padding: 5px 2px;
@@ -165,6 +209,7 @@
   transition: transform 0.1s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 .location-button.selected {
+  color: var(--clr-white);
   background-color: var(--clr-accent-dark);
   border: 2px solid var(--clr-accent-dark);
 }
@@ -190,12 +235,4 @@
   height: 10px;
   background-color: var(--clr-dark);
   border-radius: 50%;
-}
-
-.location-button-text {
-  font-family: 'Titillium Web', sans-serif;
-  font-size: 1.5em;
-  line-height: 0.8;
-  font-weight: 800;
-  color: var(--clr-light);
 }

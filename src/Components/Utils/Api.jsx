@@ -4,6 +4,7 @@ import studioData from '/src/Utilities/StudioData.json';
 import artistData from '/src/Utilities/ArtistData.json';
 import contactData from '/src/Utilities/ContactData.json';
 import locData from '/src/Utilities/LocationData.json';
+import amgBanner from '/src/Utilities/AmgBanner.json';
 
 export const fetchNews = async () => {
   return Promise.resolve(newsData);
@@ -27,4 +28,8 @@ export const fetchContact = async () => {
 
 export const fetchLoc = async () => {
   return Promise.resolve(locData);
+};
+
+export const fetchAmgBanner = async () => {
+  return Promise.resolve(amgBanner);
 };

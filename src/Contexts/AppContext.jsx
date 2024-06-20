@@ -7,6 +7,7 @@ import {
   fetchArtists,
   fetchContact,
   fetchLoc,
+  fetchAmgBanner,
 } from 'utils/Api';
 import useLocalStorageState from 'use-local-storage-state';
 
@@ -32,6 +33,7 @@ export const AppProvider = ({ children }) => {
   const [studioData, setStudioData] = useState([]);
   const [contactData, setContactData] = useState([]);
   const [locData, setLocData] = useState([]);
+  const [amgBanner, setAmgBanner] = useState([]);
 
   const [form, setForm] = useState({
     email: '',
@@ -127,6 +129,10 @@ export const AppProvider = ({ children }) => {
       const locDataData = await fetchLoc();
       setLocData(locDataData);
     };
+    const getAmgBanner = async () => {
+      const amgBannerData = await fetchAmgBanner();
+      setAmgBanner(amgBannerData);
+    };
 
     getHomeData();
     getContactData();
@@ -174,6 +180,7 @@ export const AppProvider = ({ children }) => {
         studioData,
         contactData,
         locData,
+        amgBanner,
         noUserImg,
         form,
         setForm,

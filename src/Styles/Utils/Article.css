@@ -287,6 +287,7 @@
 .article-artist-bio {
   font-family: 'Nunito', sans-serif;
   font-size: 1em;
+  line-height: 1.25;
   color: var(--clr-dark);
   margin-bottom: 10px;
   display: -webkit-box;
@@ -398,7 +399,7 @@
 
 .recent-news-article-title {
   font-family: 'Titillium Web', sans-serif;
-  font-size: 1.6em;
+  font-size: 1.4em;
   font-weight: 900;
   color: var(--clr-news-title);
   margin: 0px 0px 5px 0px;
@@ -410,8 +411,9 @@
 
 .recent-news-article-desc {
   font-size: 1em;
+  line-height: 1.25;
   color: var(--clr-dark);
-  margin: 10px 0px 5px 0px;
+  margin: 5px 0px 5px 0px;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
