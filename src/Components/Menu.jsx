@@ -267,7 +267,9 @@ const Menu = () => {
                 />
               </div>
               <div className='menu-link' id='menu-link' ref={addToRefs}>
-                News
+                <p className='menu-link-text' id='menu-link-text'>
+                  News
+                </p>
               </div>
               <div
                 className='menu-item-dropdown-icon'
@@ -355,7 +357,9 @@ const Menu = () => {
                 />
               </div>
               <div className='menu-link' id='menu-link' ref={addToRefs}>
-                Artists
+                <p className='menu-link-text' id='menu-link-text'>
+                  Artists
+                </p>
               </div>
               <div
                 className='menu-item-dropdown-icon'
@@ -441,7 +445,9 @@ const Menu = () => {
                 />
               </div>
               <div className='menu-link' id='menu-link' ref={addToRefs}>
-                About
+                <p className='menu-link-text' id='menu-link-text'>
+                  About
+                </p>
               </div>
               <div
                 className='menu-item-dropdown-icon'
@@ -617,7 +623,9 @@ const Menu = () => {
                 />
               </div>
               <div className='menu-link' id='menu-link' ref={addToRefs}>
-                Contact
+                <p className='menu-link-text' id='menu-link-text'>
+                  Contact
+                </p>
               </div>
               <div
                 className='menu-item-dropdown-icon'

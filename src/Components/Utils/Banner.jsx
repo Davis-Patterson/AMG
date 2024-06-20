@@ -15,7 +15,7 @@ import ArrowsOutlineWhite from 'assets/Banner/arrows-outline-white.svg';
 import 'styles/Utils/Banner.css';
 
 function Banner() {
-  const { darkMode } = useContext(AppContext);
+  const { darkMode, amgBanner, handleLinkClick } = useContext(AppContext);
   const [isHovered, setIsHovered] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);

@@ -1,0 +1,42 @@
+[
+  {
+    "title": "AMG Text Outline",
+    "link": "/",
+    "imgs": [
+      {
+        "black": "assets/Banner/AMG-text-outline-black.svg",
+        "white": "assets/Banner/AMG-text-outline-white.svg"
+      }
+    ]
+  },
+  {
+    "title": "AMG Text Fill",
+    "link": "/",
+    "imgs": [
+      {
+        "black": "assets/Banner/AMG-text-fill-black.svg",
+        "white": "assets/Banner/AMG-text-fill-white.svg"
+      }
+    ]
+  },
+  {
+    "title": "AMG Big Logo",
+    "link": "/",
+    "imgs": [
+      {
+        "black": "assets/Banner/AMG-logo-big-black.svg",
+        "white": "assets/Banner/AMG-logo-big-white.svg"
+      }
+    ]
+  },
+  {
+    "title": "AMG Small Logo",
+    "link": "/",
+    "imgs": [
+      {
+        "black": "assets/Banner/AMG-logo-small-black.svg",
+        "white": "assets/Banner/AMG-logo-small-white.svg"
+      }
+    ]
+  }
+]
