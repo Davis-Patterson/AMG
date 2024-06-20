@@ -19,7 +19,7 @@ function Banner({ data }) {
   const arrowFill = darkMode ? ArrowFillWhite : ArrowFillBlack;
   const arrowOutline = darkMode ? ArrowOutlineWhite : ArrowOutlineBlack;
 
-  const scrollSpeed = isHovered ? 0.45 : 1.2;
+  const scrollSpeed = isHovered ? 0.5 : 1.5;
 
   const handleMouseEnter = () => {
     setIsHovered(true);
@@ -56,8 +56,29 @@ function Banner({ data }) {
     setIsPaused((prev) => !prev);
   };
 
-  const getLogoImg = (item) => {
-    return darkMode ? item.logo[0]?.white : item.logo[0]?.black;
+  const getLogoImgs = (item) => {
+    const logos = [];
+
+    const addLogos = (logoArray) => {
+      logoArray.forEach((logoType) => {
+        logos.push(darkMode ? logoType.white : logoType.black);
+      });
+    };
+
+    if (item.logos) {
+      item.logos.forEach((logoType) => {
+        for (const key in logoType) {
+          const logo = logoType[key][0];
+          logos.push(darkMode ? logo.white : logo.black);
+        }
+      });
+    }
+
+    if (item.logo) {
+      addLogos(item.logo);
+    }
+
+    return logos;
   };
 
   const getLink = (entity, name) => {
@@ -74,27 +95,30 @@ function Banner({ data }) {
 
   if (data && data.length > 0) {
     data.forEach((item, index) => {
-      bannerItems.push(
-        <img
-          key={`logo-${index}`}
-          src={getLogoImg(item)}
-          alt={item.title || item.name}
-          className='banner-img'
-          style={{ willChange: 'transform', cursor: 'pointer' }}
-          onMouseDown={(event) =>
-            handleLinkClick(event, getLink(item.entity, item.name))
-          }
-        />
-      );
-      bannerItems.push(
-        <img
-          key={`arrow-${index}`}
-          src={index % 2 === 0 ? arrowFill : arrowOutline}
-          alt='arrow'
-          className='banner-img'
-          style={{ cursor: 'default' }}
-        />
-      );
+      const logos = getLogoImgs(item);
+      logos.forEach((logo, logoIndex) => {
+        bannerItems.push(
+          <img
+            key={`logo-${index}-${logoIndex}`}
+            src={logo}
+            alt={item.title || item.name}
+            className='banner-img'
+            style={{ willChange: 'transform', cursor: 'pointer' }}
+            onMouseDown={(event) =>
+              handleLinkClick(event, getLink(item.entity, item.name))
+            }
+          />
+        );
+        bannerItems.push(
+          <img
+            key={`arrow-${index}-${logoIndex}`}
+            src={(index + logoIndex) % 2 === 0 ? arrowFill : arrowOutline}
+            alt='arrow'
+            className='banner-img'
+            style={{ cursor: 'default' }}
+          />
+        );
+      });
     });
   } else {
     for (let i = 0; i < 8; i++) {
