@@ -7,7 +7,7 @@ import Email from 'utils/Email';
 import 'styles/Contact.css';
 
 function Contact() {
-  const { darkMode, contactData, contactIndex, setContactIndex } =
+  const { darkMode, contactData, contactIndex, setContactIndex, amgBanner } =
     useContext(AppContext);
 
   useEffect(() => {
@@ -51,7 +51,7 @@ function Contact() {
             slideClass='contact'
           />
         </header>
-        <Banner />
+        <Banner data={amgBanner} />
         <Locations />
         <div
           className='contact-content-container'

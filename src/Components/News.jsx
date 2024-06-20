@@ -13,6 +13,7 @@ function News() {
     newsData,
     newsIndex,
     setNewsIndex,
+    amgBanner,
     handleLinkClick,
     formatTitleForURL,
   } = useContext(AppContext);
@@ -68,6 +69,7 @@ function News() {
               </div>
             </section>
           </header>
+          <Banner data={amgBanner} />
           <section className='loading-content-container'>
             <div className='loading-content'>
               <div className='skeleton-article-cards'>
@@ -155,7 +157,7 @@ function News() {
             slideClass='news'
           />
         </header>
-        <Banner />
+        <Banner data={amgBanner} />
         <div className='news-container-container' id='news-content-container'>
           <div className='filter-dropdown'>
             <select

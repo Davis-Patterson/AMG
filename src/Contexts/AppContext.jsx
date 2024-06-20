@@ -137,6 +137,7 @@ export const AppProvider = ({ children }) => {
     getHomeData();
     getContactData();
     getLocData();
+    getAmgBanner();
 
     getNews();
     getArtistData();

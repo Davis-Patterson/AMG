@@ -11,7 +11,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 import 'styles/About.css';
 
 function About() {
-  const { darkMode, studioData, aboutIndex, setAboutIndex } =
+  const { darkMode, studioData, aboutIndex, setAboutIndex, amgBanner } =
     useContext(AppContext);
 
   useEffect(() => {
@@ -49,7 +49,7 @@ function About() {
               />
             </section>
           </header>
-          <Banner />
+          <Banner data={amgBanner} />
           <section className='loading-content-container'>
             <div className='loading-content'>
               <div className='loading-text-container'>
@@ -99,7 +99,7 @@ function About() {
             slideClass='about'
           />
         </header>
-        <Banner />
+        <Banner data={amgBanner} />
         <section
           className='about-content-container'
           id='about-content-container'
