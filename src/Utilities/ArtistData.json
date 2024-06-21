@@ -17,14 +17,14 @@
       {
         "text logo": [
           {
-            "black": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/amg/AMG-text-outline-black.svg",
-            "white": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/amg/AMG-text-outline-white.svg"
+            "black": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/artists/djm-text-logo-black.svg",
+            "white": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/artists/djm-text-logo-white.svg"
           }
         ],
-        "small logo": [
+        "logo": [
           {
-            "black": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/amg/AMG-logo-small-black.svg",
-            "white": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/amg/AMG-logo-small-white.svg"
+            "black": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/artists/djm-logo-black.svg",
+            "white": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/artists/djm-logo-white.svg"
           }
         ]
       }
@@ -130,10 +130,10 @@
     ],
     "logos": [
       {
-        "small logo": [
+        "text logo": [
           {
-            "black": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/amg/AMG-logo-small-black.svg",
-            "white": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/amg/AMG-logo-small-white.svg"
+            "black": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/artists/ls-text-logo-black.svg",
+            "white": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/artists/ls-text-logo-white.svg"
           }
         ]
       }
@@ -143,7 +143,7 @@
     "twitter": "https://x.com/",
     "instagram": "https://www.instagram.com/",
     "youtube": "https://www.youtube.com/",
-    "spotify": "",
+    "spotify": "https://www.spotify.com/",
     "apple": "",
     "management": [
       {
@@ -239,16 +239,10 @@
     ],
     "logos": [
       {
-        "text logo": [
+        "logo": [
           {
-            "black": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/amg/AMG-text-outline-black.svg",
-            "white": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/amg/AMG-text-outline-white.svg"
-          }
-        ],
-        "small logo": [
-          {
-            "black": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/amg/AMG-logo-small-black.svg",
-            "white": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/amg/AMG-logo-small-white.svg"
+            "black": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/artists/ap-logo-black.svg",
+            "white": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/artists/ap-logo-white.svg"
           }
         ]
       }
@@ -259,7 +253,7 @@
     "instagram": "",
     "youtube": "https://www.youtube.com/",
     "spotify": "",
-    "apple": "",
+    "apple": "https://music.apple.com/us/browse",
     "management": [
       {
         "name": "Emily Williams",
@@ -364,14 +358,8 @@
       {
         "text logo": [
           {
-            "black": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/amg/AMG-text-outline-black.svg",
-            "white": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/amg/AMG-text-outline-white.svg"
-          }
-        ],
-        "small logo": [
-          {
-            "black": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/amg/AMG-logo-small-black.svg",
-            "white": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/amg/AMG-logo-small-white.svg"
+            "black": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/artists/dl-text-logo-black.svg",
+            "white": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/artists/dl-text-logo-white.svg"
           }
         ]
       }
@@ -382,7 +370,7 @@
     "instagram": "https://www.instagram.com/ross_bailey_official/",
     "youtube": "https://www.youtube.com/",
     "spotify": "",
-    "apple": "",
+    "apple": "https://music.apple.com/us/browse",
     "management": [
       {
         "name": "Michael Roberts",
@@ -487,14 +475,14 @@
       {
         "text logo": [
           {
-            "black": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/amg/AMG-text-outline-black.svg",
-            "white": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/amg/AMG-text-outline-white.svg"
+            "black": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/artists/sp-text-logo-black.svg",
+            "white": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/artists/sp-text-logo-white.svg"
           }
         ],
-        "small logo": [
+        "logo": [
           {
-            "black": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/amg/AMG-logo-small-black.svg",
-            "white": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/amg/AMG-logo-small-white.svg"
+            "black": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/artists/sp-logo-black.svg",
+            "white": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/artists/sp-logo-white.svg"
           }
         ]
       }
@@ -505,7 +493,7 @@
     "instagram": "https://www.instagram.com/shaolin_prince/",
     "youtube": "https://www.youtube.com/",
     "spotify": "",
-    "apple": "",
+    "apple": "https://music.apple.com/us/browse",
     "management": [
       {
         "name": "David Miller",
@@ -584,14 +572,14 @@
       {
         "text logo": [
           {
-            "black": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/amg/AMG-text-outline-black.svg",
-            "white": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/amg/AMG-text-outline-white.svg"
+            "black": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/artists/rs-text-logo-black.svg",
+            "white": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/artists/rs-text-logo-white.svg"
           }
         ],
-        "small logo": [
+        "logo": [
           {
-            "black": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/amg/AMG-logo-small-black.svg",
-            "white": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/amg/AMG-logo-small-white.svg"
+            "black": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/artists/rs-logo-black.svg",
+            "white": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/artists/rs-logo-white.svg"
           }
         ]
       }
@@ -602,7 +590,7 @@
     "instagram": "https://www.instagram.com/",
     "youtube": "https://www.youtube.com/",
     "spotify": "",
-    "apple": "",
+    "apple": "https://music.apple.com/us/browse",
     "management": [
       {
         "name": "Robert Johnson",
@@ -634,14 +622,14 @@
       {
         "text logo": [
           {
-            "black": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/amg/AMG-text-outline-black.svg",
-            "white": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/amg/AMG-text-outline-white.svg"
+            "black": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/artists/ht-text-logo-black.svg",
+            "white": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/artists/ht-text-logo-white.svg"
           }
         ],
-        "small logo": [
+        "logo": [
           {
-            "black": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/amg/AMG-logo-small-black.svg",
-            "white": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/amg/AMG-logo-small-white.svg"
+            "black": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/artists/ht-logo-black.svg",
+            "white": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/artists/ht-logo-white.svg"
           }
         ]
       }
@@ -651,8 +639,8 @@
     "twitter": "",
     "instagram": "",
     "youtube": "https://www.youtube.com/",
-    "spotify": "",
-    "apple": "",
+    "spotify": "https://www.spotify.com/",
+    "apple": "https://music.apple.com/us/browse",
     "management": [
       {
         "name": "William Lee",
@@ -680,14 +668,14 @@
       {
         "text logo": [
           {
-            "black": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/amg/AMG-text-outline-black.svg",
-            "white": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/amg/AMG-text-outline-white.svg"
+            "black": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/artists/elj-text-logo-black.svg",
+            "white": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/artists/elj-text-logo-white.svg"
           }
         ],
-        "small logo": [
+        "logo": [
           {
-            "black": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/amg/AMG-logo-small-black.svg",
-            "white": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/amg/AMG-logo-small-white.svg"
+            "black": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/artists/elj-logo-black.svg",
+            "white": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/artists/elj-logo-white.svg"
           }
         ]
       }
@@ -697,7 +685,7 @@
     "twitter": "https://x.com/",
     "instagram": "https://www.instagram.com/",
     "youtube": "https://www.youtube.com/",
-    "spotify": "",
+    "spotify": "https://www.spotify.com/",
     "apple": "",
     "management": [
       {
