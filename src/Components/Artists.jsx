@@ -68,7 +68,7 @@ function Artists() {
               <Skeleton className='header-skeleton' />
             </section>
           </header>
-          <Banner data={amgBanner} />
+          <Banner data={amgBanner} slideClass={'amg'} />
           <section className='loading-content-container'>
             <div className='loading-content'>
               <div className='skeleton-artist-cards'>
@@ -134,7 +134,7 @@ function Artists() {
             slideClass='artists'
           />
         </header>
-        <Banner data={artistData} />
+        <Banner data={artistData} slideClass={'artists'} />
         <section
           className='artists-content-container'
           id='artists-content-container'

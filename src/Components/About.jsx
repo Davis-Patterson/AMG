@@ -49,7 +49,7 @@ function About() {
               />
             </section>
           </header>
-          <Banner data={amgBanner} />
+          <Banner data={amgBanner} slideClass={'amg'} />
           <section className='loading-content-container'>
             <div className='loading-content'>
               <div className='loading-text-container'>
@@ -99,7 +99,7 @@ function About() {
             slideClass='about'
           />
         </header>
-        <Banner data={amgBanner} />
+        <Banner data={amgBanner} slideClass={'amg'} />
         <section
           className='about-content-container'
           id='about-content-container'

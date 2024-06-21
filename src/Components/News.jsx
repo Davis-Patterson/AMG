@@ -69,7 +69,7 @@ function News() {
               </div>
             </section>
           </header>
-          <Banner data={amgBanner} />
+          <Banner data={amgBanner} slideClass={'amg'} />
           <section className='loading-content-container'>
             <div className='loading-content'>
               <div className='skeleton-article-cards'>
@@ -157,7 +157,7 @@ function News() {
             slideClass='news'
           />
         </header>
-        <Banner data={amgBanner} />
+        <Banner data={amgBanner} slideClass={'amg'} />
         <div className='news-container-container' id='news-content-container'>
           <div className='filter-dropdown'>
             <select
