@@ -15,16 +15,16 @@
     ],
     "logos": [
       {
-        "text logo": [
-          {
-            "black": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/artists/djm-text-logo-black.svg",
-            "white": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/artists/djm-text-logo-white.svg"
-          }
-        ],
         "logo": [
           {
             "black": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/artists/djm-logo-black.svg",
             "white": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/artists/djm-logo-white.svg"
+          }
+        ],
+        "text logo": [
+          {
+            "black": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/artists/djm-text-logo-black.svg",
+            "white": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/artists/djm-text-logo-white.svg"
           }
         ]
       }
@@ -473,16 +473,16 @@
     ],
     "logos": [
       {
-        "text logo": [
-          {
-            "black": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/artists/sp-text-logo-black.svg",
-            "white": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/artists/sp-text-logo-white.svg"
-          }
-        ],
         "logo": [
           {
             "black": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/artists/sp-logo-black.svg",
             "white": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/artists/sp-logo-white.svg"
+          }
+        ],
+        "text logo": [
+          {
+            "black": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/artists/sp-text-logo-black.svg",
+            "white": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/artists/sp-text-logo-white.svg"
           }
         ]
       }
@@ -570,16 +570,16 @@
     ],
     "logos": [
       {
-        "text logo": [
-          {
-            "black": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/artists/rs-text-logo-black.svg",
-            "white": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/artists/rs-text-logo-white.svg"
-          }
-        ],
         "logo": [
           {
             "black": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/artists/rs-logo-black.svg",
             "white": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/artists/rs-logo-white.svg"
+          }
+        ],
+        "text logo": [
+          {
+            "black": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/artists/rs-text-logo-black.svg",
+            "white": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/artists/rs-text-logo-white.svg"
           }
         ]
       }
@@ -620,16 +620,16 @@
     ],
     "logos": [
       {
-        "text logo": [
-          {
-            "black": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/artists/ht-text-logo-black.svg",
-            "white": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/artists/ht-text-logo-white.svg"
-          }
-        ],
         "logo": [
           {
             "black": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/artists/ht-logo-black.svg",
             "white": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/artists/ht-logo-white.svg"
+          }
+        ],
+        "text logo": [
+          {
+            "black": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/artists/ht-text-logo-black.svg",
+            "white": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/artists/ht-text-logo-white.svg"
           }
         ]
       }
@@ -666,16 +666,16 @@
     ],
     "logos": [
       {
-        "text logo": [
-          {
-            "black": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/artists/elj-text-logo-black.svg",
-            "white": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/artists/elj-text-logo-white.svg"
-          }
-        ],
         "logo": [
           {
             "black": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/artists/elj-logo-black.svg",
             "white": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/artists/elj-logo-white.svg"
+          }
+        ],
+        "text logo": [
+          {
+            "black": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/artists/elj-text-logo-black.svg",
+            "white": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/artists/elj-text-logo-white.svg"
           }
         ]
       }

@@ -1,4 +1,4 @@
-.banner-container {
+.amg-banner-container {
   overflow: hidden;
   padding: 20px 0;
   background: var(--clr-banner);
@@ -9,9 +9,12 @@
   transition: background-color 1s ease;
   margin: 0px 0px 0px 0px;
   z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.banner-container:before {
+.amg-banner-container:before {
   left: 0;
   background: linear-gradient(
     to left,
@@ -19,7 +22,7 @@
     var(--clr-gradient-end)
   );
 }
-.banner-container:after {
+.amg-banner-container:after {
   right: 0;
   background: linear-gradient(
     to right,
@@ -27,8 +30,8 @@
     var(--clr-gradient-end)
   );
 }
-.banner-container:before,
-.banner-container:after {
+.amg-banner-container:before,
+.amg-banner-container:after {
   position: absolute;
   top: 0;
   width: 250px;
@@ -39,17 +42,91 @@
   pointer-events: none;
 }
 
-.banner-wrapper {
+.amg-banner-wrapper {
   display: flex;
   width: 200%;
 }
 
-.banner-content {
+.amg-banner-content {
   display: flex;
   white-space: nowrap;
+  justify-content: center;
+  align-items: center;
 }
 
-.banner-img {
+.amg-banner-img {
   height: 30px;
+  margin: 0 40px;
+}
+
+.amg-banner-arrow {
+  height: 30px;
+  margin: 0 40px;
+}
+
+/* artists banner */
+.artists-banner-container {
+  overflow: hidden;
+  padding: 20px 0;
+  background: var(--clr-banner);
+  white-space: nowrap;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  transition: background-color 1s ease;
+  margin: 0px 0px 0px 0px;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.artists-banner-container:before {
+  left: 0;
+  background: linear-gradient(
+    to left,
+    var(--clr-gradient-start),
+    var(--clr-gradient-end)
+  );
+}
+.artists-banner-container:after {
+  right: 0;
+  background: linear-gradient(
+    to right,
+    var(--clr-gradient-start),
+    var(--clr-gradient-end)
+  );
+}
+.artists-banner-container:before,
+.artists-banner-container:after {
+  position: absolute;
+  top: 0;
+  width: 250px;
+  height: 100%;
+  content: '';
+  z-index: 2;
+  opacity: 1;
+  pointer-events: none;
+}
+
+.artists-banner-wrapper {
+  display: flex;
+  width: 200%;
+}
+
+.artists-banner-content {
+  display: flex;
+  white-space: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.artists-banner-img {
+  height: 40px;
+  margin: 0 40px;
+}
+
+.artists-banner-arrow {
+  height: 25px;
   margin: 0 40px;
 }

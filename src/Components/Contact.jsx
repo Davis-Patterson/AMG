@@ -51,7 +51,7 @@ function Contact() {
             slideClass='contact'
           />
         </header>
-        <Banner data={amgBanner} />
+        <Banner data={amgBanner} slideClass={'amg'} />
         <Locations />
         <div
           className='contact-content-container'

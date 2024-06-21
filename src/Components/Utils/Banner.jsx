@@ -6,7 +6,7 @@ import ArrowOutlineBlack from 'assets/Banner/arrows-outline-black.svg';
 import ArrowOutlineWhite from 'assets/Banner/arrows-outline-white.svg';
 import 'styles/Utils/Banner.css';
 
-function Banner({ data }) {
+function Banner({ data, slideClass }) {
   const { darkMode, handleLinkClick, formatTitleForURL } =
     useContext(AppContext);
   const [isHovered, setIsHovered] = useState(false);
@@ -104,7 +104,7 @@ function Banner({ data }) {
             key={`logo-${index}-${logoIndex}`}
             src={logo}
             alt={item.title || item.name}
-            className='banner-img'
+            className={`${slideClass}-banner-img`}
             style={{ willChange: 'transform', cursor: 'pointer' }}
             onMouseDown={(event) =>
               handleLinkClick(event, getLink(item.entity, item.name))
@@ -116,7 +116,7 @@ function Banner({ data }) {
             key={`arrow-${index}-${logoIndex}`}
             src={(index + logoIndex) % 2 === 0 ? arrowFill : arrowOutline}
             alt='arrow'
-            className='banner-img'
+            className={`${slideClass}-banner-arrow`}
             style={{ cursor: 'default' }}
           />
         );
@@ -129,7 +129,7 @@ function Banner({ data }) {
           key={`arrow-${i}`}
           src={i % 2 === 0 ? arrowFill : arrowOutline}
           alt='arrow'
-          className='banner-img'
+          className={`${slideClass}-banner-arrow`}
           style={{ cursor: 'default' }}
         />
       );
@@ -138,15 +138,15 @@ function Banner({ data }) {
 
   return (
     <section
-      className='banner-container'
+      className={`${slideClass}-banner-container`}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onMouseDown={handleClick}
       style={{ willChange: 'transform' }}
     >
-      <div className='banner-wrapper'>
+      <div className={`${slideClass}-banner-wrapper`}>
         <div
-          className='banner-content'
+          className={`${slideClass}-banner-content`}
           ref={contentRef}
           style={{
             transform: `translateX(${scrollPosition}px)`,
