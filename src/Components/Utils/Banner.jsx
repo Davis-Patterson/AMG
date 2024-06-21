@@ -83,12 +83,14 @@ function Banner({ data }) {
 
   const getLink = (entity, name) => {
     if (entity) {
-      return entity === 'AMG' ? '/' : `/artists/${formatTitleForURL(entity)}`;
+      return entity === 'AMG'
+        ? '/about'
+        : `/artists/${formatTitleForURL(entity)}`;
     }
     if (name) {
       return `/artists/${formatTitleForURL(name)}`;
     }
-    return '#';
+    return '/about';
   };
 
   const bannerItems = [];
