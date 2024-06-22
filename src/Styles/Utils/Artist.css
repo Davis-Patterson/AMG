@@ -285,6 +285,43 @@
   margin: 20px 0px 10px 0px;
 }
 
+.audio-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.audio-item {
+  margin-bottom: 10px;
+}
+
+.audio-button {
+  background: none;
+  border: none;
+  color: var(--clr-primary);
+  cursor: pointer;
+  font-size: 16px;
+  padding: 5px;
+  text-align: left;
+  width: 100%;
+  transition: color 0.3s;
+}
+
+.audio-button:hover {
+  color: var(--clr-secondary);
+}
+
+.audio-player-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.audio-player {
+  width: 100%;
+  max-width: 600px;
+}
+
 .artist-video {
   width: 100%;
   max-width: 1000px;

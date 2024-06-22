@@ -47,6 +47,8 @@
       }
     ],
     "videos": [],
+    "audio": [],
+    "featured": [],
     "news": [
       {
         "id": 2,
@@ -156,6 +158,8 @@
       }
     ],
     "videos": [],
+    "audio": [],
+    "featured": [],
     "news": [
       {
         "id": 5,
@@ -282,6 +286,119 @@
         ]
       }
     ],
+    "audio": [
+      {
+        "title": "Dark Star (feat. Soluna)",
+        "artist": "Aerotype Productions",
+        "feat": ["Soluna"],
+        "album": "",
+        "date": "",
+        "img": "",
+        "audio": [
+          {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Dark+Star+(feat.+Soluna)+-+Aerotype+Productions.mp3",
+            "type": "audio/mp3"
+          },
+          {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Dark+Star+(feat.+Soluna)+-+Aerotype+Productions.aac",
+            "type": "audio/aac"
+          },
+          {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Dark+Star+(feat.+Soluna)+-+Aerotype+Productions.opus",
+            "type": "audio/opus"
+          }
+        ]
+      },
+      {
+        "title": "DBlock",
+        "artist": "Aerotype Productions",
+        "feat": [],
+        "album": "",
+        "date": "",
+        "img": "",
+        "audio": [
+          {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/DBlock+-+Aerotype+Productions.mp3",
+            "type": "audio/mp3"
+          },
+          {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/DBlock+-+Aerotype+Productions.aac",
+            "type": "audio/aac"
+          },
+          {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/DBlock+-+Aerotype+Productions.opus",
+            "type": "audio/opus"
+          }
+        ]
+      },
+      {
+        "title": "The End",
+        "artist": "Aerotype Productions",
+        "feat": [],
+        "album": "",
+        "date": "",
+        "img": "",
+        "audio": [
+          {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/The+End+-+Aerotype+Productions.mp3",
+            "type": "audio/mp3"
+          },
+          {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/The+End+-+Aerotype+Productions.aac",
+            "type": "audio/aac"
+          },
+          {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/The+End+-+Aerotype+Productions.opus",
+            "type": "audio/opus"
+          }
+        ]
+      },
+      {
+        "title": "Vibe (feat. Shaolin Prince)",
+        "artist": "Aerotype Productions",
+        "feat": ["Shaolin Prince"],
+        "album": "",
+        "date": "",
+        "img": "",
+        "audio": [
+          {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Vibe+(feat.+Shaolin+Prince)+-+Aerotype+Productions.mp3",
+            "type": "audio/mp3"
+          },
+          {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Vibe+(feat.+Shaolin+Prince)+-+Aerotype+Productions.aac",
+            "type": "audio/aac"
+          },
+          {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Vibe+(feat.+Shaolin+Prince)+-+Aerotype+Productions.opus",
+            "type": "audio/opus"
+          }
+        ]
+      },
+      {
+        "title": "Whattup (feat. Shaolin Prince, Worm Food, & Soluna)",
+        "artist": "Aerotype Productions",
+        "feat": ["Shaolin Prince", "Worm Food", "Soluna"],
+        "album": "",
+        "date": "",
+        "img": "",
+        "audio": [
+          {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Whattup+(feat.+Shaolin+Prince%2C+Worm+Food%2C+%26+Soluna)+-+Aerotype+Productions+(mastered+print).mp3",
+            "type": "audio/mp3"
+          },
+          {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Whattup+(feat.+Shaolin+Prince%2C+Worm+Food%2C+%26+Soluna)+-+Aerotype+Productions+(mastered+print).aac",
+            "type": "audio/aac"
+          },
+          {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Whattup+(feat.+Shaolin+Prince%2C+Worm+Food%2C+%26+Soluna)+-+Aerotype+Productions+(mastered+print).opus",
+            "type": "audio/opus"
+          }
+        ]
+      }
+    ],
+    "featured": [],
     "news": [
       {
         "id": 6,
@@ -399,6 +516,8 @@
         ]
       }
     ],
+    "audio": [],
+    "featured": [],
     "news": [
       {
         "id": 7,
@@ -505,6 +624,76 @@
       }
     ],
     "videos": [],
+    "audio": [
+      {
+        "title": "Ashamed (feat. Brandon)",
+        "artist": "Shaolin Prince",
+        "feat": ["Brandon"],
+        "album": "",
+        "date": "",
+        "img": "",
+        "audio": [
+          {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Ashamed+(feat.+Brandon)+-+Shaolin+Prince+(mastered).mp3",
+            "type": "audio/mp3"
+          },
+          {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Ashamed+(feat.+Brandon)+-+Shaolin+Prince+(mastered).aac",
+            "type": "audio/aac"
+          },
+          {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Ashamed+(feat.+Brandon)+-+Shaolin+Prince+(mastered).opus",
+            "type": "audio/opus"
+          }
+        ]
+      }
+    ],
+    "featured": [
+      {
+        "title": "Vibe (feat. Shaolin Prince)",
+        "artist": "Aerotype Productions",
+        "feat": ["Shaolin Prince"],
+        "album": "",
+        "date": "",
+        "img": "",
+        "audio": [
+          {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Vibe+(feat.+Shaolin+Prince)+-+Aerotype+Productions.mp3",
+            "type": "audio/mp3"
+          },
+          {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Vibe+(feat.+Shaolin+Prince)+-+Aerotype+Productions.aac",
+            "type": "audio/aac"
+          },
+          {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Vibe+(feat.+Shaolin+Prince)+-+Aerotype+Productions.opus",
+            "type": "audio/opus"
+          }
+        ]
+      },
+      {
+        "title": "Whattup (feat. Shaolin Prince, Worm Food, & Soluna)",
+        "artist": "Aerotype Productions",
+        "feat": ["Shaolin Prince", "Worm Food", "Soluna"],
+        "album": "",
+        "date": "",
+        "img": "",
+        "audio": [
+          {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Whattup+(feat.+Shaolin+Prince%2C+Worm+Food%2C+%26+Soluna)+-+Aerotype+Productions+(mastered+print).mp3",
+            "type": "audio/mp3"
+          },
+          {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Whattup+(feat.+Shaolin+Prince%2C+Worm+Food%2C+%26+Soluna)+-+Aerotype+Productions+(mastered+print).aac",
+            "type": "audio/aac"
+          },
+          {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Whattup+(feat.+Shaolin+Prince%2C+Worm+Food%2C+%26+Soluna)+-+Aerotype+Productions+(mastered+print).opus",
+            "type": "audio/opus"
+          }
+        ]
+      }
+    ],
     "news": [
       {
         "id": 3,
@@ -602,6 +791,8 @@
       }
     ],
     "videos": [],
+    "audio": [],
+    "featured": [],
     "news": []
   },
   {
@@ -648,6 +839,8 @@
       }
     ],
     "videos": [],
+    "audio": [],
+    "featured": [],
     "news": []
   },
   {
@@ -694,6 +887,8 @@
       }
     ],
     "videos": [],
+    "audio": [],
+    "featured": [],
     "news": []
   }
 ]
