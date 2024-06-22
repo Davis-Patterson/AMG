@@ -30,6 +30,7 @@ function Artist() {
   } = useContext(AppContext);
   const [artist, setArtist] = useState(null);
   const [bioReadMore, setBioReadMore] = useState(false);
+  const [selectedAudio, setSelectedAudio] = useState(null);
 
   const navigate = useNavigate();
 
@@ -67,6 +68,10 @@ function Artist() {
     event.preventDefault();
     event.stopPropagation();
     setBioReadMore(!bioReadMore);
+  };
+
+  const handleAudioClick = (audio) => {
+    setSelectedAudio(audio);
   };
 
   const getBannerOrImg = (artist) => {
@@ -271,7 +276,7 @@ function Artist() {
         </section>
         {artist.videos && artist.videos.length > 0 && (
           <section className='artist-content' id='artist-content'>
-            <h3 className='section-title'>Media</h3>
+            <h3 className='section-title'>Video</h3>
             {artist.videos.map((video, index) => (
               <div key={index} className='video-container'>
                 <video className='artist-video' autoPlay muted={mute} controls>
@@ -289,6 +294,44 @@ function Artist() {
             ))}
           </section>
         )}
+        {(artist.audio && artist.audio.length > 0) ||
+        (artist.featured && artist.featured.length > 0) ? (
+          <section className='artist-content' id='artist-content'>
+            <h3 className='section-title'>Audio</h3>
+            <ul className='audio-list'>
+              {artist.audio.map((audio, index) => (
+                <li key={index} className='audio-item'>
+                  <button
+                    className='audio-button'
+                    onClick={() => handleAudioClick(audio)}
+                  >
+                    {audio.title} - {artist.name}
+                  </button>
+                </li>
+              ))}
+              {artist.featured.map((audio, index) => (
+                <li key={index} className='audio-item'>
+                  <button
+                    className='audio-button'
+                    onClick={() => handleAudioClick(audio)}
+                  >
+                    {audio.title} - {audio.artist}
+                  </button>
+                </li>
+              ))}
+            </ul>
+            {selectedAudio && (
+              <div className='audio-player-container'>
+                <audio controls className='audio-player'>
+                  {selectedAudio.audio.map((source, index) => (
+                    <source key={index} src={source.src} type={source.type} />
+                  ))}
+                  Your browser does not support the audio element.
+                </audio>
+              </div>
+            )}
+          </section>
+        ) : null}
         {artist.news && artist.news.length > 0 && (
           <section className='artist-news'>
             <h3 className='section-title'>News</h3>
