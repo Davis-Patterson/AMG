@@ -25,6 +25,9 @@ export default defineConfig({
     '**/*.jpeg',
     '**/*.JPEG',
     '**/*.webm',
+    '**/*.mp3',
+    '**/*.aac',
+    '**/*.opus',
   ],
   build: {
     outDir: 'dist',

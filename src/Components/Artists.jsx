@@ -134,7 +134,7 @@ function Artists() {
             slideClass='artists'
           />
         </header>
-        <Banner data={artistData} slideClass={'artists'} />
+        <Banner data={sortedArtists} slideClass={'artists'} />
         <section
           className='artists-content-container'
           id='artists-content-container'
