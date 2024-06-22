@@ -94,6 +94,7 @@ function Banner({ data, slideClass }) {
   };
 
   const bannerItems = [];
+  let useArrowFill = true;
 
   if (data && data.length > 0) {
     data.forEach((item, index) => {
@@ -111,23 +112,27 @@ function Banner({ data, slideClass }) {
             }
           />
         );
+
+        const arrow = useArrowFill ? arrowFill : arrowOutline;
         bannerItems.push(
           <img
             key={`arrow-${index}-${logoIndex}`}
-            src={(index + logoIndex) % 2 === 0 ? arrowFill : arrowOutline}
+            src={arrow}
             alt='arrow'
             className={`${slideClass}-banner-arrow`}
             style={{ cursor: 'default' }}
           />
         );
+        useArrowFill = !useArrowFill;
       });
     });
   } else {
     for (let i = 0; i < 8; i++) {
+      const arrow = i % 2 === 0 ? arrowFill : arrowOutline;
       bannerItems.push(
         <img
           key={`arrow-${i}`}
-          src={i % 2 === 0 ? arrowFill : arrowOutline}
+          src={arrow}
           alt='arrow'
           className={`${slideClass}-banner-arrow`}
           style={{ cursor: 'default' }}
