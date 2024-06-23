@@ -1,22 +1,55 @@
-import React, { useEffect, useContext, useState, useRef } from 'react';
+import React, { useEffect, useRef, useState, useContext } from 'react';
 import { AppContext } from 'contexts/AppContext';
+import nextBlack from 'assets/Utils/next-black.svg';
+import nextWhite from 'assets/Utils/next-white.svg';
+import prevBlack from 'assets/Utils/prev-black.svg';
+import prevWhite from 'assets/Utils/prev-white.svg';
 import pauseBlack from 'assets/Utils/pause-black.svg';
 import pauseWhite from 'assets/Utils/pause-white.svg';
 import playBlack from 'assets/Utils/play-black.svg';
 import playWhite from 'assets/Utils/play-white.svg';
+import pipeBlack from 'assets/Utils/pipe-black.svg';
+import pipeWhite from 'assets/Utils/pipe-white.svg';
 import 'styles/Utils/Audio.css';
 
-function Audio({ selectedAudio, audioIndex }) {
-  const { darkMode, mute } = useContext(AppContext);
+function Audio({
+  selectedAudio,
+  audioIndex,
+  setAudioIndex,
+  audios,
+  audioPlay,
+  setAudioPlay,
+  setVideoPlay,
+  mute,
+  setMute,
+}) {
   const audioRef = useRef(null);
-  const [audioPlay, setAudioPlay] = useState(false);
   const [progress, setProgress] = useState(0);
+  const [volume, setVolume] = useState(100);
+  const { darkMode } = useContext(AppContext);
+
+  const currentNext = !darkMode ? nextWhite : nextBlack;
+  const currentPrev = !darkMode ? prevWhite : prevBlack;
+  const currentPipe = !darkMode ? pipeWhite : pipeBlack;
+  const currentPlay = !darkMode ? playWhite : playBlack;
+  const currentPause = !darkMode ? pauseWhite : pauseBlack;
+  const currentPlayPause = audioPlay ? currentPause : currentPlay;
 
   useEffect(() => {
     if (audioRef.current) {
-      audioRef.current.play();
+      audioRef.current.load();
+      audioRef.current.muted = mute;
+      audioRef.current.volume = volume / 100;
     }
-  }, [audioIndex]);
+  }, [audioIndex, mute, volume]);
+
+  useEffect(() => {
+    if (audioPlay && audioRef.current) {
+      audioRef.current.play();
+    } else if (audioRef.current) {
+      audioRef.current.pause();
+    }
+  }, [audioPlay]);
 
   const togglePlayPause = (event) => {
     if (event.button !== 0) return;
@@ -25,6 +58,7 @@ function Audio({ selectedAudio, audioIndex }) {
     if (audioRef.current.paused) {
       audioRef.current.play();
       setAudioPlay(true);
+      setVideoPlay(false);
     } else {
       audioRef.current.pause();
       setAudioPlay(false);
@@ -34,12 +68,40 @@ function Audio({ selectedAudio, audioIndex }) {
   const handleTimeUpdate = () => {
     const progress =
       (audioRef.current.currentTime / audioRef.current.duration) * 100;
-    setProgress(progress);
+    setProgress(isNaN(progress) ? 0 : progress);
   };
 
   const handleProgressChange = (e) => {
     const newTime = (e.target.value * audioRef.current.duration) / 100;
     audioRef.current.currentTime = newTime;
+  };
+
+  const handleVolumeChange = (e) => {
+    const newVolume = e.target.value;
+    setVolume(newVolume);
+    if (newVolume === '0') {
+      setMute(true);
+    } else {
+      setMute(false);
+    }
+  };
+
+  const handlePrev = (event) => {
+    if (event.button !== 0) return;
+    event.preventDefault();
+    event.stopPropagation();
+    setProgress(0);
+    setAudioIndex(
+      (prevIndex) => (prevIndex - 1 + audios.length) % audios.length
+    );
+  };
+
+  const handleNext = (event) => {
+    if (event.button !== 0) return;
+    event.preventDefault();
+    event.stopPropagation();
+    setProgress(0);
+    setAudioIndex((prevIndex) => (prevIndex + 1) % audios.length);
   };
 
   return (
@@ -79,18 +141,47 @@ function Audio({ selectedAudio, audioIndex }) {
               <div className='audio-detail-date'>{selectedAudio.date}</div>
             </div>
             <div className='audio-player-container'>
-              <div
-                className='audio-control'
-                onMouseDown={(event) => togglePlayPause(event)}
-              >
-                {audioPlay ? 'Pause' : 'Play'}
-              </div>
               <input
                 type='range'
                 value={progress}
                 onChange={handleProgressChange}
                 className='audio-progress'
               />
+              <div className='audio-controls-container'>
+                <div className='audio-controls'>
+                  <img
+                    src={currentPlayPause}
+                    alt='play/pause button'
+                    className='audio-controls-button'
+                    onMouseDown={(event) => togglePlayPause(event)}
+                  />
+                  <img
+                    src={currentPrev}
+                    alt='prev button'
+                    className='audio-controls-button'
+                    onMouseDown={(event) => handlePrev(event)}
+                  />
+                  <img
+                    src={currentPipe}
+                    alt='pipe'
+                    className='audio-controls-pipe'
+                  />
+                  <img
+                    src={currentNext}
+                    alt='next button'
+                    className='audio-controls-button'
+                    onMouseDown={(event) => handleNext(event)}
+                  />
+                  <input
+                    type='range'
+                    min='0'
+                    max='100'
+                    value={volume}
+                    onChange={handleVolumeChange}
+                    className='audio-volume'
+                  />
+                </div>
+              </div>
               <audio
                 ref={audioRef}
                 onTimeUpdate={handleTimeUpdate}
