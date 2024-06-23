@@ -36,6 +36,7 @@ function Artist() {
   const [videoPlay, setVideoPlay] = useState(true);
   const [audioPlay, setAudioPlay] = useState(false);
   const videoRef = useRef(null);
+  const audioRef = useRef(null);
 
   const icons = {
     apple: darkMode ? appleWhite : appleBlack,
@@ -64,6 +65,24 @@ function Artist() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  useEffect(() => {
+    const videoElement = videoRef.current;
+    if (videoElement) {
+      const handlePlay = () => {
+        if (audioPlay && audioRef.current) {
+          audioRef.current.pause();
+          setAudioPlay(false);
+        }
+      };
+
+      videoElement.addEventListener('play', handlePlay);
+
+      return () => {
+        videoElement.removeEventListener('play', handlePlay);
+      };
+    }
+  }, [audioPlay]);
 
   const handleReadMore = (event) => {
     if (event.button !== 0) return;
@@ -341,7 +360,8 @@ function Artist() {
               audioPlay={audioPlay}
               setAudioPlay={setAudioPlay}
               setVideoPlay={setVideoPlay}
-              mute={mute}
+              videoRef={videoRef}
+              audioRef={audioRef}
             />
             <ul className='audio-list'>
               {audios.map((audio, index) => (

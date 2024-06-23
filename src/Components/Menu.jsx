@@ -57,9 +57,8 @@ const Menu = () => {
   const [progress, setProgress] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
 
-  const [sending, setSending] = useState(false);
-  const [success, setSuccess] = useState(false);
-  const [error, setError] = useState(false);
+  const [sortedNews, setSortedNews] = useState([]);
+  const [sortedArtists, setSortedArtists] = useState([]);
 
   const menuRefs = useRef([]);
   menuRefs.current = [];
@@ -127,6 +126,24 @@ const Menu = () => {
     event.stopPropagation();
     setOpenDropdown((prev) => (prev === dropdown ? null : dropdown));
   };
+
+  useEffect(() => {
+    if (artistData) {
+      const sortedData = [...artistData].sort((a, b) => {
+        return a.name.localeCompare(b.name);
+      });
+      setSortedArtists(sortedData);
+    }
+  }, [artistData]);
+
+  useEffect(() => {
+    if (newsData) {
+      const sortedData = [...newsData].sort((a, b) => {
+        return new Date(b.date) - new Date(a.date);
+      });
+      setSortedNews(sortedData);
+    }
+  }, [newsData]);
 
   useEffect(() => {
     const progressTimer = setInterval(() => {
@@ -289,8 +306,8 @@ const Menu = () => {
             {openDropdown === 'news' && (
               <div className='menu-item-content'>
                 <div className='menu-content-scroll-container'>
-                  {newsData && newsData.length > 0 ? (
-                    newsData.map((article) => (
+                  {sortedNews && sortedNews.length > 0 ? (
+                    sortedNews.map((article) => (
                       <div
                         key={article.id}
                         className='menu-content-link'
@@ -379,8 +396,8 @@ const Menu = () => {
             {openDropdown === 'artists' && (
               <div className='menu-item-content'>
                 <div className='menu-content-scroll-container'>
-                  {artistData && artistData.length > 0 ? (
-                    artistData.map((artist) => (
+                  {sortedArtists && sortedArtists.length > 0 ? (
+                    sortedArtists.map((artist) => (
                       <div
                         key={artist.name}
                         className='menu-content-link'
