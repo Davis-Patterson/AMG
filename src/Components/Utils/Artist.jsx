@@ -1,7 +1,7 @@
 import React, { useEffect, useContext, useState, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import { AppContext } from 'contexts/AppContext';
-import Audio from 'utils/Audio';
+import Media from 'utils/Media';
 import onAirImg from 'assets/News/on-air.jpg';
 import appleBlack from 'assets/Utils/apple-black.svg';
 import appleWhite from 'assets/Utils/apple-white.svg';
@@ -23,7 +23,6 @@ function Artist() {
   const { name } = useParams();
   const {
     darkMode,
-    mute,
     artistData,
     noUserImg,
     handleLinkClick,
@@ -31,12 +30,6 @@ function Artist() {
   } = useContext(AppContext);
   const [artist, setArtist] = useState(null);
   const [bioReadMore, setBioReadMore] = useState(false);
-  const [audioIndex, setAudioIndex] = useState(0);
-  const [audios, setAudios] = useState([]);
-  const [videoPlay, setVideoPlay] = useState(true);
-  const [audioPlay, setAudioPlay] = useState(false);
-  const videoRef = useRef(null);
-  const audioRef = useRef(null);
 
   const icons = {
     apple: darkMode ? appleWhite : appleBlack,
@@ -57,32 +50,8 @@ function Artist() {
   }, [artistData, name, formatTitleForURL]);
 
   useEffect(() => {
-    if (artist) {
-      setAudios(getAudios(artist));
-    }
-  }, [artist]);
-
-  useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
-  useEffect(() => {
-    const videoElement = videoRef.current;
-    if (videoElement) {
-      const handlePlay = () => {
-        if (audioPlay && audioRef.current) {
-          audioRef.current.pause();
-          setAudioPlay(false);
-        }
-      };
-
-      videoElement.addEventListener('play', handlePlay);
-
-      return () => {
-        videoElement.removeEventListener('play', handlePlay);
-      };
-    }
-  }, [audioPlay]);
 
   const handleReadMore = (event) => {
     if (event.button !== 0) return;
@@ -96,18 +65,6 @@ function Artist() {
     event.preventDefault();
     event.stopPropagation();
     setBioReadMore(!bioReadMore);
-  };
-
-  const handleAudioClick = (event, index) => {
-    if (event.button !== 0) return;
-    event.preventDefault();
-    event.stopPropagation();
-    setAudioIndex(index);
-    setAudioPlay(true);
-    setVideoPlay(false);
-    if (videoRef.current) {
-      videoRef.current.pause();
-    }
   };
 
   const getBannerOrImg = (artist) => {
@@ -135,17 +92,6 @@ function Artist() {
       return artist.banner[0]?.align || 'center';
     }
     return 'center';
-  };
-
-  const getAudios = (artist) => {
-    let audios = [];
-    if (artist.audio && artist.audio.length > 0) {
-      audios = audios.concat(artist.audio);
-    }
-    if (artist.featured && artist.featured.length > 0) {
-      audios = audios.concat(artist.featured);
-    }
-    return audios;
   };
 
   if (!artistData || artistData.length === 0) {
@@ -219,8 +165,6 @@ function Artist() {
       </main>
     );
   }
-
-  const selectedAudio = audios[audioIndex];
 
   return (
     <main className='page-container' id='page-container'>
@@ -323,87 +267,7 @@ function Artist() {
             )}
           </div>
         </section>
-        {artist.videos && artist.videos.length > 0 && (
-          <section className='artist-content' id='artist-content'>
-            <h3 className='section-title'>Video</h3>
-            {artist.videos.map((video, index) => (
-              <div key={index} className='video-container'>
-                <video
-                  ref={videoRef}
-                  className='artist-video'
-                  autoPlay={videoPlay}
-                  muted={mute}
-                  controls
-                >
-                  {video.videoSources.map((source, index) => (
-                    <source key={index} src={source.src} type={source.type} />
-                  ))}
-                  Your browser does not support the video tag.
-                </video>
-                <div className='video-title-artist-container'>
-                  <p className='video-title-artist'>
-                    {video.title} - {video.artist}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </section>
-        )}
-        {audios.length > 0 && (
-          <section className='artist-content' id='artist-content'>
-            <h3 className='section-title'>Audio</h3>
-            <Audio
-              selectedAudio={selectedAudio}
-              audioIndex={audioIndex}
-              setAudioIndex={setAudioIndex}
-              audios={audios}
-              audioPlay={audioPlay}
-              setAudioPlay={setAudioPlay}
-              setVideoPlay={setVideoPlay}
-              videoRef={videoRef}
-              audioRef={audioRef}
-            />
-            <ul className='audio-list'>
-              {audios.map((audio, index) => (
-                <li
-                  key={index}
-                  className={
-                    audioIndex === index
-                      ? 'audio-list-selected'
-                      : 'audio-list-item'
-                  }
-                  id='audio-list-item'
-                  onMouseDown={(event) => handleAudioClick(event, index)}
-                >
-                  <img
-                    src={audio.img}
-                    alt={`${audio.title} album art`}
-                    className='audio-list-art'
-                  />
-                  <div className='audio-list-text'>
-                    <div className='audio-list-title-container'>
-                      <div
-                        className='audio-list-title'
-                        style={{
-                          maxWidth: `${audio.explicit ? '80%' : '100%'}`,
-                        }}
-                      >
-                        {audio.title}
-                      </div>
-                      {audio.explicit && (
-                        <div className='explicit-box'>
-                          <p className='explicit-text'>EXPLICIT</p>
-                        </div>
-                      )}
-                    </div>
-                    <div className='audio-list-artist'>{audio.artist}</div>
-                    <div className='audio-list-album'>{audio.album}</div>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </section>
-        )}
+        <Media artist={artist} />
         {artist.news && artist.news.length > 0 && (
           <section className='artist-news'>
             <h3 className='section-title'>News</h3>

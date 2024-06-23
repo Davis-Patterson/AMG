@@ -1,0 +1,43 @@
+.artist-video {
+  width: 100%;
+  max-width: 1000px;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+}
+
+.video-title-artist-container {
+  width: 100%;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+.video-title-indicator {
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 0.9em;
+  font-weight: 600;
+  color: var(--clr-dark);
+  margin: 5px 0px 5px 5px;
+  text-align: left;
+}
+
+.video-title {
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 1.2em;
+  font-weight: 600;
+  color: var(--clr-dark);
+  margin: 5px 0px 5px 5px;
+  text-align: left;
+}
+
+.video-artist {
+  font-family: 'Merriweather', sans-serif;
+  font-size: 1.05em;
+  font-weight: 400;
+  font-style: italic;
+  color: var(--clr-text);
+  margin: 7px 0px 5px 5px;
+  text-align: left;
+  transform: scaleY(95%);
+}
