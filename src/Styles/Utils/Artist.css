@@ -430,8 +430,9 @@
 .audio-list-item:active .audio-list-title,
 .audio-list-item:active .audio-list-artist,
 .audio-list-item:active .audio-list-album,
-.audio-list-item:active .audio-list-date {
-  transform: translateY(2px);
+.audio-list-item:active .audio-list-date,
+.audio-list-item:hover .explicit-box {
+  transform: translateY(1px);
   transition: transform 0.15s ease-in-out;
 }
 
