@@ -69,7 +69,12 @@ function Media({ artist }) {
       {artist.videos && artist.videos.length > 0 && (
         <section className='artist-content' id='artist-content'>
           <h3 className='section-title'>Video</h3>
-          <Video artist={artist} videoPlay={videoPlay} videoRef={videoRef} />
+          <Video
+            artist={artist}
+            videoPlay={videoPlay}
+            setVideoPlay={setVideoPlay}
+            videoRef={videoRef}
+          />
         </section>
       )}
       {audios.length > 0 && (

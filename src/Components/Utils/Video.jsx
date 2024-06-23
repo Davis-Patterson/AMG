@@ -2,7 +2,7 @@ import React, { useEffect, useContext, useRef } from 'react';
 import { AppContext } from 'contexts/AppContext';
 import 'styles/Utils/Video.css';
 
-function Video({ artist, videoPlay, videoRef }) {
+function Video({ artist, videoPlay, setVideoPlay, videoRef }) {
   const { mute, setMute } = useContext(AppContext);
   const volumeRef = useRef(videoRef.current ? videoRef.current.volume : 1);
 
@@ -15,13 +15,25 @@ function Video({ artist, videoPlay, videoRef }) {
         volumeRef.current = videoElement.volume;
       };
 
+      const handlePause = () => {
+        setVideoPlay(false);
+      };
+
+      const handlePlay = () => {
+        setVideoPlay(true);
+      };
+
       videoElement.addEventListener('volumechange', handleVolumeChange);
+      videoElement.addEventListener('pause', handlePause);
+      videoElement.addEventListener('play', handlePlay);
 
       return () => {
         videoElement.removeEventListener('volumechange', handleVolumeChange);
+        videoElement.removeEventListener('pause', handlePause);
+        videoElement.removeEventListener('play', handlePlay);
       };
     }
-  }, [setMute, videoRef]);
+  }, [setMute, setVideoPlay, videoRef]);
 
   return (
     <>
