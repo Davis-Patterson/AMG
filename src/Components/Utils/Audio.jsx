@@ -18,15 +18,14 @@ function Audio({
   setAudioIndex,
   audios,
   audioPlay,
+  audioRef,
   setAudioPlay,
   setVideoPlay,
-  mute,
-  setMute,
+  videoRef,
 }) {
-  const audioRef = useRef(null);
   const [progress, setProgress] = useState(0);
   const [volume, setVolume] = useState(100);
-  const { darkMode } = useContext(AppContext);
+  const { darkMode, mute, setMute } = useContext(AppContext);
 
   const currentNext = !darkMode ? nextWhite : nextBlack;
   const currentPrev = !darkMode ? prevWhite : prevBlack;
@@ -38,10 +37,20 @@ function Audio({
   useEffect(() => {
     if (audioRef.current) {
       audioRef.current.load();
+    }
+  }, [audioIndex]);
+
+  useEffect(() => {
+    if (audioRef.current) {
       audioRef.current.muted = mute;
+    }
+  }, [mute]);
+
+  useEffect(() => {
+    if (audioRef.current) {
       audioRef.current.volume = volume / 100;
     }
-  }, [audioIndex, mute, volume]);
+  }, [volume]);
 
   useEffect(() => {
     if (audioPlay && audioRef.current) {
@@ -51,17 +60,23 @@ function Audio({
     }
   }, [audioPlay]);
 
-  const togglePlayPause = (event) => {
+  const togglePause = (event) => {
     if (event.button !== 0) return;
     event.preventDefault();
     event.stopPropagation();
-    if (audioRef.current.paused) {
-      audioRef.current.play();
-      setAudioPlay(true);
-      setVideoPlay(false);
-    } else {
-      audioRef.current.pause();
-      setAudioPlay(false);
+    audioRef.current.pause();
+    setAudioPlay(false);
+  };
+
+  const togglePlay = (event) => {
+    if (event.button !== 0) return;
+    event.preventDefault();
+    event.stopPropagation();
+    audioRef.current.play();
+    setAudioPlay(true);
+    setVideoPlay(false);
+    if (videoRef.current) {
+      videoRef.current.pause();
     }
   };
 
@@ -77,11 +92,12 @@ function Audio({
   };
 
   const handleVolumeChange = (e) => {
-    const newVolume = e.target.value;
+    const newVolume = parseInt(e.target.value, 10);
     setVolume(newVolume);
-    if (newVolume === '0') {
+    audioRef.current.volume = newVolume / 100;
+    if (newVolume === 0 && !mute) {
       setMute(true);
-    } else {
+    } else if (newVolume > 0 && mute) {
       setMute(false);
     }
   };
@@ -149,12 +165,21 @@ function Audio({
               />
               <div className='audio-controls-container'>
                 <div className='audio-controls'>
-                  <img
-                    src={currentPlayPause}
-                    alt='play/pause button'
-                    className='audio-controls-button'
-                    onMouseDown={(event) => togglePlayPause(event)}
-                  />
+                  {audioPlay ? (
+                    <img
+                      src={currentPause}
+                      alt='pause button'
+                      className='audio-controls-button'
+                      onMouseDown={(event) => togglePause(event)}
+                    />
+                  ) : (
+                    <img
+                      src={currentPlay}
+                      alt='play button'
+                      className='audio-controls-button'
+                      onMouseDown={(event) => togglePlay(event)}
+                    />
+                  )}
                   <img
                     src={currentPrev}
                     alt='prev button'
