@@ -33,9 +33,9 @@ function Artist() {
   const [bioReadMore, setBioReadMore] = useState(false);
   const [audioIndex, setAudioIndex] = useState(0);
   const [audios, setAudios] = useState([]);
-  const audioRef = useRef(null);
+  const [videoPlay, setVideoPlay] = useState(true);
   const [audioPlay, setAudioPlay] = useState(false);
-  const [progress, setProgress] = useState(0);
+  const videoRef = useRef(null);
 
   const icons = {
     apple: darkMode ? appleWhite : appleBlack,
@@ -65,12 +65,6 @@ function Artist() {
     window.scrollTo(0, 0);
   }, []);
 
-  useEffect(() => {
-    if (audioRef.current) {
-      audioRef.current.play();
-    }
-  }, [audioIndex]);
-
   const handleReadMore = (event) => {
     if (event.button !== 0) return;
     event.preventDefault();
@@ -90,35 +84,11 @@ function Artist() {
     event.preventDefault();
     event.stopPropagation();
     setAudioIndex(index);
-    if (audioRef.current) {
-      audioRef.current.load();
-      audioRef.current.play();
-      setAudioPlay(true);
+    setAudioPlay(true);
+    setVideoPlay(false);
+    if (videoRef.current) {
+      videoRef.current.pause();
     }
-  };
-
-  const togglePlayPause = (event) => {
-    if (event.button !== 0) return;
-    event.preventDefault();
-    event.stopPropagation();
-    if (audioRef.current.paused) {
-      audioRef.current.play();
-      setAudioPlay(true);
-    } else {
-      audioRef.current.pause();
-      setAudioPlay(false);
-    }
-  };
-
-  const handleTimeUpdate = () => {
-    const progress =
-      (audioRef.current.currentTime / audioRef.current.duration) * 100;
-    setProgress(progress);
-  };
-
-  const handleProgressChange = (e) => {
-    const newTime = (e.target.value * audioRef.current.duration) / 100;
-    audioRef.current.currentTime = newTime;
   };
 
   const getBannerOrImg = (artist) => {
@@ -339,7 +309,13 @@ function Artist() {
             <h3 className='section-title'>Video</h3>
             {artist.videos.map((video, index) => (
               <div key={index} className='video-container'>
-                <video className='artist-video' autoPlay muted={mute} controls>
+                <video
+                  ref={videoRef}
+                  className='artist-video'
+                  autoPlay={videoPlay}
+                  muted={mute}
+                  controls
+                >
                   {video.videoSources.map((source, index) => (
                     <source key={index} src={source.src} type={source.type} />
                   ))}
@@ -357,7 +333,16 @@ function Artist() {
         {audios.length > 0 && (
           <section className='artist-content' id='artist-content'>
             <h3 className='section-title'>Audio</h3>
-            <Audio selectedAudio={selectedAudio} audioIndex={audioIndex} />
+            <Audio
+              selectedAudio={selectedAudio}
+              audioIndex={audioIndex}
+              setAudioIndex={setAudioIndex}
+              audios={audios}
+              audioPlay={audioPlay}
+              setAudioPlay={setAudioPlay}
+              setVideoPlay={setVideoPlay}
+              mute={mute}
+            />
             <ul className='audio-list'>
               {audios.map((audio, index) => (
                 <li
