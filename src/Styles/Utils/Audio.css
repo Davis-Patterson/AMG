@@ -183,29 +183,43 @@
   margin-left: 10px;
 }
 
+.audio-progress::before,
+.audio-volume::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background-color: var(--clr-progress-track);
+  z-index: 1;
+}
+
 .audio-progress::-webkit-slider-thumb,
 .audio-volume::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
   width: 15px;
-  height: 15px;
-  border-radius: 50%;
+  height: 5px;
   background: var(--clr-accent);
   cursor: pointer;
   box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2);
   transition: background 0.3s ease;
-  margin-top: -5px;
+  position: relative;
+  z-index: 2;
+  border-radius: 0;
 }
 
 .audio-progress::-moz-range-thumb,
 .audio-volume::-moz-range-thumb {
   width: 15px;
   height: 15px;
-  border-radius: 50%;
   background: var(--clr-accent);
   cursor: pointer;
   box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2);
   transition: background 0.3s ease;
+  position: relative;
+  z-index: 2;
+  border-radius: 0;
 }
 
 .audio-progress::-webkit-slider-thumb:hover,

@@ -31,6 +31,7 @@
   --clr-grey: #a0a0a0;
   --clr-more: #d3d3d3;
   --clr-progress: #d6d7dbc4;
+  --clr-progress-track: #0056b3;
   --clr-accent-light: #60cffc;
   --clr-accent: #007bff;
   --clr-accent-screen: #007bff2d;
@@ -76,6 +77,7 @@
   --clr-grey: #5c5c5c;
   --clr-more: #868686;
   --clr-progress: #b4b4b4e7;
+  --clr-progress-track: #1d67b6;
   --clr-accent-light: #4cb7e9;
   --clr-accent: #4fa4ff;
   --clr-accent-screen: #4fa4ff42;

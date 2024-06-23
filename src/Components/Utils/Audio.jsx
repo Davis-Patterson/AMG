@@ -32,7 +32,6 @@ function Audio({
   const currentPipe = !darkMode ? pipeWhite : pipeBlack;
   const currentPlay = !darkMode ? playWhite : playBlack;
   const currentPause = !darkMode ? pauseWhite : pauseBlack;
-  const currentPlayPause = audioPlay ? currentPause : currentPlay;
 
   useEffect(() => {
     if (audioRef.current) {
