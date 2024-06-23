@@ -208,7 +208,7 @@
   box-shadow: 0 2px 4px var(--clr-shadow2);
   transition: transform 0.1s ease-in-out, box-shadow 0.3s ease-in-out;
 }
-.location-button.selected {
+.location-button.selection {
   color: var(--clr-white);
   background-color: var(--clr-accent-dark);
   border: 2px solid var(--clr-accent-dark);

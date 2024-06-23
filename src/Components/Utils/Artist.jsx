@@ -1,6 +1,7 @@
-import React, { useEffect, useContext, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import React, { useEffect, useContext, useState, useRef } from 'react';
+import { useParams } from 'react-router-dom';
 import { AppContext } from 'contexts/AppContext';
+import Audio from 'utils/Audio';
 import onAirImg from 'assets/News/on-air.jpg';
 import appleBlack from 'assets/Utils/apple-black.svg';
 import appleWhite from 'assets/Utils/apple-white.svg';
@@ -30,9 +31,11 @@ function Artist() {
   } = useContext(AppContext);
   const [artist, setArtist] = useState(null);
   const [bioReadMore, setBioReadMore] = useState(false);
-  const [selectedAudio, setSelectedAudio] = useState(null);
-
-  const navigate = useNavigate();
+  const [audioIndex, setAudioIndex] = useState(0);
+  const [audios, setAudios] = useState([]);
+  const audioRef = useRef(null);
+  const [audioPlay, setAudioPlay] = useState(false);
+  const [progress, setProgress] = useState(0);
 
   const icons = {
     apple: darkMode ? appleWhite : appleBlack,
@@ -53,8 +56,20 @@ function Artist() {
   }, [artistData, name, formatTitleForURL]);
 
   useEffect(() => {
+    if (artist) {
+      setAudios(getAudios(artist));
+    }
+  }, [artist]);
+
+  useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.play();
+    }
+  }, [audioIndex]);
 
   const handleReadMore = (event) => {
     if (event.button !== 0) return;
@@ -70,8 +85,40 @@ function Artist() {
     setBioReadMore(!bioReadMore);
   };
 
-  const handleAudioClick = (audio) => {
-    setSelectedAudio(audio);
+  const handleAudioClick = (event, index) => {
+    if (event.button !== 0) return;
+    event.preventDefault();
+    event.stopPropagation();
+    setAudioIndex(index);
+    if (audioRef.current) {
+      audioRef.current.load();
+      audioRef.current.play();
+      setAudioPlay(true);
+    }
+  };
+
+  const togglePlayPause = (event) => {
+    if (event.button !== 0) return;
+    event.preventDefault();
+    event.stopPropagation();
+    if (audioRef.current.paused) {
+      audioRef.current.play();
+      setAudioPlay(true);
+    } else {
+      audioRef.current.pause();
+      setAudioPlay(false);
+    }
+  };
+
+  const handleTimeUpdate = () => {
+    const progress =
+      (audioRef.current.currentTime / audioRef.current.duration) * 100;
+    setProgress(progress);
+  };
+
+  const handleProgressChange = (e) => {
+    const newTime = (e.target.value * audioRef.current.duration) / 100;
+    audioRef.current.currentTime = newTime;
   };
 
   const getBannerOrImg = (artist) => {
@@ -99,6 +146,17 @@ function Artist() {
       return artist.banner[0]?.align || 'center';
     }
     return 'center';
+  };
+
+  const getAudios = (artist) => {
+    let audios = [];
+    if (artist.audio && artist.audio.length > 0) {
+      audios = audios.concat(artist.audio);
+    }
+    if (artist.featured && artist.featured.length > 0) {
+      audios = audios.concat(artist.featured);
+    }
+    return audios;
   };
 
   if (!artistData || artistData.length === 0) {
@@ -172,6 +230,8 @@ function Artist() {
       </main>
     );
   }
+
+  const selectedAudio = audios[audioIndex];
 
   return (
     <main className='page-container' id='page-container'>
@@ -294,44 +354,51 @@ function Artist() {
             ))}
           </section>
         )}
-        {(artist.audio && artist.audio.length > 0) ||
-        (artist.featured && artist.featured.length > 0) ? (
+        {audios.length > 0 && (
           <section className='artist-content' id='artist-content'>
             <h3 className='section-title'>Audio</h3>
+            <Audio selectedAudio={selectedAudio} audioIndex={audioIndex} />
             <ul className='audio-list'>
-              {artist.audio.map((audio, index) => (
-                <li key={index} className='audio-item'>
-                  <button
-                    className='audio-button'
-                    onClick={() => handleAudioClick(audio)}
-                  >
-                    {audio.title} - {artist.name}
-                  </button>
-                </li>
-              ))}
-              {artist.featured.map((audio, index) => (
-                <li key={index} className='audio-item'>
-                  <button
-                    className='audio-button'
-                    onClick={() => handleAudioClick(audio)}
-                  >
-                    {audio.title} - {audio.artist}
-                  </button>
+              {audios.map((audio, index) => (
+                <li
+                  key={index}
+                  className={
+                    audioIndex === index
+                      ? 'audio-list-selected'
+                      : 'audio-list-item'
+                  }
+                  id='audio-list-item'
+                  onMouseDown={(event) => handleAudioClick(event, index)}
+                >
+                  <img
+                    src={audio.img}
+                    alt={`${audio.title} album art`}
+                    className='audio-list-art'
+                  />
+                  <div className='audio-list-text'>
+                    <div className='audio-list-title-container'>
+                      <div
+                        className='audio-list-title'
+                        style={{
+                          maxWidth: `${audio.explicit ? '80%' : '100%'}`,
+                        }}
+                      >
+                        {audio.title}
+                      </div>
+                      {audio.explicit && (
+                        <div className='explicit-box'>
+                          <p className='explicit-text'>EXPLICIT</p>
+                        </div>
+                      )}
+                    </div>
+                    <div className='audio-list-artist'>{audio.artist}</div>
+                    <div className='audio-list-album'>{audio.album}</div>
+                  </div>
                 </li>
               ))}
             </ul>
-            {selectedAudio && (
-              <div className='audio-player-container'>
-                <audio controls className='audio-player'>
-                  {selectedAudio.audio.map((source, index) => (
-                    <source key={index} src={source.src} type={source.type} />
-                  ))}
-                  Your browser does not support the audio element.
-                </audio>
-              </div>
-            )}
           </section>
-        ) : null}
+        )}
         {artist.news && artist.news.length > 0 && (
           <section className='artist-news'>
             <h3 className='section-title'>News</h3>

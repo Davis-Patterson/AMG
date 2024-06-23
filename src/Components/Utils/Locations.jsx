@@ -53,9 +53,9 @@ function Locations() {
               <div
                 key={index}
                 className={`location-button ${
-                  locationIndex === index ? 'selected' : ''
+                  locationIndex === index ? 'selection' : ''
                 }`}
-                id={`${locationIndex === index ? 'selected' : ''}`}
+                id={`${locationIndex === index ? 'selection' : ''}`}
                 onMouseDown={(event) => handleLocationClick(event, index)}
               >
                 {location.id}
