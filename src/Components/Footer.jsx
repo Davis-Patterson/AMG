@@ -49,7 +49,7 @@ const Footer = ({}) => {
               AURUM MANAGEMENT GROUP
             </h1>
             <h1 className='footer-subtext' id='footer-subtext'>
-              // tagline //
+              Where music meets majesty
             </h1>
           </div>
         </section>

@@ -291,9 +291,10 @@
         "title": "Dark Star (feat. Soluna)",
         "artist": "Aerotype Productions",
         "feat": ["Soluna"],
-        "album": "",
+        "album": "Aeroverse Vol. 1",
         "date": "",
-        "img": "",
+        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Aeroverse+Vol.+1+%5Balbum+art%5D.webp",
+        "explicit": true,
         "audio": [
           {
             "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Dark+Star+(feat.+Soluna)+-+Aerotype+Productions.mp3",
@@ -313,9 +314,10 @@
         "title": "DBlock",
         "artist": "Aerotype Productions",
         "feat": [],
-        "album": "",
+        "album": "Aeroverse Vol. 1",
         "date": "",
-        "img": "",
+        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Aeroverse+Vol.+1+%5Balbum+art%5D.webp",
+        "explicit": false,
         "audio": [
           {
             "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/DBlock+-+Aerotype+Productions.mp3",
@@ -335,9 +337,10 @@
         "title": "The End",
         "artist": "Aerotype Productions",
         "feat": [],
-        "album": "",
+        "album": "Aeroverse Vol. 1",
         "date": "",
-        "img": "",
+        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Aeroverse+Vol.+1+%5Balbum+art%5D.webp",
+        "explicit": false,
         "audio": [
           {
             "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/The+End+-+Aerotype+Productions.mp3",
@@ -357,9 +360,10 @@
         "title": "Vibe (feat. Shaolin Prince)",
         "artist": "Aerotype Productions",
         "feat": ["Shaolin Prince"],
-        "album": "",
-        "date": "",
-        "img": "",
+        "album": "Aeroverse Vol. 1",
+        "date": "2/11/2019",
+        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Vibe+%5Balbum+art%5D.webp",
+        "explicit": true,
         "audio": [
           {
             "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Vibe+(feat.+Shaolin+Prince)+-+Aerotype+Productions.mp3",
@@ -379,9 +383,10 @@
         "title": "Whattup (feat. Shaolin Prince, Worm Food, & Soluna)",
         "artist": "Aerotype Productions",
         "feat": ["Shaolin Prince", "Worm Food", "Soluna"],
-        "album": "",
-        "date": "",
-        "img": "",
+        "album": "Aeroverse Vol. 1",
+        "date": "2/28/2019",
+        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Whattup+%5Balbum+art%5D.webp",
+        "explicit": true,
         "audio": [
           {
             "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Whattup+(feat.+Shaolin+Prince%2C+Worm+Food%2C+%26+Soluna)+-+Aerotype+Productions+(mastered+print).mp3",
@@ -629,9 +634,10 @@
         "title": "Ashamed (feat. Brandon)",
         "artist": "Shaolin Prince",
         "feat": ["Brandon"],
-        "album": "",
-        "date": "",
-        "img": "",
+        "album": "Echoes of the Future",
+        "date": "3/11/2019",
+        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Echoes+of+the+Future+%5Balbum+art%5D.webp",
+        "explicit": false,
         "audio": [
           {
             "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Ashamed+(feat.+Brandon)+-+Shaolin+Prince+(mastered).mp3",
@@ -646,6 +652,29 @@
             "type": "audio/opus"
           }
         ]
+      },
+      {
+        "title": "Bar 4 Bar",
+        "artist": "Shaolin Prince x Nova",
+        "feat": [],
+        "album": "Bar 4 Bar (single)",
+        "date": "4/24/2019",
+        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/bar+4+bar+%5Balbum+art%5D.webp",
+        "explicit": true,
+        "audio": [
+          {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Bar+4+Bar+-+Shaolin+Prince%2C+Nova.mp3",
+            "type": "audio/mp3"
+          },
+          {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Bar+4+Bar+-+Shaolin+Prince%2C+Nova.aac",
+            "type": "audio/aac"
+          },
+          {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Bar+4+Bar+-+Shaolin+Prince%2C+Nova.opus",
+            "type": "audio/opus"
+          }
+        ]
       }
     ],
     "featured": [
@@ -653,9 +682,10 @@
         "title": "Vibe (feat. Shaolin Prince)",
         "artist": "Aerotype Productions",
         "feat": ["Shaolin Prince"],
-        "album": "",
-        "date": "",
-        "img": "",
+        "album": "Aeroverse Vol. 1",
+        "date": "2/11/2019",
+        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Vibe+%5Balbum+art%5D.webp",
+        "explicit": true,
         "audio": [
           {
             "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Vibe+(feat.+Shaolin+Prince)+-+Aerotype+Productions.mp3",
@@ -675,9 +705,10 @@
         "title": "Whattup (feat. Shaolin Prince, Worm Food, & Soluna)",
         "artist": "Aerotype Productions",
         "feat": ["Shaolin Prince", "Worm Food", "Soluna"],
-        "album": "",
-        "date": "",
-        "img": "",
+        "album": "Aeroverse Vol. 1",
+        "date": "2/28/2019",
+        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Whattup+%5Balbum+art%5D.webp",
+        "explicit": true,
         "audio": [
           {
             "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Whattup+(feat.+Shaolin+Prince%2C+Worm+Food%2C+%26+Soluna)+-+Aerotype+Productions+(mastered+print).mp3",
