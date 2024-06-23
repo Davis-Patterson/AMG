@@ -25,6 +25,8 @@ function Audio({
 }) {
   const [progress, setProgress] = useState(0);
   const [volume, setVolume] = useState(100);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(0);
   const { darkMode, mute, setMute } = useContext(AppContext);
 
   const currentNext = !darkMode ? nextWhite : nextBlack;
@@ -36,6 +38,9 @@ function Audio({
   useEffect(() => {
     if (audioRef.current) {
       audioRef.current.load();
+      audioRef.current.onloadedmetadata = () => {
+        setDuration(audioRef.current.duration);
+      };
     }
   }, [audioIndex]);
 
@@ -83,6 +88,7 @@ function Audio({
     const progress =
       (audioRef.current.currentTime / audioRef.current.duration) * 100;
     setProgress(isNaN(progress) ? 0 : progress);
+    setCurrentTime(audioRef.current.currentTime);
   };
 
   const handleProgressChange = (e) => {
@@ -117,6 +123,12 @@ function Audio({
     event.stopPropagation();
     setProgress(0);
     setAudioIndex((prevIndex) => (prevIndex + 1) % audios.length);
+  };
+
+  const formatTime = (time) => {
+    const minutes = Math.floor(time / 60);
+    const seconds = Math.floor(time % 60);
+    return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
   };
 
   return (
@@ -156,12 +168,17 @@ function Audio({
               <div className='audio-detail-date'>{selectedAudio.date}</div>
             </div>
             <div className='audio-player-container'>
-              <input
-                type='range'
-                value={progress}
-                onChange={handleProgressChange}
-                className='audio-progress'
-              />
+              <div className='audio-progress-container'>
+                <div className='audio-progress-numbers'>
+                  {formatTime(currentTime)} | {formatTime(duration)}
+                </div>
+                <input
+                  type='range'
+                  value={progress}
+                  onChange={handleProgressChange}
+                  className='audio-progress'
+                />
+              </div>
               <div className='audio-controls-container'>
                 <div className='audio-controls'>
                   {audioPlay ? (
