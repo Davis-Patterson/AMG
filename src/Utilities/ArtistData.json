@@ -640,16 +640,16 @@
         "explicit": false,
         "audio": [
           {
-            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Ashamed+(feat.+Brandon)+-+Shaolin+Prince+(mastered).mp3",
-            "type": "audio/mp3"
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Ashamed+(feat.+Brandon)+-+Shaolin+Prince+%5Bmastered%5D.opus",
+            "type": "audio/opus"
           },
           {
-            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Ashamed+(feat.+Brandon)+-+Shaolin+Prince+(mastered).aac",
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Ashamed+(feat.+Brandon)+-+Shaolin+Prince+%5Bmastered%5D.aac",
             "type": "audio/aac"
           },
           {
-            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Ashamed+(feat.+Brandon)+-+Shaolin+Prince+(mastered).opus",
-            "type": "audio/opus"
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Ashamed+(feat.+Brandon)+-+Shaolin+Prince+%5Bmastered%5D.mp3",
+            "type": "audio/mp3"
           }
         ]
       },

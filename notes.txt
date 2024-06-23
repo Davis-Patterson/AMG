@@ -1,12 +1,17 @@
-to-do: 
+to-do✅ 
 
--banner component not working on mobile, icons dissapear
+-banner component not working on mobile, icons dissapear (?)
 
--'news' results pagination (artists too?)
+-'news' results pagination
 
--make 'news' and 'artists' searchable 
-
+-make 'news' searchable 
 
 -add optional phone number to management 
 
--add music to artist media section
+-react parallax tilt on audio player img ? (https://www.npmjs.com/package/react-parallax-tilt)
+
+
+urgent❗❗❗❗
+-add <a> tags to links to restore right-click functionality (without interrupting page switching flow hopefully)
+
+-optimize artist music player for mobile 
