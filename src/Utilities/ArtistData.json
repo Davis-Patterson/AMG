@@ -297,16 +297,16 @@
         "explicit": true,
         "audio": [
           {
-            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Dark+Star+(feat.+Soluna)+-+Aerotype+Productions.mp3",
-            "type": "audio/mp3"
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Dark+Star+(feat.+Soluna)+-+Aerotype+Productions.opus",
+            "type": "audio/opus"
           },
           {
             "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Dark+Star+(feat.+Soluna)+-+Aerotype+Productions.aac",
             "type": "audio/aac"
           },
           {
-            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Dark+Star+(feat.+Soluna)+-+Aerotype+Productions.opus",
-            "type": "audio/opus"
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Dark+Star+(feat.+Soluna)+-+Aerotype+Productions.mp3",
+            "type": "audio/mp3"
           }
         ]
       },
@@ -320,16 +320,16 @@
         "explicit": false,
         "audio": [
           {
-            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/DBlock+-+Aerotype+Productions.mp3",
-            "type": "audio/mp3"
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/DBlock+-+Aerotype+Productions.opus",
+            "type": "audio/opus"
           },
           {
             "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/DBlock+-+Aerotype+Productions.aac",
             "type": "audio/aac"
           },
           {
-            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/DBlock+-+Aerotype+Productions.opus",
-            "type": "audio/opus"
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/DBlock+-+Aerotype+Productions.mp3",
+            "type": "audio/mp3"
           }
         ]
       },
@@ -343,16 +343,16 @@
         "explicit": false,
         "audio": [
           {
-            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/The+End+-+Aerotype+Productions.mp3",
-            "type": "audio/mp3"
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/The+End+-+Aerotype+Productions.opus",
+            "type": "audio/opus"
           },
           {
             "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/The+End+-+Aerotype+Productions.aac",
             "type": "audio/aac"
           },
           {
-            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/The+End+-+Aerotype+Productions.opus",
-            "type": "audio/opus"
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/The+End+-+Aerotype+Productions.mp3",
+            "type": "audio/mp3"
           }
         ]
       },
@@ -366,16 +366,39 @@
         "explicit": true,
         "audio": [
           {
-            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Vibe+(feat.+Shaolin+Prince)+-+Aerotype+Productions.mp3",
-            "type": "audio/mp3"
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Vibe+(feat.+Shaolin+Prince)+-+Aerotype+Productions.opus",
+            "type": "audio/opus"
           },
           {
             "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Vibe+(feat.+Shaolin+Prince)+-+Aerotype+Productions.aac",
             "type": "audio/aac"
           },
           {
-            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Vibe+(feat.+Shaolin+Prince)+-+Aerotype+Productions.opus",
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Vibe+(feat.+Shaolin+Prince)+-+Aerotype+Productions.mp3",
+            "type": "audio/mp3"
+          }
+        ]
+      },
+      {
+        "title": "Waves (feat. Shaolin Prince & Soluna)",
+        "artist": "Aerotype Productions",
+        "feat": ["Shaolin Prince", "Soluna"],
+        "album": "Aeroverse Vol. 1",
+        "date": "1/14/2019",
+        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Waves+%5Balbum+art%5D.webp",
+        "explicit": true,
+        "audio": [
+          {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Waves+(feat.+Shaolin+Prince+%26+Soluna)+-+Aerotype+Productions+%5Bmastered%5D.opus",
             "type": "audio/opus"
+          },
+          {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Waves+(feat.+Shaolin+Prince+%26+Soluna)+-+Aerotype+Productions+%5Bmastered%5D.aac",
+            "type": "audio/aac"
+          },
+          {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Waves+(feat.+Shaolin+Prince+%26+Soluna)+-+Aerotype+Productions+%5Bmastered%5D.mp3",
+            "type": "audio/mp3"
           }
         ]
       },
@@ -389,16 +412,16 @@
         "explicit": true,
         "audio": [
           {
-            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Whattup+(feat.+Shaolin+Prince%2C+Worm+Food%2C+%26+Soluna)+-+Aerotype+Productions+(mastered+print).mp3",
-            "type": "audio/mp3"
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Whattup+(feat.+Shaolin+Prince%2C+Worm+Food%2C+%26+Soluna)+-+Aerotype+Productions+(mastered+print).opus",
+            "type": "audio/opus"
           },
           {
             "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Whattup+(feat.+Shaolin+Prince%2C+Worm+Food%2C+%26+Soluna)+-+Aerotype+Productions+(mastered+print).aac",
             "type": "audio/aac"
           },
           {
-            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Whattup+(feat.+Shaolin+Prince%2C+Worm+Food%2C+%26+Soluna)+-+Aerotype+Productions+(mastered+print).opus",
-            "type": "audio/opus"
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Whattup+(feat.+Shaolin+Prince%2C+Worm+Food%2C+%26+Soluna)+-+Aerotype+Productions+(mastered+print).mp3",
+            "type": "audio/mp3"
           }
         ]
       }
@@ -663,16 +686,16 @@
         "explicit": true,
         "audio": [
           {
-            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Bar+4+Bar+-+Shaolin+Prince%2C+Nova.mp3",
-            "type": "audio/mp3"
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Bar+4+Bar+-+Shaolin+Prince%2C+Nova.opus",
+            "type": "audio/opus"
           },
           {
             "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Bar+4+Bar+-+Shaolin+Prince%2C+Nova.aac",
             "type": "audio/aac"
           },
           {
-            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Bar+4+Bar+-+Shaolin+Prince%2C+Nova.opus",
-            "type": "audio/opus"
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Bar+4+Bar+-+Shaolin+Prince%2C+Nova.mp3",
+            "type": "audio/mp3"
           }
         ]
       }
@@ -688,16 +711,39 @@
         "explicit": true,
         "audio": [
           {
-            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Vibe+(feat.+Shaolin+Prince)+-+Aerotype+Productions.mp3",
-            "type": "audio/mp3"
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Vibe+(feat.+Shaolin+Prince)+-+Aerotype+Productions.opus",
+            "type": "audio/opus"
           },
           {
             "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Vibe+(feat.+Shaolin+Prince)+-+Aerotype+Productions.aac",
             "type": "audio/aac"
           },
           {
-            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Vibe+(feat.+Shaolin+Prince)+-+Aerotype+Productions.opus",
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Vibe+(feat.+Shaolin+Prince)+-+Aerotype+Productions.mp3",
+            "type": "audio/mp3"
+          }
+        ]
+      },
+      {
+        "title": "Waves (feat. Shaolin Prince & Soluna)",
+        "artist": "Aerotype Productions",
+        "feat": ["Shaolin Prince", "Soluna"],
+        "album": "Aeroverse Vol. 1",
+        "date": "1/14/2019",
+        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Waves+%5Balbum+art%5D.webp",
+        "explicit": true,
+        "audio": [
+          {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Waves+(feat.+Shaolin+Prince+%26+Soluna)+-+Aerotype+Productions+%5Bmastered%5D.opus",
             "type": "audio/opus"
+          },
+          {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Waves+(feat.+Shaolin+Prince+%26+Soluna)+-+Aerotype+Productions+%5Bmastered%5D.aac",
+            "type": "audio/aac"
+          },
+          {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Waves+(feat.+Shaolin+Prince+%26+Soluna)+-+Aerotype+Productions+%5Bmastered%5D.mp3",
+            "type": "audio/mp3"
           }
         ]
       },
@@ -711,16 +757,16 @@
         "explicit": true,
         "audio": [
           {
-            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Whattup+(feat.+Shaolin+Prince%2C+Worm+Food%2C+%26+Soluna)+-+Aerotype+Productions+(mastered+print).mp3",
-            "type": "audio/mp3"
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Whattup+(feat.+Shaolin+Prince%2C+Worm+Food%2C+%26+Soluna)+-+Aerotype+Productions+(mastered+print).opus",
+            "type": "audio/opus"
           },
           {
             "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Whattup+(feat.+Shaolin+Prince%2C+Worm+Food%2C+%26+Soluna)+-+Aerotype+Productions+(mastered+print).aac",
             "type": "audio/aac"
           },
           {
-            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Whattup+(feat.+Shaolin+Prince%2C+Worm+Food%2C+%26+Soluna)+-+Aerotype+Productions+(mastered+print).opus",
-            "type": "audio/opus"
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Whattup+(feat.+Shaolin+Prince%2C+Worm+Food%2C+%26+Soluna)+-+Aerotype+Productions+(mastered+print).mp3",
+            "type": "audio/mp3"
           }
         ]
       }
