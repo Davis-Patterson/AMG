@@ -17,17 +17,17 @@
     ]
   },
   {
-    "title": "Starman",
-    "artist": "Aerotype Productions",
-    "date": "2020",
+    "title": "Perfectly Align",
+    "artist": "Shaolin Prince",
+    "date": "2024",
     "videoSources": [
       {
-        "src": "https://amgbucket.s3.amazonaws.com/videos/starman-1080.webm",
+        "src": "https://amgbucket.s3.us-east-2.amazonaws.com/videos/Perfectly+Align+-+Shaolin+Prince.webm",
         "type": "video/webm",
         "resolution": "1080p"
       },
       {
-        "src": "https://amgbucket.s3.us-east-2.amazonaws.com/videos/starman-720.mp4",
+        "src": "https://amgbucket.s3.us-east-2.amazonaws.com/videos/Perfectly+Align+-+Shaolin+Prince.mp4",
         "type": "video/mp4",
         "resolution": "720p"
       }
