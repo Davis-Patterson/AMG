@@ -10,12 +10,21 @@ function Media({ artist }) {
   const [audios, setAudios] = useState([]);
   const [videoPlay, setVideoPlay] = useState(true);
   const [audioPlay, setAudioPlay] = useState(false);
+  const [shouldPlay, setShouldPlay] = useState(false);
   const videoRef = useRef(null);
   const audioRef = useRef(null);
 
   useEffect(() => {
     if (artist) {
-      setAudios(getAudios(artist));
+      const newAudios = getAudios(artist);
+      setAudios(newAudios);
+      setAudioIndex(0);
+      setAudioPlay(false);
+      setShouldPlay(false);
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current.load();
+      }
     }
   }, [artist]);
 
@@ -45,13 +54,37 @@ function Media({ artist }) {
     if (event.button !== 0) return;
     event.preventDefault();
     event.stopPropagation();
+    setAudioPlay(false);
     setAudioIndex(index);
-    setAudioPlay(true);
+    setShouldPlay(true);
     setVideoPlay(false);
-    if (videoRef.current) {
-      videoRef.current.pause();
+  };
+
+  const handleAudioLoad = () => {
+    if (shouldPlay && audioRef.current) {
+      audioRef.current
+        .play()
+        .then(() => {
+          setAudioPlay(true);
+          setShouldPlay(false);
+        })
+        .catch((error) => {
+          console.error('Error playing audio:', error);
+        });
     }
   };
+
+  useEffect(() => {
+    if (shouldPlay && audioRef.current) {
+      audioRef.current.load();
+      audioRef.current.addEventListener('loadeddata', handleAudioLoad);
+    }
+    return () => {
+      if (audioRef.current) {
+        audioRef.current.removeEventListener('loadeddata', handleAudioLoad);
+      }
+    };
+  }, [shouldPlay, audioIndex]);
 
   const getAudios = (artist) => {
     let audios = [];
@@ -92,6 +125,8 @@ function Media({ artist }) {
             setVideoPlay={setVideoPlay}
             videoRef={videoRef}
             audioRef={audioRef}
+            shouldPlay={shouldPlay}
+            setShouldPlay={setShouldPlay}
           />
           <ul className='audio-list'>
             {audios.map((audio, index) => (
