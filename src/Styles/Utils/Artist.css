@@ -130,12 +130,16 @@
 
 .artist-social-icons {
   display: flex;
+  flex-wrap: wrap;
   gap: 15px;
   margin: 0px 0px 0px 4px;
 }
 
 .artist-social-icon {
   height: 24px;
+}
+.artist-social-icon:hover {
+  scale: 105%;
 }
 
 .artist-detail-content {

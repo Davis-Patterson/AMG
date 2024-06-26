@@ -1,4 +1,4 @@
-import React, { useEffect, useContext, useState, useRef } from 'react';
+import React, { useEffect, useContext, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { AppContext } from 'contexts/AppContext';
 import Media from 'utils/Media';
@@ -15,6 +15,8 @@ import twitterxBlack from 'assets/Utils/twitterx-black.svg';
 import twitterxWhite from 'assets/Utils/twitterx-white.svg';
 import youtubeBlack from 'assets/Utils/youtube-black.svg';
 import youtubeWhite from 'assets/Utils/youtube-white.svg';
+import soundCloudBlack from 'assets/Utils/sc-black.svg';
+import soundCloudWhite from 'assets/Utils/sc-white.svg';
 import Skeleton from 'react-loading-skeleton';
 import CircularProgress from '@mui/material/CircularProgress';
 import 'styles/Utils/Artist.css';
@@ -38,6 +40,7 @@ function Artist() {
     spotify: darkMode ? spotifyWhite : spotifyBlack,
     twitter: darkMode ? twitterxWhite : twitterxBlack,
     youtube: darkMode ? youtubeWhite : youtubeBlack,
+    soundcloud: darkMode ? soundCloudWhite : soundCloudBlack,
   };
 
   useEffect(() => {
@@ -73,18 +76,24 @@ function Artist() {
       Array.isArray(artist.banner) &&
       artist.banner[0]?.img
     ) {
-      return artist.banner[0]?.img;
-    } else if (artist.img && Array.isArray(artist.img)) {
-      return artist.img[0]?.img || artist.img;
+      return artist.banner[0].img;
+    } else if (artist.img && Array.isArray(artist.img) && artist.img[0]?.img) {
+      return artist.img[0].img;
     }
     return noUserImg;
   };
 
   const getImgImg = (artist) => {
-    if (artist.img && Array.isArray(artist.img)) {
-      return artist.img[0]?.img || artist.img || noUserImg;
+    if (artist.img && Array.isArray(artist.img) && artist.img[0]?.img) {
+      return artist.img[0].img;
+    } else if (
+      artist.banner &&
+      Array.isArray(artist.banner) &&
+      artist.banner[0]?.img
+    ) {
+      return artist.banner[0].img;
     }
-    return artist.img || noUserImg;
+    return noUserImg;
   };
 
   const getBannerAlign = (artist) => {
@@ -92,6 +101,30 @@ function Artist() {
       return artist.banner[0]?.align || 'center';
     }
     return 'center';
+  };
+
+  const getLinks = (artist) => {
+    if (artist.links && Array.isArray(artist.links)) {
+      return Object.keys(icons).map(
+        (key) =>
+          artist.links[0][key] && (
+            <a
+              key={key}
+              href={artist.links[0][key]}
+              target='_blank'
+              rel='noopener noreferrer'
+            >
+              <img
+                src={icons[key]}
+                alt={key}
+                className='artist-social-icon'
+                id='artist-social-icon'
+              />
+            </a>
+          )
+      );
+    }
+    return null;
   };
 
   if (!artistData || artistData.length === 0) {
@@ -203,26 +236,7 @@ function Artist() {
             <h2 className='artist-title' id='artist-title'>
               {artist.name}
             </h2>
-            <div className='artist-social-icons'>
-              {Object.keys(icons).map(
-                (key) =>
-                  artist[key] && (
-                    <a
-                      key={key}
-                      href={artist[key]}
-                      target='_blank'
-                      rel='noopener noreferrer'
-                    >
-                      <img
-                        src={icons[key]}
-                        alt={key}
-                        className='artist-social-icon'
-                        id='artist-social-icon'
-                      />
-                    </a>
-                  )
-              )}
-            </div>
+            <div className='artist-social-icons'>{getLinks(artist)}</div>
           </div>
         </div>
         <section className='artist-detail-content' id='artist-detail-content'>
