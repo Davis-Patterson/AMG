@@ -1,9 +1,11 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useContext, useRef } from 'react';
+import { AppContext } from 'contexts/AppContext';
 import Video from 'utils/Video';
 import Audio from 'utils/Audio';
 import 'styles/Utils/Media.css';
 
 function Media({ artist }) {
+  const { noAlbumImg } = useContext(AppContext);
   const [audioIndex, setAudioIndex] = useState(0);
   const [audios, setAudios] = useState([]);
   const [videoPlay, setVideoPlay] = useState(true);
@@ -104,7 +106,7 @@ function Media({ artist }) {
                 onMouseDown={(event) => handleAudioClick(event, index)}
               >
                 <img
-                  src={audio.img}
+                  src={audio.img || noAlbumImg}
                   alt={`${audio.title} album art`}
                   className='audio-list-art'
                 />

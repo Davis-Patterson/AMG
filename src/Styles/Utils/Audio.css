@@ -1,3 +1,62 @@
+@media screen and (max-width: 660px) {
+  #audio-selection-header {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  #audio-detail-container {
+    margin: 0px 0px 0px 0px;
+    padding: 0px 10px 0px 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  #audio-detail-text {
+    margin: 15px 0px 5px 0px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  #audio-detail-title-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column-reverse;
+  }
+  #audio-detail-title {
+    margin: 0px 0px 0px 0px;
+    text-align: center;
+  }
+  #audio-detail-artist {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+  }
+  #audio-detail-album {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+  }
+  #audio-detail-date {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+  }
+}
+
+@media screen and (max-width: 460px) {
+  #audio-detail-img {
+    width: 150px;
+  }
+  #audio-progress {
+    width: calc(65%);
+  }
+}
+
 .audio-selection-header {
   display: flex;
   flex-direction: row;

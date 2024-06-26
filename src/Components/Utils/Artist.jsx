@@ -97,10 +97,17 @@ function Artist() {
   if (!artistData || artistData.length === 0) {
     return (
       <main className='page-container' id='page-container'>
-        <header className='artists-header' id='artists-header'>
-          <section className='artists-header-pics-container'>
-            <Skeleton className='header-skeleton' />
-            <div className='circular-progress-container'>
+        <header
+          className='artists-header'
+          id='artists-header'
+          style={{ width: '100%', height: '400px' }}
+        >
+          <section
+            className='artists-header-pics-container'
+            style={{ width: '100%', height: '100%', position: 'relative' }}
+          >
+            <Skeleton className='header-skeleton' width='100%' height='100%' />
+            <div className='circular-progress-overlay'>
               <CircularProgress
                 size={40}
                 sx={{ color: 'var(--clr-divider)' }}
@@ -112,9 +119,12 @@ function Artist() {
           <div className='loading-content'>
             <div className='skeleton-article-cards'>
               <div className='skeleton-article-card'>
-                <div className='skeleton-article-image'>
+                <div
+                  className='skeleton-article-image'
+                  style={{ position: 'relative' }}
+                >
                   <Skeleton height={150} width={150} />
-                  <div className='circular-progress-container'>
+                  <div className='circular-progress-overlay'>
                     <CircularProgress
                       size={40}
                       sx={{ color: 'var(--clr-divider)' }}

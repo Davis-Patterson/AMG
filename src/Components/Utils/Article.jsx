@@ -9,7 +9,7 @@ import 'styles/Utils/Article.css';
 
 function Article() {
   const { title } = useParams();
-  const { darkMode, newsData, handleLinkClick, formatTitleForURL } =
+  const { darkMode, newsData, noUserImg, handleLinkClick, formatTitleForURL } =
     useContext(AppContext);
   const [article, setArticle] = useState(null);
   const [recentNews, setRecentNews] = useState(null);
@@ -210,7 +210,7 @@ function Article() {
             {article.artist.map((artistItem, index) => (
               <div key={index} className='article-artist'>
                 <img
-                  src={artistItem.img}
+                  src={artistItem.img || noUserImg}
                   alt={artistItem.name}
                   className='article-artist-image'
                   onMouseDown={(event) =>

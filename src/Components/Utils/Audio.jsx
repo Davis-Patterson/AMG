@@ -23,6 +23,7 @@ function Audio({
   setVideoPlay,
   videoRef,
 }) {
+  const { noAlbumImg } = useContext(AppContext);
   const [progress, setProgress] = useState(0);
   const [volume, setVolume] = useState(100);
   const [currentTime, setCurrentTime] = useState(0);
@@ -136,21 +137,26 @@ function Audio({
       {selectedAudio && (
         <div className='audio-selection-header' id='audio-selection-header'>
           <img
-            src={selectedAudio.img}
+            src={selectedAudio.img || noAlbumImg}
             alt={`${selectedAudio.title} background`}
             className='audio-selection-header-background'
           />
           <div className='audio-selection-header-background-overlay' />
           <img
-            src={selectedAudio.img}
+            src={selectedAudio.img || noAlbumImg}
             alt={`${selectedAudio.title} album art`}
             className='audio-detail-img'
+            id='audio-detail-img'
           />
-          <div className='audio-detail-container'>
-            <div className='audio-detail-text'>
-              <div className='audio-detail-title-container'>
+          <div className='audio-detail-container' id='audio-detail-container'>
+            <div className='audio-detail-text' id='audio-detail-text'>
+              <div
+                className='audio-detail-title-container'
+                id='audio-detail-title-container'
+              >
                 <div
                   className='audio-detail-title'
+                  id='audio-detail-title'
                   style={{
                     maxWidth: `${selectedAudio.explicit ? '85%' : '100%'}`,
                   }}
@@ -163,9 +169,15 @@ function Audio({
                   </div>
                 )}
               </div>
-              <div className='audio-detail-artist'>{selectedAudio.artist}</div>
-              <div className='audio-detail-album'>{selectedAudio.album}</div>
-              <div className='audio-detail-date'>{selectedAudio.date}</div>
+              <div className='audio-detail-artist' id='audio-detail-artist'>
+                {selectedAudio.artist}
+              </div>
+              <div className='audio-detail-album' id='audio-detail-album'>
+                {selectedAudio.album}
+              </div>
+              <div className='audio-detail-date' id='audio-detail-date'>
+                {selectedAudio.date}
+              </div>
             </div>
             <div className='audio-player-container'>
               <div className='audio-progress-container'>
@@ -177,6 +189,7 @@ function Audio({
                   value={progress}
                   onChange={handleProgressChange}
                   className='audio-progress'
+                  id='audio-progress'
                 />
               </div>
               <div className='audio-controls-container'>

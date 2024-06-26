@@ -348,3 +348,24 @@
   margin: 2px 0px 0px 0px;
   width: 90%;
 }
+
+.circular-progress-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.header-overlay {
+  height: 100%;
+  width: 100%;
+}
+
+.article-overlay {
+  height: 150px;
+  width: 150px;
+}
+
+.skeleton-article-image {
+  width: 150px;
+}
