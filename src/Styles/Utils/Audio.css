@@ -1,3 +1,9 @@
+@media screen and (max-width: 860px) {
+  #audio-progress {
+    width: calc(64%);
+  }
+}
+
 @media screen and (max-width: 660px) {
   #audio-selection-header {
     flex-direction: column;

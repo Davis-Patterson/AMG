@@ -60,6 +60,8 @@ const Menu = () => {
   const [sortedNews, setSortedNews] = useState([]);
   const [sortedArtists, setSortedArtists] = useState([]);
 
+  const newsScrollRef = useRef(null);
+  const artistsScrollRef = useRef(null);
   const menuRefs = useRef([]);
   menuRefs.current = [];
 
@@ -210,6 +212,31 @@ const Menu = () => {
     }
   }, [darkMode]);
 
+  useEffect(() => {
+    const handleScroll = (event) => {
+      if (event.deltaY !== 0) {
+        const scrollContainer =
+          openDropdown === 'news'
+            ? newsScrollRef.current
+            : artistsScrollRef.current;
+        if (scrollContainer) {
+          scrollContainer.scrollLeft += event.deltaY * 3;
+          event.preventDefault();
+        }
+      }
+    };
+
+    if (openDropdown === 'news' || openDropdown === 'artists') {
+      window.addEventListener('wheel', handleScroll, { passive: false });
+    } else {
+      window.removeEventListener('wheel', handleScroll);
+    }
+
+    return () => {
+      window.removeEventListener('wheel', handleScroll);
+    };
+  }, [openDropdown]);
+
   const handlePrev = (event) => {
     if (event.button !== 0) return;
     event.preventDefault();
@@ -305,7 +332,10 @@ const Menu = () => {
             </div>
             {openDropdown === 'news' && (
               <div className='menu-item-content'>
-                <div className='menu-content-scroll-container'>
+                <div
+                  className='menu-content-scroll-container'
+                  ref={newsScrollRef}
+                >
                   {sortedNews && sortedNews.length > 0 ? (
                     sortedNews.map((article) => (
                       <div
@@ -395,7 +425,10 @@ const Menu = () => {
             </div>
             {openDropdown === 'artists' && (
               <div className='menu-item-content'>
-                <div className='menu-content-scroll-container'>
+                <div
+                  className='menu-content-scroll-container'
+                  ref={artistsScrollRef}
+                >
                   {sortedArtists && sortedArtists.length > 0 ? (
                     sortedArtists.map((artist) => (
                       <div

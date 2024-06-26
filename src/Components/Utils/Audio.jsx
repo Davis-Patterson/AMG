@@ -8,6 +8,10 @@ import pauseBlack from 'assets/Utils/pause-black.svg';
 import pauseWhite from 'assets/Utils/pause-white.svg';
 import playBlack from 'assets/Utils/play-black.svg';
 import playWhite from 'assets/Utils/play-white.svg';
+import muteBlack from 'assets/Utils/mute-circle-black.svg';
+import muteWhite from 'assets/Utils/mute-circle-white.svg';
+import unmuteBlack from 'assets/Utils/unmute-circle-black.svg';
+import unmuteWhite from 'assets/Utils/unmute-circle-white.svg';
 import pipeBlack from 'assets/Utils/pipe-black.svg';
 import pipeWhite from 'assets/Utils/pipe-white.svg';
 import 'styles/Utils/Audio.css';
@@ -22,19 +26,23 @@ function Audio({
   setAudioPlay,
   setVideoPlay,
   videoRef,
+  shouldPlay,
+  setShouldPlay,
 }) {
-  const { noAlbumImg } = useContext(AppContext);
   const [progress, setProgress] = useState(0);
   const [volume, setVolume] = useState(100);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
-  const { darkMode, mute, setMute } = useContext(AppContext);
+  const { darkMode, mute, setMute, noAlbumImg } = useContext(AppContext);
 
   const currentNext = !darkMode ? nextWhite : nextBlack;
   const currentPrev = !darkMode ? prevWhite : prevBlack;
   const currentPipe = !darkMode ? pipeWhite : pipeBlack;
   const currentPlay = !darkMode ? playWhite : playBlack;
   const currentPause = !darkMode ? pauseWhite : pauseBlack;
+  const currentMute = !darkMode ? muteWhite : muteBlack;
+  const currentUnmute = !darkMode ? unmuteWhite : unmuteBlack;
+  const currentMuteUnmute = mute ? currentMute : currentUnmute;
 
   useEffect(() => {
     if (audioRef.current) {
@@ -57,13 +65,31 @@ function Audio({
     }
   }, [volume]);
 
-  useEffect(() => {
-    if (audioPlay && audioRef.current) {
-      audioRef.current.play();
-    } else if (audioRef.current) {
-      audioRef.current.pause();
+  const handleAudioLoad = () => {
+    if (shouldPlay && audioRef.current) {
+      audioRef.current
+        .play()
+        .then(() => {
+          setAudioPlay(true);
+          setShouldPlay(false);
+        })
+        .catch((error) => {
+          console.error('Error playing audio:', error);
+        });
     }
-  }, [audioPlay]);
+  };
+
+  useEffect(() => {
+    if (shouldPlay && audioRef.current) {
+      audioRef.current.load();
+      audioRef.current.addEventListener('loadeddata', handleAudioLoad);
+    }
+    return () => {
+      if (audioRef.current) {
+        audioRef.current.removeEventListener('loadeddata', handleAudioLoad);
+      }
+    };
+  }, [shouldPlay, audioIndex]);
 
   const togglePause = (event) => {
     if (event.button !== 0) return;
@@ -113,9 +139,11 @@ function Audio({
     event.preventDefault();
     event.stopPropagation();
     setProgress(0);
+    setAudioPlay(false);
     setAudioIndex(
       (prevIndex) => (prevIndex - 1 + audios.length) % audios.length
     );
+    setShouldPlay(true);
   };
 
   const handleNext = (event) => {
@@ -123,7 +151,16 @@ function Audio({
     event.preventDefault();
     event.stopPropagation();
     setProgress(0);
+    setAudioPlay(false);
     setAudioIndex((prevIndex) => (prevIndex + 1) % audios.length);
+    setShouldPlay(true);
+  };
+
+  const toggleMute = (event) => {
+    if (event.button !== 0) return;
+    event.preventDefault();
+    event.stopPropagation();
+    setMute(!mute);
   };
 
   const formatTime = (time) => {
@@ -225,6 +262,12 @@ function Audio({
                     alt='next button'
                     className='audio-controls-button'
                     onMouseDown={(event) => handleNext(event)}
+                  />
+                  <img
+                    src={currentMuteUnmute}
+                    alt='mute button'
+                    className='audio-controls-button'
+                    onMouseDown={(event) => toggleMute(event)}
                   />
                   <input
                     type='range'
