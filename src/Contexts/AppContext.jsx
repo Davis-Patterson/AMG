@@ -45,6 +45,8 @@ export const AppProvider = ({ children }) => {
 
   const noUserImg =
     'https://amgbucket.s3.us-east-2.amazonaws.com/extra/no-user.webp';
+  const noAlbumImg =
+    'https://amgbucket.s3.us-east-2.amazonaws.com/audio/no-album.webp';
 
   const navigate = useNavigate();
 
@@ -183,6 +185,7 @@ export const AppProvider = ({ children }) => {
         locData,
         amgBanner,
         noUserImg,
+        noAlbumImg,
         form,
         setForm,
         sending,
