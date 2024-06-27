@@ -1,10 +1,14 @@
 import React, { useEffect, useContext, useRef } from 'react';
 import { AppContext } from 'contexts/AppContext';
+import pointerBlack from 'assets/Utils/pointer-black.svg';
+import pointerWhite from 'assets/Utils/pointer-white.svg';
 import 'styles/Utils/Video.css';
 
 function Video({ artist, videoPlay, setVideoPlay, videoRef }) {
-  const { mute, setMute } = useContext(AppContext);
+  const { darkMode, mute, setMute } = useContext(AppContext);
   const volumeRef = useRef(videoRef.current ? videoRef.current.volume : 1);
+
+  const currentPointer = darkMode ? pointerWhite : pointerBlack;
 
   useEffect(() => {
     const videoElement = videoRef.current;
@@ -65,7 +69,11 @@ function Video({ artist, videoPlay, setVideoPlay, videoRef }) {
               Your browser does not support the video tag.
             </video>
             <div className='video-title-artist-container'>
-              <p className='video-title-indicator'>▶</p>
+              <img
+                src={currentPointer}
+                alt='pointer icon'
+                className='video-title-indicator'
+              />
               <p className='video-title'>{video.title}</p>
               <p className='video-artist'>- {video.artist}</p>
             </div>

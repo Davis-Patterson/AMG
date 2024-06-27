@@ -107,6 +107,7 @@
 .audio-detail-img {
   width: 200px;
   box-shadow: 0 4px 8px var(--clr-shadow1), 0 6px 20px var(--clr-shadow3);
+  cursor: zoom-in;
 }
 
 .audio-detail-text {

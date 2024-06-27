@@ -20,6 +20,7 @@
   color: var(--clr-dark);
   margin: 5px 0px 5px 5px;
   text-align: left;
+  width: 12px;
 }
 
 .video-title {
