@@ -241,6 +241,10 @@
     "name": "Aerotype Productions",
     "img": [
       {
+        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/trv1ute.webp",
+        "align": "center"
+      },
+      {
         "img": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/kj87o3io.webp",
         "align": "center"
       }
