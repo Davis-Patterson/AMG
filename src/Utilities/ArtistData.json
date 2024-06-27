@@ -316,6 +316,10 @@
         "explicit": true,
         "audio": [
           {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Automatic+(feat.+Don+L)+-+Aerotype+Productions+%5Bmaster%5D.m4a",
+            "type": "audio/x-m4a"
+          },
+          {
             "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Automatic+(feat.+Don+L)+-+Aerotype+Productions+%5Bmaster%5D.opus",
             "type": "audio/opus"
           },
@@ -338,6 +342,10 @@
         "img": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/nocturne+%5Balbum+art%5D.webp",
         "explicit": true,
         "audio": [
+          {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Nocturne+(feat.+Don+L+%26+White+Weezy)+-+Aerotype+Productions+%5Bmastered%5D.m4a",
+            "type": "audio/x-m4a"
+          },
           {
             "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Nocturne+(feat.+Don+L+%26+White+Weezy)+-+Aerotype+Productions+%5Bmastered%5D.opus",
             "type": "audio/opus"
@@ -362,6 +370,10 @@
         "explicit": false,
         "audio": [
           {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/DBlock+-+Aerotype+Productions.m4a",
+            "type": "audio/x-m4a"
+          },
+          {
             "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/DBlock+-+Aerotype+Productions.opus",
             "type": "audio/opus"
           },
@@ -384,6 +396,10 @@
         "img": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Aeroverse+Vol.+1+%5Balbum+art%5D.webp",
         "explicit": false,
         "audio": [
+          {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/The+End+-+Aerotype+Productions.m4a",
+            "type": "audio/x-m4a"
+          },
           {
             "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/The+End+-+Aerotype+Productions.opus",
             "type": "audio/opus"
@@ -408,6 +424,10 @@
         "explicit": true,
         "audio": [
           {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Vibe+(feat.+Shaolin+Prince)+-+Aerotype+Productions.m4a",
+            "type": "audio/x-m4a"
+          },
+          {
             "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Vibe+(feat.+Shaolin+Prince)+-+Aerotype+Productions.opus",
             "type": "audio/opus"
           },
@@ -431,6 +451,10 @@
         "explicit": true,
         "audio": [
           {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Waves+(feat.+Shaolin+Prince+%26+Soluna)+-+Aerotype+Productions+%5Bmastered%5D.m4a",
+            "type": "audio/x-m4a"
+          },
+          {
             "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Waves+(feat.+Shaolin+Prince+%26+Soluna)+-+Aerotype+Productions+%5Bmastered%5D.opus",
             "type": "audio/opus"
           },
@@ -453,6 +477,10 @@
         "img": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Whattup+%5Balbum+art%5D.webp",
         "explicit": true,
         "audio": [
+          {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Whattup+(feat.+Shaolin+Prince%2C+Worm+Food%2C+%26+Soluna)+-+Aerotype+Productions+(mastered+print).m4a",
+            "type": "audio/x-m4a"
+          },
           {
             "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Whattup+(feat.+Shaolin+Prince%2C+Worm+Food%2C+%26+Soluna)+-+Aerotype+Productions+(mastered+print).opus",
             "type": "audio/opus"
@@ -603,6 +631,10 @@
         "explicit": true,
         "audio": [
           {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Automatic+(feat.+Don+L)+-+Aerotype+Productions+%5Bmaster%5D.m4a",
+            "type": "audio/x-m4a"
+          },
+          {
             "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Automatic+(feat.+Don+L)+-+Aerotype+Productions+%5Bmaster%5D.opus",
             "type": "audio/opus"
           },
@@ -625,6 +657,10 @@
         "img": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/nocturne+%5Balbum+art%5D.webp",
         "explicit": true,
         "audio": [
+          {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Nocturne+(feat.+Don+L+%26+White+Weezy)+-+Aerotype+Productions+%5Bmastered%5D.m4a",
+            "type": "audio/x-m4a"
+          },
           {
             "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Nocturne+(feat.+Don+L+%26+White+Weezy)+-+Aerotype+Productions+%5Bmastered%5D.opus",
             "type": "audio/opus"
@@ -779,6 +815,10 @@
         "explicit": false,
         "audio": [
           {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Ashamed+(feat.+Brandon)+-+Shaolin+Prince+%5Bmastered%5D.m4a",
+            "type": "audio/x-m4a"
+          },
+          {
             "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Ashamed+(feat.+Brandon)+-+Shaolin+Prince+%5Bmastered%5D.opus",
             "type": "audio/opus"
           },
@@ -802,6 +842,10 @@
         "explicit": true,
         "audio": [
           {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Changes+-+Shaolin+Prince.m4a",
+            "type": "audio/x-m4a"
+          },
+          {
             "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Changes+-+Shaolin+Prince.opus",
             "type": "audio/opus"
           },
@@ -824,6 +868,10 @@
         "img": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/bar+4+bar+%5Balbum+art%5D.webp",
         "explicit": true,
         "audio": [
+          {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Bar+4+Bar+-+Shaolin+Prince%2C+Nova.m4a",
+            "type": "audio/x-m4a"
+          },
           {
             "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Bar+4+Bar+-+Shaolin+Prince%2C+Nova.opus",
             "type": "audio/opus"
@@ -850,6 +898,10 @@
         "explicit": true,
         "audio": [
           {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Vibe+(feat.+Shaolin+Prince)+-+Aerotype+Productions.m4a",
+            "type": "audio/x-m4a"
+          },
+          {
             "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Vibe+(feat.+Shaolin+Prince)+-+Aerotype+Productions.opus",
             "type": "audio/opus"
           },
@@ -873,6 +925,10 @@
         "explicit": true,
         "audio": [
           {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Waves+(feat.+Shaolin+Prince+%26+Soluna)+-+Aerotype+Productions+%5Bmastered%5D.m4a",
+            "type": "audio/x-m4a"
+          },
+          {
             "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Waves+(feat.+Shaolin+Prince+%26+Soluna)+-+Aerotype+Productions+%5Bmastered%5D.opus",
             "type": "audio/opus"
           },
@@ -895,6 +951,10 @@
         "img": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Whattup+%5Balbum+art%5D.webp",
         "explicit": true,
         "audio": [
+          {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Whattup+(feat.+Shaolin+Prince%2C+Worm+Food%2C+%26+Soluna)+-+Aerotype+Productions+(mastered+print).m4a",
+            "type": "audio/x-m4a"
+          },
           {
             "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Whattup+(feat.+Shaolin+Prince%2C+Worm+Food%2C+%26+Soluna)+-+Aerotype+Productions+(mastered+print).opus",
             "type": "audio/opus"

@@ -21,8 +21,8 @@ const News = lazy(() => import('components/News'));
 const Artists = lazy(() => import('components/Artists'));
 const About = lazy(() => import('components/About'));
 const Contact = lazy(() => import('components/Contact'));
-const Article = lazy(() => import('utils/Article'));
-const Artist = lazy(() => import('utils/Artist'));
+const Article = lazy(() => import('components/Article'));
+const Artist = lazy(() => import('components/Artist'));
 
 function App() {
   const { setShowSplash, showArtwork } = useContext(AppContext);
