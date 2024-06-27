@@ -19,7 +19,7 @@ import soundCloudBlack from 'assets/Utils/sc-black.svg';
 import soundCloudWhite from 'assets/Utils/sc-white.svg';
 import Skeleton from 'react-loading-skeleton';
 import CircularProgress from '@mui/material/CircularProgress';
-import 'styles/Utils/Artist.css';
+import 'styles/Artist.css';
 
 function Artist() {
   const { name } = useParams();

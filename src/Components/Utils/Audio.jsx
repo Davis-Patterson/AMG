@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState, useContext } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { AppContext } from 'contexts/AppContext';
 import nextBlack from 'assets/Utils/next-black.svg';
 import nextWhite from 'assets/Utils/next-white.svg';
@@ -15,6 +15,7 @@ import unmuteWhite from 'assets/Utils/unmute-circle-white.svg';
 import pipeBlack from 'assets/Utils/pipe-black.svg';
 import pipeWhite from 'assets/Utils/pipe-white.svg';
 import 'styles/Utils/Audio.css';
+import Slider from 'utils/Slider';
 
 function Audio({
   selectedAudio,
@@ -45,12 +46,19 @@ function Audio({
   const currentUnmute = !darkMode ? unmuteWhite : unmuteBlack;
   const currentMuteUnmute = mute ? currentMute : currentUnmute;
 
+  const handleMetadataLoaded = () => {
+    if (audioRef.current) {
+      const newDuration = audioRef.current.duration;
+      setDuration(newDuration);
+    }
+  };
+
   useEffect(() => {
     if (audioRef.current && selectedAudio) {
       audioRef.current.load();
-      audioRef.current.onloadedmetadata = () => {
-        setDuration(audioRef.current.duration);
-      };
+      audioRef.current.onloadedmetadata = handleMetadataLoaded;
+      audioRef.current.ontimeupdate = handleTimeUpdate;
+      console.log('Audio element loaded with src: ', selectedAudio.audio);
     }
   }, [audioIndex, selectedAudio]);
 
@@ -127,6 +135,41 @@ function Audio({
     }
   };
 
+  const handlePrev = (event) => {
+    if (event.button !== 0) return;
+    event.preventDefault();
+    event.stopPropagation();
+    if (audioRef.current.currentTime > 2) {
+      audioRef.current.currentTime = 0;
+      setProgress(0);
+    } else {
+      setProgress(0);
+      setAudioPlay(false);
+      setAudioIndex(
+        (prevIndex) => (prevIndex - 1 + audios.length) % audios.length
+      );
+      setShouldPlay(true);
+      setVideoPlay(false);
+      if (videoRef.current) {
+        videoRef.current.pause();
+      }
+    }
+  };
+
+  const handleNext = (event) => {
+    if (event.button !== 0) return;
+    event.preventDefault();
+    event.stopPropagation();
+    setProgress(0);
+    setAudioPlay(false);
+    setAudioIndex((prevIndex) => (prevIndex + 1) % audios.length);
+    setShouldPlay(true);
+    setVideoPlay(false);
+    if (videoRef.current) {
+      videoRef.current.pause();
+    }
+  };
+
   const handleTimeUpdate = () => {
     if (audioRef.current) {
       const progress =
@@ -156,28 +199,6 @@ function Audio({
     }
   };
 
-  const handlePrev = (event) => {
-    if (event.button !== 0) return;
-    event.preventDefault();
-    event.stopPropagation();
-    setProgress(0);
-    setAudioPlay(false);
-    setAudioIndex(
-      (prevIndex) => (prevIndex - 1 + audios.length) % audios.length
-    );
-    setShouldPlay(true);
-  };
-
-  const handleNext = (event) => {
-    if (event.button !== 0) return;
-    event.preventDefault();
-    event.stopPropagation();
-    setProgress(0);
-    setAudioPlay(false);
-    setAudioIndex((prevIndex) => (prevIndex + 1) % audios.length);
-    setShouldPlay(true);
-  };
-
   const toggleMute = (event) => {
     if (event.button !== 0) return;
     event.preventDefault();
@@ -189,10 +210,6 @@ function Audio({
     const minutes = Math.floor(time / 60);
     const seconds = Math.floor(time % 60);
     return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
-  };
-
-  const handleImageClick = () => {
-    setShowLargeImage(true);
   };
 
   return (
@@ -250,13 +267,9 @@ function Audio({
                 <div className='audio-progress-numbers'>
                   {formatTime(currentTime)} | {formatTime(duration)}
                 </div>
-                <input
-                  type='range'
-                  value={progress}
-                  onChange={handleProgressChange}
-                  className='audio-progress'
-                  id='audio-progress'
-                />
+                <div className='audio-progress-slider'>
+                  <Slider onChange={handleProgressChange} progress={progress} />
+                </div>
               </div>
               <div className='audio-controls-container'>
                 <div className='audio-controls'>
@@ -298,14 +311,9 @@ function Audio({
                     className='audio-controls-button'
                     onMouseDown={(event) => toggleMute(event)}
                   />
-                  <input
-                    type='range'
-                    min='0'
-                    max='100'
-                    value={volume}
-                    onChange={handleVolumeChange}
-                    className='audio-volume'
-                  />
+                  <div className='audio-volume'>
+                    <Slider onChange={handleVolumeChange} progress={volume} />
+                  </div>
                 </div>
               </div>
               <audio
