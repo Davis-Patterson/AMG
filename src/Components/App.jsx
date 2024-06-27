@@ -8,12 +8,13 @@ import React, {
 } from 'react';
 import { AppContext } from 'contexts/AppContext';
 import { Routes, Route, useLocation } from 'react-router-dom';
+import Splash from 'utils/Splash';
 import Nav from 'components/Nav';
 import Home from 'components/Home';
 import Footer from 'components/Footer';
-import Splash from 'utils/Splash';
 import Menu from 'components/Menu';
 import ContactFloat from 'utils/ContactFloat';
+import Artwork from 'utils/Artwork';
 import 'styles/App.css';
 
 const News = lazy(() => import('components/News'));
@@ -24,7 +25,7 @@ const Article = lazy(() => import('utils/Article'));
 const Artist = lazy(() => import('utils/Artist'));
 
 function App() {
-  const { setShowSplash } = useContext(AppContext);
+  const { setShowSplash, showArtwork } = useContext(AppContext);
   const location = useLocation();
   const [isPending, setPending] = useState(false);
 
@@ -47,6 +48,7 @@ function App() {
   return (
     <>
       <Splash />
+      {showArtwork && <Artwork />}
       <Menu />
       <>
         <Nav />

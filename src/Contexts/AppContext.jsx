@@ -15,9 +15,13 @@ export const AppContext = createContext();
 
 export const AppProvider = ({ children }) => {
   const [showSplash, setShowSplash] = useState(true);
-  const [darkMode, setDarkMode] = useLocalStorageState('darkMode', true);
-  const [mute, setMute] = useState(true);
+  const [showArtwork, setShowArtwork] = useState(false);
+  const [artworkSrc, setArtworkSrc] = useState([]);
+  const [artworkAlt, setArtworkAlt] = useState([]);
   const [menu, setMenu] = useState(false);
+
+  const [darkMode, setDarkMode] = useLocalStorageState('darkMode', false);
+  const [mute, setMute] = useState(true);
   const [openDropdown, setOpenDropdown] = useState(null);
   const [contactFloat, setContactFloat] = useState(false);
 
@@ -75,6 +79,24 @@ export const AppProvider = ({ children }) => {
       ...prevState,
       [name]: value,
     }));
+  };
+
+  const artworkOpen = (event, src, alt) => {
+    if (event.button !== 0) return;
+    event.preventDefault();
+    event.stopPropagation();
+    setArtworkSrc(src);
+    setArtworkAlt(alt);
+    setShowArtwork(true);
+  };
+
+  const artworkClose = (event) => {
+    if (event.button !== 0) return;
+    event.preventDefault();
+    event.stopPropagation();
+    setShowArtwork(false);
+    setArtworkSrc([]);
+    setArtworkAlt([]);
   };
 
   const handleSubmit = (e) => {
@@ -157,6 +179,9 @@ export const AppProvider = ({ children }) => {
       value={{
         showSplash,
         setShowSplash,
+        showArtwork,
+        artworkSrc,
+        artworkAlt,
         darkMode,
         setDarkMode,
         mute,
@@ -197,6 +222,8 @@ export const AppProvider = ({ children }) => {
         handleLinkClick,
         formatTitleForURL,
         handleChange,
+        artworkOpen,
+        artworkClose,
         handleSubmit,
       }}
     >

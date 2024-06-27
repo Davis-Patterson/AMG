@@ -21,7 +21,7 @@ function Media({ artist }) {
       setAudioIndex(0);
       setAudioPlay(false);
       setShouldPlay(false);
-      setVideoPlay(true); // Start video play for the new artist
+      setVideoPlay(true);
 
       if (audioRef.current) {
         audioRef.current.pause();
@@ -75,7 +75,7 @@ function Media({ artist }) {
   };
 
   const handleAudioLoad = () => {
-    if (shouldPlay && audioRef.current) {
+    if (shouldPlay && audioRef.current && selectedAudio) {
       audioRef.current
         .play()
         .then(() => {
@@ -108,7 +108,6 @@ function Media({ artist }) {
     if (artist.featured && artist.featured.length > 0) {
       audios = audios.concat(artist.featured);
     }
-    // Sort audios alphabetically by title
     audios.sort((a, b) => a.title.localeCompare(b.title));
     return audios;
   };
@@ -143,6 +142,7 @@ function Media({ artist }) {
             audioRef={audioRef}
             shouldPlay={shouldPlay}
             setShouldPlay={setShouldPlay}
+            handleAudioLoad={handleAudioLoad}
           />
           <ul className='audio-list'>
             {audios.map((audio, index) => (

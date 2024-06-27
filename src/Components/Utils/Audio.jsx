@@ -29,11 +29,12 @@ function Audio({
   shouldPlay,
   setShouldPlay,
 }) {
+  const { darkMode, mute, setMute, noAlbumImg, artworkOpen } =
+    useContext(AppContext);
   const [progress, setProgress] = useState(0);
   const [volume, setVolume] = useState(100);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
-  const { darkMode, mute, setMute, noAlbumImg } = useContext(AppContext);
 
   const currentNext = !darkMode ? nextWhite : nextBlack;
   const currentPrev = !darkMode ? prevWhite : prevBlack;
@@ -45,13 +46,13 @@ function Audio({
   const currentMuteUnmute = mute ? currentMute : currentUnmute;
 
   useEffect(() => {
-    if (audioRef.current) {
+    if (audioRef.current && selectedAudio) {
       audioRef.current.load();
       audioRef.current.onloadedmetadata = () => {
         setDuration(audioRef.current.duration);
       };
     }
-  }, [audioIndex]);
+  }, [audioIndex, selectedAudio]);
 
   useEffect(() => {
     if (audioRef.current) {
@@ -65,22 +66,20 @@ function Audio({
     }
   }, [volume]);
 
-  const handleAudioLoad = () => {
-    if (shouldPlay && audioRef.current) {
-      audioRef.current
-        .play()
-        .then(() => {
-          setAudioPlay(true);
-          setShouldPlay(false);
-        })
-        .catch((error) => {
-          console.error('Error playing audio:', error);
-        });
+  const handleAudioLoad = async () => {
+    if (shouldPlay && audioRef.current && selectedAudio) {
+      try {
+        await audioRef.current.play();
+        setAudioPlay(true);
+        setShouldPlay(false);
+      } catch (error) {
+        console.error('Error playing audio:', error);
+      }
     }
   };
 
   useEffect(() => {
-    if (shouldPlay && audioRef.current) {
+    if (shouldPlay && audioRef.current && selectedAudio) {
       audioRef.current.load();
       audioRef.current.addEventListener('loadeddata', handleAudioLoad);
     }
@@ -89,7 +88,7 @@ function Audio({
         audioRef.current.removeEventListener('loadeddata', handleAudioLoad);
       }
     };
-  }, [shouldPlay, audioIndex]);
+  }, [shouldPlay, audioIndex, selectedAudio]);
 
   useEffect(() => {
     if (audioRef.current) {
@@ -98,16 +97,8 @@ function Audio({
       setProgress(0);
       setCurrentTime(0);
       setDuration(0);
-      if (shouldPlay) {
-        audioRef.current
-          .play()
-          .then(() => {
-            setAudioPlay(true);
-            setShouldPlay(false);
-          })
-          .catch((error) => {
-            console.error('Error playing audio:', error);
-          });
+      if (shouldPlay && selectedAudio) {
+        handleAudioLoad();
       }
     }
   }, [selectedAudio]);
@@ -116,38 +107,48 @@ function Audio({
     if (event.button !== 0) return;
     event.preventDefault();
     event.stopPropagation();
-    audioRef.current.pause();
-    setAudioPlay(false);
+    if (audioRef.current) {
+      audioRef.current.pause();
+      setAudioPlay(false);
+    }
   };
 
   const togglePlay = (event) => {
     if (event.button !== 0) return;
     event.preventDefault();
     event.stopPropagation();
-    audioRef.current.play();
-    setAudioPlay(true);
-    setVideoPlay(false);
-    if (videoRef.current) {
-      videoRef.current.pause();
+    if (audioRef.current) {
+      audioRef.current.play();
+      setAudioPlay(true);
+      setVideoPlay(false);
+      if (videoRef.current) {
+        videoRef.current.pause();
+      }
     }
   };
 
   const handleTimeUpdate = () => {
-    const progress =
-      (audioRef.current.currentTime / audioRef.current.duration) * 100;
-    setProgress(isNaN(progress) ? 0 : progress);
-    setCurrentTime(audioRef.current.currentTime);
+    if (audioRef.current) {
+      const progress =
+        (audioRef.current.currentTime / audioRef.current.duration) * 100;
+      setProgress(isNaN(progress) ? 0 : progress);
+      setCurrentTime(audioRef.current.currentTime);
+    }
   };
 
   const handleProgressChange = (e) => {
-    const newTime = (e.target.value * audioRef.current.duration) / 100;
-    audioRef.current.currentTime = newTime;
+    if (audioRef.current) {
+      const newTime = (e.target.value * audioRef.current.duration) / 100;
+      audioRef.current.currentTime = newTime;
+    }
   };
 
   const handleVolumeChange = (e) => {
     const newVolume = parseInt(e.target.value, 10);
     setVolume(newVolume);
-    audioRef.current.volume = newVolume / 100;
+    if (audioRef.current) {
+      audioRef.current.volume = newVolume / 100;
+    }
     if (newVolume === 0 && !mute) {
       setMute(true);
     } else if (newVolume > 0 && mute) {
@@ -190,6 +191,10 @@ function Audio({
     return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
   };
 
+  const handleImageClick = () => {
+    setShowLargeImage(true);
+  };
+
   return (
     <>
       {selectedAudio && (
@@ -205,6 +210,9 @@ function Audio({
             alt={`${selectedAudio.title} album art`}
             className='audio-detail-img'
             id='audio-detail-img'
+            onMouseDown={(event) =>
+              artworkOpen(event, selectedAudio.img, selectedAudio.title)
+            }
           />
           <div className='audio-detail-container' id='audio-detail-container'>
             <div className='audio-detail-text' id='audio-detail-text'>
