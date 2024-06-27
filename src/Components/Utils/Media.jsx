@@ -21,9 +21,19 @@ function Media({ artist }) {
       setAudioIndex(0);
       setAudioPlay(false);
       setShouldPlay(false);
+      setVideoPlay(true); // Start video play for the new artist
+
       if (audioRef.current) {
         audioRef.current.pause();
         audioRef.current.load();
+      }
+
+      if (videoRef.current) {
+        videoRef.current.pause();
+        videoRef.current.load();
+        videoRef.current
+          .play()
+          .catch((error) => console.error('Error playing video:', error));
       }
     }
   }, [artist]);
@@ -55,6 +65,10 @@ function Media({ artist }) {
     event.preventDefault();
     event.stopPropagation();
     setAudioPlay(false);
+    setVideoPlay(false);
+    if (videoRef.current) {
+      videoRef.current.pause();
+    }
     setAudioIndex(index);
     setShouldPlay(true);
     setVideoPlay(false);

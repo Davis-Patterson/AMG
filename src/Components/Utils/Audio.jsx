@@ -91,6 +91,27 @@ function Audio({
     };
   }, [shouldPlay, audioIndex]);
 
+  useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.load();
+      setProgress(0);
+      setCurrentTime(0);
+      setDuration(0);
+      if (shouldPlay) {
+        audioRef.current
+          .play()
+          .then(() => {
+            setAudioPlay(true);
+            setShouldPlay(false);
+          })
+          .catch((error) => {
+            console.error('Error playing audio:', error);
+          });
+      }
+    }
+  }, [selectedAudio]);
+
   const togglePause = (event) => {
     if (event.button !== 0) return;
     event.preventDefault();

@@ -303,24 +303,47 @@
     ],
     "audio": [
       {
-        "title": "Dark Star (feat. Soluna)",
+        "title": "Automatic (feat. Don L)",
         "artist": "Aerotype Productions",
-        "feat": ["Soluna"],
-        "album": "Aeroverse Vol. 1",
-        "date": "",
-        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Aeroverse+Vol.+1+%5Balbum+art%5D.webp",
+        "feat": ["Don L"],
+        "album": "Automatic (single)",
+        "date": "6/29/2019",
+        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Automatic+%5Balbum+art%5D.webp",
         "explicit": true,
         "audio": [
           {
-            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Dark+Star+(feat.+Soluna)+-+Aerotype+Productions.opus",
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Automatic+(feat.+Don+L)+-+Aerotype+Productions+%5Bmaster%5D.opus",
             "type": "audio/opus"
           },
           {
-            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Dark+Star+(feat.+Soluna)+-+Aerotype+Productions.aac",
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Automatic+(feat.+Don+L)+-+Aerotype+Productions+%5Bmaster%5D.aac",
             "type": "audio/aac"
           },
           {
-            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Dark+Star+(feat.+Soluna)+-+Aerotype+Productions.mp3",
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Automatic+(feat.+Don+L)+-+Aerotype+Productions+%5Bmaster%5D.mp3",
+            "type": "audio/mp3"
+          }
+        ]
+      },
+      {
+        "title": "Nocturne (feat. Don L & White Weezy)",
+        "artist": "Aerotype Productions",
+        "feat": ["Don L", "White Weezy"],
+        "album": "Nocturne (single)",
+        "date": "12/20/2018",
+        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/nocturne+%5Balbum+art%5D.webp",
+        "explicit": true,
+        "audio": [
+          {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Nocturne+(feat.+Don+L+%26+White+Weezy)+-+Aerotype+Productions+%5Bmastered%5D.opus",
+            "type": "audio/opus"
+          },
+          {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Nocturne+(feat.+Don+L+%26+White+Weezy)+-+Aerotype+Productions+%5Bmastered%5D.aac",
+            "type": "audio/aac"
+          },
+          {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Nocturne+(feat.+Don+L+%26+White+Weezy)+-+Aerotype+Productions+%5Bmastered%5D.mp3",
             "type": "audio/mp3"
           }
         ]
@@ -330,7 +353,7 @@
         "artist": "Aerotype Productions",
         "feat": [],
         "album": "Aeroverse Vol. 1",
-        "date": "",
+        "date": "5/6/19",
         "img": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Aeroverse+Vol.+1+%5Balbum+art%5D.webp",
         "explicit": false,
         "audio": [
@@ -353,7 +376,7 @@
         "artist": "Aerotype Productions",
         "feat": [],
         "album": "Aeroverse Vol. 1",
-        "date": "",
+        "date": "5/26/19",
         "img": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Aeroverse+Vol.+1+%5Balbum+art%5D.webp",
         "explicit": false,
         "audio": [
@@ -565,7 +588,54 @@
       }
     ],
     "audio": [],
-    "featured": [],
+    "featured": [
+      {
+        "title": "Automatic (feat. Don L)",
+        "artist": "Aerotype Productions",
+        "feat": ["Don L"],
+        "album": "Automatic (single)",
+        "date": "6/29/2019",
+        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Automatic+%5Balbum+art%5D.webp",
+        "explicit": true,
+        "audio": [
+          {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Automatic+(feat.+Don+L)+-+Aerotype+Productions+%5Bmaster%5D.opus",
+            "type": "audio/opus"
+          },
+          {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Automatic+(feat.+Don+L)+-+Aerotype+Productions+%5Bmaster%5D.aac",
+            "type": "audio/aac"
+          },
+          {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Automatic+(feat.+Don+L)+-+Aerotype+Productions+%5Bmaster%5D.mp3",
+            "type": "audio/mp3"
+          }
+        ]
+      },
+      {
+        "title": "Nocturne (feat. Don L & White Weezy)",
+        "artist": "Aerotype Productions",
+        "feat": ["Don L", "White Weezy"],
+        "album": "Nocturne (single)",
+        "date": "12/20/2018",
+        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/nocturne+%5Balbum+art%5D.webp",
+        "explicit": true,
+        "audio": [
+          {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Nocturne+(feat.+Don+L+%26+White+Weezy)+-+Aerotype+Productions+%5Bmastered%5D.opus",
+            "type": "audio/opus"
+          },
+          {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Nocturne+(feat.+Don+L+%26+White+Weezy)+-+Aerotype+Productions+%5Bmastered%5D.aac",
+            "type": "audio/aac"
+          },
+          {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Nocturne+(feat.+Don+L+%26+White+Weezy)+-+Aerotype+Productions+%5Bmastered%5D.mp3",
+            "type": "audio/mp3"
+          }
+        ]
+      }
+    ],
     "news": [
       {
         "id": 7,
@@ -628,7 +698,7 @@
     "name": "Shaolin Prince",
     "img": [
       {
-        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/jh3l6gj3h.webp",
+        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/kil441m453.webp",
         "align": "center"
       }
     ],
