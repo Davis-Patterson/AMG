@@ -35,6 +35,18 @@ function Video({ artist, videoPlay, setVideoPlay, videoRef }) {
     }
   }, [setMute, setVideoPlay, videoRef]);
 
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.pause();
+      videoRef.current.load();
+      if (videoPlay) {
+        videoRef.current
+          .play()
+          .catch((error) => console.error('Error playing video:', error));
+      }
+    }
+  }, [artist]);
+
   return (
     <>
       {artist &&

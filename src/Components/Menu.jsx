@@ -220,7 +220,7 @@ const Menu = () => {
             ? newsScrollRef.current
             : artistsScrollRef.current;
         if (scrollContainer) {
-          scrollContainer.scrollLeft += event.deltaY * 3;
+          scrollContainer.scrollLeft += event.deltaY * 5;
           event.preventDefault();
         }
       }

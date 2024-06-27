@@ -86,6 +86,7 @@
   color: var(--clr-news-title);
   transform: scaleY(95%);
   transform: scaleX(110%);
+  margin: 0px 1px 0px 0px;
 }
 
 .audio-list-subtext {
