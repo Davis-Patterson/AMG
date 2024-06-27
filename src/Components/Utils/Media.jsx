@@ -108,6 +108,8 @@ function Media({ artist }) {
     if (artist.featured && artist.featured.length > 0) {
       audios = audios.concat(artist.featured);
     }
+    // Sort audios alphabetically by title
+    audios.sort((a, b) => a.title.localeCompare(b.title));
     return audios;
   };
 

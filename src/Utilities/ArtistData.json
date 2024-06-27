@@ -789,6 +789,29 @@
         ]
       },
       {
+        "title": "Changes",
+        "artist": "Shaolin Prince",
+        "feat": [],
+        "album": "Echoes of the Future",
+        "date": "2/12/2019",
+        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/changes+%5Balbum+art%5D.webp",
+        "explicit": true,
+        "audio": [
+          {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Changes+-+Shaolin+Prince.opus",
+            "type": "audio/opus"
+          },
+          {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Changes+-+Shaolin+Prince.aac",
+            "type": "audio/aac"
+          },
+          {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Changes+-+Shaolin+Prince.mp3",
+            "type": "audio/mp3"
+          }
+        ]
+      },
+      {
         "title": "Bar 4 Bar",
         "artist": "Nova x Shaolin Prince",
         "feat": [],
