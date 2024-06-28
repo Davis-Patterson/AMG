@@ -223,7 +223,13 @@ function Audio({
             className='audio-selection-header-background'
           />
           <div className='audio-selection-header-background-overlay' />
-          <Tilt scale={1.05} transitionSpeed={2500} className='tilt-container'>
+          <Tilt
+            scale={1.05}
+            transitionSpeed={2500}
+            glareEnable={true}
+            glareMaxOpacity={0.65}
+            className='tilt-container'
+          >
             <img
               src={selectedAudio.img || noAlbumImg}
               alt={`${selectedAudio.title} album art`}
