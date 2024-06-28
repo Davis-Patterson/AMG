@@ -291,6 +291,7 @@
       {
         "title": "Starman",
         "artist": "Aerotype Productions",
+        "link": "https://www.youtube.com/watch?v=aDE0zbPfKt0",
         "videoSources": [
           {
             "src": "https://amgbucket.s3.amazonaws.com/videos/starman-1080.webm",
@@ -605,6 +606,7 @@
       {
         "title": "Summer Vybes",
         "artist": "Don L",
+        "link": "",
         "videoSources": [
           {
             "src": "https://amgbucket.s3.amazonaws.com/videos/summer-vybes-1080.webm",
@@ -790,6 +792,7 @@
       {
         "title": "Perfectly Align",
         "artist": "Shaolin Prince",
+        "link": "https://www.youtube.com/watch?v=HR0UD5phtVA",
         "videoSources": [
           {
             "src": "https://amgbucket.s3.us-east-2.amazonaws.com/videos/Perfectly+Align+-+Shaolin+Prince.webm",

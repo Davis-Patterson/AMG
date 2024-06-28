@@ -48,8 +48,6 @@ function Audio({
   const currentUnmute = !darkMode ? unmuteWhite : unmuteBlack;
   const currentMuteUnmute = mute ? currentMute : currentUnmute;
 
-  const [scale, setScale] = useState(1.05);
-
   const handleMetadataLoaded = () => {
     if (audioRef.current) {
       const newDuration = audioRef.current.duration;
@@ -225,7 +223,7 @@ function Audio({
             className='audio-selection-header-background'
           />
           <div className='audio-selection-header-background-overlay' />
-          <Tilt scale={scale} transitionSpeed={2500} className='tilt-container'>
+          <Tilt scale={1.05} transitionSpeed={2500} className='tilt-container'>
             <img
               src={selectedAudio.img || noAlbumImg}
               alt={`${selectedAudio.title} album art`}
