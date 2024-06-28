@@ -1,0 +1,35 @@
+@media screen and (max-width: 660px) {
+  #audio-detail-title-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column-reverse;
+  }
+  #audio-detail-title {
+    margin: 0px 0px 0px 0px;
+    text-align: center;
+  }
+}
+
+.audio-detail-title-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+}
+
+.audio-detail-title {
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 1.8em;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--clr-light);
+  text-align: left;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-shadow: 2px 2px 4px var(--clr-shadow1), 4px 4px 8px var(--clr-shadow1);
+  margin: 0px 10px 0px 0px;
+}
