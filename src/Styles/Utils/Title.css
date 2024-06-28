@@ -33,3 +33,25 @@
   text-shadow: 2px 2px 4px var(--clr-shadow1), 4px 4px 8px var(--clr-shadow1);
   margin: 0px 10px 0px 0px;
 }
+
+@keyframes scroll-title {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(0);
+  }
+  80% {
+    transform: translateX(-50%);
+  }
+  99.99999% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.scroll {
+  animation: scroll-title 10s linear infinite;
+}

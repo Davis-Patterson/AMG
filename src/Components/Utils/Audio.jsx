@@ -62,7 +62,6 @@ function Audio({
       audioRef.current.load();
       audioRef.current.onloadedmetadata = handleMetadataLoaded;
       audioRef.current.ontimeupdate = handleTimeUpdate;
-      console.log('Audio element loaded with src: ', selectedAudio.audio);
     }
   }, [audioIndex, selectedAudio]);
 
