@@ -14,4 +14,4 @@ to-do✅
 urgent❗❗❗❗
 -add <a> tags to links to restore right-click functionality (without interrupting page switching flow hopefully)
 
--optimize artist music player for mobile 
+-add links to artist videos. if video has a link, make the video title a link

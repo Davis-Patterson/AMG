@@ -112,10 +112,9 @@
   width: 200px;
   box-shadow: 0 4px 8px var(--clr-shadow1), 0 6px 20px var(--clr-shadow3);
   cursor: zoom-in;
-  transition: scale 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition: box-shadow 0.15s ease-in-out;
 }
 .audio-detail-img:hover {
-  scale: 101%;
   box-shadow: 0 4px 8px var(--clr-shadow3), 0 6px 20px var(--clr-shadow3);
 }
 

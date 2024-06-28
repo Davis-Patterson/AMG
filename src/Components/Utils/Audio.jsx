@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { AppContext } from 'contexts/AppContext';
+import Slider from 'utils/Slider';
 import nextBlack from 'assets/Utils/next-black.svg';
 import nextWhite from 'assets/Utils/next-white.svg';
 import prevBlack from 'assets/Utils/prev-black.svg';
@@ -14,8 +15,8 @@ import unmuteBlack from 'assets/Utils/unmute-circle-black.svg';
 import unmuteWhite from 'assets/Utils/unmute-circle-white.svg';
 import pipeBlack from 'assets/Utils/pipe-black.svg';
 import pipeWhite from 'assets/Utils/pipe-white.svg';
+import Tilt from 'react-parallax-tilt';
 import 'styles/Utils/Audio.css';
-import Slider from 'utils/Slider';
 
 function Audio({
   selectedAudio,
@@ -45,6 +46,8 @@ function Audio({
   const currentMute = !darkMode ? muteWhite : muteBlack;
   const currentUnmute = !darkMode ? unmuteWhite : unmuteBlack;
   const currentMuteUnmute = mute ? currentMute : currentUnmute;
+
+  const [scale, setScale] = useState(1.05);
 
   const handleMetadataLoaded = () => {
     if (audioRef.current) {
@@ -222,15 +225,17 @@ function Audio({
             className='audio-selection-header-background'
           />
           <div className='audio-selection-header-background-overlay' />
-          <img
-            src={selectedAudio.img || noAlbumImg}
-            alt={`${selectedAudio.title} album art`}
-            className='audio-detail-img'
-            id='audio-detail-img'
-            onMouseDown={(event) =>
-              artworkOpen(event, selectedAudio.img, selectedAudio.title)
-            }
-          />
+          <Tilt scale={scale} transitionSpeed={2500}>
+            <img
+              src={selectedAudio.img || noAlbumImg}
+              alt={`${selectedAudio.title} album art`}
+              className='audio-detail-img'
+              id='audio-detail-img'
+              onMouseDown={(event) =>
+                artworkOpen(event, selectedAudio.img, selectedAudio.title)
+              }
+            />
+          </Tilt>
           <div className='audio-detail-container' id='audio-detail-container'>
             <div className='audio-detail-text' id='audio-detail-text'>
               <div
