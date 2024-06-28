@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { AppContext } from 'contexts/AppContext';
+import Title from 'utils/Title';
 import Slider from 'utils/Slider';
 import nextBlack from 'assets/Utils/next-black.svg';
 import nextWhite from 'assets/Utils/next-white.svg';
@@ -238,25 +239,7 @@ function Audio({
           </Tilt>
           <div className='audio-detail-container' id='audio-detail-container'>
             <div className='audio-detail-text' id='audio-detail-text'>
-              <div
-                className='audio-detail-title-container'
-                id='audio-detail-title-container'
-              >
-                <div
-                  className='audio-detail-title'
-                  id='audio-detail-title'
-                  style={{
-                    maxWidth: `${selectedAudio.explicit ? '85%' : '100%'}`,
-                  }}
-                >
-                  {selectedAudio.title}
-                </div>
-                {selectedAudio.explicit && (
-                  <div className='explicit-box'>
-                    <p className='explicit-text'>EXPLICIT</p>
-                  </div>
-                )}
-              </div>
+              <Title selectedAudio={selectedAudio} />
               <div className='audio-detail-artist' id='audio-detail-artist'>
                 {selectedAudio.artist}
               </div>
