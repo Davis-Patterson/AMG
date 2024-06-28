@@ -108,6 +108,12 @@
   position: relative;
 }
 
+.tilt-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .audio-detail-img {
   width: 200px;
   box-shadow: 0 4px 8px var(--clr-shadow1), 0 6px 20px var(--clr-shadow3);
@@ -123,7 +129,7 @@
   flex-direction: column;
   width: 100%;
   height: 110px;
-  margin: 0px 0px 35px 0px;
+  margin: 0px 0px 20px 0px;
 }
 
 .audio-detail-title-container {
