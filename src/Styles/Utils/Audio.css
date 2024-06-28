@@ -52,14 +52,18 @@
     justify-content: center;
     flex-direction: row;
   }
+  #audio-progress-container,
+  #audio-controls-container {
+    justify-content: center;
+  }
+  #audio-play-button {
+    margin: 3px 5px;
+  }
 }
 
 @media screen and (max-width: 460px) {
   #audio-detail-img {
     width: 150px;
-  }
-  #audio-progress-range {
-    width: calc(65%);
   }
 }
 
@@ -188,10 +192,30 @@
   justify-content: center;
 }
 
+.audio-progress-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+  width: 100%;
+}
+
+.audio-progress-numbers {
+  margin: 0px 20px 0px 0px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.9em;
+  font-weight: 400;
+  line-height: 1.15;
+  font-style: italic;
+  color: var(--clr-light);
+}
+
 .audio-controls-container {
   padding: 10px 0px 0px 0px;
   border-radius: 20px;
   z-index: 51;
+  display: flex;
+  justify-content: left;
 }
 
 .audio-controls {
@@ -209,12 +233,18 @@
   color: var(--clr-dark);
 }
 
-.audio-controls-button {
+.audio-controls-button,
+.audio-play-button {
   height: 30px;
   cursor: pointer;
-  margin: 3px 5px;
   z-index: 30;
   transform: scale 0.2s ease-in-out;
+}
+.audio-controls-button {
+  margin: 3px 5px;
+}
+.audio-play-button {
+  margin: 3px 5px 3px 0px;
 }
 .audio-controls-button:hover {
   transform: scale(104%);
@@ -226,24 +256,6 @@
 .audio-controls-pipe {
   height: 22px;
   margin: 3px 5px;
-}
-
-.audio-progress-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: left;
-  align-items: center;
-  width: 100%;
-}
-
-.audio-progress-numbers {
-  margin: 0px 20px 0px 0px;
-  font-family: 'Nunito', sans-serif;
-  font-size: 0.9em;
-  font-weight: 400;
-  line-height: 1.15;
-  font-style: italic;
-  color: var(--clr-light);
 }
 
 .audio-volume {
