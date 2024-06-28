@@ -225,10 +225,12 @@
 .audio-play-button {
   margin: 3px 5px 3px 0px;
 }
-.audio-controls-button:hover {
+.audio-controls-button:hover,
+.audio-play-button:hover {
   transform: scale(104%);
 }
-.audio-controls-button:active {
+.audio-controls-button:active,
+.audio-play-button:active {
   transform: scale(98%);
 }
 
