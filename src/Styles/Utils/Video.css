@@ -6,11 +6,13 @@
   display: block;
 }
 
+.video-title-artist-link-container,
 .video-title-artist-container {
-  width: 100%;
+  max-width: 100%;
   display: flex;
   justify-content: left;
   align-items: center;
+  transition: scale 0.15s ease-in-out;
 }
 
 .video-title-indicator {
@@ -21,6 +23,16 @@
   margin: 5px 0px 5px 5px;
   text-align: left;
   width: 12px;
+}
+
+.video-title-link-icon {
+  font-family: 'Titillium Web', sans-serif;
+  font-size: 0.9em;
+  font-weight: 600;
+  color: var(--clr-dark);
+  margin: 5px 0px 5px 5px;
+  text-align: left;
+  width: 15px;
 }
 
 .video-title {
@@ -41,4 +53,8 @@
   margin: 7px 0px 5px 5px;
   text-align: left;
   transform: scaleY(95%);
+}
+.video-title-artist-link-container:hover .video-title,
+.video-title-artist-link-container:hover .video-artist {
+  color: var(--clr-accent);
 }

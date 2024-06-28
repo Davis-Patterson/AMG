@@ -1,14 +1,21 @@
-import React, { useEffect, useContext, useRef } from 'react';
+import React, { useState, useEffect, useContext, useRef } from 'react';
 import { AppContext } from 'contexts/AppContext';
 import pointerBlack from 'assets/Utils/pointer-black.svg';
 import pointerWhite from 'assets/Utils/pointer-white.svg';
+import linkBlack from 'assets/Utils/link-black.svg';
+import linkWhite from 'assets/Utils/link-white.svg';
+import linkAccent from 'assets/Utils/link-accent.svg';
 import 'styles/Utils/Video.css';
 
 function Video({ artist, videoPlay, setVideoPlay, videoRef }) {
   const { darkMode, mute, setMute } = useContext(AppContext);
+  const [hovered, setHovered] = useState(false);
+
   const volumeRef = useRef(videoRef.current ? videoRef.current.volume : 1);
 
   const currentPointer = darkMode ? pointerWhite : pointerBlack;
+  const currentLink = darkMode ? linkWhite : linkBlack;
+  const hoveredLink = hovered ? linkAccent : currentLink;
 
   useEffect(() => {
     const videoElement = videoRef.current;
@@ -68,15 +75,34 @@ function Video({ artist, videoPlay, setVideoPlay, videoRef }) {
               ))}
               Your browser does not support the video tag.
             </video>
-            <div className='video-title-artist-container'>
-              <img
-                src={currentPointer}
-                alt='pointer icon'
-                className='video-title-indicator'
-              />
-              <p className='video-title'>{video.title}</p>
-              <p className='video-artist'>- {video.artist}</p>
-            </div>
+            {video.link ? (
+              <a
+                href={video.link}
+                target='_blank'
+                rel='noopener noreferrer'
+                className='video-title-artist-link-container'
+                onMouseEnter={() => setHovered(true)}
+                onMouseLeave={() => setHovered(false)}
+              >
+                <img
+                  src={hoveredLink}
+                  alt='link icon'
+                  className='video-title-link-icon'
+                />
+                <p className='video-title'>{video.title}</p>
+                <p className='video-artist'>- {video.artist}</p>
+              </a>
+            ) : (
+              <div className='video-title-artist-container'>
+                <img
+                  src={currentPointer}
+                  alt='pointer icon'
+                  className='video-title-indicator'
+                />
+                <p className='video-title'>{video.title}</p>
+                <p className='video-artist'>- {video.artist}</p>
+              </div>
+            )}
           </div>
         ))}
     </>
