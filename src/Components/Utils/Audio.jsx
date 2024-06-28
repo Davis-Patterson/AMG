@@ -263,7 +263,10 @@ function Audio({
               </div>
             </div>
             <div className='audio-player-container'>
-              <div className='audio-progress-container'>
+              <div
+                className='audio-progress-container'
+                id='audio-progress-container'
+              >
                 <div className='audio-progress-numbers'>
                   {formatTime(currentTime)} | {formatTime(duration)}
                 </div>
@@ -271,20 +274,25 @@ function Audio({
                   <Slider onChange={handleProgressChange} progress={progress} />
                 </div>
               </div>
-              <div className='audio-controls-container'>
+              <div
+                className='audio-controls-container'
+                id='audio-controls-container'
+              >
                 <div className='audio-controls'>
                   {audioPlay ? (
                     <img
                       src={currentPause}
                       alt='pause button'
-                      className='audio-controls-button'
+                      className='audio-play-button'
+                      id='audio-play-button'
                       onMouseDown={(event) => togglePause(event)}
                     />
                   ) : (
                     <img
                       src={currentPlay}
                       alt='play button'
-                      className='audio-controls-button'
+                      className='audio-play-button'
+                      id='audio-play-button'
                       onMouseDown={(event) => togglePlay(event)}
                     />
                   )}
@@ -292,6 +300,7 @@ function Audio({
                     src={currentPrev}
                     alt='prev button'
                     className='audio-controls-button'
+                    id='audio-controls-button'
                     onMouseDown={(event) => handlePrev(event)}
                   />
                   <img
@@ -303,12 +312,14 @@ function Audio({
                     src={currentNext}
                     alt='next button'
                     className='audio-controls-button'
+                    id='audio-controls-button'
                     onMouseDown={(event) => handleNext(event)}
                   />
                   <img
                     src={currentMuteUnmute}
                     alt='mute button'
                     className='audio-controls-button'
+                    id='audio-controls-button'
                     onMouseDown={(event) => toggleMute(event)}
                   />
                   <div className='audio-volume'>
