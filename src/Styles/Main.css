@@ -27,7 +27,9 @@
   --clr-white3: #8d8d8d;
   --clr-banner: #c4c4c4c4;
   --clr-light-screen: #ffffffb2;
+  --clr-light-screen2: #ffffff70;
   --clr-dark: #292929;
+  --clr-black: #000000;
   --clr-break: #acacac;
   --clr-divider: #acacac;
   --clr-section: #dfdfdf;
@@ -47,7 +49,7 @@
   --clr-text-light2: #8d8d8d;
   --clr-subtext: #424242;
   --clr-white: #fff;
-  --clr-black: #000000;
+  --clr-always-black: #000000;
   --clr-nav: #505050;
   --clr-menu: #f5f5f5f1;
   --clr-icon-light: #eeeeee;
@@ -81,7 +83,9 @@
   --clr-white3: #8d8d8d;
   --clr-banner: #1a1a1a;
   --clr-light-screen: #080808c4;
+  --clr-light-screen2: #08080867;
   --clr-dark: #d0d0d0;
+  --clr-black: #ffffff;
   --clr-divider: #3b3b3b;
   --clr-break: #979797;
   --clr-section: #181818;
@@ -101,7 +105,7 @@
   --clr-text-light2: #141414;
   --clr-subtext: #7a7a7a;
   --clr-white: #fff;
-  --clr-black: #000000;
+  --clr-always-black: #000000;
   --clr-nav: #424242;
   --clr-menu: #000000f5;
   --clr-icon-light: #070707;
@@ -160,6 +164,8 @@ body {
   background-color: var(--clr-light);
   color: var(--clr-dark);
   transition: background-color 1s ease;
+  position: relative;
+  z-index: -2;
 }
 /* body.menu-open {
   position: fixed;
@@ -209,4 +215,5 @@ span {
   text-align: left;
   width: 100%;
   position: relative;
+  z-index: -2;
 }

@@ -319,36 +319,43 @@ function Artist() {
                 className='artist-news-article'
                 id='artist-news-article'
               >
-                <img
-                  src={news.img}
-                  alt={news.title}
-                  className='artist-news-article-image'
+                <a
+                  href={`/news/${formatTitleForURL(news.title)}`}
                   onMouseDown={(event) =>
                     handleLinkClick(
                       event,
                       `/news/${formatTitleForURL(news.title)}`
                     )
                   }
-                />
+                  className='artist-news-article-image-link'
+                >
+                  <img
+                    src={news.img}
+                    alt={news.title}
+                    className='artist-news-article-image'
+                  />
+                </a>
                 <div className='artist-news-article-content'>
-                  <h4
-                    className='artist-news-article-title'
+                  <a
+                    href={`/news/${formatTitleForURL(news.title)}`}
                     onMouseDown={(event) =>
                       handleLinkClick(
                         event,
                         `/news/${formatTitleForURL(news.title)}`
                       )
                     }
+                    className='artist-news-article-title-link'
                   >
-                    {news.title}
-                  </h4>
+                    <h4 className='artist-news-article-title'>{news.title}</h4>
+                  </a>
                   <p className='artist-news-article-desc'>
                     {news.content[0].content}
                   </p>
                   <p className='artist-news-article-date'>
                     By {news.author} on {news.date}
                   </p>
-                  <div
+                  <a
+                    href={`/news/${formatTitleForURL(news.title)}`}
                     onMouseDown={(event) =>
                       handleLinkClick(
                         event,
@@ -360,7 +367,7 @@ function Artist() {
                     <span>
                       <p className='read-more-button-text'>Read More</p>
                     </span>
-                  </div>
+                  </a>
                 </div>
               </div>
             ))}

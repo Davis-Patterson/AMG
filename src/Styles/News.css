@@ -232,12 +232,12 @@
   cursor: pointer;
   transition: box-shadow 0.3s ease-in-out;
 }
-.news-news-article-image:hover {
+.news-news-article-image-link:hover .news-news-article-image {
   box-shadow: 0 4px 8px var(--clr-shadow2);
 }
 
-.news-news-article-image:hover + .news-article-text,
-.news-news-article-image:hover {
+.news-news-article-image-link:hover + .news-article-text,
+.news-news-article-image-link:hover {
   transform: translateY(-2px);
   transition: transform 0.15s ease-in-out;
 }

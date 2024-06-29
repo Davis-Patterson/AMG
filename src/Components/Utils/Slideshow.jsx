@@ -272,75 +272,89 @@ const Slideshow = ({ data, index, setIndex, slideClass }) => {
             onTransitionEnd={handleTransitionEnd}
           >
             <div className={`${slideClass}-header-pic-title-wrapper`}>
-              <p
-                className={
-                  slideClass === 'artists' || slideClass === 'news'
-                    ? `${slideClass}-header-pic-link-title`
-                    : `${slideClass}-header-pic-title`
-                }
-                onMouseDown={(event) =>
-                  slideClass === 'artists' || slideClass === 'news'
-                    ? handleLinkClick(
-                        event,
-                        `/${slideClass}/${formatTitleForURL(
-                          data[data.length - 1].name ||
-                            data[data.length - 1].title
-                        )}`
-                      )
-                    : null
-                }
-              >
-                {truncateTitle(
-                  data[data.length - 1].title || data[data.length - 1].name
-                )}
-              </p>
+              {slideClass === 'artists' || slideClass === 'news' ? (
+                <a
+                  href={`/${slideClass}/${formatTitleForURL(
+                    data[data.length - 1].name || data[data.length - 1].title
+                  )}`}
+                  onMouseDown={(event) =>
+                    handleLinkClick(
+                      event,
+                      `/${slideClass}/${formatTitleForURL(
+                        data[data.length - 1].name ||
+                          data[data.length - 1].title
+                      )}`
+                    )
+                  }
+                >
+                  <p className={`${slideClass}-header-pic-link-title`}>
+                    {truncateTitle(
+                      data[data.length - 1].title || data[data.length - 1].name
+                    )}
+                  </p>
+                </a>
+              ) : (
+                <p className={`${slideClass}-header-pic-title`}>
+                  {truncateTitle(
+                    data[data.length - 1].title || data[data.length - 1].name
+                  )}
+                </p>
+              )}
             </div>
             {data.map((item, idx) => (
               <div
                 className={`${slideClass}-header-pic-title-wrapper`}
                 key={idx}
               >
-                <p
-                  className={
-                    slideClass === 'artists' || slideClass === 'news'
-                      ? `${slideClass}-header-pic-link-title`
-                      : `${slideClass}-header-pic-title`
-                  }
-                  onMouseDown={(event) =>
-                    slideClass === 'artists' || slideClass === 'news'
-                      ? handleLinkClick(
-                          event,
-                          `/${slideClass}/${formatTitleForURL(
-                            item.name || item.title
-                          )}`
-                        )
-                      : null
-                  }
-                >
-                  {truncateTitle(item.title || item.name)}
-                </p>
+                {slideClass === 'artists' || slideClass === 'news' ? (
+                  <a
+                    href={`/${slideClass}/${formatTitleForURL(
+                      item.name || item.title
+                    )}`}
+                    onMouseDown={(event) =>
+                      handleLinkClick(
+                        event,
+                        `/${slideClass}/${formatTitleForURL(
+                          item.name || item.title
+                        )}`
+                      )
+                    }
+                  >
+                    <p className={`${slideClass}-header-pic-link-title`}>
+                      {truncateTitle(item.title || item.name)}
+                    </p>
+                  </a>
+                ) : (
+                  <p className={`${slideClass}-header-pic-title`}>
+                    {truncateTitle(item.title || item.name)}
+                  </p>
+                )}
               </div>
             ))}
             <div className={`${slideClass}-header-pic-title-wrapper`}>
-              <p
-                className={
-                  slideClass === 'artists' || slideClass === 'news'
-                    ? `${slideClass}-header-pic-link-title`
-                    : `${slideClass}-header-pic-title`
-                }
-                onMouseDown={(event) =>
-                  slideClass === 'artists' || slideClass === 'news'
-                    ? handleLinkClick(
-                        event,
-                        `/${slideClass}/${formatTitleForURL(
-                          data[0].name || data[0].title
-                        )}`
-                      )
-                    : null
-                }
-              >
-                {truncateTitle(data[0].title || data[0].name)}
-              </p>
+              {slideClass === 'artists' || slideClass === 'news' ? (
+                <a
+                  href={`/${slideClass}/${formatTitleForURL(
+                    data[0].name || data[0].title
+                  )}`}
+                  onMouseDown={(event) =>
+                    handleLinkClick(
+                      event,
+                      `/${slideClass}/${formatTitleForURL(
+                        data[0].name || data[0].title
+                      )}`
+                    )
+                  }
+                >
+                  <p className={`${slideClass}-header-pic-link-title`}>
+                    {truncateTitle(data[0].title || data[0].name)}
+                  </p>
+                </a>
+              ) : (
+                <p className={`${slideClass}-header-pic-title`}>
+                  {truncateTitle(data[0].title || data[0].name)}
+                </p>
+              )}
             </div>
           </div>
         </div>

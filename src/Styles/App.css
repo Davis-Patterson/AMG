@@ -1,12 +1,12 @@
-.gap {
-  height: 60px;
-}
-
 @media screen and (max-width: 1150px) {
   #page-container {
     min-height: calc(100vh - 100px);
     margin: 100px 0px 0px 0px;
   }
+}
+
+.gap {
+  height: 60px;
 }
 
 .page-container {
@@ -85,6 +85,13 @@
   background-color: var(--clr-progress);
   width: 0%;
   border-radius: 4px;
+}
+
+.banner-link-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
 
 .filter-dropdown {

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { AppContext } from 'contexts/AppContext';
 import Icon from 'utils/Icon';
 import AMGLogoBlack from 'assets/Logos/AMG-full-words-black.png';
@@ -28,6 +28,7 @@ const Nav = () => {
   const menuIconRef = useRef(null);
 
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleNavClick = (event, path) => {
     if (event.button !== 0) return;
@@ -45,7 +46,7 @@ const Nav = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY === 0) {
+      if (window.scrollY === 0 && location !== '/') {
         setIsTop(true);
       } else {
         setIsTop(false);
@@ -122,7 +123,8 @@ const Nav = () => {
       >
         <main className='nav-contents'>
           <section className='home-button-container'>
-            <div
+            <a
+              href='/'
               onMouseDown={(event) => handleNavClick(event, '/')}
               className='home-button'
             >
@@ -132,38 +134,42 @@ const Nav = () => {
                 className='AMG-logo-nav'
                 id='AMG-logo-nav'
               />
-            </div>
+            </a>
             <div className='home-button-adjacent'></div>
           </section>
           <section className='nav-buttons-container' id='nav-buttons-container'>
-            <div
+            <a
+              href='/news'
               onMouseDown={(event) => handleNavClick(event, '/news')}
               className='nav-button'
               id='nav-button'
             >
               News
-            </div>
-            <div
+            </a>
+            <a
+              href='/artists'
               onMouseDown={(event) => handleNavClick(event, '/artists')}
               className='nav-button'
               id='nav-button'
             >
               Artists
-            </div>
-            <div
+            </a>
+            <a
+              href='/about'
               onMouseDown={(event) => handleNavClick(event, '/about')}
               className='nav-button'
               id='nav-button'
             >
               About
-            </div>
-            <div
+            </a>
+            <a
+              href='/contact'
               onMouseDown={(event) => handleNavClick(event, '/contact')}
               className='nav-button'
               id='nav-button'
             >
               Contact
-            </div>
+            </a>
             <div className='icon-container'>
               <div ref={menuIconRef}>
                 {darkMode ? (
