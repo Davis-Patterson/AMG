@@ -9,8 +9,13 @@ import 'styles/Article.css';
 
 function Article() {
   const { title } = useParams();
-  const { darkMode, newsData, noUserImg, handleLinkClick, formatTitleForURL } =
-    useContext(AppContext);
+  const {
+    newsData,
+    noUserImg,
+    handleLinkClick,
+    formatTitleForURL,
+    artworkOpen,
+  } = useContext(AppContext);
   const [article, setArticle] = useState(null);
   const [recentNews, setRecentNews] = useState(null);
 
@@ -32,12 +37,54 @@ function Article() {
     window.scrollTo(0, 0);
   }, []);
 
+  const handleArtworkOpen = (
+    event,
+    imgSrc,
+    imgTitle = '',
+    imgArtist = '',
+    imgAlbum = ''
+  ) => {
+    if (event.button !== 0) return;
+    event.preventDefault();
+    event.stopPropagation();
+
+    const artworkDetails = {
+      src: imgSrc,
+      alt: imgTitle,
+      title: imgTitle,
+      artist: imgArtist,
+      album: imgAlbum,
+      date: '',
+      explicit: false,
+    };
+
+    artworkOpen(
+      event,
+      artworkDetails.src,
+      artworkDetails.alt,
+      artworkDetails.title,
+      artworkDetails.artist,
+      artworkDetails.album,
+      artworkDetails.date,
+      artworkDetails.explicit
+    );
+  };
+
   const getDescriptionText = (desc, attribution, date) => {
     if (!desc && !attribution && !date) return '';
     if (desc && !attribution && !date) return `${desc}`;
     if (desc && (attribution || date))
       return `${desc} - ${attribution || ''} ${date || ''}`.trim();
     return `${attribution || ''} ${date || ''}`.trim();
+  };
+
+  const getArtworkText = (desc, attribution, date, title) => {
+    if (!desc && !attribution && !date) {
+      return { artist: title, album: '' };
+    }
+    const artist = desc || '';
+    const album = [attribution, date].filter(Boolean).join(' ') || '';
+    return { artist, album };
   };
 
   if (!newsData || newsData.length === 0) {
@@ -159,6 +206,15 @@ function Article() {
             src={article.img}
             alt={article.title}
             className='article-header-pics'
+            onMouseDown={(event) =>
+              handleArtworkOpen(
+                event,
+                article.img,
+                article.title,
+                '',
+                article.title
+              )
+            }
           />
         </section>
       </header>
@@ -172,6 +228,15 @@ function Article() {
             alt={article.title}
             className='news-article-image'
             id='news-article-image'
+            onMouseDown={(event) =>
+              handleArtworkOpen(
+                event,
+                article.img,
+                article.title,
+                '',
+                article.title
+              )
+            }
           />
           <div className='article-title-container'>
             <h2 className='article-title' id='article-title'>
@@ -182,27 +247,38 @@ function Article() {
           </div>
         </div>
         <div className='article-text-content'>
-          {article.content.map((section) => (
-            <div key={section.section}>
-              {section.img && (
-                <div className='article-section-image-container'>
-                  <img
-                    src={section.img}
-                    alt='section img'
-                    className='article-section-image'
-                  />
-                </div>
-              )}
-              <p className='image-description'>
-                {getDescriptionText(
-                  section.desc,
-                  section.attribution,
-                  section.date
+          {article.content.map((section) => {
+            const { artist, album } = getArtworkText(
+              section.desc,
+              section.attribution,
+              section.date,
+              article.title
+            );
+            return (
+              <div key={section.section}>
+                {section.img && (
+                  <div className='article-section-image-container'>
+                    <img
+                      src={section.img}
+                      alt={section.desc || article.title}
+                      className='article-section-image'
+                      onMouseDown={(event) =>
+                        handleArtworkOpen(event, section.img, '', artist, album)
+                      }
+                    />
+                  </div>
                 )}
-              </p>
-              <p className='article-section-text'>{section.content}</p>
-            </div>
-          ))}
+                <p className='image-description'>
+                  {getDescriptionText(
+                    section.desc,
+                    section.attribution,
+                    section.date
+                  )}
+                </p>
+                <p className='article-section-text'>{section.content}</p>
+              </div>
+            );
+          })}
         </div>
         {article.artist && article.artist.length > 0 && (
           <div className='article-artist-container'>
@@ -270,9 +346,12 @@ function Article() {
                     className='recent-news-article-image'
                     id='recent-news-article-image'
                     onMouseDown={(event) =>
-                      handleLinkClick(
+                      handleArtworkOpen(
                         event,
-                        `/news/${formatTitleForURL(newsItem.title)}`
+                        newsItem.img,
+                        newsItem.title,
+                        newsItem.author,
+                        newsItem.date
                       )
                     }
                   />

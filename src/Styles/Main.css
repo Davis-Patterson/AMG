@@ -22,6 +22,9 @@
 
   /* 'lightMode' */
   --clr-light: #ffffff;
+  --clr-white: #ffffff;
+  --clr-white2: #b6b6b6;
+  --clr-white3: #8d8d8d;
   --clr-banner: #c4c4c4c4;
   --clr-light-screen: #ffffffb2;
   --clr-dark: #292929;
@@ -73,6 +76,9 @@
 
 .darkMode {
   --clr-light: #080808;
+  --clr-white: #ffffff;
+  --clr-white2: #b6b6b6;
+  --clr-white3: #8d8d8d;
   --clr-banner: #1a1a1a;
   --clr-light-screen: #080808c4;
   --clr-dark: #d0d0d0;

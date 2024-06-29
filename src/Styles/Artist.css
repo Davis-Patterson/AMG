@@ -37,7 +37,7 @@
 }
 
 @media screen and (max-width: 500px) {
-  #news-artist-image {
+  #artist-image {
     margin-right: 8px;
   }
   #artist-title {
@@ -89,6 +89,7 @@
   top: 0;
   left: 0;
   z-index: 0;
+  cursor: pointer;
 }
 
 .artist-detail-title-container {
@@ -108,11 +109,12 @@
   align-items: center;
 }
 
-.news-artist-image {
+.artist-image {
   width: 150px;
   height: 150px;
   object-fit: cover;
   margin-right: 20px;
+  cursor: pointer;
 }
 
 .artist-title-container {

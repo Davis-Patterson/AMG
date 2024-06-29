@@ -6,10 +6,16 @@ import 'react-loading-skeleton/dist/skeleton.css';
 import CircularProgress from '@mui/material/CircularProgress';
 
 const Slideshow = ({ data, index, setIndex, slideClass }) => {
-  const { noUserImg, handleLinkClick, formatTitleForURL } =
-    useContext(AppContext);
+  const {
+    isPaused,
+    setIsPaused,
+    setWasPaused,
+    noUserImg,
+    handleLinkClick,
+    formatTitleForURL,
+    artworkOpen,
+  } = useContext(AppContext);
 
-  const [isPaused, setIsPaused] = useState(false);
   const [progress, setProgress] = useState(0);
   const [maxLength, setMaxLength] = useState(42);
 
@@ -47,6 +53,35 @@ const Slideshow = ({ data, index, setIndex, slideClass }) => {
 
   const truncateTitle = (title) => {
     return title.length > maxLength ? title.slice(0, maxLength) + '...' : title;
+  };
+
+  const handleArtworkOpen = (event, imgSrc, title) => {
+    if (event.button !== 0) return;
+    event.preventDefault();
+    event.stopPropagation();
+    setWasPaused(isPaused);
+    setIsPaused(true);
+
+    const artworkDetails = {
+      src: imgSrc,
+      alt: title,
+      title: '',
+      artist: title,
+      album: '',
+      date: '',
+      explicit: false,
+    };
+
+    artworkOpen(
+      event,
+      artworkDetails.src,
+      artworkDetails.alt,
+      artworkDetails.title,
+      artworkDetails.artist,
+      artworkDetails.album,
+      artworkDetails.date,
+      artworkDetails.explicit
+    );
   };
 
   useEffect(() => {
@@ -166,7 +201,16 @@ const Slideshow = ({ data, index, setIndex, slideClass }) => {
           style={{ transform: `translateX(${-100 * index}%)` }}
           onTransitionEnd={handleTransitionEnd}
         >
-          <div className={`${slideClass}-header-pic-wrapper`}>
+          <div
+            className={`${slideClass}-header-pic-wrapper`}
+            onMouseDown={(event) =>
+              handleArtworkOpen(
+                event,
+                getBannerOrImg(data[data.length - 1]),
+                data[data.length - 1].title || data[data.length - 1].name
+              )
+            }
+          >
             <img
               src={getBannerOrImg(data[data.length - 1])}
               alt={data[data.length - 1].title || data[data.length - 1].name}
@@ -181,6 +225,13 @@ const Slideshow = ({ data, index, setIndex, slideClass }) => {
               key={idx}
               className={`${slideClass}-header-pic-wrapper`}
               id={`${slideClass}-header-pic-wrapper`}
+              onMouseDown={(event) =>
+                handleArtworkOpen(
+                  event,
+                  getBannerOrImg(item),
+                  item.title || item.name
+                )
+              }
             >
               <img
                 src={getBannerOrImg(item)}
@@ -192,7 +243,16 @@ const Slideshow = ({ data, index, setIndex, slideClass }) => {
               />
             </div>
           ))}
-          <div className={`${slideClass}-header-pic-wrapper`}>
+          <div
+            className={`${slideClass}-header-pic-wrapper`}
+            onMouseDown={(event) =>
+              handleArtworkOpen(
+                event,
+                getBannerOrImg(data[0]),
+                data[0].title || data[0].name
+              )
+            }
+          >
             <img
               src={getBannerOrImg(data[0])}
               alt={data[0].title || data[0].name}

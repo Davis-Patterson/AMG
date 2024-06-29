@@ -16,8 +16,16 @@ export const AppContext = createContext();
 export const AppProvider = ({ children }) => {
   const [showSplash, setShowSplash] = useState(true);
   const [showArtwork, setShowArtwork] = useState(false);
-  const [artworkSrc, setArtworkSrc] = useState([]);
-  const [artworkAlt, setArtworkAlt] = useState([]);
+  const [artworkData, setArtworkData] = useState({
+    src: '',
+    alt: '',
+    title: '',
+    artist: '',
+    album: '',
+    date: '',
+    explicit: '',
+  });
+
   const [menu, setMenu] = useState(false);
 
   const [darkMode, setDarkMode] = useLocalStorageState('darkMode', false);
@@ -25,6 +33,8 @@ export const AppProvider = ({ children }) => {
   const [openDropdown, setOpenDropdown] = useState(null);
   const [contactFloat, setContactFloat] = useState(false);
 
+  const [isPaused, setIsPaused] = useState(false);
+  const [wasPaused, setWasPaused] = useState(false);
   const [homeIndex, setHomeIndex] = useState(0);
   const [newsIndex, setNewsIndex] = useState(0);
   const [artistsIndex, setArtistsIndex] = useState(0);
@@ -58,6 +68,7 @@ export const AppProvider = ({ children }) => {
     if (event.button !== 0) return;
     event.preventDefault();
     event.stopPropagation();
+    setIsPaused(false);
     setShowSplash(true);
     setContactFloat(false);
 
@@ -73,20 +84,30 @@ export const AppProvider = ({ children }) => {
       .replace(/-+$/, '');
   };
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
+  const handleChange = (event) => {
+    const { name, value } = event.target;
     setForm((prevState) => ({
       ...prevState,
       [name]: value,
     }));
   };
 
-  const artworkOpen = (event, src, alt) => {
+  const artworkOpen = (
+    event,
+    src,
+    alt,
+    title = '',
+    artist = '',
+    album = '',
+    date = '',
+    explicit = ''
+  ) => {
     if (event.button !== 0) return;
     event.preventDefault();
     event.stopPropagation();
-    setArtworkSrc(src);
-    setArtworkAlt(alt);
+    setWasPaused(isPaused);
+    setIsPaused(true);
+    setArtworkData({ src, alt, title, artist, album, date, explicit });
     setShowArtwork(true);
   };
 
@@ -95,12 +116,20 @@ export const AppProvider = ({ children }) => {
     event.preventDefault();
     event.stopPropagation();
     setShowArtwork(false);
-    setArtworkSrc([]);
-    setArtworkAlt([]);
+    setIsPaused(wasPaused);
+    setArtworkData({
+      src: '',
+      alt: '',
+      title: '',
+      artist: '',
+      album: '',
+      date: '',
+      explicit: '',
+    });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = (event) => {
+    event.preventDefault();
     setSending(true);
     // put client here
     // .then(
@@ -180,8 +209,8 @@ export const AppProvider = ({ children }) => {
         showSplash,
         setShowSplash,
         showArtwork,
-        artworkSrc,
-        artworkAlt,
+        artworkData,
+        setArtworkData,
         darkMode,
         setDarkMode,
         mute,
@@ -192,6 +221,9 @@ export const AppProvider = ({ children }) => {
         setOpenDropdown,
         contactFloat,
         setContactFloat,
+        isPaused,
+        setIsPaused,
+        setWasPaused,
         homeIndex,
         setHomeIndex,
         newsIndex,

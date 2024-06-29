@@ -30,6 +30,7 @@
   border-radius: 20px;
   background-color: var(--clr-screen);
   z-index: 51;
+  pointer-events: all;
 }
 
 .controls,

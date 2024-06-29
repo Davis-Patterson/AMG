@@ -16,6 +16,7 @@ function Artist() {
     noUserImg,
     handleLinkClick,
     formatTitleForURL,
+    artworkOpen,
   } = useContext(AppContext);
   const [artist, setArtist] = useState(null);
   const [bioReadMore, setBioReadMore] = useState(false);
@@ -55,6 +56,33 @@ function Artist() {
     event.preventDefault();
     event.stopPropagation();
     setBioReadMore(!bioReadMore);
+  };
+
+  const handleArtworkOpen = (event, imgSrc) => {
+    if (event.button !== 0) return;
+    event.preventDefault();
+    event.stopPropagation();
+
+    const artworkDetails = {
+      src: imgSrc,
+      alt: artist.name,
+      title: artist.name,
+      artist: '',
+      album: '',
+      date: '',
+      explicit: false,
+    };
+
+    artworkOpen(
+      event,
+      artworkDetails.src,
+      artworkDetails.alt,
+      artworkDetails.title,
+      artworkDetails.artist,
+      artworkDetails.album,
+      artworkDetails.date,
+      artworkDetails.explicit
+    );
   };
 
   const getBannerOrImg = (artist) => {
@@ -204,6 +232,9 @@ function Artist() {
             alt={artist.name}
             className='artist-header-pics'
             style={{ objectPosition: getBannerAlign(artist) }}
+            onMouseDown={(event) =>
+              handleArtworkOpen(event, getBannerOrImg(artist))
+            }
           />
         </section>
       </header>
@@ -215,8 +246,9 @@ function Artist() {
           <img
             src={getImgImg(artist)}
             alt={artist.name}
-            className='news-artist-image'
-            id='news-artist-image'
+            className='artist-image'
+            id='artist-image'
+            onMouseDown={(event) => handleArtworkOpen(event, getImgImg(artist))}
           />
           <div className='artist-title-container'>
             <h2 className='artist-title' id='artist-title'>

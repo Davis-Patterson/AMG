@@ -74,6 +74,7 @@
     var(--clr-gradient-start) 100%
   );
   z-index: 5;
+  pointer-events: none;
 }
 
 .about-header-text-container {
@@ -87,6 +88,7 @@
   position: absolute;
   left: 0;
   z-index: 10;
+  pointer-events: none;
 }
 
 .about-brand-container {
@@ -251,6 +253,7 @@
     var(--clr-section)
   );
   z-index: 2;
+  pointer-events: none;
 }
 
 .about-text-title,

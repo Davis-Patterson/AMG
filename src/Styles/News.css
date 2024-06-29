@@ -59,6 +59,7 @@
     var(--clr-gradient-start) 100%
   );
   z-index: 5;
+  pointer-events: none;
 }
 
 .news-header-text-container {
@@ -72,6 +73,7 @@
   position: absolute;
   left: 0;
   z-index: 10;
+  pointer-events: none;
 }
 
 .news-header-logo {

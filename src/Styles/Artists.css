@@ -238,6 +238,7 @@
     var(--clr-gradient-start) 100%
   );
   z-index: 5;
+  pointer-events: none;
 }
 
 .artists-header-text-container {
@@ -251,6 +252,7 @@
   position: absolute;
   left: 0;
   z-index: 10;
+  pointer-events: none;
 }
 
 .artists-brand-container {
@@ -320,6 +322,7 @@
   height: 100%;
   position: absolute;
   display: flex;
+  pointer-events: none;
 }
 
 .artists-header-pic-title-container {
@@ -361,6 +364,7 @@
   opacity: 1;
   transition: opacity 0.5s ease-in-out;
   white-space: nowrap;
+  pointer-events: all;
 }
 .artists-header-pic-title:hover,
 .artists-header-pic-link-title:hover {
