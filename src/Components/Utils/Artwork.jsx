@@ -41,7 +41,7 @@ function Artwork() {
   return (
     <div className='overlay' onMouseDown={(event) => artworkClose(event)}>
       <div className='overlay-content'>
-        <Tilt
+        {/* <Tilt
           scale={1.05}
           transitionSpeed={2500}
           glareEnable={true}
@@ -50,9 +50,9 @@ function Artwork() {
           perspective={9000}
           // tiltReverse={true}
           // glareReverse={true}
-        >
-          <img src={src} alt={alt} className='overlay-image' />
-        </Tilt>
+        > */}
+        <img src={src} alt={alt} className='overlay-image' />
+        {/* </Tilt> */}
         <div className='artwork-details'>
           {explicit && (
             <div className='artwork-explicit-box'>
