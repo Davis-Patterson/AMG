@@ -231,6 +231,33 @@ function Audio({
     }
   };
 
+  const handleArtworkOpen = (event) => {
+    if (event.button !== 0) return;
+    event.preventDefault();
+    event.stopPropagation();
+
+    const artworkDetails = {
+      src: selectedAudio.img || noAlbumImg,
+      alt: selectedAudio.title,
+      ...(selectedAudio.title && { title: selectedAudio.title }),
+      ...(selectedAudio.artist && { artist: selectedAudio.artist }),
+      ...(selectedAudio.album && { album: selectedAudio.album }),
+      ...(selectedAudio.date && { date: selectedAudio.date }),
+      ...(selectedAudio.explicit && { explicit: true }),
+    };
+
+    artworkOpen(
+      event,
+      artworkDetails.src,
+      artworkDetails.alt,
+      artworkDetails.title,
+      artworkDetails.artist,
+      artworkDetails.album,
+      artworkDetails.date,
+      artworkDetails.explicit
+    );
+  };
+
   return (
     <>
       {selectedAudio && (
@@ -253,9 +280,7 @@ function Audio({
               alt={`${selectedAudio.title} album art`}
               className='audio-detail-img'
               id='audio-detail-img'
-              onMouseDown={(event) =>
-                artworkOpen(event, selectedAudio.img, selectedAudio.title)
-              }
+              onMouseDown={handleArtworkOpen}
             />
           </Tilt>
           <div className='audio-detail-container' id='audio-detail-container'>

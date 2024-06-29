@@ -159,6 +159,7 @@
     var(--clr-light)
   );
   z-index: 2;
+  pointer-events: none;
 }
 
 .location-button-container {

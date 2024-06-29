@@ -18,6 +18,7 @@ const Nav = () => {
     setMenu,
     setOpenDropdown,
     setContactFloat,
+    setIsPaused,
   } = useContext(AppContext);
   const [isTop, setIsTop] = useState(true);
 
@@ -35,6 +36,7 @@ const Nav = () => {
     setShowSplash(true);
     setMenu(false);
     setContactFloat(false);
+    setIsPaused(false);
 
     setTimeout(() => {
       navigate(path);

@@ -6,7 +6,8 @@ import AMGLogoWhite from 'assets/Logos/AMG-full-white.png';
 import 'styles/Footer.css';
 
 const Footer = ({}) => {
-  const { darkMode, setShowSplash, setContactFloat } = useContext(AppContext);
+  const { darkMode, setShowSplash, setContactFloat, setIsPaused } =
+    useContext(AppContext);
   const currentLogo = darkMode ? AMGLogoWhite : AMGLogoBlack;
   const navigate = useNavigate();
   const location = useLocation();
@@ -18,6 +19,7 @@ const Footer = ({}) => {
     event.stopPropagation();
     setShowSplash(true);
     setContactFloat(false);
+    setIsPaused(false);
 
     setTimeout(() => {
       navigate(path);

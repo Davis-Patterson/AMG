@@ -11,7 +11,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 import 'styles/About.css';
 
 function About() {
-  const { darkMode, studioData, aboutIndex, setAboutIndex, amgBanner } =
+  const { studioData, aboutIndex, setAboutIndex, amgBanner, artworkOpen } =
     useContext(AppContext);
 
   useEffect(() => {
@@ -21,6 +21,33 @@ function About() {
   useEffect(() => {
     setAboutIndex(1);
   }, [setAboutIndex]);
+
+  const handleArtworkOpen = (event, imgSrc, cityName) => {
+    if (event.button !== 0) return;
+    event.preventDefault();
+    event.stopPropagation();
+
+    const artworkDetails = {
+      src: imgSrc,
+      alt: cityName,
+      title: '',
+      artist: cityName,
+      album: '',
+      date: '',
+      explicit: false,
+    };
+
+    artworkOpen(
+      event,
+      artworkDetails.src,
+      artworkDetails.alt,
+      artworkDetails.title,
+      artworkDetails.artist,
+      artworkDetails.album,
+      artworkDetails.date,
+      artworkDetails.explicit
+    );
+  };
 
   if (!studioData || studioData.length === 0) {
     return (
@@ -107,7 +134,14 @@ function About() {
           <div className='about-content' id='about-content'>
             <div className='about-img-container' id='about-img-container'>
               <div className='about-gradient' id='about-gradient' />
-              <img src={skylineImg} alt='about pic' className='about-img' />
+              <img
+                src={skylineImg}
+                alt='about pic'
+                className='about-img'
+                onMouseDown={(event) =>
+                  handleArtworkOpen(event, skylineImg, 'New York')
+                }
+              />
             </div>
             <div className='about-text-container' id='about-text-container'>
               <p className='about-text-title' id='about-text-title'>
