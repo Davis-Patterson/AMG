@@ -274,9 +274,9 @@ function Audio({
             glareEnable={true}
             glareMaxOpacity={0.65}
             className='tilt-container'
-            perspective={3000}
-            tiltReverse={true}
-            glareReverse={true}
+            perspective={1000}
+            // tiltReverse={true}
+            // glareReverse={true}
           >
             <img
               src={selectedAudio.img || noAlbumImg}

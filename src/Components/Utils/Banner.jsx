@@ -101,16 +101,21 @@ function Banner({ data, slideClass }) {
       const logos = getLogoImgs(item);
       logos.forEach((logo, logoIndex) => {
         bannerItems.push(
-          <img
-            key={`logo-${index}-${logoIndex}`}
-            src={logo}
-            alt={item.title || item.name}
-            className={`${slideClass}-banner-img`}
-            style={{ willChange: 'transform', cursor: 'pointer' }}
+          <a
+            href={getLink(item.entity, item.name)}
             onMouseDown={(event) =>
               handleLinkClick(event, getLink(item.entity, item.name))
             }
-          />
+            className='banner-link-wrapper'
+          >
+            <img
+              key={`logo-${index}-${logoIndex}`}
+              src={logo}
+              alt={item.title || item.name}
+              className={`${slideClass}-banner-img`}
+              style={{ willChange: 'transform', cursor: 'pointer' }}
+            />
+          </a>
         );
 
         const arrow = useArrowFill ? arrowFill : arrowOutline;

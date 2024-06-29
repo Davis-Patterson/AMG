@@ -150,7 +150,8 @@ function Artists() {
           </div>
           <div className='artists-content' id='artists-content'>
             {sortedArtists.map((artist, index) => (
-              <div
+              <a
+                href={`/artists/${formatTitleForURL(artist.name)}`}
                 key={index}
                 className='artist-card'
                 id='artist-card'
@@ -175,7 +176,7 @@ function Artists() {
                     {artist.name}
                   </p>
                 </div>
-              </div>
+              </a>
             ))}
           </div>
         </section>

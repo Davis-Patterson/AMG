@@ -275,7 +275,8 @@ const Menu = () => {
             <h2 className='menu-header-text'>MENU</h2>
           </div>
           <div className='menu-links' ref={addToRefs}>
-            <div
+            <a
+              href='/news'
               className='menu-item'
               onMouseDown={(event) => {
                 handleLinkClick(event, '/news');
@@ -310,7 +311,7 @@ const Menu = () => {
                   />
                 )}
               </div>
-            </div>
+            </a>
             {openDropdown === 'news' && (
               <div className='menu-item-content'>
                 <div
@@ -319,7 +320,8 @@ const Menu = () => {
                 >
                   {sortedNews && sortedNews.length > 0 ? (
                     sortedNews.map((article) => (
-                      <div
+                      <a
+                        href={`/news/${formatTitleForURL(article.title)}`}
                         key={article.id}
                         className='menu-content-link'
                         onMouseDown={(event) => {
@@ -336,7 +338,7 @@ const Menu = () => {
                         />
                         <div className='menu-news-title'>{article.title}</div>
                         <div className='menu-news-subtitle'>{article.date}</div>
-                      </div>
+                      </a>
                     ))
                   ) : (
                     <div className='loading-skeletons'>
@@ -370,7 +372,8 @@ const Menu = () => {
                 </div>
               </div>
             )}
-            <div
+            <a
+              href='/artists'
               className='menu-item'
               onMouseDown={(event) => {
                 handleLinkClick(event, '/artists');
@@ -409,7 +412,7 @@ const Menu = () => {
                   />
                 )}
               </div>
-            </div>
+            </a>
             {openDropdown === 'artists' && (
               <div className='menu-item-content'>
                 <div
@@ -418,7 +421,8 @@ const Menu = () => {
                 >
                   {sortedArtists && sortedArtists.length > 0 ? (
                     sortedArtists.map((artist) => (
-                      <div
+                      <a
+                        href={`/artists/${formatTitleForURL(artist.name)}`}
                         key={artist.name}
                         className='menu-content-link'
                         onMouseDown={(event) => {
@@ -434,7 +438,7 @@ const Menu = () => {
                           className='menu-news-image'
                         />
                         <div className='menu-artists-title'>{artist.name}</div>
-                      </div>
+                      </a>
                     ))
                   ) : (
                     <div className='loading-skeletons'>
@@ -467,7 +471,8 @@ const Menu = () => {
                 </div>
               </div>
             )}
-            <div
+            <a
+              href='/about'
               className='menu-item'
               onMouseDown={(event) => {
                 handleLinkClick(event, '/about');
@@ -502,7 +507,7 @@ const Menu = () => {
                   />
                 )}
               </div>
-            </div>
+            </a>
             {openDropdown === 'about' && (
               <div className='menu-item-content'>
                 <div className='menu-about-content' id='menu-about-content'>
@@ -657,7 +662,8 @@ const Menu = () => {
                 </div>
               </div>
             )}
-            <div
+            <a
+              href='/contact'
               className='menu-item'
               onMouseDown={(event) => {
                 handleLinkClick(event, '/contact');
@@ -698,7 +704,7 @@ const Menu = () => {
                   />
                 )}
               </div>
-            </div>
+            </a>
             {openDropdown === 'contact' && (
               <div className='menu-item-content'>
                 <div className='menu-contact-content'>

@@ -68,80 +68,82 @@ function Home() {
   }
 
   return (
-    <main className='home-container' id='home-container'>
-      <header className='home-display' id='home-header'>
-        <section
-          className='home-header-videos-container'
-          id='home-header-videos-container'
-        >
-          <div
-            className='home-header-videos-wrapper'
-            style={{ transform: `translateX(${-100 * homeIndex}%)` }}
-            onTransitionEnd={() => {}}
+    <>
+      <main className='home-container' id='home-container'>
+        <header className='home-display' id='home-header'>
+          <section
+            className='home-header-videos-container'
+            id='home-header-videos-container'
           >
-            {homeData.map((item, index) => (
-              <div key={index} className='home-header-video-wrapper'>
-                <video
-                  ref={(el) => (videoRefs.current[index] = el)}
-                  className='home-header-video'
-                  autoPlay={index === homeIndex}
-                  muted={mute}
-                  onTimeUpdate={handleVideoProgress}
-                  onEnded={handleVideoEnd}
-                  playsInline
-                  key={index}
-                >
-                  {item.videoSources.map((source, srcIndex) => (
-                    <source
-                      key={srcIndex}
-                      src={source.src}
-                      type={source.type}
-                    />
-                  ))}
-                </video>
-              </div>
-            ))}
-          </div>
-        </section>
-        <section className='home-header-overlays'>
-          <div className='home-header-video-title-gradient' />
-          <div className='home-header-video-title-container'>
             <div
-              className='home-header-videos-title-wrapper'
+              className='home-header-videos-wrapper'
               style={{ transform: `translateX(${-100 * homeIndex}%)` }}
               onTransitionEnd={() => {}}
             >
-              {homeData.map((title, index) => (
-                <div
-                  className='home-header-video-title-wrapper'
-                  key={index}
-                  onMouseDown={(event) =>
-                    handleLinkClick(
-                      event,
-                      `/artists/${formatTitleForURL(title.artist)}`
-                    )
-                  }
-                >
-                  <p className='home-header-video-title'>
-                    {title.title} - {title.artist}
-                  </p>
+              {homeData.map((item, index) => (
+                <div key={index} className='home-header-video-wrapper'>
+                  <video
+                    ref={(el) => (videoRefs.current[index] = el)}
+                    className='home-header-video'
+                    autoPlay={index === homeIndex}
+                    muted={mute}
+                    onTimeUpdate={handleVideoProgress}
+                    onEnded={handleVideoEnd}
+                    playsInline
+                    key={index}
+                  >
+                    {item.videoSources.map((source, srcIndex) => (
+                      <source
+                        key={srcIndex}
+                        src={source.src}
+                        type={source.type}
+                      />
+                    ))}
+                  </video>
                 </div>
               ))}
             </div>
-          </div>
-          <div className='progress-bar'>
-            <div
-              className='progress-bar-fill'
-              style={{
-                width: `${progress}%`,
-                transition: progress === 0 ? 'none' : 'width 0.1s linear',
-              }}
-            ></div>
-          </div>
-        </section>
-      </header>
-      <div className='gap' />
-    </main>
+          </section>
+          <section className='home-header-overlays'>
+            <div className='home-header-video-title-gradient' />
+            <div className='home-header-video-title-container'>
+              <div
+                className='home-header-videos-title-wrapper'
+                style={{ transform: `translateX(${-100 * homeIndex}%)` }}
+                onTransitionEnd={() => {}}
+              >
+                {homeData.map((title, index) => (
+                  <div
+                    className='home-header-video-title-wrapper'
+                    key={index}
+                    onMouseDown={(event) =>
+                      handleLinkClick(
+                        event,
+                        `/artists/${formatTitleForURL(title.artist)}`
+                      )
+                    }
+                  >
+                    <p className='home-header-video-title'>
+                      {title.title} - {title.artist}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className='progress-bar'>
+              <div
+                className='progress-bar-fill'
+                style={{
+                  width: `${progress}%`,
+                  transition: progress === 0 ? 'none' : 'width 0.1s linear',
+                }}
+              ></div>
+            </div>
+          </section>
+        </header>
+      </main>
+      <div className='home-gap' />
+    </>
   );
 }
 

@@ -59,14 +59,15 @@ const Footer = ({}) => {
           {links
             .filter((link) => link.path !== currentPath)
             .map((link) => (
-              <div
+              <a
+                href={link.path}
                 key={link.path}
                 onMouseDown={(event) => handleFooterClick(event, link.path)}
                 className='footer-link'
                 id='footer-link'
               >
                 {link.label}
-              </div>
+              </a>
             ))}
         </section>
         <section className='footer-footer' id='footer-footer'>

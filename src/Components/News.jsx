@@ -174,20 +174,26 @@ function News() {
             <div className='news-content'>
               {sortedNews.map((article) => (
                 <div key={article.id} className='news-article'>
-                  <img
-                    src={article.img}
-                    alt={article.title}
-                    className='news-news-article-image'
-                    id='news-news-article-image'
+                  <a
+                    href={`/news/${formatTitleForURL(article.title)}`}
                     onMouseDown={(event) =>
                       handleLinkClick(
                         event,
                         `/news/${formatTitleForURL(article.title)}`
                       )
                     }
-                  />
+                    className='news-news-article-image-link'
+                  >
+                    <img
+                      src={article.img}
+                      alt={article.title}
+                      className='news-news-article-image'
+                      id='news-news-article-image'
+                    />
+                  </a>
                   <div className='news-article-text'>
-                    <div
+                    <a
+                      href={`/news/${formatTitleForURL(article.title)}`}
                       onMouseDown={(event) =>
                         handleLinkClick(
                           event,
@@ -197,14 +203,15 @@ function News() {
                       className='news-article-title'
                     >
                       {article.title}
-                    </div>
+                    </a>
                     <p className='news-article-desc'>
                       {article.content[0].content}
                     </p>
                     <p className='news-article-author'>
                       By {article.author} on {article.date}
                     </p>
-                    <div
+                    <a
+                      href={`/news/${formatTitleForURL(article.title)}`}
                       onMouseDown={(event) =>
                         handleLinkClick(
                           event,
@@ -216,7 +223,7 @@ function News() {
                       <span>
                         <p className='read-more-button-text'>Read More</p>
                       </span>
-                    </div>
+                    </a>
                   </div>
                 </div>
               ))}

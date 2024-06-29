@@ -47,9 +47,9 @@ function Artwork() {
           glareEnable={true}
           glareMaxOpacity={0.42}
           className='tilt-container'
-          perspective={5000}
-          tiltReverse={true}
-          glareReverse={true}
+          perspective={9000}
+          // tiltReverse={true}
+          // glareReverse={true}
         >
           <img src={src} alt={alt} className='overlay-image' />
         </Tilt>
