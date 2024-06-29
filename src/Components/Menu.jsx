@@ -8,24 +8,7 @@ import React, {
 import { useNavigate } from 'react-router-dom';
 import { AppContext } from 'contexts/AppContext';
 import { ArrowBigLeft, ArrowBigRight } from 'lucide-react';
-import darkmodeIcon from 'assets/Utils/darkmode-white.svg';
-import lightmodeIcon from 'assets/Utils/lightmode-black.svg';
-import darkMuteIcon from 'assets/Utils/mute-black.svg';
-import lightMuteIcon from 'assets/Utils/mute-white.svg';
-import darkUnmuteIcon from 'assets/Utils/unmute-black.svg';
-import lightUnmuteIcon from 'assets/Utils/unmute-white.svg';
-import dropUpBlack from 'assets/Utils/drop-up-black.svg';
-import dropUpWhite from 'assets/Utils/drop-up-white.svg';
-import dropDownBlack from 'assets/Utils/drop-down-black.svg';
-import dropDownWhite from 'assets/Utils/drop-down-white.svg';
-import newsBlack from 'assets/Utils/news-black.svg';
-import newsWhite from 'assets/Utils/news-white.svg';
-import artistsBlack from 'assets/Utils/artists-black.svg';
-import artistsWhite from 'assets/Utils/artists-white.svg';
-import aboutBlack from 'assets/Utils/about-black.svg';
-import aboutWhite from 'assets/Utils/about-white.svg';
-import contactBlack from 'assets/Utils/contact-black.svg';
-import contactWhite from 'assets/Utils/contact-white.svg';
+import Icon from 'utils/Icon';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import CircularProgress from '@mui/material/CircularProgress';
@@ -70,17 +53,6 @@ const Menu = () => {
       menuRefs.current.push(el);
     }
   };
-
-  const currentUp = darkMode ? dropUpWhite : dropUpBlack;
-  const currentDown = darkMode ? dropDownWhite : dropDownBlack;
-  const currentNews = darkMode ? newsWhite : newsBlack;
-  const currentArtists = darkMode ? artistsWhite : artistsBlack;
-  const currentAbout = darkMode ? aboutWhite : aboutBlack;
-  const currentContact = darkMode ? contactWhite : contactBlack;
-  const currentDarkmodeIcon = darkMode ? darkmodeIcon : lightmodeIcon;
-  const currentMuteIcon = darkMode ? lightMuteIcon : darkMuteIcon;
-  const currentUnmuteIcon = darkMode ? lightUnmuteIcon : darkUnmuteIcon;
-  const currentSoundIcon = mute ? currentMuteIcon : currentUnmuteIcon;
 
   const navigate = useNavigate();
 
@@ -255,6 +227,13 @@ const Menu = () => {
     setAboutIndex((aboutIndex + 1) % (studioData.length + 2));
   };
 
+  const handlePause = (event) => {
+    if (event.button !== 0) return;
+    event.preventDefault();
+    event.stopPropagation();
+    setIsPaused(!isPaused);
+  };
+
   const getImgImg = (item) => {
     if (item.img && Array.isArray(item.img)) {
       return item.img[0]?.img || item.img || noUserImg;
@@ -302,13 +281,8 @@ const Menu = () => {
                 handleLinkClick(event, '/news');
               }}
             >
-              <div className='menu-item-icon'>
-                <img
-                  src={currentNews}
-                  alt='news icon'
-                  className='menu-page-icon'
-                  ref={addToRefs}
-                />
+              <div className='menu-item-icon' ref={addToRefs}>
+                <Icon name='news' alt='news icon' svgClass='menu-page-icon' />
               </div>
               <div className='menu-link' id='menu-link' ref={addToRefs}>
                 <p className='menu-link-text' id='menu-link-text'>
@@ -322,12 +296,19 @@ const Menu = () => {
                 }}
                 ref={addToRefs}
               >
-                <img
-                  src={openDropdown === 'news' ? currentUp : currentDown}
-                  alt='dropdown icon'
-                  className='dropdown-icon'
-                  ref={addToRefs}
-                />
+                {openDropdown === 'news' ? (
+                  <Icon
+                    name='drop-up'
+                    alt='dropdown icon'
+                    svgClass='dropdown-icon'
+                  />
+                ) : (
+                  <Icon
+                    name='drop-down'
+                    alt='dropdown icon'
+                    svgClass='dropdown-icon'
+                  />
+                )}
               </div>
             </div>
             {openDropdown === 'news' && (
@@ -395,12 +376,11 @@ const Menu = () => {
                 handleLinkClick(event, '/artists');
               }}
             >
-              <div className='menu-item-icon'>
-                <img
-                  src={currentArtists}
+              <div className='menu-item-icon' ref={addToRefs}>
+                <Icon
+                  name='artists'
                   alt='artists icon'
-                  className='menu-page-icon'
-                  ref={addToRefs}
+                  svgClass='menu-page-icon'
                 />
               </div>
               <div className='menu-link' id='menu-link' ref={addToRefs}>
@@ -415,12 +395,19 @@ const Menu = () => {
                 }}
                 ref={addToRefs}
               >
-                <img
-                  src={openDropdown === 'artists' ? currentUp : currentDown}
-                  alt='dropdown icon'
-                  className='dropdown-icon'
-                  ref={addToRefs}
-                />
+                {openDropdown === 'artists' ? (
+                  <Icon
+                    name='drop-up'
+                    alt='dropdown icon'
+                    svgClass='dropdown-icon'
+                  />
+                ) : (
+                  <Icon
+                    name='drop-down'
+                    alt='dropdown icon'
+                    svgClass='dropdown-icon'
+                  />
+                )}
               </div>
             </div>
             {openDropdown === 'artists' && (
@@ -486,13 +473,8 @@ const Menu = () => {
                 handleLinkClick(event, '/about');
               }}
             >
-              <div className='menu-item-icon'>
-                <img
-                  src={currentAbout}
-                  alt='about icon'
-                  className='menu-page-icon'
-                  ref={addToRefs}
-                />
+              <div className='menu-item-icon' ref={addToRefs}>
+                <Icon name='about' alt='about icon' svgClass='menu-page-icon' />
               </div>
               <div className='menu-link' id='menu-link' ref={addToRefs}>
                 <p className='menu-link-text' id='menu-link-text'>
@@ -506,12 +488,19 @@ const Menu = () => {
                 }}
                 ref={addToRefs}
               >
-                <img
-                  src={openDropdown === 'about' ? currentUp : currentDown}
-                  alt='dropdown icon'
-                  className='dropdown-icon'
-                  ref={addToRefs}
-                />
+                {openDropdown === 'about' ? (
+                  <Icon
+                    name='drop-up'
+                    alt='dropdown icon'
+                    svgClass='dropdown-icon'
+                  />
+                ) : (
+                  <Icon
+                    name='drop-down'
+                    alt='dropdown icon'
+                    svgClass='dropdown-icon'
+                  />
+                )}
               </div>
             </div>
             {openDropdown === 'about' && (
@@ -530,7 +519,10 @@ const Menu = () => {
                           }}
                           onTransitionEnd={handleTransitionEnd}
                         >
-                          <div className='menu-slide-pic-wrapper'>
+                          <div
+                            className='menu-slide-pic-wrapper'
+                            onMouseDown={(event) => handlePause(event)}
+                          >
                             <img
                               src={studioData[studioData.length - 1].img}
                               alt={studioData[studioData.length - 1].title}
@@ -538,7 +530,11 @@ const Menu = () => {
                             />
                           </div>
                           {studioData.map((img, index) => (
-                            <div key={index} className='menu-slide-pic-wrapper'>
+                            <div
+                              key={index}
+                              className='menu-slide-pic-wrapper'
+                              onMouseDown={(event) => handlePause(event)}
+                            >
                               <img
                                 src={img.img}
                                 alt={img.title}
@@ -546,7 +542,10 @@ const Menu = () => {
                               />
                             </div>
                           ))}
-                          <div className='menu-slide-pic-wrapper'>
+                          <div
+                            className='menu-slide-pic-wrapper'
+                            onMouseDown={(event) => handlePause(event)}
+                          >
                             <img
                               src={studioData[0].img}
                               alt={studioData[0].title}
@@ -664,12 +663,11 @@ const Menu = () => {
                 handleLinkClick(event, '/contact');
               }}
             >
-              <div className='menu-item-icon'>
-                <img
-                  src={currentContact}
+              <div className='menu-item-icon' ref={addToRefs}>
+                <Icon
+                  name='contact'
                   alt='contact icon'
-                  className='menu-page-icon'
-                  ref={addToRefs}
+                  svgClass='menu-page-icon'
                 />
               </div>
               <div className='menu-link' id='menu-link' ref={addToRefs}>
@@ -686,12 +684,19 @@ const Menu = () => {
                 }}
                 ref={addToRefs}
               >
-                <img
-                  src={openDropdown === 'contact' ? currentUp : currentDown}
-                  alt='dropdown icon'
-                  className='dropdown-icon'
-                  ref={addToRefs}
-                />
+                {openDropdown === 'contact' ? (
+                  <Icon
+                    name='drop-up'
+                    alt='dropdown icon'
+                    svgClass='dropdown-icon'
+                  />
+                ) : (
+                  <Icon
+                    name='drop-down'
+                    alt='dropdown icon'
+                    svgClass='dropdown-icon'
+                  />
+                )}
               </div>
             </div>
             {openDropdown === 'contact' && (
@@ -729,20 +734,40 @@ const Menu = () => {
             )}
           </div>
           <div className='menu-toggles' id='menu-toggles' ref={addToRefs}>
-            <img
-              src={currentDarkmodeIcon}
-              alt='darkmode icon'
-              className='menu-dark-toggle'
-              onMouseDown={(event) => handleDarkModeClick(event)}
-              ref={addToRefs}
-            />
-            <img
-              src={currentSoundIcon}
-              alt='mute/unmute icon'
-              className='menu-mute-toggle'
-              onMouseDown={(event) => handleMuteClick(event)}
-              ref={addToRefs}
-            />
+            <div ref={addToRefs}>
+              {darkMode ? (
+                <Icon
+                  name='darkmode'
+                  alt='darkmode icon'
+                  svgClass='menu-dark-toggle'
+                  onMouseDown={handleDarkModeClick}
+                />
+              ) : (
+                <Icon
+                  name='lightmode'
+                  alt='darkmode icon'
+                  svgClass='menu-dark-toggle'
+                  onMouseDown={handleDarkModeClick}
+                />
+              )}
+            </div>
+            <div ref={addToRefs}>
+              {mute ? (
+                <Icon
+                  name='mute'
+                  alt='mute/unmute icon'
+                  svgClass='menu-mute-toggle'
+                  onMouseDown={handleMuteClick}
+                />
+              ) : (
+                <Icon
+                  name='unmute'
+                  alt='mute/unmute icon'
+                  svgClass='menu-mute-toggle'
+                  onMouseDown={handleMuteClick}
+                />
+              )}
+            </div>
           </div>
         </section>
       </main>

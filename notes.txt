@@ -8,7 +8,7 @@ to-do✅
 
 -add optional phone number to management 
 
--react parallax tilt on audio player img ? (https://www.npmjs.com/package/react-parallax-tilt)
+-add 'play'/'pause icon that fades away after you play/pause the menu 'about' slideshow (by clicking on it)
 
 
 urgent❗❗❗❗

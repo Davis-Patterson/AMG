@@ -97,6 +97,7 @@
   height: 18px;
   cursor: pointer;
   scale: 95%;
+  fill: var(--clr-icon-dark);
 }
 .close-icon:hover {
   scale: 105%;

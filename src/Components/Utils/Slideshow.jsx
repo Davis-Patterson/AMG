@@ -1,33 +1,17 @@
 import React, { useEffect, useState, useContext, useCallback } from 'react';
 import { AppContext } from 'contexts/AppContext';
-import nextBlack from 'assets/Utils/next-black.svg';
-import nextWhite from 'assets/Utils/next-white.svg';
-import prevBlack from 'assets/Utils/prev-black.svg';
-import prevWhite from 'assets/Utils/prev-white.svg';
-import pauseBlack from 'assets/Utils/pause-black.svg';
-import pauseWhite from 'assets/Utils/pause-white.svg';
-import playBlack from 'assets/Utils/play-black.svg';
-import playWhite from 'assets/Utils/play-white.svg';
-import pipeBlack from 'assets/Utils/pipe-black.svg';
-import pipeWhite from 'assets/Utils/pipe-white.svg';
+import Icon from 'utils/Icon';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import CircularProgress from '@mui/material/CircularProgress';
 
 const Slideshow = ({ data, index, setIndex, slideClass }) => {
-  const { darkMode, noUserImg, handleLinkClick, formatTitleForURL } =
+  const { noUserImg, handleLinkClick, formatTitleForURL } =
     useContext(AppContext);
 
   const [isPaused, setIsPaused] = useState(false);
   const [progress, setProgress] = useState(0);
   const [maxLength, setMaxLength] = useState(42);
-
-  const currentNext = darkMode ? nextWhite : nextBlack;
-  const currentPrev = darkMode ? prevWhite : prevBlack;
-  const currentPipe = darkMode ? pipeWhite : pipeBlack;
-  const currentPlay = darkMode ? playWhite : playBlack;
-  const currentPause = darkMode ? pauseWhite : pauseBlack;
-  const currentPlayPause = isPaused ? currentPlay : currentPause;
 
   const autoProg = useCallback(() => {
     if (!isPaused) {
@@ -302,25 +286,43 @@ const Slideshow = ({ data, index, setIndex, slideClass }) => {
         </div>
         <div className='controls-container'>
           <div className='controls'>
-            <img
-              src={currentPrev}
+            <Icon
+              name='prev'
               alt='prev button'
-              className='controls-button'
+              svgClass='controls-button'
+              wrapperClass='controls'
               onMouseDown={(event) => handlePrev(event)}
             />
-            <img src={currentPipe} alt='pipe' className='controls-pipe' />
-            <img
-              src={currentNext}
+            <Icon
+              name='pipe'
+              alt='pipe'
+              svgClass='controls-pipe'
+              wrapperClass='controls'
+            />
+            <Icon
+              name='next'
               alt='next button'
-              className='controls-button'
+              svgClass='controls-button'
+              wrapperClass='controls'
               onMouseDown={(event) => handleNext(event)}
             />
-            <img
-              src={currentPlayPause}
-              alt='play/pause button'
-              className='controls-button'
-              onMouseDown={(event) => handlePause(event)}
-            />
+            {isPaused ? (
+              <Icon
+                name='play'
+                alt='play/pause button'
+                svgClass='controls-button'
+                wrapperClass='controls'
+                onMouseDown={(event) => handlePause(event)}
+              />
+            ) : (
+              <Icon
+                name='pause'
+                alt='play/pause button'
+                svgClass='controls-button'
+                wrapperClass='controls'
+                onMouseDown={(event) => handlePause(event)}
+              />
+            )}
           </div>
         </div>
         <div className='progress-bar'>
