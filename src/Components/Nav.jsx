@@ -1,16 +1,9 @@
 import React, { useState, useEffect, useRef, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AppContext } from 'contexts/AppContext';
+import Icon from 'utils/Icon';
 import AMGLogoBlack from 'assets/Logos/AMG-full-words-black.png';
 import AMGLogoWhite from 'assets/Logos/AMG-full-words-white.png';
-import darkmodeIcon from 'assets/Utils/darkmode-white.svg';
-import lightmodeIcon from 'assets/Utils/lightmode-black.svg';
-import darkMuteIcon from 'assets/Utils/mute-black.svg';
-import lightMuteIcon from 'assets/Utils/mute-white.svg';
-import darkUnmuteIcon from 'assets/Utils/unmute-black.svg';
-import lightUnmuteIcon from 'assets/Utils/unmute-white.svg';
-import xBlack from 'assets/Utils/x-black.svg';
-import xWhite from 'assets/Utils/x-white.svg';
 import DehazeIcon from '@mui/icons-material/Dehaze';
 import 'styles/Nav.css';
 
@@ -29,11 +22,6 @@ const Nav = () => {
   const [isTop, setIsTop] = useState(true);
 
   const currentLogo = darkMode ? AMGLogoWhite : AMGLogoBlack;
-  const currentDarkmodeIcon = darkMode ? darkmodeIcon : lightmodeIcon;
-  const currentMuteIcon = darkMode ? lightMuteIcon : darkMuteIcon;
-  const currentUnmuteIcon = darkMode ? lightUnmuteIcon : darkUnmuteIcon;
-  const currentSoundIcon = mute ? currentMuteIcon : currentUnmuteIcon;
-  const currentX = darkMode ? xWhite : xBlack;
 
   const menuRef = useRef(null);
   const menuIconRef = useRef(null);
@@ -174,20 +162,50 @@ const Nav = () => {
             >
               Contact
             </div>
-            <img
-              src={currentDarkmodeIcon}
-              alt='darkmode icon'
-              className='dark-toggle'
-              id='dark-toggle'
-              onMouseDown={(event) => handleDarkModeClick(event)}
-            />
-            <img
-              src={currentSoundIcon}
-              alt='mute/unmute icon'
-              className='mute-toggle'
-              id='mute-toggle'
-              onMouseDown={(event) => handleMuteClick(event)}
-            />
+            <div className='icon-container'>
+              <div ref={menuIconRef}>
+                {darkMode ? (
+                  <Icon
+                    name='darkmode'
+                    alt='darkmode icon'
+                    svgClass='dark-toggle'
+                    wrapperClass='icon-container'
+                    id='dark-toggle'
+                    onMouseDown={handleDarkModeClick}
+                  />
+                ) : (
+                  <Icon
+                    name='lightmode'
+                    alt='darkmode icon'
+                    svgClass='dark-toggle'
+                    wrapperClass='icon-container'
+                    id='dark-toggle'
+                    onMouseDown={handleDarkModeClick}
+                  />
+                )}
+              </div>
+              <div ref={menuIconRef}>
+                {mute ? (
+                  <Icon
+                    name='mute'
+                    alt='mute/unmute icon'
+                    svgClass='mute-toggle'
+                    wrapperClass='icon-container'
+                    id='mute-toggle'
+                    onMouseDown={handleMuteClick}
+                  />
+                ) : (
+                  <Icon
+                    name='unmute'
+                    alt='mute/unmute icon'
+                    svgClass='mute-toggle'
+                    wrapperClass='icon-container'
+                    id='mute-toggle'
+                    onMouseDown={handleMuteClick}
+                  />
+                )}
+              </div>
+            </div>
             <div className='nav-menu-toggle' id='nav-menu-toggle'>
               {!menu && (
                 <DehazeIcon
@@ -198,11 +216,13 @@ const Nav = () => {
                 />
               )}
               {menu && (
-                <img
-                  src={currentX}
-                  className='menu-close-icon'
+                <Icon
+                  name='x'
+                  svgClass='menu-close-icon'
+                  wrapperClass='nav-menu-toggle'
+                  wrapperId='nav-menu-toggle'
                   id='menu-close-icon'
-                  onMouseDown={(event) => handleMenu(event)}
+                  onMouseDown={handleMenu}
                   ref={menuIconRef}
                 />
               )}

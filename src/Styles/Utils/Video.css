@@ -15,6 +15,13 @@
   transition: scale 0.15s ease-in-out;
 }
 
+.pointer-icon-container,
+.pointer-icon-container div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .video-title-indicator {
   font-family: 'Titillium Web', sans-serif;
   font-size: 0.9em;
@@ -22,7 +29,8 @@
   color: var(--clr-dark);
   margin: 5px 0px 5px 5px;
   text-align: left;
-  width: 12px;
+  width: 11px;
+  fill: var(--clr-icon-dark);
 }
 
 .video-title-link-icon {
@@ -33,6 +41,7 @@
   margin: 5px 0px 5px 5px;
   text-align: left;
   width: 15px;
+  fill: var(--clr-icon-dark);
 }
 
 .video-title {
@@ -50,11 +59,14 @@
   font-weight: 400;
   font-style: italic;
   color: var(--clr-text);
-  margin: 7px 0px 5px 5px;
+  margin: 8.5px 0px 5px 5px;
   text-align: left;
   transform: scaleY(95%);
 }
 .video-title-artist-link-container:hover .video-title,
 .video-title-artist-link-container:hover .video-artist {
   color: var(--clr-accent);
+}
+.video-title-artist-link-container:hover .video-title-link-icon {
+  fill: var(--clr-accent);
 }

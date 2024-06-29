@@ -1,7 +1,6 @@
 import React, { useState, useContext, useRef, useEffect } from 'react';
 import { AppContext } from 'contexts/AppContext';
-import xBlack from 'assets/Utils/x-black.svg';
-import xWhite from 'assets/Utils/x-white.svg';
+import Icon from 'utils/Icon';
 import 'styles/Utils/ContactFloat.css';
 
 function ContactFloat() {
@@ -19,8 +18,6 @@ function ContactFloat() {
   const [error, setError] = useState(false);
 
   const contactRef = useRef(null);
-
-  const currentX = darkMode ? xWhite : xBlack;
 
   const handleClickOutside = (event) => {
     if (contactRef.current && !contactRef.current.contains(event.target)) {
@@ -62,11 +59,11 @@ function ContactFloat() {
       )}
       {contactFloat && (
         <div className='contact-float-content' ref={contactRef}>
-          <img
-            src={currentX}
+          <Icon
+            name='x'
             className='close-icon'
             onMouseDown={(event) => handleContactFloat(event, false)}
-          ></img>
+          ></Icon>
           <h2>CONTACT US</h2>
           <form className='float-form' onSubmit={handleSubmit}>
             <input

@@ -16,9 +16,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  max-height: calc(100vh);
+  width: 100%;
 }
 
 .overlay-image {
   max-width: 95%;
-  max-height: calc(100vh);
 }

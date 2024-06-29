@@ -108,6 +108,7 @@
   flex-direction: row;
   align-items: center;
   width: 10%;
+  fill: var(--clr-icon-dark);
 }
 .menu-item-icon {
   justify-content: left;
@@ -119,7 +120,8 @@
 
 .menu-page-icon {
   max-width: 35px;
-  max-height: 35px;
+  height: 35px;
+  fill: var(--clr-icon-dark);
 }
 
 .menu-link {
@@ -145,6 +147,7 @@
 
 .dropdown-icon {
   width: 25px;
+  fill: var(--clr-icon-dark);
 }
 
 .menu-item-content {
@@ -462,9 +465,11 @@
 }
 .menu-dark-toggle {
   margin: 0px 15px 0px 10px;
+  fill: var(--clr-icon-dark);
 }
 .menu-mute-toggle {
   margin: 0px 10px 0px 15px;
+  fill: var(--clr-icon-dark);
 }
 
 .menu-content-scroll-container::-webkit-scrollbar {

@@ -1,21 +1,8 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { AppContext } from 'contexts/AppContext';
+import Icon from 'utils/Icon';
 import Title from 'utils/Title';
 import Slider from 'utils/Slider';
-import nextBlack from 'assets/Utils/next-black.svg';
-import nextWhite from 'assets/Utils/next-white.svg';
-import prevBlack from 'assets/Utils/prev-black.svg';
-import prevWhite from 'assets/Utils/prev-white.svg';
-import pauseBlack from 'assets/Utils/pause-black.svg';
-import pauseWhite from 'assets/Utils/pause-white.svg';
-import playBlack from 'assets/Utils/play-black.svg';
-import playWhite from 'assets/Utils/play-white.svg';
-import muteBlack from 'assets/Utils/mute-circle-black.svg';
-import muteWhite from 'assets/Utils/mute-circle-white.svg';
-import unmuteBlack from 'assets/Utils/unmute-circle-black.svg';
-import unmuteWhite from 'assets/Utils/unmute-circle-white.svg';
-import pipeBlack from 'assets/Utils/pipe-black.svg';
-import pipeWhite from 'assets/Utils/pipe-white.svg';
 import Tilt from 'react-parallax-tilt';
 import 'styles/Utils/Audio.css';
 
@@ -39,14 +26,7 @@ function Audio({
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
 
-  const currentNext = !darkMode ? nextWhite : nextBlack;
-  const currentPrev = !darkMode ? prevWhite : prevBlack;
-  const currentPipe = !darkMode ? pipeWhite : pipeBlack;
-  const currentPlay = !darkMode ? playWhite : playBlack;
-  const currentPause = !darkMode ? pauseWhite : pauseBlack;
-  const currentMute = !darkMode ? muteWhite : muteBlack;
-  const currentUnmute = !darkMode ? unmuteWhite : unmuteBlack;
-  const currentMuteUnmute = mute ? currentMute : currentUnmute;
+  const [loop, setLoop] = useState('none');
 
   const handleMetadataLoaded = () => {
     if (audioRef.current) {
@@ -111,6 +91,19 @@ function Audio({
       }
     }
   }, [selectedAudio]);
+
+  const handleLoop = (event) => {
+    if (event.button !== 0) return;
+    event.preventDefault();
+    event.stopPropagation();
+    if (loop === 'none') {
+      setLoop('loop');
+    } else if (loop === 'loop') {
+      setLoop('one');
+    } else {
+      setLoop('none');
+    }
+  };
 
   const togglePause = (event) => {
     if (event.button !== 0) return;
@@ -213,6 +206,31 @@ function Audio({
     return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
   };
 
+  useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.addEventListener('pause', () => setAudioPlay(false));
+    }
+    return () => {
+      if (audioRef.current) {
+        audioRef.current.removeEventListener('pause', () =>
+          setAudioPlay(false)
+        );
+      }
+    };
+  }, [audioRef]);
+
+  const handleEnded = () => {
+    if (loop === 'one') {
+      audioRef.current.currentTime = 0;
+      audioRef.current.play();
+    } else if (loop === 'loop') {
+      setAudioIndex((prevIndex) => (prevIndex + 1) % audios.length);
+      setShouldPlay(true);
+    } else {
+      setAudioPlay(false);
+    }
+  };
+
   return (
     <>
       {selectedAudio && (
@@ -253,7 +271,7 @@ function Audio({
                 {selectedAudio.date}
               </div>
             </div>
-            <div className='audio-player-container'>
+            <div className='audio-player-container' id='audio-player-container'>
               <div
                 className='audio-progress-container'
                 id='audio-progress-container'
@@ -262,7 +280,11 @@ function Audio({
                   {formatTime(currentTime)} | {formatTime(duration)}
                 </div>
                 <div className='audio-progress-slider'>
-                  <Slider onChange={handleProgressChange} progress={progress} />
+                  <Slider
+                    onChange={handleProgressChange}
+                    progress={progress}
+                    type='progress'
+                  />
                 </div>
               </div>
               <div
@@ -270,58 +292,92 @@ function Audio({
                 id='audio-controls-container'
               >
                 <div className='audio-controls'>
+                  {loop === 'none' ? (
+                    <Icon
+                      name='loop-none'
+                      alt='no loop button'
+                      svgClass='audio-loop-button'
+                      id='audio-loop-button'
+                      onMouseDown={(event) => handleLoop(event)}
+                    />
+                  ) : loop === 'one' ? (
+                    <Icon
+                      name='loop-one'
+                      alt='loop once button'
+                      svgClass='audio-loop-button'
+                      id='audio-loop-button'
+                      onMouseDown={(event) => handleLoop(event)}
+                    />
+                  ) : (
+                    <Icon
+                      name='loop'
+                      alt='loop button'
+                      svgClass='audio-loop-button'
+                      id='audio-loop-button'
+                      onMouseDown={(event) => handleLoop(event)}
+                    />
+                  )}
+                  <Icon
+                    name='prev'
+                    alt='prev button'
+                    svgClass='audio-controls-button'
+                    id='audio-controls-button'
+                    onMouseDown={(event) => handlePrev(event)}
+                  />
                   {audioPlay ? (
-                    <img
-                      src={currentPause}
+                    <Icon
+                      name='play'
                       alt='pause button'
-                      className='audio-play-button'
+                      svgClass='audio-play-button'
                       id='audio-play-button'
                       onMouseDown={(event) => togglePause(event)}
                     />
                   ) : (
-                    <img
-                      src={currentPlay}
+                    <Icon
+                      name='pause'
                       alt='play button'
-                      className='audio-play-button'
+                      svgClass='audio-play-button'
                       id='audio-play-button'
                       onMouseDown={(event) => togglePlay(event)}
                     />
                   )}
-                  <img
-                    src={currentPrev}
-                    alt='prev button'
-                    className='audio-controls-button'
-                    id='audio-controls-button'
-                    onMouseDown={(event) => handlePrev(event)}
-                  />
-                  <img
-                    src={currentPipe}
-                    alt='pipe'
-                    className='audio-controls-pipe'
-                  />
-                  <img
-                    src={currentNext}
+                  <Icon
+                    name='next'
                     alt='next button'
-                    className='audio-controls-button'
+                    svgClass='audio-controls-button'
                     id='audio-controls-button'
                     onMouseDown={(event) => handleNext(event)}
                   />
-                  <img
-                    src={currentMuteUnmute}
-                    alt='mute button'
-                    className='audio-controls-button'
-                    id='audio-controls-button'
-                    onMouseDown={(event) => toggleMute(event)}
+                  {mute ? (
+                    <Icon
+                      name='mute-circle'
+                      alt='mute button'
+                      svgClass='audio-controls-button'
+                      id='audio-controls-button'
+                      onMouseDown={(event) => toggleMute(event)}
+                    />
+                  ) : (
+                    <Icon
+                      name='unmute-circle'
+                      alt='unmute button'
+                      svgClass='audio-controls-button'
+                      id='audio-controls-button'
+                      onMouseDown={(event) => toggleMute(event)}
+                    />
+                  )}
+                </div>
+                <div className='audio-volume' id='audio-volume'>
+                  <Slider
+                    onChange={handleVolumeChange}
+                    progress={volume}
+                    type='volume'
                   />
-                  <div className='audio-volume'>
-                    <Slider onChange={handleVolumeChange} progress={volume} />
-                  </div>
                 </div>
               </div>
               <audio
                 ref={audioRef}
                 onTimeUpdate={handleTimeUpdate}
-                onEnded={() => setAudioPlay(false)}
+                onEnded={handleEnded}
               >
                 {selectedAudio.audio.map((source, index) => (
                   <source key={index} src={source.src} type={source.type} />

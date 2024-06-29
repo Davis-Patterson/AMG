@@ -2,21 +2,8 @@ import React, { useEffect, useContext, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { AppContext } from 'contexts/AppContext';
 import Media from 'utils/Media';
+import Icon from 'utils/Icon';
 import onAirImg from 'assets/News/on-air.jpg';
-import appleBlack from 'assets/Utils/apple-black.svg';
-import appleWhite from 'assets/Utils/apple-white.svg';
-import fBlack from 'assets/Utils/f-black.svg';
-import fWhite from 'assets/Utils/f-white.svg';
-import igBlack from 'assets/Utils/ig-black.svg';
-import igWhite from 'assets/Utils/ig-white.svg';
-import spotifyBlack from 'assets/Utils/spotify-black.svg';
-import spotifyWhite from 'assets/Utils/spotify-white.svg';
-import twitterxBlack from 'assets/Utils/twitterx-black.svg';
-import twitterxWhite from 'assets/Utils/twitterx-white.svg';
-import youtubeBlack from 'assets/Utils/youtube-black.svg';
-import youtubeWhite from 'assets/Utils/youtube-white.svg';
-import soundCloudBlack from 'assets/Utils/sc-black.svg';
-import soundCloudWhite from 'assets/Utils/sc-white.svg';
 import Skeleton from 'react-loading-skeleton';
 import CircularProgress from '@mui/material/CircularProgress';
 import 'styles/Artist.css';
@@ -34,13 +21,13 @@ function Artist() {
   const [bioReadMore, setBioReadMore] = useState(false);
 
   const icons = {
-    apple: darkMode ? appleWhite : appleBlack,
-    facebook: darkMode ? fWhite : fBlack,
-    instagram: darkMode ? igWhite : igBlack,
-    spotify: darkMode ? spotifyWhite : spotifyBlack,
-    twitter: darkMode ? twitterxWhite : twitterxBlack,
-    youtube: darkMode ? youtubeWhite : youtubeBlack,
-    soundcloud: darkMode ? soundCloudWhite : soundCloudBlack,
+    apple: 'apple',
+    facebook: 'facebook',
+    instagram: 'instagram',
+    spotify: 'spotify',
+    twitter: 'twitter',
+    youtube: 'youtube',
+    soundcloud: 'soundcloud',
   };
 
   useEffect(() => {
@@ -103,7 +90,7 @@ function Artist() {
     return 'center';
   };
 
-  const getLinks = (artist) => {
+  const getLinks = (artist, darkMode) => {
     if (artist.links && Array.isArray(artist.links)) {
       return Object.keys(icons).map(
         (key) =>
@@ -114,10 +101,9 @@ function Artist() {
               target='_blank'
               rel='noopener noreferrer'
             >
-              <img
-                src={icons[key]}
-                alt={key}
-                className='artist-social-icon'
+              <Icon
+                name={icons[key]}
+                svgClass='artist-social-icon'
                 id='artist-social-icon'
               />
             </a>

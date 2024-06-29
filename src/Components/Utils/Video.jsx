@@ -1,10 +1,6 @@
 import React, { useState, useEffect, useContext, useRef } from 'react';
 import { AppContext } from 'contexts/AppContext';
-import pointerBlack from 'assets/Utils/pointer-black.svg';
-import pointerWhite from 'assets/Utils/pointer-white.svg';
-import linkBlack from 'assets/Utils/link-black.svg';
-import linkWhite from 'assets/Utils/link-white.svg';
-import linkAccent from 'assets/Utils/link-accent.svg';
+import Icon from 'utils/Icon';
 import 'styles/Utils/Video.css';
 
 function Video({ artist, videoPlay, setVideoPlay, videoRef }) {
@@ -12,10 +8,6 @@ function Video({ artist, videoPlay, setVideoPlay, videoRef }) {
   const [hovered, setHovered] = useState(false);
 
   const volumeRef = useRef(videoRef.current ? videoRef.current.volume : 1);
-
-  const currentPointer = darkMode ? pointerWhite : pointerBlack;
-  const currentLink = darkMode ? linkWhite : linkBlack;
-  const hoveredLink = hovered ? linkAccent : currentLink;
 
   useEffect(() => {
     const videoElement = videoRef.current;
@@ -84,20 +76,22 @@ function Video({ artist, videoPlay, setVideoPlay, videoRef }) {
                 onMouseEnter={() => setHovered(true)}
                 onMouseLeave={() => setHovered(false)}
               >
-                <img
-                  src={hoveredLink}
+                <Icon
+                  name='link'
                   alt='link icon'
-                  className='video-title-link-icon'
+                  wrapperClass='pointer-icon-container'
+                  svgClass='video-title-link-icon'
                 />
                 <p className='video-title'>{video.title}</p>
                 <p className='video-artist'>- {video.artist}</p>
               </a>
             ) : (
               <div className='video-title-artist-container'>
-                <img
-                  src={currentPointer}
+                <Icon
+                  name='pointer'
                   alt='pointer icon'
-                  className='video-title-indicator'
+                  svgClass='video-title-indicator'
+                  wrapperClass='pointer-icon-container'
                 />
                 <p className='video-title'>{video.title}</p>
                 <p className='video-artist'>- {video.artist}</p>

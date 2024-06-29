@@ -4,6 +4,32 @@
   }
 }
 
+@media screen and (max-width: 780px) {
+  #audio-selection-header {
+    padding: 30px 10px;
+  }
+  #audio-controls-button,
+  #audio-play-button {
+    margin: 3px 2px;
+  }
+  #audio-loop-button {
+    margin: 3px 2px 3px 0px;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  #audio-selection-header {
+    padding: 30px 20px;
+  }
+  #audio-controls-button,
+  #audio-play-button {
+    margin: 3px 5px;
+  }
+  #audio-loop-button {
+    margin: 3px 5px 3px 0px;
+  }
+}
+
 @media screen and (max-width: 660px) {
   #audio-selection-header {
     flex-direction: column;
@@ -42,12 +68,20 @@
     justify-content: center;
     flex-direction: row;
   }
+  #audio-player-container {
+    margin-top: 15px;
+  }
   #audio-progress-container,
   #audio-controls-container {
     justify-content: center;
   }
-  #audio-play-button {
-    margin: 3px 5px;
+  #audio-controls-container {
+    flex-direction: column;
+    margin: 5px 0px 0px 0px;
+  }
+  #audio-volume {
+    margin: 5px 0px 8px 0px;
+    width: 200px;
   }
 }
 
@@ -190,11 +224,13 @@
 }
 
 .audio-controls-container {
-  padding: 10px 0px 0px 0px;
+  padding: 2px 0px 0px 0px;
   border-radius: 20px;
   z-index: 51;
   display: flex;
   justify-content: left;
+  align-items: center;
+  width: 100%;
 }
 
 .audio-controls {
@@ -213,21 +249,33 @@
 }
 
 .audio-controls-button,
-.audio-play-button {
-  height: 30px;
+.audio-play-button,
+.audio-loop-button {
   cursor: pointer;
   z-index: 30;
   transform: scale 0.2s ease-in-out;
+  fill: var(--clr-icon-light);
+}
+.audio-controls-button,
+.audio-loop-button {
+  height: 30px;
+}
+.audio-play-button {
+  height: 42px;
 }
 .audio-controls-button {
   margin: 3px 5px;
 }
 .audio-play-button {
+  margin: 3px 5px;
+}
+.audio-loop-button {
   margin: 3px 5px 3px 0px;
 }
 .audio-controls-button:hover,
-.audio-play-button:hover {
-  transform: scale(104%);
+.audio-play-button:hover,
+.audio-loop-button:hover {
+  transform: scale(108%);
 }
 .audio-controls-button:active,
 .audio-play-button:active {
@@ -237,12 +285,19 @@
 .audio-controls-pipe {
   height: 22px;
   margin: 3px 5px;
+  fill: var(--clr-icon-light);
+}
+.audio-controls-button:hover,
+.audio-controls-pipe:hover,
+.audio-loop-button:hover,
+.audio-play-button:hover {
+  fill: var(--clr-accent-dark2);
 }
 
 .audio-volume {
   width: 100px;
   position: relative;
-  margin: 0px 0px 8px 10px;
+  margin: 0px 0px 12px 10px;
   display: flex;
   align-items: center;
   justify-content: center;
