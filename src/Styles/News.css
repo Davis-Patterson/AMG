@@ -110,6 +110,8 @@
   width: 65%;
 }
 
+/* slideshow start */
+
 .news-header-pics-container {
   width: 100%;
   height: 450px;
@@ -192,6 +194,8 @@
 .news-header-pic-link-title {
   cursor: pointer;
 }
+
+/* slideshow end  */
 
 .news-container-container {
   width: 100%;

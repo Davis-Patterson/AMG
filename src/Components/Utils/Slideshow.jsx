@@ -4,6 +4,7 @@ import Icon from 'utils/Icon';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 import CircularProgress from '@mui/material/CircularProgress';
+import 'styles/Utils/Slideshow.css';
 
 const Slideshow = ({ data, index, setIndex, slideClass }) => {
   const {
