@@ -66,6 +66,7 @@
   transform: scaleY(95%);
   transform: scaleX(110%);
   margin: 2px 4px;
+  text-align: center;
 }
 
 .artwork-title {
@@ -77,6 +78,7 @@
   text-align: center;
   text-shadow: 2px 2px 4px var(--clr-shadow1), 4px 4px 8px var(--clr-shadow1);
   margin: 0px 10px 3px 0px;
+  text-align: center;
 }
 
 .artwork-artist {
@@ -90,6 +92,7 @@
   flex-direction: row;
   text-shadow: 1px 1px 2px var(--clr-shadow1), 2px 2px 4px var(--clr-shadow1);
   transform: scaleY(90%);
+  text-align: center;
 }
 
 .artwork-album {
@@ -101,6 +104,7 @@
   color: var(--clr-white2);
   text-align: left;
   transform: scaleY(80%);
+  text-align: center;
 }
 
 .artwork-date {
@@ -112,4 +116,5 @@
   color: var(--clr-white3);
   text-align: left;
   transform: scaleY(80%);
+  text-align: center;
 }
