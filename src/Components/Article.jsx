@@ -207,13 +207,7 @@ function Article() {
             alt={article.title}
             className='article-header-pics'
             onMouseDown={(event) =>
-              handleArtworkOpen(
-                event,
-                article.img,
-                article.title,
-                '',
-                article.title
-              )
+              handleArtworkOpen(event, article.img, '', article.title)
             }
           />
         </section>
@@ -229,13 +223,7 @@ function Article() {
             className='news-article-image'
             id='news-article-image'
             onMouseDown={(event) =>
-              handleArtworkOpen(
-                event,
-                article.img,
-                article.title,
-                '',
-                article.title
-              )
+              handleArtworkOpen(event, article.img, '', article.title)
             }
           />
           <div className='article-title-container'>
