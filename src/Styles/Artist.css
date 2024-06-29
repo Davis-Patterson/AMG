@@ -140,7 +140,8 @@
   fill: var(--clr-icon);
 }
 .artist-social-icon:hover {
-  scale: 105%;
+  scale: 110%;
+  fill: var(--clr-accent-dark2);
 }
 
 .artist-detail-content {

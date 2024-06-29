@@ -326,7 +326,7 @@ function Audio({
                   />
                   {audioPlay ? (
                     <Icon
-                      name='play'
+                      name='pause'
                       alt='pause button'
                       svgClass='audio-play-button'
                       id='audio-play-button'
@@ -334,7 +334,7 @@ function Audio({
                     />
                   ) : (
                     <Icon
-                      name='pause'
+                      name='play'
                       alt='play button'
                       svgClass='audio-play-button'
                       id='audio-play-button'
