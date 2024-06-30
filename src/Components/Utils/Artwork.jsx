@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import { AppContext } from 'contexts/AppContext';
-import Tilt from 'react-parallax-tilt';
+// import Tilt from 'react-parallax-tilt';
 import 'styles/Utils/Artwork.css';
 
 function Artwork() {
@@ -8,14 +8,14 @@ function Artwork() {
   const { src, alt, title, artist, album, date, explicit } = artworkData;
 
   useEffect(() => {
-    const preventScroll = (e) => {
-      e.preventDefault();
+    const preventScroll = (event) => {
+      event.preventDefault();
     };
 
     window.addEventListener('wheel', preventScroll, { passive: false });
     window.addEventListener(
       'keydown',
-      (e) => {
+      (event) => {
         if (
           [
             'ArrowUp',
@@ -24,9 +24,9 @@ function Artwork() {
             'PageDown',
             'Home',
             'End',
-          ].includes(e.key)
+          ].includes(event.key)
         ) {
-          preventScroll(e);
+          preventScroll(event);
         }
       },
       { passive: false }

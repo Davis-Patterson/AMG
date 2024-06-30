@@ -22,6 +22,8 @@ import contactIcon from 'assets/Utils/contact-icon.svg';
 
 import pointerIcon from 'assets/Utils/pointer-icon.svg';
 import linkIcon from 'assets/Utils/link-icon.svg';
+import arrowsFill from 'assets/Banner/arrows-fill.svg';
+import arrowsOutline from 'assets/Banner/arrows-outline.svg';
 
 import loopIcon from 'assets/Utils/loop-icon.svg';
 import loopOneIcon from 'assets/Utils/loop-one-icon.svg';
@@ -58,6 +60,8 @@ const iconComponents = {
 
   pointer: pointerIcon,
   link: linkIcon,
+  'arrows-fill': arrowsFill,
+  'arrows-outline': arrowsOutline,
 
   loop: loopIcon,
   'loop-one': loopOneIcon,

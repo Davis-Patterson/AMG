@@ -54,14 +54,16 @@
   align-items: center;
 }
 
-.amg-banner-img {
+.amg-banner-icon {
   height: 30px;
   margin: 0 40px;
+  fill: var(--clr-icon-dark);
 }
 
 .amg-banner-arrow {
   height: 30px;
   margin: 0 40px;
+  fill: var(--clr-icon-dark);
 }
 
 /* artists banner */
@@ -121,7 +123,7 @@
   align-items: center;
 }
 
-.artists-banner-img {
+.artists-banner-icon {
   height: 42px;
   margin: 0 40px;
 }
