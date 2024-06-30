@@ -216,7 +216,7 @@ function Article() {
         className='article-detail-container'
         id='article-detail-container'
       >
-        <div className='article-header-content'>
+        <div className='article-header-content' id='article-header-content'>
           <img
             src={article.img}
             alt={article.title}
