@@ -2,21 +2,41 @@
   {
     "title": "AMG Text Outline",
     "entity": "AMG",
-    "logo": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/amg/AMG-text-outline-black.svg"
+    "logo": [
+      {
+        "black": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/amg/AMG-text-outline-black.svg",
+        "white": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/amg/AMG-text-outline-white.svg"
+      }
+    ]
   },
   {
     "title": "AMG Text Fill",
     "entity": "AMG",
-    "logo": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/amg/AMG-text-fill-black.svg"
+    "logo": [
+      {
+        "black": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/amg/AMG-text-fill-black.svg",
+        "white": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/amg/AMG-text-fill-white.svg"
+      }
+    ]
   },
   {
     "title": "AMG Big Logo",
     "entity": "AMG",
-    "logo": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/amg/AMG-logo-big-black.svg"
+    "logo": [
+      {
+        "black": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/amg/AMG-logo-big-black.svg",
+        "white": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/amg/AMG-logo-big-white.svg"
+      }
+    ]
   },
   {
     "title": "AMG Small Logo",
     "entity": "Aerotype Productions",
-    "logo": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/amg/AMG-logo-small-black.svg"
+    "logo": [
+      {
+        "black": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/amg/AMG-logo-small-black.svg",
+        "white": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/amg/AMG-logo-small-white.svg"
+      }
+    ]
   }
 ]

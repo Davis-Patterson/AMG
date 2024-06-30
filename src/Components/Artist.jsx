@@ -292,19 +292,25 @@ function Artist() {
             {artist.management && artist.management.length > 0 && (
               <>
                 <h3 className='section-title'>Management</h3>
-                {artist.management.map((manager, index) => (
-                  <div key={index} className='manager-container'>
-                    <p className='artist-management' id='artist-management'>
-                      {manager.name}
-                    </p>
-                    <p
-                      className='artist-management-email'
-                      id='artist-management'
+                <div className='management-container' id='management-container'>
+                  {artist.management.map((manager, index) => (
+                    <div
+                      key={index}
+                      className='manager-container'
+                      id='manager-container'
                     >
-                      {manager.email}
-                    </p>
-                  </div>
-                ))}
+                      <p className='artist-management' id='artist-management'>
+                        {manager.name}
+                      </p>
+                      <p
+                        className='artist-management-email'
+                        id='artist-management'
+                      >
+                        {manager.email}
+                      </p>
+                    </div>
+                  ))}
+                </div>
               </>
             )}
           </div>
