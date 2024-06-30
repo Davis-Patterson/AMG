@@ -75,7 +75,6 @@ const Footer = ({}) => {
             © Copyright 2024. Aurum Management Group.
           </p>
         </section>
-        <div className='gap' />
       </footer>
     </>
   );
