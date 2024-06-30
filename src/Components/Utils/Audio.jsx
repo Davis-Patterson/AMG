@@ -18,10 +18,10 @@ function Audio({
   videoRef,
   shouldPlay,
   setShouldPlay,
+  updateURLHash,
 }) {
-  const { darkMode, mute, setMute, noAlbumImg, artworkOpen } =
-    useContext(AppContext);
-  const [progress, setAudioProgress] = useState(0);
+  const { mute, setMute, noAlbumImg, artworkOpen } = useContext(AppContext);
+  const [audioProgress, setAudioProgress] = useState(0);
   const [volume, setVolume] = useState(100);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
@@ -69,14 +69,24 @@ function Audio({
 
   useEffect(() => {
     if (shouldPlay && audioRef.current && selectedAudio) {
-      audioRef.current.load();
-      audioRef.current.addEventListener('loadeddata', handleAudioLoad);
+      const playAudio = () => {
+        audioRef.current.load();
+        audioRef.current.addEventListener('loadeddata', handleAudioLoad);
+        document.removeEventListener('click', playAudio);
+        document.removeEventListener('keydown', playAudio);
+      };
+
+      document.addEventListener('click', playAudio);
+      document.addEventListener('keydown', playAudio);
+
+      return () => {
+        document.removeEventListener('click', playAudio);
+        document.removeEventListener('keydown', playAudio);
+        if (audioRef.current) {
+          audioRef.current.removeEventListener('loadeddata', handleAudioLoad);
+        }
+      };
     }
-    return () => {
-      if (audioRef.current) {
-        audioRef.current.removeEventListener('loadeddata', handleAudioLoad);
-      }
-    };
   }, [shouldPlay, audioIndex, selectedAudio]);
 
   useEffect(() => {
@@ -139,9 +149,11 @@ function Audio({
     } else {
       setAudioProgress(0);
       setAudioPlay(false);
-      setAudioIndex(
-        (prevIndex) => (prevIndex - 1 + audios.length) % audios.length
-      );
+      setAudioIndex((prevIndex) => {
+        const newIndex = (prevIndex - 1 + audios.length) % audios.length;
+        updateURLHash(audios[newIndex].title);
+        return newIndex;
+      });
       setShouldPlay(true);
       setVideoPlay(false);
       if (videoRef.current) {
@@ -156,7 +168,11 @@ function Audio({
     event.stopPropagation();
     setAudioProgress(0);
     setAudioPlay(false);
-    setAudioIndex((prevIndex) => (prevIndex + 1) % audios.length);
+    setAudioIndex((prevIndex) => {
+      const newIndex = (prevIndex + 1) % audios.length;
+      updateURLHash(audios[newIndex].title);
+      return newIndex;
+    });
     setShouldPlay(true);
     setVideoPlay(false);
     if (videoRef.current) {
@@ -166,9 +182,9 @@ function Audio({
 
   const handleTimeUpdate = () => {
     if (audioRef.current) {
-      const progress =
+      const audioProgress =
         (audioRef.current.currentTime / audioRef.current.duration) * 100;
-      setAudioProgress(isNaN(progress) ? 0 : progress);
+      setAudioProgress(isNaN(audioProgress) ? 0 : audioProgress);
       setCurrentTime(audioRef.current.currentTime);
     }
   };
@@ -224,7 +240,11 @@ function Audio({
       audioRef.current.currentTime = 0;
       audioRef.current.play();
     } else if (loop === 'loop') {
-      setAudioIndex((prevIndex) => (prevIndex + 1) % audios.length);
+      setAudioIndex((prevIndex) => {
+        const newIndex = (prevIndex + 1) % audios.length;
+        updateURLHash(audios[newIndex].title);
+        return newIndex;
+      });
       setShouldPlay(true);
     } else {
       setAudioPlay(false);
@@ -275,8 +295,6 @@ function Audio({
             glareMaxOpacity={0.65}
             className='tilt-container'
             perspective={1000}
-            // tiltReverse={true}
-            // glareReverse={true}
           >
             <img
               src={selectedAudio.img || noAlbumImg}
@@ -310,7 +328,7 @@ function Audio({
                 <div className='audio-progress-slider'>
                   <Slider
                     onChange={handleProgressChange}
-                    progress={progress}
+                    progress={audioProgress}
                     type='progress'
                   />
                 </div>

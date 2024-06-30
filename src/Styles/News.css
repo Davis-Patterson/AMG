@@ -225,7 +225,7 @@
   margin-bottom: 20px;
   border-bottom: 1px solid var(--clr-news-break);
   padding-bottom: 20px;
-  transition: transform 0.15s ease-in-out;
+  transition: transform 0.15s ease-in-out, border-bottom 1s ease;
 }
 
 .news-news-article-image {

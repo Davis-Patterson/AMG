@@ -113,19 +113,20 @@ function Home() {
                 onTransitionEnd={() => {}}
               >
                 {homeData.map((title, index) => (
-                  <div
-                    className='home-header-video-title-wrapper'
-                    key={index}
-                    onMouseDown={(event) =>
-                      handleLinkClick(
-                        event,
-                        `/artists/${formatTitleForURL(title.artist)}`
-                      )
-                    }
-                  >
-                    <p className='home-header-video-title'>
-                      {title.title} - {title.artist}
-                    </p>
+                  <div className='home-header-video-title-wrapper' key={index}>
+                    <a
+                      href={`/artists/${formatTitleForURL(title.artist)}`}
+                      onMouseDown={(event) =>
+                        handleLinkClick(
+                          event,
+                          `/artists/${formatTitleForURL(title.artist)}`
+                        )
+                      }
+                    >
+                      <p className='home-header-video-title'>
+                        {title.title} - {title.artist}
+                      </p>
+                    </a>
                   </div>
                 ))}
               </div>
