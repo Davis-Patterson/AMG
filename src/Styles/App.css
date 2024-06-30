@@ -20,6 +20,7 @@
   width: 100%;
   position: relative;
   background-color: var(--clr-light);
+  transition: background-color 1s ease;
 }
 
 .controls-container {
@@ -99,11 +100,11 @@
   top: 8px;
   right: 10px;
   z-index: 20;
-  background: var(--clr-screen);
+  background-color: var(--clr-screen);
   border: 1px solid var(--clr-divider);
   border-radius: 5px;
   overflow: hidden;
-  transition: all 0.1s ease-in-out;
+  transition: all 1s ease-in-out;
 }
 
 .filter-dropdown select {
@@ -157,7 +158,8 @@
   width: 150px;
   position: relative;
   overflow: hidden;
-  transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+  transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out,
+    background-color 1s ease;
 }
 
 .read-more-button::after {

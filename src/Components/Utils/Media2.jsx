@@ -13,28 +13,15 @@ function Media({ artist }) {
   const [shouldPlay, setShouldPlay] = useState(false);
   const videoRef = useRef(null);
   const audioRef = useRef(null);
-  const audioSectionRef = useRef(null); // Add a ref for the Audio section
 
   useEffect(() => {
     if (artist) {
       const newAudios = getAudios(artist);
       setAudios(newAudios);
-      const hash = window.location.hash.slice(1);
-      const audioIndexFromURL = newAudios.findIndex(
-        (audio) => formatTitleForURL(audio.title) === hash
-      );
-
-      if (audioIndexFromURL !== -1) {
-        setAudioIndex(audioIndexFromURL);
-        setAudioPlay(false);
-        setShouldPlay(true);
-        setVideoPlay(false);
-      } else {
-        setAudioIndex(0);
-        setAudioPlay(false);
-        setShouldPlay(false);
-        setVideoPlay(true);
-      }
+      setAudioIndex(0);
+      setAudioPlay(false);
+      setShouldPlay(false);
+      setVideoPlay(true);
 
       if (audioRef.current) {
         audioRef.current.pause();
@@ -44,21 +31,12 @@ function Media({ artist }) {
       if (videoRef.current) {
         videoRef.current.pause();
         videoRef.current.load();
-        if (audioIndexFromURL === -1) {
-          videoRef.current
-            .play()
-            .catch((error) => console.error('Error playing video:', error));
-        }
+        videoRef.current
+          .play()
+          .catch((error) => console.error('Error playing video:', error));
       }
     }
   }, [artist]);
-
-  useEffect(() => {
-    const hash = window.location.hash.slice(1);
-    if (hash && audioSectionRef.current) {
-      audioSectionRef.current.scrollIntoView({ behavior: 'smooth' });
-    }
-  }, [audios]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -96,40 +74,9 @@ function Media({ artist }) {
     setVideoPlay(false);
 
     const selectedAudio = audios[index];
-    updateURLHash(selectedAudio.title);
+    const formattedTitle = formatTitleForURL(selectedAudio.title);
+    window.location.hash = `#${formattedTitle}`;
   };
-
-  const updateURLHash = (title) => {
-    const formattedTitle = formatTitleForURL(title);
-    const newUrl = `${window.location.pathname}#${formattedTitle}`;
-    window.history.replaceState(null, '', newUrl);
-  };
-
-  const handleAudioLoad = () => {
-    if (shouldPlay && audioRef.current && selectedAudio) {
-      audioRef.current
-        .play()
-        .then(() => {
-          setAudioPlay(true);
-          setShouldPlay(false);
-        })
-        .catch((error) => {
-          console.error('Error playing audio:', error);
-        });
-    }
-  };
-
-  useEffect(() => {
-    if (shouldPlay && audioRef.current) {
-      audioRef.current.load();
-      audioRef.current.addEventListener('loadeddata', handleAudioLoad);
-    }
-    return () => {
-      if (audioRef.current) {
-        audioRef.current.removeEventListener('loadeddata', handleAudioLoad);
-      }
-    };
-  }, [shouldPlay, audioIndex]);
 
   const getAudios = (artist) => {
     let audios = [];
@@ -159,11 +106,7 @@ function Media({ artist }) {
         </section>
       )}
       {audios.length > 0 && (
-        <section
-          className='artist-content'
-          id='artist-content'
-          ref={audioSectionRef}
-        >
+        <section className='artist-content' id='artist-content'>
           <h3 className='section-title'>Audio</h3>
           <Audio
             selectedAudio={selectedAudio}
@@ -177,8 +120,6 @@ function Media({ artist }) {
             audioRef={audioRef}
             shouldPlay={shouldPlay}
             setShouldPlay={setShouldPlay}
-            handleAudioLoad={handleAudioLoad}
-            updateURLHash={updateURLHash}
           />
           <ul className='audio-list'>
             {audios.map((audio, index) => (

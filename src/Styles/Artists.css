@@ -314,7 +314,6 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  background-color: var(--clr-light);
   overflow: hidden;
   width: 350px;
   margin: 10px;
@@ -330,7 +329,6 @@
   padding-top: 66.66%;
   position: relative;
   overflow: hidden;
-  background-color: var(--clr-light);
   border-radius: 10px;
 }
 

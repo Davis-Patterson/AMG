@@ -125,6 +125,7 @@
   z-index: 2;
   display: flex;
   flex-direction: column;
+  transition: background-color 1s ease;
 }
 
 .artist-title-content {
@@ -243,6 +244,7 @@
   height: 100%;
   background: linear-gradient(to top, var(--clr-light), var(--clr-transparent));
   pointer-events: none;
+  transition: background 1s ease;
 }
 .text-gradient-hidden {
   display: none;

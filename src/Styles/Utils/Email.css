@@ -9,6 +9,7 @@
   background-color: var(--clr-menu);
   border-radius: 8px;
   box-shadow: 0 4px 8px var(--clr-shadow1);
+  transition: background-color 1s ease;
 }
 
 .email-form-container input,
@@ -22,7 +23,7 @@
   background-color: var(--clr-transparent);
   color: var(--clr-dark);
   outline: none; /* Disable default focus styles */
-  transition: border-color 0.3s ease; /* Add transition for border color */
+  transition: border-color 1s ease;
 }
 
 .email-form-container textarea {

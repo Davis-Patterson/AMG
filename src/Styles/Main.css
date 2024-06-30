@@ -216,4 +216,5 @@ span {
   width: 100%;
   position: relative;
   z-index: -2;
+  transition: background-color 1s ease;
 }
