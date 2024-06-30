@@ -4,7 +4,8 @@ import Icon from 'utils/Icon';
 import 'styles/Utils/Banner.css';
 
 function Banner({ data, slideClass }) {
-  const { handleLinkClick, formatTitleForURL } = useContext(AppContext);
+  const { darkMode, handleLinkClick, formatTitleForURL } =
+    useContext(AppContext);
   const [isHovered, setIsHovered] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -49,14 +50,29 @@ function Banner({ data, slideClass }) {
     setIsPaused((prev) => !prev);
   };
 
-  const getLogos = (item) => {
+  const getLogoImgs = (item) => {
+    const logos = [];
+
+    const addLogos = (logoArray) => {
+      logoArray.forEach((logoType) => {
+        logos.push(darkMode ? logoType.white : logoType.black);
+      });
+    };
+
     if (item.logos) {
-      return item.logos.flatMap((logoObj) => Object.values(logoObj));
+      item.logos.forEach((logoType) => {
+        for (const key in logoType) {
+          const logo = logoType[key][0];
+          logos.push(darkMode ? logo.white : logo.black);
+        }
+      });
     }
+
     if (item.logo) {
-      return [item.logo];
+      addLogos(item.logo);
     }
-    return [];
+
+    return logos;
   };
 
   const getLink = (entity, name) => {
@@ -76,11 +92,10 @@ function Banner({ data, slideClass }) {
 
   if (data && data.length > 0) {
     data.forEach((item, index) => {
-      const logos = getLogos(item);
+      const logos = getLogoImgs(item);
       logos.forEach((logo, logoIndex) => {
         bannerItems.push(
           <a
-            key={`logo-${index}-${logoIndex}`}
             href={getLink(item.entity, item.name)}
             onMouseDown={(event) =>
               handleLinkClick(event, getLink(item.entity, item.name))
@@ -88,6 +103,7 @@ function Banner({ data, slideClass }) {
             className='banner-link-wrapper'
           >
             <img
+              key={`logo-${index}-${logoIndex}`}
               src={logo}
               alt={item.title || item.name}
               className={`${slideClass}-banner-icon`}
