@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { ReactSVG } from 'react-svg';
 
 import appleIcon from 'assets/Utils/apple-icon.svg';

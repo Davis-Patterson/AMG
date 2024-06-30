@@ -126,9 +126,11 @@
 .artists-banner-icon {
   height: 42px;
   margin: 0 40px;
+  fill: var(--clr-icon-dark);
 }
 
 .artists-banner-arrow {
   height: 25px;
   margin: 0 40px;
+  fill: var(--clr-icon-dark);
 }
