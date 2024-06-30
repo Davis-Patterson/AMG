@@ -50,17 +50,13 @@ function Banner({ data, slideClass }) {
   };
 
   const getLogos = (item) => {
-    const logos = [];
     if (item.logos) {
-      item.logos.forEach((logoObj) => {
-        for (const key in logoObj) {
-          if (logoObj.hasOwnProperty(key)) {
-            logos.push(logoObj[key]);
-          }
-        }
-      });
+      return item.logos.flatMap((logoObj) => Object.values(logoObj));
     }
-    return logos;
+    if (item.logo) {
+      return [item.logo];
+    }
+    return [];
   };
 
   const getLink = (entity, name) => {
