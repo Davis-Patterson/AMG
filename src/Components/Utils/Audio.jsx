@@ -21,7 +21,7 @@ function Audio({
 }) {
   const { darkMode, mute, setMute, noAlbumImg, artworkOpen } =
     useContext(AppContext);
-  const [progress, setProgress] = useState(0);
+  const [progress, setAudioProgress] = useState(0);
   const [volume, setVolume] = useState(100);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
@@ -83,7 +83,7 @@ function Audio({
     if (audioRef.current) {
       audioRef.current.pause();
       audioRef.current.load();
-      setProgress(0);
+      setAudioProgress(0);
       setCurrentTime(0);
       setDuration(0);
       if (shouldPlay && selectedAudio) {
@@ -135,9 +135,9 @@ function Audio({
     event.stopPropagation();
     if (audioRef.current.currentTime > 2) {
       audioRef.current.currentTime = 0;
-      setProgress(0);
+      setAudioProgress(0);
     } else {
-      setProgress(0);
+      setAudioProgress(0);
       setAudioPlay(false);
       setAudioIndex(
         (prevIndex) => (prevIndex - 1 + audios.length) % audios.length
@@ -154,7 +154,7 @@ function Audio({
     if (event.button !== 0) return;
     event.preventDefault();
     event.stopPropagation();
-    setProgress(0);
+    setAudioProgress(0);
     setAudioPlay(false);
     setAudioIndex((prevIndex) => (prevIndex + 1) % audios.length);
     setShouldPlay(true);
@@ -168,7 +168,7 @@ function Audio({
     if (audioRef.current) {
       const progress =
         (audioRef.current.currentTime / audioRef.current.duration) * 100;
-      setProgress(isNaN(progress) ? 0 : progress);
+      setAudioProgress(isNaN(progress) ? 0 : progress);
       setCurrentTime(audioRef.current.currentTime);
     }
   };
