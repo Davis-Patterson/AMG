@@ -23,6 +23,20 @@
   transition: background-color 1s ease;
 }
 
+.blur-load {
+  position: relative;
+  background-size: cover;
+}
+
+.blur-load img {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.blur-load.loaded img {
+  opacity: 1;
+}
+
 .controls-container {
   position: absolute;
   bottom: 20px;

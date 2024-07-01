@@ -41,7 +41,21 @@ function News() {
       setSortedNews(sortedData);
       setNewsIndex(1);
     }
-  }, [newsData, sortOrder]);
+  }, [newsData, sortOrder, setNewsIndex]);
+
+  const getImg = (item) => {
+    if (item.img && Array.isArray(item.img)) {
+      return item.img[0]?.img || onAirImg;
+    }
+    return item.img || onAirImg;
+  };
+
+  const getSmallImg = (item) => {
+    if (item.img && Array.isArray(item.img)) {
+      return item.img[0]?.small || onAirImg;
+    }
+    return item.img || onAirImg;
+  };
 
   if (!newsData || newsData.length === 0) {
     return (
@@ -184,12 +198,24 @@ function News() {
                     }
                     className='news-news-article-image-link'
                   >
-                    <img
-                      src={article.img}
-                      alt={article.title}
-                      className='news-news-article-image'
-                      id='news-news-article-image'
-                    />
+                    <div
+                      className='news-news-article-image-container blur-load'
+                      id='news-news-article-image-container'
+                      style={{
+                        backgroundImage: `url(${getSmallImg(article)})`,
+                      }}
+                    >
+                      <img
+                        src={getImg(article)}
+                        alt={article.title}
+                        className='news-news-article-image'
+                        id='news-news-article-image'
+                        loading='lazy'
+                        onLoad={(e) =>
+                          e.target.parentElement.classList.add('loaded')
+                        }
+                      />
+                    </div>
                   </a>
                   <div className='news-article-text'>
                     <a

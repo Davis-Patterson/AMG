@@ -3,14 +3,19 @@
     "id": 1,
     "date": "5/22/2024",
     "title": "AMG Website Has Been Deployed",
-    "img": "https://amgbucket.s3.us-east-2.amazonaws.com/news/1meiqsi.webp",
+    "img": [
+      {
+        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/news/1meiqsi.webp",
+        "small": "https://amgbucket.s3.us-east-2.amazonaws.com/news/1meiqsi-small.webp"
+      }
+    ],
     "author": "John Smith",
     "artist": "",
     "content": [
       {
         "section": 1,
         "subtitle": "Introduction",
-        "img": "",
+        "img": [],
         "desc": "",
         "date": "",
         "attribution": "",
@@ -19,7 +24,12 @@
       {
         "section": 2,
         "subtitle": "Features",
-        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/news/1meiqsi.webp",
+        "img": [
+          {
+            "img": "https://amgbucket.s3.us-east-2.amazonaws.com/news/1meiqsi.webp",
+            "small": "https://amgbucket.s3.us-east-2.amazonaws.com/news/1meiqsi.webp"
+          }
+        ],
         "desc": "",
         "date": "",
         "attribution": "",
@@ -28,7 +38,7 @@
       {
         "section": 3,
         "subtitle": "Development Process",
-        "img": "",
+        "img": [],
         "desc": "",
         "date": "",
         "attribution": "",
@@ -37,7 +47,7 @@
       {
         "section": 4,
         "subtitle": "Future Updates",
-        "img": "",
+        "img": [],
         "desc": "",
         "date": "",
         "attribution": "",
@@ -46,7 +56,7 @@
       {
         "section": 5,
         "subtitle": "Conclusion",
-        "img": "",
+        "img": [],
         "desc": "",
         "date": "",
         "attribution": "",
@@ -58,12 +68,22 @@
     "id": 2,
     "date": "5/15/2024",
     "title": "New Album Release by Star Artist",
-    "img": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/fnyv0la.webp",
+    "img": [
+      {
+        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/fnyv0la.webp",
+        "small": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/fnyv0la-small.webp"
+      }
+    ],
     "author": "Alice Johnson",
     "artist": [
       {
         "name": "DJ Moonlight",
-        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/fnyv0la.webp",
+        "img": [
+          {
+            "img": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/fnyv0la.webp",
+            "small": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/fnyv0la-small.webp"
+          }
+        ],
         "bio": "DJ Moonlight, a trailblazing figure in the electronic music scene, has captivated audiences worldwide with his unique soundscapes and electrifying performances. Born and raised in Berlin, he started his journey as a classical pianist before discovering his passion for electronic music. His sets blend deep house, techno, and ambient music, creating an immersive experience that transports listeners to another realm. With over a decade of experience, DJ Moonlight has played at some of the most prestigious festivals and clubs around the globe, including Tomorrowland, Coachella, and Berghain. His innovative approach to music production has earned him numerous awards and accolades, solidifying his status as a pioneer in the industry."
       }
     ],
@@ -71,7 +91,7 @@
       {
         "section": 1,
         "subtitle": "Introduction",
-        "img": "",
+        "img": [],
         "desc": "",
         "date": "",
         "attribution": "",
@@ -80,7 +100,7 @@
       {
         "section": 2,
         "subtitle": "Album Highlights",
-        "img": "",
+        "img": [],
         "desc": "",
         "date": "",
         "attribution": "",
@@ -89,7 +109,7 @@
       {
         "section": 3,
         "subtitle": "Collaborations",
-        "img": "",
+        "img": [],
         "desc": "",
         "date": "",
         "attribution": "",
@@ -98,7 +118,7 @@
       {
         "section": 4,
         "subtitle": "Critical Acclaim",
-        "img": "",
+        "img": [],
         "desc": "",
         "date": "",
         "attribution": "",
@@ -107,7 +127,7 @@
       {
         "section": 5,
         "subtitle": "Tour Announcement",
-        "img": "",
+        "img": [],
         "desc": "",
         "date": "",
         "attribution": "",
@@ -116,7 +136,7 @@
       {
         "section": 6,
         "subtitle": "Conclusion",
-        "img": "",
+        "img": [],
         "desc": "",
         "date": "",
         "attribution": "",
@@ -128,12 +148,22 @@
     "id": 3,
     "date": "6/02/2024",
     "title": "Shaolin Prince Releases Groundbreaking New Album 'Echoes of the Future'",
-    "img": "https://amgbucket.s3.us-east-2.amazonaws.com/news/tqtyawx.webp",
+    "img": [
+      {
+        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/news/tqtyawx.webp",
+        "small": "https://amgbucket.s3.us-east-2.amazonaws.com/news/tqtyawx-small.webp"
+      }
+    ],
     "author": "Jamie Lee",
     "artist": [
       {
         "name": "Shaolin Prince",
-        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/kil441m453.webp",
+        "img": [
+          {
+            "img": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/kil441m453.webp",
+            "small": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/kil441m453-small.webp"
+          }
+        ],
         "bio": "Shaolin Prince, born Marcus Thompson in New York, is a critically acclaimed hip-hop artist known for his peaceful, non-violent messages aimed at teaching kids about peaceful existence and life morals. Growing up in a challenging neighborhood, Marcus found solace in music and martial arts, which influenced his artistic persona. His debut album, 'Peaceful Warrior,' received widespread acclaim for its thoughtful lyrics and positive messages. Shaolin Prince has performed at numerous community events and festivals, using his platform to advocate for peace and education. His music has been praised for its ability to inspire and uplift, making him a beloved figure in the hip-hop community."
       }
     ],
@@ -141,7 +171,7 @@
       {
         "section": 1,
         "subtitle": "Introduction",
-        "img": "",
+        "img": [],
         "desc": "",
         "date": "",
         "attribution": "",
@@ -150,7 +180,12 @@
       {
         "section": 2,
         "subtitle": "Critical Acclaim",
-        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/news/u91chnv.webp",
+        "img": [
+          {
+            "img": "https://amgbucket.s3.us-east-2.amazonaws.com/news/u91chnv.webp",
+            "small": "https://amgbucket.s3.us-east-2.amazonaws.com/news/u91chnv-small.webp"
+          }
+        ],
         "desc": "Shaolin Prince at his album release party",
         "date": "6/01/24",
         "attribution": "Jamie Lee",
@@ -159,7 +194,7 @@
       {
         "section": 3,
         "subtitle": "Artist's Vision",
-        "img": "",
+        "img": [],
         "desc": "",
         "date": "",
         "attribution": "",
@@ -168,7 +203,7 @@
       {
         "section": 4,
         "subtitle": "Advocacy and Availability",
-        "img": "",
+        "img": [],
         "desc": "",
         "date": "",
         "attribution": "",
@@ -180,14 +215,19 @@
     "id": 4,
     "date": "5/10/2024",
     "title": "AMG Annual Music Festival Announced",
-    "img": "https://amgbucket.s3.us-east-2.amazonaws.com/news/uxzjj8z.webp",
+    "img": [
+      {
+        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/news/uxzjj8z.webp",
+        "small": "https://amgbucket.s3.us-east-2.amazonaws.com/news/uxzjj8z-small.webp"
+      }
+    ],
     "author": "Bob Lee",
     "artist": "",
     "content": [
       {
         "section": 1,
         "subtitle": "Festival Announcement",
-        "img": "",
+        "img": [],
         "desc": "",
         "date": "",
         "attribution": "",
@@ -196,7 +236,7 @@
       {
         "section": 2,
         "subtitle": "Lineup Highlights",
-        "img": "",
+        "img": [],
         "desc": "",
         "date": "",
         "attribution": "",
@@ -205,7 +245,12 @@
       {
         "section": 3,
         "subtitle": "Event Details",
-        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/news/uxzjj8z.webp",
+        "img": [
+          {
+            "img": "https://amgbucket.s3.us-east-2.amazonaws.com/news/uxzjj8z.webp",
+            "small": "https://amgbucket.s3.us-east-2.amazonaws.com/news/uxzjj8z-small.webp"
+          }
+        ],
         "desc": "",
         "date": "",
         "attribution": "",
@@ -214,7 +259,7 @@
       {
         "section": 4,
         "subtitle": "Tickets and Pricing",
-        "img": "",
+        "img": [],
         "desc": "",
         "date": "",
         "attribution": "",
@@ -223,7 +268,7 @@
       {
         "section": 5,
         "subtitle": "Conclusion",
-        "img": "",
+        "img": [],
         "desc": "",
         "date": "",
         "attribution": "",
@@ -235,12 +280,22 @@
     "id": 5,
     "date": "5/5/2024",
     "title": "Exclusive Interview with Rising Star",
-    "img": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/g0uzimv.webp",
+    "img": [
+      {
+        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/g0uzimv.webp",
+        "small": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/g0uzimv-small.webp"
+      }
+    ],
     "author": "Susan Parker",
     "artist": [
       {
         "name": "Lily Sterling",
-        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/g0uzimv.webp",
+        "img": [
+          {
+            "img": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/g0uzimv.webp",
+            "small": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/g0uzimv-small.webp"
+          }
+        ],
         "bio": "Lily Sterling is a singer-songwriter whose soulful voice and heartfelt lyrics have resonated with fans across the world. Growing up in Nashville, Tennessee, she was surrounded by music from a young age, learning to play the guitar and piano by the time she was ten. Her music blends elements of country, folk, and pop, creating a sound that is both timeless and contemporary. Lily's debut album, 'Whispers in the Wind,' received critical acclaim for its raw emotion and lyrical depth. She has toured extensively, sharing stages with renowned artists like Taylor Swift and Kacey Musgraves. Known for her authenticity and vulnerability, Lily continues to inspire her fans with her powerful storytelling and captivating performances."
       }
     ],
@@ -248,7 +303,7 @@
       {
         "section": 1,
         "subtitle": "Introduction",
-        "img": "",
+        "img": [],
         "desc": "",
         "date": "",
         "attribution": "",
@@ -257,7 +312,7 @@
       {
         "section": 2,
         "subtitle": "Early Life and Career Beginnings",
-        "img": "",
+        "img": [],
         "desc": "",
         "date": "",
         "attribution": "",
@@ -266,7 +321,12 @@
       {
         "section": 3,
         "subtitle": "Breakthrough Success",
-        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/g0uzimv.webp",
+        "img": [
+          {
+            "img": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/g0uzimv.webp",
+            "small": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/g0uzimv-small.webp"
+          }
+        ],
         "desc": "",
         "date": "",
         "attribution": "",
@@ -275,7 +335,7 @@
       {
         "section": 4,
         "subtitle": "Inspirations and Influences",
-        "img": "",
+        "img": [],
         "desc": "",
         "date": "",
         "attribution": "",
@@ -284,7 +344,7 @@
       {
         "section": 5,
         "subtitle": "Future Plans",
-        "img": "",
+        "img": [],
         "desc": "",
         "date": "",
         "attribution": "",
@@ -293,7 +353,7 @@
       {
         "section": 6,
         "subtitle": "Conclusion",
-        "img": "",
+        "img": [],
         "desc": "",
         "date": "",
         "attribution": "",
@@ -305,12 +365,22 @@
     "id": 6,
     "date": "4/20/2024",
     "title": "Aerotype Productions Signed to Major Deal",
-    "img": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/ujhbdvz.webp",
+    "img": [
+      {
+        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/ujhbdvz.webp",
+        "small": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/ujhbdvz-small.webp"
+      }
+    ],
     "author": "Jane Doe",
     "artist": [
       {
         "name": "Aerotype Productions",
-        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/trv1ute.webp",
+        "img": [
+          {
+            "img": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/trv1ute.webp",
+            "small": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/trv1ute-small.webp"
+          }
+        ],
         "bio": "Aerotype Productions is a hit producer known for his innovative approach to music production and sound design. Producer James 'Aerotype' Smith has revolutionized the electronic music landscape with his genre-defying tracks. His music combines elements of hip-hop, EDM, and cinematic soundscapes, creating an audio-visual experience that is both captivating and immersive. Aerotype Productions has collaborated with top artists like Kendrick Lamar, Skrillex, and The Weeknd, contributing to some of the biggest hits in recent years. His work has been featured in blockbuster films, video games, and major advertising campaigns, making him a household name in the industry. With a commitment to pushing the boundaries of music and technology, Aerotype Productions continues to set new standards in the world of sound."
       }
     ],
@@ -318,7 +388,7 @@
       {
         "section": 1,
         "subtitle": "Major Deal Announcement",
-        "img": "",
+        "img": [],
         "desc": "",
         "date": "",
         "attribution": "",
@@ -327,7 +397,7 @@
       {
         "section": 2,
         "subtitle": "Impact of the Deal",
-        "img": "",
+        "img": [],
         "desc": "",
         "date": "",
         "attribution": "",
@@ -336,7 +406,12 @@
       {
         "section": 3,
         "subtitle": "Motion Picture Rumors",
-        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/trv1ute.webp",
+        "img": [
+          {
+            "img": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/trv1ute.webp",
+            "small": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/trv1ute-small.webp"
+          }
+        ],
         "desc": "Aerotype Productions in his NYC studio",
         "date": "4/20/19",
         "attribution": "Joe Totino",
@@ -345,7 +420,7 @@
       {
         "section": 4,
         "subtitle": "Future Projects",
-        "img": "",
+        "img": [],
         "desc": "",
         "date": "",
         "attribution": "",
@@ -354,7 +429,7 @@
       {
         "section": 5,
         "subtitle": "Conclusion",
-        "img": "",
+        "img": [],
         "desc": "",
         "date": "",
         "attribution": "",
@@ -366,12 +441,22 @@
     "id": 7,
     "date": "3/28/2024",
     "title": "Don L to Headline Coachella",
-    "img": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/kjedyic.webp",
+    "img": [
+      {
+        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/kjedyic.webp",
+        "small": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/kjedyic-small.webp"
+      }
+    ],
     "author": "Joseph Corolla",
     "artist": [
       {
         "name": "Don L",
-        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/rkhlgy56h3.webp",
+        "img": [
+          {
+            "img": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/rkhlgy56h3.webp",
+            "small": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/rkhlgy56h3-small.webp"
+          }
+        ],
         "bio": "Don L, born Donald Ladon in Pheonix, AZ, is a versatile artist whose music spans across indie rock, folk, and hip-hop. His ability to blend these genres seamlessly has set him apart in the music industry. Donald began his career in the underground rap scene, quickly gaining recognition for his unique sound, his breakthrough mixtape, 'Rise of the Don,' highlighted his genre-blending talent. He has toured the world, gracing the stages of renowned festivals such as SXSW, Lollapalooza, and Glastonbury. His dynamic performances and charismatic stage presence have earned him a loyal fan base and critical acclaim. Throughout his career, Don L has received numerous awards for his innovative albums. His dedication to his craft and his ability to connect with listeners on a profound level make him a standout figure in the music world."
       }
     ],
@@ -379,7 +464,7 @@
       {
         "section": 1,
         "subtitle": "Headline Announcement",
-        "img": "",
+        "img": [],
         "desc": "",
         "date": "",
         "attribution": "",
@@ -388,7 +473,12 @@
       {
         "section": 2,
         "subtitle": "Expectations for the Performance",
-        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/kjedyic.webp",
+        "img": [
+          {
+            "img": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/kjedyic.webp",
+            "small": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/kjedyic-small.webp"
+          }
+        ],
         "desc": "Don L in his music video for 'Summer Vybes'",
         "date": "",
         "attribution": "",
@@ -397,7 +487,7 @@
       {
         "section": 3,
         "subtitle": "Collaborations and Surprises",
-        "img": "",
+        "img": [],
         "desc": "",
         "date": "",
         "attribution": "",
@@ -406,7 +496,7 @@
       {
         "section": 4,
         "subtitle": "Fan Reactions",
-        "img": "",
+        "img": [],
         "desc": "",
         "date": "",
         "attribution": "",
@@ -415,7 +505,7 @@
       {
         "section": 5,
         "subtitle": "Conclusion",
-        "img": "",
+        "img": [],
         "desc": "",
         "date": "",
         "attribution": "",

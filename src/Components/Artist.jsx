@@ -89,24 +89,62 @@ function Artist() {
     if (
       artist.banner &&
       Array.isArray(artist.banner) &&
-      artist.banner[0]?.img
+      artist.banner[0]?.img[0]?.img
     ) {
-      return artist.banner[0].img;
-    } else if (artist.img && Array.isArray(artist.img) && artist.img[0]?.img) {
-      return artist.img[0].img;
+      return artist.banner[0].img[0].img;
+    } else if (
+      artist.img &&
+      Array.isArray(artist.img) &&
+      artist.img[0]?.img[0]?.img
+    ) {
+      return artist.img[0].img[0].img;
+    }
+    return noUserImg;
+  };
+
+  const getSmallBannerOrImg = (artist) => {
+    if (
+      artist.banner &&
+      Array.isArray(artist.banner) &&
+      artist.banner[0]?.img[0]?.small
+    ) {
+      return artist.banner[0].img[0].small;
+    } else if (
+      artist.img &&
+      Array.isArray(artist.img) &&
+      artist.img[0]?.img[0]?.small
+    ) {
+      return artist.img[0].img[0].small;
     }
     return noUserImg;
   };
 
   const getImgImg = (artist) => {
-    if (artist.img && Array.isArray(artist.img) && artist.img[0]?.img) {
-      return artist.img[0].img;
+    if (artist.img && Array.isArray(artist.img) && artist.img[0]?.img[0]?.img) {
+      return artist.img[0].img[0].img;
     } else if (
       artist.banner &&
       Array.isArray(artist.banner) &&
-      artist.banner[0]?.img
+      artist.banner[0]?.img[0]?.img
     ) {
-      return artist.banner[0].img;
+      return artist.banner[0].img[0].img;
+    }
+    return noUserImg;
+  };
+
+  const getSmallImgImg = (artist) => {
+    if (
+      artist.img &&
+      Array.isArray(artist.img) &&
+      artist.img[0]?.img[0]?.small
+    ) {
+      return artist.img[0].img[0].small;
+    } else if (
+      artist.banner &&
+      Array.isArray(artist.banner) &&
+      artist.banner[0]?.img[0]?.small
+    ) {
+      return artist.banner[0].img[0].small;
     }
     return noUserImg;
   };
@@ -226,7 +264,10 @@ function Artist() {
   return (
     <main className='page-container' id='page-container'>
       <header className='artist-header' id='artist-header'>
-        <section className='artist-header-pics-container'>
+        <section
+          className='artist-header-pics-container blur-load'
+          style={{ backgroundImage: `url(${getSmallBannerOrImg(artist)})` }}
+        >
           <img
             src={getBannerOrImg(artist)}
             alt={artist.name}
@@ -235,6 +276,8 @@ function Artist() {
             onMouseDown={(event) =>
               handleArtworkOpen(event, getBannerOrImg(artist))
             }
+            loading='lazy'
+            onLoad={(e) => e.target.parentElement.classList.add('loaded')}
           />
         </section>
       </header>
@@ -243,13 +286,23 @@ function Artist() {
         id='artist-detail-title-container'
       >
         <div className='artist-title-content'>
-          <img
-            src={getImgImg(artist)}
-            alt={artist.name}
-            className='artist-image'
-            id='artist-image'
-            onMouseDown={(event) => handleArtworkOpen(event, getImgImg(artist))}
-          />
+          <div
+            className='artist-image-container blur-load'
+            id='artist-image-container'
+            style={{ backgroundImage: `url(${getSmallImgImg(artist)})` }}
+          >
+            <img
+              src={getImgImg(artist)}
+              alt={artist.name}
+              className='artist-image'
+              id='artist-image'
+              onMouseDown={(event) =>
+                handleArtworkOpen(event, getImgImg(artist))
+              }
+              loading='lazy'
+              onLoad={(e) => e.target.parentElement.classList.add('loaded')}
+            />
+          </div>
           <div className='artist-title-container'>
             <h2 className='artist-title' id='artist-title'>
               {artist.name}
@@ -335,11 +388,22 @@ function Artist() {
                   }
                   className='artist-news-article-image-link'
                 >
-                  <img
-                    src={news.img}
-                    alt={news.title}
-                    className='artist-news-article-image'
-                  />
+                  <div
+                    className='artist-news-article-image-container blur-load'
+                    style={{
+                      backgroundImage: `url(${news.img.small || news.img})`,
+                    }}
+                  >
+                    <img
+                      src={news.img}
+                      alt={news.title}
+                      className='artist-news-article-image'
+                      loading='lazy'
+                      onLoad={(e) =>
+                        e.target.parentElement.classList.add('loaded')
+                      }
+                    />
+                  </div>
                 </a>
                 <div className='artist-news-article-content'>
                   <a
