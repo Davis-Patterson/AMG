@@ -87,6 +87,20 @@ function Article() {
     return { artist, album };
   };
 
+  const getImg = (item) => {
+    if (item.img && Array.isArray(item.img)) {
+      return item.img[0]?.img || noUserImg;
+    }
+    return item.img || noUserImg;
+  };
+
+  const getSmallImg = (item) => {
+    if (item.img && Array.isArray(item.img)) {
+      return item.img[0]?.small || noUserImg;
+    }
+    return item.img || noUserImg;
+  };
+
   if (!newsData || newsData.length === 0) {
     return (
       <main className='page-container' id='page-container'>
@@ -201,14 +215,19 @@ function Article() {
   return (
     <main className='page-container' id='page-container'>
       <header className='article-header' id='article-header'>
-        <section className='article-header-pics-container'>
+        <section
+          className='article-header-pics-container blur-load'
+          style={{ backgroundImage: `url(${getSmallImg(article)})` }}
+        >
           <img
-            src={article.img}
+            src={getImg(article)}
             alt={article.title}
             className='article-header-pics'
             onMouseDown={(event) =>
-              handleArtworkOpen(event, article.img, '', article.title)
+              handleArtworkOpen(event, getImg(article), '', article.title)
             }
+            loading='lazy'
+            onLoad={(e) => e.target.parentElement.classList.add('loaded')}
           />
         </section>
       </header>
@@ -217,15 +236,23 @@ function Article() {
         id='article-detail-container'
       >
         <div className='article-header-content' id='article-header-content'>
-          <img
-            src={article.img}
-            alt={article.title}
-            className='news-article-image'
-            id='news-article-image'
-            onMouseDown={(event) =>
-              handleArtworkOpen(event, article.img, '', article.title)
-            }
-          />
+          <div
+            className='news-article-image-container blur-load'
+            id='news-article-image-container'
+            style={{ backgroundImage: `url(${getSmallImg(article)})` }}
+          >
+            <img
+              src={getImg(article)}
+              alt={article.title}
+              className='news-article-image'
+              id='news-article-image'
+              onMouseDown={(event) =>
+                handleArtworkOpen(event, getImg(article), '', article.title)
+              }
+              loading='lazy'
+              onLoad={(e) => e.target.parentElement.classList.add('loaded')}
+            />
+          </div>
           <div className='article-title-container'>
             <h2 className='article-title' id='article-title'>
               {article.title}
@@ -244,14 +271,27 @@ function Article() {
             );
             return (
               <div key={section.section}>
-                {section.img && (
-                  <div className='article-section-image-container'>
+                {section.img && section.img.length > 0 && (
+                  <div
+                    className='article-section-image-container blur-load'
+                    style={{ backgroundImage: `url(${getSmallImg(section)})` }}
+                  >
                     <img
-                      src={section.img}
+                      src={getImg(section)}
                       alt={section.desc || article.title}
                       className='article-section-image'
                       onMouseDown={(event) =>
-                        handleArtworkOpen(event, section.img, '', artist, album)
+                        handleArtworkOpen(
+                          event,
+                          getImg(section),
+                          '',
+                          artist,
+                          album
+                        )
+                      }
+                      loading='lazy'
+                      onLoad={(e) =>
+                        e.target.parentElement.classList.add('loaded')
                       }
                     />
                   </div>
@@ -273,20 +313,30 @@ function Article() {
             <h3 className='section-title'>Artist</h3>
             {article.artist.map((artistItem, index) => (
               <div key={index} className='article-artist'>
-                <img
-                  src={artistItem.img || noUserImg}
-                  alt={artistItem.name}
-                  className='article-artist-image'
+                <a
+                  href={`/artists/${formatTitleForURL(artistItem.name)}`}
                   onMouseDown={(event) =>
                     handleLinkClick(
                       event,
                       `/artists/${formatTitleForURL(artistItem.name)}`
                     )
                   }
-                />
+                  className='article-artist-image-container blur-load'
+                  style={{ backgroundImage: `url(${getSmallImg(artistItem)})` }}
+                >
+                  <img
+                    src={getImg(artistItem)}
+                    alt={artistItem.name}
+                    className='article-artist-image'
+                    loading='lazy'
+                    onLoad={(e) =>
+                      e.target.parentElement.classList.add('loaded')
+                    }
+                  />
+                </a>
                 <div className='article-artist-content'>
-                  <h4
-                    className='article-artist-name'
+                  <a
+                    href={`/artists/${formatTitleForURL(artistItem.name)}`}
                     onMouseDown={(event) =>
                       handleLinkClick(
                         event,
@@ -294,22 +344,24 @@ function Article() {
                       )
                     }
                   >
-                    {artistItem.name}
-                  </h4>
+                    <h4 className='article-artist-name'>{artistItem.name}</h4>
+                  </a>
                   <p className='article-artist-bio'>{artistItem.bio}...</p>
-                  <div
+                  <a
+                    href={`/artists/${formatTitleForURL(artistItem.name)}`}
                     onMouseDown={(event) =>
                       handleLinkClick(
                         event,
                         `/artists/${formatTitleForURL(artistItem.name)}`
                       )
                     }
-                    className='show-more-button'
                   >
-                    <span>
-                      <p className='show-more-button-text'>Show More</p>
-                    </span>
-                  </div>
+                    <div className='show-more-button'>
+                      <span>
+                        <p className='show-more-button-text'>Show More</p>
+                      </span>
+                    </div>
+                  </a>
                 </div>
               </div>
             ))}
@@ -324,58 +376,67 @@ function Article() {
                 className='recent-news-article'
                 id='recent-news-article'
               >
-                <div
-                  className='recent-news-article-image-container'
+                <a
+                  href={`/news/${formatTitleForURL(newsItem.title)}`}
+                  onMouseDown={(event) =>
+                    handleLinkClick(
+                      event,
+                      `/news/${formatTitleForURL(newsItem.title)}`
+                    )
+                  }
+                  className='recent-news-article-image-container blur-load'
                   id='recent-news-article-image-container'
+                  style={{ backgroundImage: `url(${getSmallImg(newsItem)})` }}
                 >
                   <img
-                    src={newsItem.img}
+                    src={getImg(newsItem)}
                     alt={newsItem.title}
                     className='recent-news-article-image'
                     id='recent-news-article-image'
-                    onMouseDown={(event) =>
-                      handleArtworkOpen(
-                        event,
-                        newsItem.img,
-                        newsItem.title,
-                        newsItem.author,
-                        newsItem.date
-                      )
+                    loading='lazy'
+                    onLoad={(e) =>
+                      e.target.parentElement.classList.add('loaded')
                     }
                   />
-                </div>
+                </a>
                 <div className='recent-news-article-text'>
-                  <div
+                  <a
+                    href={`/news/${formatTitleForURL(newsItem.title)}`}
                     onMouseDown={(event) =>
                       handleLinkClick(
                         event,
                         `/news/${formatTitleForURL(newsItem.title)}`
                       )
                     }
-                    className='recent-news-article-title'
-                    id='recent-news-article-title'
                   >
-                    {newsItem.title}
-                  </div>
+                    <div
+                      className='recent-news-article-title'
+                      id='recent-news-article-title'
+                    >
+                      {newsItem.title}
+                    </div>
+                  </a>
                   <p className='recent-news-article-desc'>
                     {newsItem.content[0].content}
                   </p>
                   <p className='recent-news-article-author'>
                     By {newsItem.author} on {newsItem.date}
                   </p>
-                  <div
+                  <a
+                    href={`/news/${formatTitleForURL(newsItem.title)}`}
                     onMouseDown={(event) =>
                       handleLinkClick(
                         event,
                         `/news/${formatTitleForURL(newsItem.title)}`
                       )
                     }
-                    className='read-more-button'
                   >
-                    <span>
-                      <p className='read-more-button-text'>Read More</p>
-                    </span>
-                  </div>
+                    <div className='read-more-button'>
+                      <span>
+                        <p className='read-more-button-text'>Read More</p>
+                      </span>
+                    </div>
+                  </a>
                 </div>
               </div>
             ))}

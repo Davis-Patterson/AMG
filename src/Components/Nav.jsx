@@ -214,12 +214,15 @@ const Nav = () => {
                 )}
               </div>
             </div>
-            <div className='nav-menu-toggle' id='nav-menu-toggle'>
+            <div
+              className='nav-menu-toggle'
+              id='nav-menu-toggle'
+              ref={menuIconRef}
+            >
               {!menu && (
                 <DehazeIcon
                   className='menu-icon'
                   onMouseDown={(event) => handleMenu(event)}
-                  ref={menuIconRef}
                   id='menu-icon'
                 />
               )}
@@ -231,7 +234,6 @@ const Nav = () => {
                   wrapperId='nav-menu-toggle'
                   id='menu-close-icon'
                   onMouseDown={handleMenu}
-                  ref={menuIconRef}
                 />
               )}
             </div>

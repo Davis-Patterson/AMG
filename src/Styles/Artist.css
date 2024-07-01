@@ -60,7 +60,7 @@
 }
 
 @media screen and (max-width: 500px) {
-  #artist-image {
+  #artist-image-container {
     margin-right: 8px;
   }
   #artist-title {
@@ -133,11 +133,17 @@
   align-items: center;
 }
 
+.artist-image-container {
+  width: 150px;
+  height: 150px;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
 .artist-image {
   width: 150px;
   height: 150px;
   object-fit: cover;
-  margin-right: 20px;
   cursor: pointer;
 }
 

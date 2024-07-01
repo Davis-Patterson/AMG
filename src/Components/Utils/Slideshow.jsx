@@ -130,17 +130,30 @@ const Slideshow = ({ data, index, setIndex, slideClass }) => {
 
   const getBannerOrImg = (item) => {
     if (item.banner && Array.isArray(item.banner) && item.banner[0]?.img) {
-      return item.banner[0]?.img;
+      return item.banner[0].img[0]?.img || noUserImg;
     }
     if (item.img && Array.isArray(item.img)) {
-      return item.img[0]?.img || item.img;
+      return item.img[0]?.img[0]?.img || item.img[0]?.img || noUserImg;
     }
-    return item.banner || item.img || noUserImg;
+    return item.img || noUserImg;
+  };
+
+  const getSmallImg = (item) => {
+    if (item.banner && Array.isArray(item.banner) && item.banner[0]?.img) {
+      return item.banner[0].img[0]?.small || noUserImg;
+    }
+    if (item.img && Array.isArray(item.img)) {
+      return item.img[0]?.small || item.img[0]?.img[0]?.small || noUserImg;
+    }
+    return item.img || noUserImg;
   };
 
   const getBannerAlign = (item) => {
     if (item.banner && Array.isArray(item.banner)) {
       return item.banner[0]?.align || 'center';
+    }
+    if (item.img && Array.isArray(item.img)) {
+      return item.img[0]?.align || 'center';
     }
     return 'center';
   };
@@ -203,7 +216,10 @@ const Slideshow = ({ data, index, setIndex, slideClass }) => {
           onTransitionEnd={handleTransitionEnd}
         >
           <div
-            className={`${slideClass}-header-pic-wrapper`}
+            className={`${slideClass}-header-pic-wrapper blur-load`}
+            style={{
+              backgroundImage: `url(${getSmallImg(data[data.length - 1])})`,
+            }}
             onMouseDown={(event) =>
               handleArtworkOpen(
                 event,
@@ -219,12 +235,14 @@ const Slideshow = ({ data, index, setIndex, slideClass }) => {
               id={`${slideClass}-header-pic`}
               style={{ objectPosition: getBannerAlign(data[data.length - 1]) }}
               loading='lazy'
+              onLoad={(e) => e.target.parentElement.classList.add('loaded')}
             />
           </div>
           {data.map((item, idx) => (
             <div
               key={idx}
-              className={`${slideClass}-header-pic-wrapper`}
+              className={`${slideClass}-header-pic-wrapper blur-load`}
+              style={{ backgroundImage: `url(${getSmallImg(item)})` }}
               id={`${slideClass}-header-pic-wrapper`}
               onMouseDown={(event) =>
                 handleArtworkOpen(
@@ -241,11 +259,13 @@ const Slideshow = ({ data, index, setIndex, slideClass }) => {
                 id={`${slideClass}-header-pic`}
                 style={{ objectPosition: getBannerAlign(item) }}
                 loading='lazy'
+                onLoad={(e) => e.target.parentElement.classList.add('loaded')}
               />
             </div>
           ))}
           <div
-            className={`${slideClass}-header-pic-wrapper`}
+            className={`${slideClass}-header-pic-wrapper blur-load`}
+            style={{ backgroundImage: `url(${getSmallImg(data[0])})` }}
             onMouseDown={(event) =>
               handleArtworkOpen(
                 event,
@@ -261,6 +281,7 @@ const Slideshow = ({ data, index, setIndex, slideClass }) => {
               id={`${slideClass}-header-pic`}
               style={{ objectPosition: getBannerAlign(data[0]) }}
               loading='lazy'
+              onLoad={(e) => e.target.parentElement.classList.add('loaded')}
             />
           </div>
         </div>

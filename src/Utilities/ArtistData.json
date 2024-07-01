@@ -3,7 +3,12 @@
     "name": "DJ Moonlight",
     "img": [
       {
-        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/fnyv0la.webp",
+        "img": [
+          {
+            "img": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/fnyv0la.webp",
+            "small": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/fnyv0la-small.webp"
+          }
+        ],
         "align": "center"
       }
     ],
@@ -125,7 +130,12 @@
     "name": "Lily Sterling",
     "img": [
       {
-        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/g0uzimv.webp",
+        "img": [
+          {
+            "img": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/g0uzimv.webp",
+            "small": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/g0uzimv-small.webp"
+          }
+        ],
         "align": "center"
       }
     ],
@@ -241,17 +251,32 @@
     "name": "Aerotype Productions",
     "img": [
       {
-        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/trv1ute.webp",
+        "img": [
+          {
+            "img": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/trv1ute.webp",
+            "small": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/trv1ute-small.webp"
+          }
+        ],
         "align": "center"
       },
       {
-        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/kj87o3io.webp",
+        "img": [
+          {
+            "img": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/kj87o3io.webp",
+            "small": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/kj87o3io-small.webp"
+          }
+        ],
         "align": "center"
       }
     ],
     "banner": [
       {
-        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/ujhbdvz.webp",
+        "img": [
+          {
+            "img": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/ujhbdvz.webp",
+            "small": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/ujhbdvz-small.webp"
+          }
+        ],
         "align": "center"
       }
     ],
@@ -560,13 +585,23 @@
     "name": "Don L",
     "img": [
       {
-        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/rkhlgy56h3.webp",
+        "img": [
+          {
+            "img": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/rkhlgy56h3.webp",
+            "small": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/rkhlgy56h3-small.webp"
+          }
+        ],
         "align": "center"
       }
     ],
     "banner": [
       {
-        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/kjedyic.webp",
+        "img": [
+          {
+            "img": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/kjedyic.webp",
+            "small": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/kjedyic-small.webp"
+          }
+        ],
         "align": "center"
       }
     ],
@@ -740,13 +775,23 @@
     "name": "Shaolin Prince",
     "img": [
       {
-        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/kil441m453.webp",
+        "img": [
+          {
+            "img": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/kil441m453.webp",
+            "small": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/kil441m453-small.webp"
+          }
+        ],
         "align": "center"
       }
     ],
     "banner": [
       {
-        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/a6qtoyo.webp",
+        "img": [
+          {
+            "img": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/a6qtoyo.webp",
+            "small": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/a6qtoyo-small.webp"
+          }
+        ],
         "align": "center"
       }
     ],
@@ -1026,7 +1071,12 @@
     "name": "Raven Songbird",
     "img": [
       {
-        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/4hgnwxg.webp",
+        "img": [
+          {
+            "img": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/4hgnwxg.webp",
+            "small": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/4hgnwxg-small.webp"
+          }
+        ],
         "align": "center"
       }
     ],
@@ -1083,13 +1133,23 @@
     "name": "Hiroshi Tanaka",
     "img": [
       {
-        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/f1txmps.webp",
+        "img": [
+          {
+            "img": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/f1txmps.webp",
+            "small": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/f1txmps-small.webp"
+          }
+        ],
         "align": "center"
       }
     ],
     "banner": [
       {
-        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/surdigm.webp",
+        "img": [
+          {
+            "img": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/surdigm.webp",
+            "small": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/surdigm-small.webp"
+          }
+        ],
         "align": "top"
       }
     ],
@@ -1136,7 +1196,12 @@
     "name": "Emma Lou James",
     "img": [
       {
-        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/ewi3r3e.webp",
+        "img": [
+          {
+            "img": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/ewi3r3e.webp",
+            "small": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/ewi3r3e-small.webp"
+          }
+        ],
         "align": "top"
       }
     ],

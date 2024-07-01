@@ -1,106 +1,236 @@
 [
   {
     "title": "Lexicon 480L",
-    "img": "https://amgbucket.s3.us-east-2.amazonaws.com/about/b3os6di.webp"
+    "img": [
+      {
+        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/about/b3os6di.webp",
+        "small": "https://amgbucket.s3.us-east-2.amazonaws.com/about/b3os6di-small.webp"
+      }
+    ]
   },
   {
     "title": "API 1608 Control Room",
-    "img": "https://amgbucket.s3.us-east-2.amazonaws.com/about/42qeuf0.webp"
+    "img": [
+      {
+        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/about/42qeuf0.webp",
+        "small": "https://amgbucket.s3.us-east-2.amazonaws.com/about/42qeuf0-small.webp"
+      }
+    ]
   },
   {
     "title": "Outboard Gear",
-    "img": "https://amgbucket.s3.us-east-2.amazonaws.com/about/5untuh3.webp"
+    "img": [
+      {
+        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/about/5untuh3.webp",
+        "small": "https://amgbucket.s3.us-east-2.amazonaws.com/about/5untuh3-small.webp"
+      }
+    ]
   },
   {
     "title": "Outboard Gear",
-    "img": "https://amgbucket.s3.us-east-2.amazonaws.com/about/euccyjh.webp"
+    "img": [
+      {
+        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/about/euccyjh.webp",
+        "small": "https://amgbucket.s3.us-east-2.amazonaws.com/about/euccyjh-small.webp"
+      }
+    ]
   },
   {
     "title": "Live Room",
-    "img": "https://amgbucket.s3.us-east-2.amazonaws.com/about/0trm8gn.webp"
+    "img": [
+      {
+        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/about/0trm8gn.webp",
+        "small": "https://amgbucket.s3.us-east-2.amazonaws.com/about/0trm8gn-small.webp"
+      }
+    ]
   },
   {
     "title": "Live Room",
-    "img": "https://amgbucket.s3.us-east-2.amazonaws.com/about/omjvrom.webp"
+    "img": [
+      {
+        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/about/omjvrom.webp",
+        "small": "https://amgbucket.s3.us-east-2.amazonaws.com/about/omjvrom-small.webp"
+      }
+    ]
   },
   {
     "title": "Production Suite",
-    "img": "https://amgbucket.s3.us-east-2.amazonaws.com/about/pls2txb.webp"
+    "img": [
+      {
+        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/about/pls2txb.webp",
+        "small": "https://amgbucket.s3.us-east-2.amazonaws.com/about/pls2txb-small.webp"
+      }
+    ]
   },
   {
     "title": "Production Suite",
-    "img": "https://amgbucket.s3.us-east-2.amazonaws.com/about/vfnftgl.webp"
+    "img": [
+      {
+        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/about/vfnftgl.webp",
+        "small": "https://amgbucket.s3.us-east-2.amazonaws.com/about/vfnftgl-small.webp"
+      }
+    ]
   },
   {
     "title": "Neumann U 47",
-    "img": "https://amgbucket.s3.us-east-2.amazonaws.com/about/lwqpjtn.webp"
+    "img": [
+      {
+        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/about/lwqpjtn.webp",
+        "small": "https://amgbucket.s3.us-east-2.amazonaws.com/about/lwqpjtn-small.webp"
+      }
+    ]
   },
   {
     "title": "S6L & Pro Tools",
-    "img": "https://amgbucket.s3.us-east-2.amazonaws.com/about/rknz633.webp"
+    "img": [
+      {
+        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/about/rknz633.webp",
+        "small": "https://amgbucket.s3.us-east-2.amazonaws.com/about/rknz633-small.webp"
+      }
+    ]
   },
   {
     "title": "Avid S6L",
-    "img": "https://amgbucket.s3.us-east-2.amazonaws.com/about/ql38mwm.webp"
+    "img": [
+      {
+        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/about/ql38mwm.webp",
+        "small": "https://amgbucket.s3.us-east-2.amazonaws.com/about/ql38mwm-small.webp"
+      }
+    ]
   },
   {
     "title": "SSL 4000G+",
-    "img": "https://amgbucket.s3.us-east-2.amazonaws.com/about/lrutas2.webp"
+    "img": [
+      {
+        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/about/lrutas2.webp",
+        "small": "https://amgbucket.s3.us-east-2.amazonaws.com/about/lrutas2-small.webp"
+      }
+    ]
   },
   {
     "title": "SSL 4000G+",
-    "img": "https://amgbucket.s3.us-east-2.amazonaws.com/about/c4rfroh.webp"
+    "img": [
+      {
+        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/about/c4rfroh.webp",
+        "small": "https://amgbucket.s3.us-east-2.amazonaws.com/about/c4rfroh-small.webp"
+      }
+    ]
   },
   {
     "title": "SSL 4000G+ closeup",
-    "img": "https://amgbucket.s3.us-east-2.amazonaws.com/about/bzl9lra.webp"
+    "img": [
+      {
+        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/about/bzl9lra.webp",
+        "small": "https://amgbucket.s3.us-east-2.amazonaws.com/about/bzl9lra-small.webp"
+      }
+    ]
   },
   {
     "title": "SSL 4000G+ patchbay",
-    "img": "https://amgbucket.s3.us-east-2.amazonaws.com/about/pwdw6dp.webp"
+    "img": [
+      {
+        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/about/pwdw6dp.webp",
+        "small": "https://amgbucket.s3.us-east-2.amazonaws.com/about/pwdw6dp-small.webp"
+      }
+    ]
   },
   {
     "title": "SSL 4000G+ faders",
-    "img": "https://amgbucket.s3.us-east-2.amazonaws.com/about/ecyzogq.webp"
+    "img": [
+      {
+        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/about/ecyzogq.webp",
+        "small": "https://amgbucket.s3.us-east-2.amazonaws.com/about/ecyzogq-small.webp"
+      }
+    ]
   },
   {
     "title": "Outboard Gear",
-    "img": "https://amgbucket.s3.us-east-2.amazonaws.com/about/zrcbpdn.webp"
+    "img": [
+      {
+        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/about/zrcbpdn.webp",
+        "small": "https://amgbucket.s3.us-east-2.amazonaws.com/about/zrcbpdn-small.webp"
+      }
+    ]
   },
   {
     "title": "Control Room",
-    "img": "https://amgbucket.s3.us-east-2.amazonaws.com/about/azvqbpa.webp"
+    "img": [
+      {
+        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/about/azvqbpa.webp",
+        "small": "https://amgbucket.s3.us-east-2.amazonaws.com/about/azvqbpa-small.webp"
+      }
+    ]
   },
   {
     "title": "Yamaha 02R",
-    "img": "https://amgbucket.s3.us-east-2.amazonaws.com/about/ihlt3yk.webp"
+    "img": [
+      {
+        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/about/ihlt3yk.webp",
+        "small": "https://amgbucket.s3.us-east-2.amazonaws.com/about/ihlt3yk-small.webp"
+      }
+    ]
   },
   {
     "title": "Yamaha 02R",
-    "img": "https://amgbucket.s3.us-east-2.amazonaws.com/about/j20vh81.webp"
+    "img": [
+      {
+        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/about/j20vh81.webp",
+        "small": "https://amgbucket.s3.us-east-2.amazonaws.com/about/j20vh81-small.webp"
+      }
+    ]
   },
   {
     "title": "Yamaha 02R",
-    "img": "https://amgbucket.s3.us-east-2.amazonaws.com/about/i2grgoy.webp"
+    "img": [
+      {
+        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/about/i2grgoy.webp",
+        "small": "https://amgbucket.s3.us-east-2.amazonaws.com/about/i2grgoy-small.webp"
+      }
+    ]
   },
   {
     "title": "Digidesign Control Room",
-    "img": "https://amgbucket.s3.us-east-2.amazonaws.com/about/tkpthxb.webp"
+    "img": [
+      {
+        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/about/tkpthxb.webp",
+        "small": "https://amgbucket.s3.us-east-2.amazonaws.com/about/tkpthxb-small.webp"
+      }
+    ]
   },
   {
     "title": "Audient ASP8024",
-    "img": "https://amgbucket.s3.us-east-2.amazonaws.com/about/y3xkjmg.webp"
+    "img": [
+      {
+        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/about/y3xkjmg.webp",
+        "small": "https://amgbucket.s3.us-east-2.amazonaws.com/about/y3xkjmg-small.webp"
+      }
+    ]
   },
   {
     "title": "AMG Reception",
-    "img": "https://amgbucket.s3.us-east-2.amazonaws.com/extra/ak3s9je.webp"
+    "img": [
+      {
+        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/extra/ak3s9je.webp",
+        "small": "https://amgbucket.s3.us-east-2.amazonaws.com/extra/ak3s9je-small.webp"
+      }
+    ]
   },
   {
     "title": "OP-6 Amp",
-    "img": "https://amgbucket.s3.us-east-2.amazonaws.com/about/1nosx2f.webp"
+    "img": [
+      {
+        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/about/1nosx2f.webp",
+        "small": "https://amgbucket.s3.us-east-2.amazonaws.com/about/1nosx2f-small.webp"
+      }
+    ]
   },
   {
     "title": "Studer A827",
-    "img": "https://amgbucket.s3.us-east-2.amazonaws.com/about/qzb5qkh.webp"
+    "img": [
+      {
+        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/about/qzb5qkh.webp",
+        "small": "https://amgbucket.s3.us-east-2.amazonaws.com/about/qzb5qkh-small.webp"
+      }
+    ]
   }
 ]

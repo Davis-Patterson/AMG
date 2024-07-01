@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext, useCallback } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { AppContext } from 'contexts/AppContext';
 import Banner from 'utils/Banner';
 import Slideshow from 'utils/Slideshow';
@@ -44,7 +44,14 @@ function Artists() {
 
   const getImgImg = (artist) => {
     if (artist.img && Array.isArray(artist.img)) {
-      return artist.img[0]?.img || noUserImg;
+      return artist.img[0]?.img[0]?.img || noUserImg;
+    }
+    return artist.img || noUserImg;
+  };
+
+  const getSmallImg = (artist) => {
+    if (artist.img && Array.isArray(artist.img)) {
+      return artist.img[0]?.img[0]?.small || noUserImg;
     }
     return artist.img || noUserImg;
   };
@@ -162,13 +169,20 @@ function Artists() {
                   )
                 }
               >
-                <div className='artist-img-container' id='artist-img-container'>
+                <div
+                  className='artist-img-container blur-load'
+                  id='artist-img-container'
+                  style={{ backgroundImage: `url(${getSmallImg(artist)})` }}
+                >
                   <img
                     src={getImgImg(artist)}
                     alt={artist.name}
                     className='artist-img'
                     id='artist-img'
                     loading='lazy'
+                    onLoad={(e) =>
+                      e.target.parentElement.classList.add('loaded')
+                    }
                   />
                 </div>
                 <div className='artist-name-container'>
