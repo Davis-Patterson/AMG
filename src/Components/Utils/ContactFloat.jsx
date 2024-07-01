@@ -1,5 +1,6 @@
 import React, { useState, useContext, useRef, useEffect } from 'react';
 import { AppContext } from 'contexts/AppContext';
+import { useLocation } from 'react-router-dom';
 import Icon from 'utils/Icon';
 import 'styles/Utils/ContactFloat.css';
 
@@ -18,6 +19,9 @@ function ContactFloat() {
   const [error, setError] = useState(false);
 
   const contactRef = useRef(null);
+
+  const location = useLocation();
+  const currentPath = location.pathname;
 
   const handleClickOutside = (event) => {
     if (contactRef.current && !contactRef.current.contains(event.target)) {
@@ -44,57 +48,61 @@ function ContactFloat() {
     };
   }, [contactFloat]);
 
-  return (
-    <div
-      className={`contact-float-container ${contactFloat ? 'expanded' : ''}`}
-      id='contact-float-container'
-    >
-      {!contactFloat && (
-        <div
-          className='contact-float-button'
-          onMouseDown={(event) => handleContactFloat(event, !contactFloat)}
-        >
-          <h2>CONTACT</h2>
-        </div>
-      )}
-      {contactFloat && (
-        <div className='contact-float-content' ref={contactRef}>
-          <Icon
-            name='x'
-            className='close-icon'
-            onMouseDown={(event) => handleContactFloat(event, false)}
-          ></Icon>
-          <h2>CONTACT US</h2>
-          <form className='float-form' onSubmit={handleSubmit}>
-            <input
-              type='text'
-              name='name'
-              placeholder='Your name'
-              value={form.name}
-              onChange={handleChange}
-              required
-            />
-            <input
-              type='email'
-              name='email'
-              placeholder='Your email'
-              value={form.email}
-              onChange={handleChange}
-              required
-            />
-            <textarea
-              placeholder='Your message'
-              name='message'
-              value={form.message}
-              onChange={handleChange}
-              required
-            />
-            <button type='submit'>Send</button>
-          </form>
-        </div>
-      )}
-    </div>
-  );
+  if (currentPath !== '/') {
+    return (
+      <div
+        className={`contact-float-container ${contactFloat ? 'expanded' : ''}`}
+        id='contact-float-container'
+      >
+        {!contactFloat && (
+          <div
+            className='contact-float-button'
+            onMouseDown={(event) => handleContactFloat(event, !contactFloat)}
+          >
+            <h2>CONTACT</h2>
+          </div>
+        )}
+        {contactFloat && (
+          <div className='contact-float-content' ref={contactRef}>
+            <Icon
+              name='x'
+              className='close-icon'
+              onMouseDown={(event) => handleContactFloat(event, false)}
+            ></Icon>
+            <h2>CONTACT US</h2>
+            <form className='float-form' onSubmit={handleSubmit}>
+              <input
+                type='text'
+                name='name'
+                placeholder='Your name'
+                value={form.name}
+                onChange={handleChange}
+                required
+              />
+              <input
+                type='email'
+                name='email'
+                placeholder='Your email'
+                value={form.email}
+                onChange={handleChange}
+                required
+              />
+              <textarea
+                placeholder='Your message'
+                name='message'
+                value={form.message}
+                onChange={handleChange}
+                required
+              />
+              <button type='submit'>Send</button>
+            </form>
+          </div>
+        )}
+      </div>
+    );
+  }
+
+  return null;
 }
 
 export default ContactFloat;
