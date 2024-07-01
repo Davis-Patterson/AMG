@@ -1,0 +1,662 @@
+[
+  {
+    "name": "Kapito Santo",
+    "img": [
+      {
+        "img": [
+          {
+            "img": "",
+            "small": ""
+          }
+        ],
+        "align": "center"
+      }
+    ],
+    "banner": [
+      {
+        "img": [
+          {
+            "img": "",
+            "small": ""
+          }
+        ],
+        "align": "center"
+      }
+    ],
+    "logos": [
+      {
+        "logo": [
+          {
+            "black": "",
+            "white": ""
+          }
+        ]
+      }
+    ],
+    "bio": "",
+    "links": [
+      {
+        "facebook": "",
+        "twitter": "",
+        "instagram": "",
+        "youtube": "",
+        "spotify": "",
+        "apple": "",
+        "soundcloud": ""
+      }
+    ],
+    "management": [
+      {
+        "name": "",
+        "email": ""
+      },
+      {
+        "name": "",
+        "email": ""
+      }
+    ],
+    "videos": [
+      {
+        "title": "",
+        "artist": "",
+        "link": "",
+        "videoSources": [
+          {
+            "src": "",
+            "type": "video/webm",
+            "resolution": "1080p"
+          },
+          {
+            "src": "",
+            "type": "video/mp4",
+            "resolution": "720p"
+          }
+        ]
+      }
+    ],
+    "audio": [
+      {
+        "title": "",
+        "artist": "",
+        "feat": [],
+        "album": "",
+        "date": "",
+        "img": "",
+        "explicit": true,
+        "audio": [
+          {
+            "src": "",
+            "type": "audio/x-m4a"
+          },
+          {
+            "src": "",
+            "type": "audio/opus"
+          },
+          {
+            "src": "",
+            "type": "audio/aac"
+          },
+          {
+            "src": "",
+            "type": "audio/mp3"
+          }
+        ]
+      },
+      {
+        "title": "",
+        "artist": "",
+        "feat": [],
+        "album": "",
+        "date": "",
+        "img": "",
+        "explicit": true,
+        "audio": [
+          {
+            "src": "",
+            "type": "audio/x-m4a"
+          },
+          {
+            "src": "",
+            "type": "audio/opus"
+          },
+          {
+            "src": "",
+            "type": "audio/aac"
+          },
+          {
+            "src": "",
+            "type": "audio/mp3"
+          }
+        ]
+      }
+    ],
+    "featured": [],
+    "news": [
+      {
+        "id": "",
+        "date": "",
+        "title": "",
+        "img": "",
+        "author": "",
+        "artist": "",
+        "content": [
+          {
+            "section": 1,
+            "subtitle": "",
+            "img": "",
+            "desc": "",
+            "date": "",
+            "attribution": "",
+            "content": ""
+          },
+          {
+            "section": 2,
+            "subtitle": "",
+            "img": "",
+            "desc": "",
+            "date": "",
+            "attribution": "",
+            "content": ""
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Aerotype Productions",
+    "img": [
+      {
+        "img": [
+          {
+            "img": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/trv1ute.webp",
+            "small": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/trv1ute-small.webp"
+          }
+        ],
+        "align": "center"
+      },
+      {
+        "img": [
+          {
+            "img": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/kj87o3io.webp",
+            "small": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/kj87o3io-small.webp"
+          }
+        ],
+        "align": "center"
+      }
+    ],
+    "banner": [
+      {
+        "img": [
+          {
+            "img": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/ujhbdvz.webp",
+            "small": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/ujhbdvz-small.webp"
+          }
+        ],
+        "align": "center"
+      }
+    ],
+    "logos": [
+      {
+        "logo": [
+          {
+            "black": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/artists/ap-logo-black.svg",
+            "white": "https://amgbucket.s3.us-east-2.amazonaws.com/banner/artists/ap-logo-white.svg"
+          }
+        ]
+      }
+    ],
+    "bio": "Aerotype Productions is a hit producer known for his innovative approach to music production and sound design. Producer Davis 'Aerotype' Patterson has revolutionized the electronic music landscape with his genre-defying tracks. His music combines elements of hip-hop, EDM, and other genres, creating an audio-visual experience that is both captivating and immersive. Aerotype Productions has collaborated with top artists like Kendrick Lamar, Skrillex, and The Weeknd, contributing to some of the biggest hits in recent years. His work has been featured in blockbuster films, video games, and major advertising campaigns, making him a household name in the industry. With a commitment to pushing the boundaries of music and technology, Aerotype Productions continues to set new standards in the world of sound.",
+    "links": [
+      {
+        "facebook": "",
+        "twitter": "",
+        "instagram": "",
+        "youtube": "https://www.youtube.com/",
+        "spotify": "",
+        "apple": "https://music.apple.com/us/browse",
+        "soundcloud": ""
+      }
+    ],
+    "management": [
+      {
+        "name": "Emily Williams",
+        "email": "email@example.com"
+      },
+      {
+        "name": "Daniel Brown",
+        "email": "email@example.com"
+      }
+    ],
+    "videos": [
+      {
+        "title": "Starman",
+        "artist": "Aerotype Productions",
+        "link": "https://www.youtube.com/watch?v=aDE0zbPfKt0",
+        "videoSources": [
+          {
+            "src": "https://amgbucket.s3.amazonaws.com/videos/starman-1080.webm",
+            "type": "video/webm",
+            "resolution": "1080p"
+          },
+          {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/videos/starman-720.mp4",
+            "type": "video/mp4",
+            "resolution": "720p"
+          }
+        ]
+      }
+    ],
+    "audio": [
+      {
+        "title": "Automatic (feat. Don L)",
+        "artist": "Aerotype Productions",
+        "feat": ["Don L"],
+        "album": "Automatic (single)",
+        "date": "6/29/2019",
+        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Automatic+%5Balbum+art%5D.webp",
+        "explicit": true,
+        "audio": [
+          {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Automatic+(feat.+Don+L)+-+Aerotype+Productions+%5Bmaster%5D.m4a",
+            "type": "audio/x-m4a"
+          },
+          {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Automatic+(feat.+Don+L)+-+Aerotype+Productions+%5Bmaster%5D.opus",
+            "type": "audio/opus"
+          },
+          {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Automatic+(feat.+Don+L)+-+Aerotype+Productions+%5Bmaster%5D.aac",
+            "type": "audio/aac"
+          },
+          {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Automatic+(feat.+Don+L)+-+Aerotype+Productions+%5Bmaster%5D.mp3",
+            "type": "audio/mp3"
+          }
+        ]
+      },
+      {
+        "title": "Nocturne (feat. Don L & White Weezy)",
+        "artist": "Aerotype Productions",
+        "feat": ["Don L", "White Weezy"],
+        "album": "Nocturne (single)",
+        "date": "12/20/2018",
+        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/nocturne+%5Balbum+art%5D.webp",
+        "explicit": true,
+        "audio": [
+          {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Nocturne+(feat.+Don+L+%26+White+Weezy)+-+Aerotype+Productions+%5Bmastered%5D.m4a",
+            "type": "audio/x-m4a"
+          },
+          {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Nocturne+(feat.+Don+L+%26+White+Weezy)+-+Aerotype+Productions+%5Bmastered%5D.opus",
+            "type": "audio/opus"
+          },
+          {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Nocturne+(feat.+Don+L+%26+White+Weezy)+-+Aerotype+Productions+%5Bmastered%5D.aac",
+            "type": "audio/aac"
+          },
+          {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Nocturne+(feat.+Don+L+%26+White+Weezy)+-+Aerotype+Productions+%5Bmastered%5D.mp3",
+            "type": "audio/mp3"
+          }
+        ]
+      },
+      {
+        "title": "DBlock",
+        "artist": "Aerotype Productions",
+        "feat": [],
+        "album": "Aeroverse Vol. 1",
+        "date": "5/6/19",
+        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Aeroverse+Vol.+1+%5Balbum+art%5D.webp",
+        "explicit": false,
+        "audio": [
+          {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/DBlock+-+Aerotype+Productions.m4a",
+            "type": "audio/x-m4a"
+          },
+          {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/DBlock+-+Aerotype+Productions.opus",
+            "type": "audio/opus"
+          },
+          {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/DBlock+-+Aerotype+Productions.aac",
+            "type": "audio/aac"
+          },
+          {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/DBlock+-+Aerotype+Productions.mp3",
+            "type": "audio/mp3"
+          }
+        ]
+      },
+      {
+        "title": "The End",
+        "artist": "Aerotype Productions",
+        "feat": [],
+        "album": "Aeroverse Vol. 1",
+        "date": "5/26/19",
+        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Aeroverse+Vol.+1+%5Balbum+art%5D.webp",
+        "explicit": false,
+        "audio": [
+          {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/The+End+-+Aerotype+Productions.m4a",
+            "type": "audio/x-m4a"
+          },
+          {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/The+End+-+Aerotype+Productions.opus",
+            "type": "audio/opus"
+          },
+          {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/The+End+-+Aerotype+Productions.aac",
+            "type": "audio/aac"
+          },
+          {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/The+End+-+Aerotype+Productions.mp3",
+            "type": "audio/mp3"
+          }
+        ]
+      },
+      {
+        "title": "Vibe (feat. Shaolin Prince)",
+        "artist": "Aerotype Productions",
+        "feat": ["Shaolin Prince"],
+        "album": "Aeroverse Vol. 1",
+        "date": "2/11/2019",
+        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Vibe+%5Balbum+art%5D.webp",
+        "explicit": true,
+        "audio": [
+          {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Vibe+(feat.+Shaolin+Prince)+-+Aerotype+Productions.m4a",
+            "type": "audio/x-m4a"
+          },
+          {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Vibe+(feat.+Shaolin+Prince)+-+Aerotype+Productions.opus",
+            "type": "audio/opus"
+          },
+          {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Vibe+(feat.+Shaolin+Prince)+-+Aerotype+Productions.aac",
+            "type": "audio/aac"
+          },
+          {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Vibe+(feat.+Shaolin+Prince)+-+Aerotype+Productions.mp3",
+            "type": "audio/mp3"
+          }
+        ]
+      },
+      {
+        "title": "Waves (feat. Shaolin Prince & Soluna)",
+        "artist": "Aerotype Productions",
+        "feat": ["Shaolin Prince", "Soluna"],
+        "album": "Aeroverse Vol. 1",
+        "date": "1/14/2019",
+        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Waves+%5Balbum+art%5D.webp",
+        "explicit": true,
+        "audio": [
+          {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Waves+(feat.+Shaolin+Prince+%26+Soluna)+-+Aerotype+Productions+%5Bmastered%5D.m4a",
+            "type": "audio/x-m4a"
+          },
+          {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Waves+(feat.+Shaolin+Prince+%26+Soluna)+-+Aerotype+Productions+%5Bmastered%5D.opus",
+            "type": "audio/opus"
+          },
+          {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Waves+(feat.+Shaolin+Prince+%26+Soluna)+-+Aerotype+Productions+%5Bmastered%5D.aac",
+            "type": "audio/aac"
+          },
+          {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Waves+(feat.+Shaolin+Prince+%26+Soluna)+-+Aerotype+Productions+%5Bmastered%5D.mp3",
+            "type": "audio/mp3"
+          }
+        ]
+      },
+      {
+        "title": "Whattup (feat. Shaolin Prince, Worm Food, & Soluna)",
+        "artist": "Aerotype Productions",
+        "feat": ["Shaolin Prince", "Worm Food", "Soluna"],
+        "album": "Aeroverse Vol. 1",
+        "date": "2/28/2019",
+        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Whattup+%5Balbum+art%5D.webp",
+        "explicit": true,
+        "audio": [
+          {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Whattup+(feat.+Shaolin+Prince%2C+Worm+Food%2C+%26+Soluna)+-+Aerotype+Productions+(mastered+print).m4a",
+            "type": "audio/x-m4a"
+          },
+          {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Whattup+(feat.+Shaolin+Prince%2C+Worm+Food%2C+%26+Soluna)+-+Aerotype+Productions+(mastered+print).opus",
+            "type": "audio/opus"
+          },
+          {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Whattup+(feat.+Shaolin+Prince%2C+Worm+Food%2C+%26+Soluna)+-+Aerotype+Productions+(mastered+print).aac",
+            "type": "audio/aac"
+          },
+          {
+            "src": "https://amgbucket.s3.us-east-2.amazonaws.com/audio/Whattup+(feat.+Shaolin+Prince%2C+Worm+Food%2C+%26+Soluna)+-+Aerotype+Productions+(mastered+print).mp3",
+            "type": "audio/mp3"
+          }
+        ]
+      }
+    ],
+    "featured": [],
+    "news": [
+      {
+        "id": 6,
+        "date": "4/20/2024",
+        "title": "Aerotype Productions Signed to Major Deal",
+        "img": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/ujhbdvz.webp",
+        "author": "Jane Doe",
+        "artist": "Aerotype Productions",
+        "content": [
+          {
+            "section": 1,
+            "subtitle": "Major Deal Announcement",
+            "img": "",
+            "desc": "",
+            "date": "",
+            "attribution": "",
+            "content": "Aerotype Productions has signed a major deal with Aurum Management Group. Rumor is spreading that they are also making a major motion picture about his life."
+          },
+          {
+            "section": 2,
+            "subtitle": "Impact of the Deal",
+            "img": "",
+            "desc": "",
+            "date": "",
+            "attribution": "",
+            "content": "This deal marks a significant milestone for Aerotype Productions, enabling them to expand their reach and influence within the music industry. With the backing of Aurum Management Group, Aerotype Productions is set to produce more groundbreaking music and innovative projects."
+          },
+          {
+            "section": 3,
+            "subtitle": "Motion Picture Rumors",
+            "img": "https://amgbucket.s3.us-east-2.amazonaws.com/artists/trv1ute.webp",
+            "desc": "",
+            "date": "",
+            "attribution": "",
+            "content": "In addition to the deal, rumors of a major motion picture about Aerotype Productions' journey have sparked excitement among fans. The potential film is expected to explore the producer's rise to fame, challenges, and triumphs, offering an intimate look at the life behind the music."
+          },
+          {
+            "section": 4,
+            "subtitle": "Future Projects",
+            "img": "",
+            "desc": "",
+            "date": "",
+            "attribution": "",
+            "content": "With this new deal, Aerotype Productions has teased several upcoming projects, including collaborations with top artists and innovative music videos. Fans can look forward to a new era of creativity and excellence from Aerotype Productions."
+          },
+          {
+            "section": 5,
+            "subtitle": "Conclusion",
+            "img": "",
+            "desc": "",
+            "date": "",
+            "attribution": "",
+            "content": "The partnership between Aerotype Productions and Aurum Management Group promises to bring exciting developments to the music industry. Stay tuned for more updates on their upcoming projects and the anticipated motion picture."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "",
+    "img": [
+      {
+        "img": [
+          {
+            "img": "",
+            "small": ""
+          }
+        ],
+        "align": "center"
+      }
+    ],
+    "banner": [
+      {
+        "img": [
+          {
+            "img": "",
+            "small": ""
+          }
+        ],
+        "align": "center"
+      }
+    ],
+    "logos": [
+      {
+        "logo": [
+          {
+            "black": "",
+            "white": ""
+          }
+        ]
+      }
+    ],
+    "bio": "",
+    "links": [
+      {
+        "facebook": "",
+        "twitter": "",
+        "instagram": "",
+        "youtube": "",
+        "spotify": "",
+        "apple": "",
+        "soundcloud": ""
+      }
+    ],
+    "management": [
+      {
+        "name": "",
+        "email": ""
+      },
+      {
+        "name": "",
+        "email": ""
+      }
+    ],
+    "videos": [
+      {
+        "title": "",
+        "artist": "",
+        "link": "",
+        "videoSources": [
+          {
+            "src": "",
+            "type": "video/webm",
+            "resolution": "1080p"
+          },
+          {
+            "src": "",
+            "type": "video/mp4",
+            "resolution": "720p"
+          }
+        ]
+      }
+    ],
+    "audio": [
+      {
+        "title": "",
+        "artist": "",
+        "feat": [],
+        "album": "",
+        "date": "",
+        "img": "",
+        "explicit": true,
+        "audio": [
+          {
+            "src": "",
+            "type": "audio/x-m4a"
+          },
+          {
+            "src": "",
+            "type": "audio/opus"
+          },
+          {
+            "src": "",
+            "type": "audio/aac"
+          },
+          {
+            "src": "",
+            "type": "audio/mp3"
+          }
+        ]
+      },
+      {
+        "title": "",
+        "artist": "",
+        "feat": [],
+        "album": "",
+        "date": "",
+        "img": "",
+        "explicit": true,
+        "audio": [
+          {
+            "src": "",
+            "type": "audio/x-m4a"
+          },
+          {
+            "src": "",
+            "type": "audio/opus"
+          },
+          {
+            "src": "",
+            "type": "audio/aac"
+          },
+          {
+            "src": "",
+            "type": "audio/mp3"
+          }
+        ]
+      }
+    ],
+    "featured": [],
+    "news": [
+      {
+        "id": "",
+        "date": "",
+        "title": "",
+        "img": "",
+        "author": "",
+        "artist": "",
+        "content": [
+          {
+            "section": 1,
+            "subtitle": "",
+            "img": "",
+            "desc": "",
+            "date": "",
+            "attribution": "",
+            "content": ""
+          },
+          {
+            "section": 2,
+            "subtitle": "",
+            "img": "",
+            "desc": "",
+            "date": "",
+            "attribution": "",
+            "content": ""
+          }
+        ]
+      }
+    ]
+  }
+]
